@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2AF9DBCE1CEF05F8001AB683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBCD1CEF05F8001AB683 /* AppDelegate.swift */; };
+		2AF9DBD01CEF05F8001AB683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */; };
+		2AF9DBD31CEF05F8001AB683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AF9DBD11CEF05F8001AB683 /* Main.storyboard */; };
+		2AF9DBD51CEF05F9001AB683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF9DBD41CEF05F9001AB683 /* Assets.xcassets */; };
+		2AF9DBD81CEF05F9001AB683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AF9DBD61CEF05F9001AB683 /* LaunchScreen.storyboard */; };
+		2AF9DBE31CEF05F9001AB683 /* VILTMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBE21CEF05F9001AB683 /* VILTMakerTests.swift */; };
+		2AF9DBEE1CEF05F9001AB683 /* VILTMakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBED1CEF05F9001AB683 /* VILTMakerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2AF9DBDF1CEF05F9001AB683 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AF9DBC21CEF05F8001AB683 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AF9DBC91CEF05F8001AB683;
+			remoteInfo = VILTMaker;
+		};
+		2AF9DBEA1CEF05F9001AB683 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AF9DBC21CEF05F8001AB683 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AF9DBC91CEF05F8001AB683;
+			remoteInfo = VILTMaker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2AF9DBCA1CEF05F8001AB683 /* VILTMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VILTMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AF9DBCD1CEF05F8001AB683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2AF9DBD21CEF05F8001AB683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2AF9DBD41CEF05F9001AB683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2AF9DBD71CEF05F9001AB683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2AF9DBD91CEF05F9001AB683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AF9DBDE1CEF05F9001AB683 /* VILTMakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VILTMakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AF9DBE21CEF05F9001AB683 /* VILTMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VILTMakerTests.swift; sourceTree = "<group>"; };
+		2AF9DBE41CEF05F9001AB683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AF9DBE91CEF05F9001AB683 /* VILTMakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VILTMakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AF9DBED1CEF05F9001AB683 /* VILTMakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VILTMakerUITests.swift; sourceTree = "<group>"; };
+		2AF9DBEF1CEF05F9001AB683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2AF9DBC71CEF05F8001AB683 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AF9DBDB1CEF05F9001AB683 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AF9DBE61CEF05F9001AB683 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2AF9DBC11CEF05F8001AB683 = {
+			isa = PBXGroup;
+			children = (
+				2AF9DBCC1CEF05F8001AB683 /* VILTMaker */,
+				2AF9DBE11CEF05F9001AB683 /* VILTMakerTests */,
+				2AF9DBEC1CEF05F9001AB683 /* VILTMakerUITests */,
+				2AF9DBCB1CEF05F8001AB683 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2AF9DBCB1CEF05F8001AB683 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AF9DBCA1CEF05F8001AB683 /* VILTMaker.app */,
+				2AF9DBDE1CEF05F9001AB683 /* VILTMakerTests.xctest */,
+				2AF9DBE91CEF05F9001AB683 /* VILTMakerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2AF9DBCC1CEF05F8001AB683 /* VILTMaker */ = {
+			isa = PBXGroup;
+			children = (
+				2AF9DBCD1CEF05F8001AB683 /* AppDelegate.swift */,
+				2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */,
+				2AF9DBD11CEF05F8001AB683 /* Main.storyboard */,
+				2AF9DBD41CEF05F9001AB683 /* Assets.xcassets */,
+				2AF9DBD61CEF05F9001AB683 /* LaunchScreen.storyboard */,
+				2AF9DBD91CEF05F9001AB683 /* Info.plist */,
+			);
+			path = VILTMaker;
+			sourceTree = "<group>";
+		};
+		2AF9DBE11CEF05F9001AB683 /* VILTMakerTests */ = {
+			isa = PBXGroup;
+			children = (
+				2AF9DBE21CEF05F9001AB683 /* VILTMakerTests.swift */,
+				2AF9DBE41CEF05F9001AB683 /* Info.plist */,
+			);
+			path = VILTMakerTests;
+			sourceTree = "<group>";
+		};
+		2AF9DBEC1CEF05F9001AB683 /* VILTMakerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2AF9DBED1CEF05F9001AB683 /* VILTMakerUITests.swift */,
+				2AF9DBEF1CEF05F9001AB683 /* Info.plist */,
+			);
+			path = VILTMakerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2AF9DBC91CEF05F8001AB683 /* VILTMaker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AF9DBF21CEF05F9001AB683 /* Build configuration list for PBXNativeTarget "VILTMaker" */;
+			buildPhases = (
+				2AF9DBC61CEF05F8001AB683 /* Sources */,
+				2AF9DBC71CEF05F8001AB683 /* Frameworks */,
+				2AF9DBC81CEF05F8001AB683 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VILTMaker;
+			productName = VILTMaker;
+			productReference = 2AF9DBCA1CEF05F8001AB683 /* VILTMaker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2AF9DBDD1CEF05F9001AB683 /* VILTMakerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AF9DBF51CEF05F9001AB683 /* Build configuration list for PBXNativeTarget "VILTMakerTests" */;
+			buildPhases = (
+				2AF9DBDA1CEF05F9001AB683 /* Sources */,
+				2AF9DBDB1CEF05F9001AB683 /* Frameworks */,
+				2AF9DBDC1CEF05F9001AB683 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2AF9DBE01CEF05F9001AB683 /* PBXTargetDependency */,
+			);
+			name = VILTMakerTests;
+			productName = VILTMakerTests;
+			productReference = 2AF9DBDE1CEF05F9001AB683 /* VILTMakerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2AF9DBE81CEF05F9001AB683 /* VILTMakerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AF9DBF81CEF05F9001AB683 /* Build configuration list for PBXNativeTarget "VILTMakerUITests" */;
+			buildPhases = (
+				2AF9DBE51CEF05F9001AB683 /* Sources */,
+				2AF9DBE61CEF05F9001AB683 /* Frameworks */,
+				2AF9DBE71CEF05F9001AB683 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2AF9DBEB1CEF05F9001AB683 /* PBXTargetDependency */,
+			);
+			name = VILTMakerUITests;
+			productName = VILTMakerUITests;
+			productReference = 2AF9DBE91CEF05F9001AB683 /* VILTMakerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2AF9DBC21CEF05F8001AB683 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Ryo Eguchi";
+				TargetAttributes = {
+					2AF9DBC91CEF05F8001AB683 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					2AF9DBDD1CEF05F9001AB683 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 2AF9DBC91CEF05F8001AB683;
+					};
+					2AF9DBE81CEF05F9001AB683 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 2AF9DBC91CEF05F8001AB683;
+					};
+				};
+			};
+			buildConfigurationList = 2AF9DBC51CEF05F8001AB683 /* Build configuration list for PBXProject "VILTMaker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2AF9DBC11CEF05F8001AB683;
+			productRefGroup = 2AF9DBCB1CEF05F8001AB683 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2AF9DBC91CEF05F8001AB683 /* VILTMaker */,
+				2AF9DBDD1CEF05F9001AB683 /* VILTMakerTests */,
+				2AF9DBE81CEF05F9001AB683 /* VILTMakerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2AF9DBC81CEF05F8001AB683 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AF9DBD81CEF05F9001AB683 /* LaunchScreen.storyboard in Resources */,
+				2AF9DBD51CEF05F9001AB683 /* Assets.xcassets in Resources */,
+				2AF9DBD31CEF05F8001AB683 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AF9DBDC1CEF05F9001AB683 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AF9DBE71CEF05F9001AB683 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2AF9DBC61CEF05F8001AB683 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AF9DBD01CEF05F8001AB683 /* ViewController.swift in Sources */,
+				2AF9DBCE1CEF05F8001AB683 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AF9DBDA1CEF05F9001AB683 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AF9DBE31CEF05F9001AB683 /* VILTMakerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AF9DBE51CEF05F9001AB683 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AF9DBEE1CEF05F9001AB683 /* VILTMakerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2AF9DBE01CEF05F9001AB683 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AF9DBC91CEF05F8001AB683 /* VILTMaker */;
+			targetProxy = 2AF9DBDF1CEF05F9001AB683 /* PBXContainerItemProxy */;
+		};
+		2AF9DBEB1CEF05F9001AB683 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AF9DBC91CEF05F8001AB683 /* VILTMaker */;
+			targetProxy = 2AF9DBEA1CEF05F9001AB683 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2AF9DBD11CEF05F8001AB683 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2AF9DBD21CEF05F8001AB683 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2AF9DBD61CEF05F9001AB683 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2AF9DBD71CEF05F9001AB683 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2AF9DBF01CEF05F9001AB683 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		2AF9DBF11CEF05F9001AB683 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2AF9DBF31CEF05F9001AB683 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VILTMaker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.yairilab.VILTMaker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2AF9DBF41CEF05F9001AB683 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VILTMaker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.yairilab.VILTMaker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2AF9DBF61CEF05F9001AB683 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VILTMakerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.yairilab.VILTMakerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VILTMaker.app/VILTMaker";
+			};
+			name = Debug;
+		};
+		2AF9DBF71CEF05F9001AB683 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VILTMakerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.yairilab.VILTMakerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VILTMaker.app/VILTMaker";
+			};
+			name = Release;
+		};
+		2AF9DBF91CEF05F9001AB683 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = VILTMakerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.yairilab.VILTMakerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VILTMaker;
+			};
+			name = Debug;
+		};
+		2AF9DBFA1CEF05F9001AB683 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = VILTMakerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.yairilab.VILTMakerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VILTMaker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AF9DBC51CEF05F8001AB683 /* Build configuration list for PBXProject "VILTMaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AF9DBF01CEF05F9001AB683 /* Debug */,
+				2AF9DBF11CEF05F9001AB683 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AF9DBF21CEF05F9001AB683 /* Build configuration list for PBXNativeTarget "VILTMaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AF9DBF31CEF05F9001AB683 /* Debug */,
+				2AF9DBF41CEF05F9001AB683 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2AF9DBF51CEF05F9001AB683 /* Build configuration list for PBXNativeTarget "VILTMakerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AF9DBF61CEF05F9001AB683 /* Debug */,
+				2AF9DBF71CEF05F9001AB683 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2AF9DBF81CEF05F9001AB683 /* Build configuration list for PBXNativeTarget "VILTMakerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AF9DBF91CEF05F9001AB683 /* Debug */,
+				2AF9DBFA1CEF05F9001AB683 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2AF9DBC21CEF05F8001AB683 /* Project object */;
+}
