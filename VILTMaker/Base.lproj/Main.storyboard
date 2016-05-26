@@ -46,6 +46,9 @@
                                                 <real key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8zW-rU-Lug"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubR-gF-hXP" customClass="BorderButton">
                                         <rect key="frame" x="275" y="193" width="216" height="60"/>
@@ -64,6 +67,9 @@
                                                 <real key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lvt-dc-lfj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sS6-hM-AM5" customClass="BorderButton">
                                         <rect key="frame" x="527" y="193" width="200" height="60"/>
@@ -82,6 +88,9 @@
                                                 <real key="value" value="30"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aMx-Kd-XgL"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="平行四辺形ABCDの対角線BD上に、BE=DFとなるような2点EとFをとる。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Taf-Rv-g75">
                                         <rect key="frame" x="29" y="74" width="710" height="106"/>
@@ -121,7 +130,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="editSelectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wBh-zB-yRZ"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ydu-Nd-FTE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDA-tm-tlZ" customClass="BorderButton">
@@ -143,7 +152,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="editSelectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1sM-pX-rEx"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uxI-yU-3d8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uV-4F-ryo" customClass="BorderButton">
@@ -165,7 +174,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="editSelectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S5e-pb-gI6"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPH-n8-6dl"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="平行四辺形ABCDの対角線BD上に、BE=DFとなるような2点EとFをとる。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-jm-Ydp">

@@ -11,7 +11,6 @@ import AVFoundation
 
 class ViewController: UIViewController, UITextViewDelegate {
     
-    
     @IBOutlet var previewQuestionLabel: UILabel!
     @IBOutlet var editQuestionTextView: UITextView!
     @IBOutlet var editSelectButton: [BorderButton]!
@@ -20,11 +19,10 @@ class ViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // 開発者ポータルから取得したAPIキーの設定
+        // DoCoMo開発者ポータルから取得したAPIキーの設定
         if let docomoAPIKEY = KeyManager().getValue("docomoAPIKey") as? String {
             AuthApiKey.initializeAuth(docomoAPIKEY)
         }
-        
         
         editQuestionTextView.delegate = self
         editSelectButton[1].backgroundColor = ConstColor.pink
@@ -35,7 +33,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func editSelectButtonPushed(sender: BorderButton) {
+    @IBAction func selectButtonPushed(sender: BorderButton) {
         /*
         //2回タップで、色を変更する。※2回タップ用に残しておく。
         
@@ -53,7 +51,13 @@ class ViewController: UIViewController, UITextViewDelegate {
             editSelectButton[1].backgroundColor = ConstColor.white
         }*/
         
-        self.playSound("こんにちは")
+        
+        //1回タップで音声合成。
+        var buttonTitle = sender.currentTitle
+        buttonTitle = buttonTitle?.stringByReplacingOccurrencesOfString("△", withString: "三角形")
+        buttonTitle = buttonTitle?.stringByReplacingOccurrencesOfString("≡", withString: " 合同 ")
+        NSLog("buttonTitle==%@",buttonTitle!)
+        self.playSound(buttonTitle!)
         
     }
     
