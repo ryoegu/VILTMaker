@@ -14,8 +14,8 @@
 		2AF3C7A71CF771650090F4F9 /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF3C7A51CF771650090F4F9 /* libdocomo-aitalk-ios-sdk-1.0.1.a */; };
 		2AF3C7A81CF771650090F4F9 /* libdocomo-common-ios-sdk-1.0.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF3C7A61CF771650090F4F9 /* libdocomo-common-ios-sdk-1.0.1.a */; };
 		2AF3C7B61CF774BC0090F4F9 /* AiTalkAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3C7B51CF774BC0090F4F9 /* AiTalkAudioPlayer.m */; };
-		2AF3C7B81CF7A7FD0090F4F9 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF3C7B71CF7A7FD0090F4F9 /* Keys.plist */; };
 		2AF3C7BC1CF7A87F0090F4F9 /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */; };
+		2AF3C7BE1CF7AB610090F4F9 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */; };
 		2AF9DBCE1CEF05F8001AB683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBCD1CEF05F8001AB683 /* AppDelegate.swift */; };
 		2AF9DBD01CEF05F8001AB683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */; };
 		2AF9DBD31CEF05F8001AB683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AF9DBD11CEF05F8001AB683 /* Main.storyboard */; };
@@ -61,8 +61,8 @@
 		2AF3C7B31CF771960090F4F9 /* SdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdkError.h; sourceTree = "<group>"; };
 		2AF3C7B41CF774BC0090F4F9 /* AiTalkAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiTalkAudioPlayer.h; sourceTree = "<group>"; };
 		2AF3C7B51CF774BC0090F4F9 /* AiTalkAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AiTalkAudioPlayer.m; sourceTree = "<group>"; };
-		2AF3C7B71CF7A7FD0090F4F9 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
+		2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Keys.plist; path = Keys/Keys.plist; sourceTree = "<group>"; };
 		2AF9DBCA1CEF05F8001AB683 /* VILTMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VILTMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF9DBCD1CEF05F8001AB683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -160,8 +160,8 @@
 				2AF9DBD61CEF05F9001AB683 /* LaunchScreen.storyboard */,
 				2AF9DBD91CEF05F9001AB683 /* Info.plist */,
 				2AD409011CF2D65E00214542 /* VILTMaker-Bridging-Header.h */,
-				2AF3C7B71CF7A7FD0090F4F9 /* Keys.plist */,
 				2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */,
+				2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */,
 			);
 			path = VILTMaker;
 			sourceTree = "<group>";
@@ -293,7 +293,7 @@
 				2AF9DBD51CEF05F9001AB683 /* Assets.xcassets in Resources */,
 				2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */,
 				2AF9DBD31CEF05F8001AB683 /* Main.storyboard in Resources */,
-				2AF3C7B81CF7A7FD0090F4F9 /* Keys.plist in Resources */,
+				2AF3C7BE1CF7AB610090F4F9 /* Keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
