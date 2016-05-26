@@ -20,7 +20,7 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 
-VILTMaker/Keys/
+VILTMaker/Keys/*
 
 ## Other
 *.moved-aside
