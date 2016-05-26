@@ -3,7 +3,7 @@
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 .DS_Store
-/VILTMaker/Keys.plist
+
 
 ## Build generated
 build/
@@ -19,6 +19,8 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+
+VILTMaker/Keys.plist
 
 ## Other
 *.moved-aside
