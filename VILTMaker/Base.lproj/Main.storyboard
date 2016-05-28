@@ -131,6 +131,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ydu-Nd-FTE"/>
+                                            <outletCollection property="gestureRecognizers" destination="vm5-mr-Ia0" appends="YES" id="en9-5J-3Qs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDA-tm-tlZ" customClass="BorderButton">
@@ -153,6 +154,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uxI-yU-3d8"/>
+                                            <outletCollection property="gestureRecognizers" destination="svh-gP-hfZ" appends="YES" id="ZCL-vz-CNI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uV-4F-ryo" customClass="BorderButton">
@@ -175,6 +177,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPH-n8-6dl"/>
+                                            <outletCollection property="gestureRecognizers" destination="WFB-tv-ypP" appends="YES" id="7Zi-HK-jZi"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="平行四辺形ABCDの対角線BD上に、BE=DFとなるような2点EとFをとる。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-jm-Ydp">
@@ -200,6 +203,21 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="WFB-tv-ypP" userLabel="Edit Button 1 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="editButton1DoubleTapped:" destination="BYZ-38-t0r" id="h0W-CX-PqO"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="vm5-mr-Ia0" userLabel="Edit Button 2 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="editButton2DoubleTapped:" destination="BYZ-38-t0r" id="ofc-EF-1Of"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="svh-gP-hfZ" userLabel="Edit Button 3 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="editButton3DoubleTapped:" destination="BYZ-38-t0r" id="qdg-C2-pOb"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-269" y="191"/>
         </scene>

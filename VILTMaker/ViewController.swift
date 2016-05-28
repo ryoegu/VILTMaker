@@ -60,12 +60,35 @@ class ViewController: UIViewController, UITextViewDelegate {
         self.playSound(buttonTitle!)
         
     }
+    //MARK: ダブルタップ処理
+    @IBAction func editButton1DoubleTapped(sender: UITapGestureRecognizer) {
+        self.doubleTappedGeneralWithButtonIndex(0)
+    }
+    @IBAction func editButton2DoubleTapped(sender: UITapGestureRecognizer) {
+        self.doubleTappedGeneralWithButtonIndex(1)
+    }
+    @IBAction func editButton3DoubleTapped(sender: UITapGestureRecognizer) {
+        self.doubleTappedGeneralWithButtonIndex(2)
+    }
     
+    func doubleTappedGeneralWithButtonIndex(index:Int){
+        for j in 0...2 {
+            editSelectButton[j].backgroundColor = ConstColor.white
+        }
+        editSelectButton[index].backgroundColor = ConstColor.pink
+    }
+    
+    //MARK: TextView処理
     func textViewDidChange(textView: UITextView) {
         previewQuestionLabel.text = textView.text
     }
     
     
+    
+
+    
+
+    //MARK: for Using Docomo API
     /* SOUND再生 */
     func playSound(text: String) {
         let ssml: AiTalkSsml = AiTalkSsml()
@@ -76,16 +99,15 @@ class ViewController: UIViewController, UITextViewDelegate {
         let sendError = search.requestAiTalkSsmlToSound(ssml.makeSsml(), onComplete: { (data) in
             NSLog("onComplete")
             self.playAudio(data)
-            }) { (receiveError) in
-                self.onError(receiveError)
+        }) { (receiveError) in
+            self.onError(receiveError)
         }
         if (sendError != nil) {
             self.onError(sendError)
         }
- 
+        
     }
-
-    //MARK: for Using Docomo API
+    
      func playAudio(data: NSData){
         NSLog("playAudio data.length=%d",Int(data.length))
         let convertData = AiTalkTextToSpeech.convertByteOrder16(data)
