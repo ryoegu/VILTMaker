@@ -108,10 +108,41 @@
 		2AD841E01CF9E26C00BB100B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2AD409011CF2D65E00214542 /* VILTMaker-Bridging-Header.h */,
+				2AD841E31CF9EBBF00BB100B /* ConstantColor */,
+				2AD841E21CF9EB9F00BB100B /* APIKeyManagement */,
+				2AD841E11CF9EB9200BB100B /* BorderButton */,
 				2AF3C7AB1CF771960090F4F9 /* AiTalk */,
 			);
 			name = Resources;
 			path = VILTMaker;
+			sourceTree = "<group>";
+		};
+		2AD841E11CF9EB9200BB100B /* BorderButton */ = {
+			isa = PBXGroup;
+			children = (
+				2AD409021CF2D65F00214542 /* BorderButton.h */,
+				2AD409031CF2D65F00214542 /* BorderButton.m */,
+			);
+			name = BorderButton;
+			sourceTree = "<group>";
+		};
+		2AD841E21CF9EB9F00BB100B /* APIKeyManagement */ = {
+			isa = PBXGroup;
+			children = (
+				2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */,
+				2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */,
+			);
+			name = APIKeyManagement;
+			sourceTree = "<group>";
+		};
+		2AD841E31CF9EBBF00BB100B /* ConstantColor */ = {
+			isa = PBXGroup;
+			children = (
+				2A1919411CF2DDCF009B8B54 /* ConstColor.swift */,
+				2A1919431CF2DE1A009B8B54 /* UIColorExtension.swift */,
+			);
+			name = ConstantColor;
 			sourceTree = "<group>";
 		};
 		2AF3C7AB1CF771960090F4F9 /* AiTalk */ = {
@@ -158,10 +189,6 @@
 		2AF9DBCC1CEF05F8001AB683 /* VILTMaker */ = {
 			isa = PBXGroup;
 			children = (
-				2AD409021CF2D65F00214542 /* BorderButton.h */,
-				2AD409031CF2D65F00214542 /* BorderButton.m */,
-				2A1919411CF2DDCF009B8B54 /* ConstColor.swift */,
-				2A1919431CF2DE1A009B8B54 /* UIColorExtension.swift */,
 				2AF9DBCD1CEF05F8001AB683 /* AppDelegate.swift */,
 				2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */,
 				2AF9DBD11CEF05F8001AB683 /* Main.storyboard */,
@@ -169,9 +196,6 @@
 				2AF9DBD41CEF05F9001AB683 /* Assets.xcassets */,
 				2AF9DBD61CEF05F9001AB683 /* LaunchScreen.storyboard */,
 				2AF9DBD91CEF05F9001AB683 /* Info.plist */,
-				2AD409011CF2D65E00214542 /* VILTMaker-Bridging-Header.h */,
-				2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */,
-				2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */,
 			);
 			path = VILTMaker;
 			sourceTree = "<group>";

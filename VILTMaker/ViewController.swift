@@ -83,11 +83,6 @@ class ViewController: UIViewController, UITextViewDelegate {
         previewQuestionLabel.text = textView.text
     }
     
-    
-    
-
-    
-
     //MARK: for Using Docomo API
     /* SOUND再生 */
     func playSound(text: String) {
