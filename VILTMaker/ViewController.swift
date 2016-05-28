@@ -63,10 +63,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         previewQuestionLabel.text = textView.text
     }
     
-    //MARK: for Using Docomo API
-    
-    
     //MARK: Google Speech API
+    
     
     
  
