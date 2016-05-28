@@ -111,6 +111,7 @@
 				2AF3C7AB1CF771960090F4F9 /* AiTalk */,
 			);
 			name = Resources;
+			path = VILTMaker;
 			sourceTree = "<group>";
 		};
 		2AF3C7AB1CF771960090F4F9 /* AiTalk */ = {
@@ -137,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				2AF9DBCC1CEF05F8001AB683 /* VILTMaker */,
+				2AD841E01CF9E26C00BB100B /* Resources */,
 				2AF9DBE11CEF05F9001AB683 /* VILTMakerTests */,
 				2AF9DBEC1CEF05F9001AB683 /* VILTMakerUITests */,
 				2AF9DBCB1CEF05F8001AB683 /* Products */,
@@ -170,7 +172,6 @@
 				2AD409011CF2D65E00214542 /* VILTMaker-Bridging-Header.h */,
 				2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */,
 				2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */,
-				2AD841E01CF9E26C00BB100B /* Resources */,
 			);
 			path = VILTMaker;
 			sourceTree = "<group>";
