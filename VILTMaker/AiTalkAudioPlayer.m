@@ -40,9 +40,14 @@ static AiTalkAudioPlayer *sharedData_ = nil;
     [player setNumberOfLoops:0];
     player.volume = _soundVolume;
     player.delegate = (id)self;
-    [soundArray insertObject:player atIndex:0];
-    [player prepareToPlay];
-    [player play];
+    NSLog(@"soundArray==%@",soundArray);
+    if ([soundArray count]==0) {
+        [soundArray insertObject:player atIndex:0];
+        [player prepareToPlay];
+        [player play];
+    }else{
+        NSLog(@"サウンドが再生中のため流れませんでした");
+    }
 }
 
 /**

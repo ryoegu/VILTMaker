@@ -67,7 +67,6 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     
     /* SOUND再生 */
-
     func playSound(text: String) {
         let ssml: AiTalkSsml = AiTalkSsml()
         let voice: AiTalkVoice = AiTalkVoice(voiceName: "nozomi")
@@ -86,14 +85,11 @@ class ViewController: UIViewController, UITextViewDelegate {
  
     }
 
- 
-    
     //MARK: for Using Docomo API
      func playAudio(data: NSData){
         NSLog("playAudio data.length=%d",Int(data.length))
         let convertData = AiTalkTextToSpeech.convertByteOrder16(data)
         AiTalkAudioPlayer.manager().playSound(self.addHeader(convertData))
-        
     }
 
     func addHeader(data: NSData) -> NSData{
