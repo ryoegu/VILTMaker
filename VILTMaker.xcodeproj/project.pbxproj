@@ -59,8 +59,8 @@
 		2AF3C7B11CF771960090F4F9 /* AiTalkVoiceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiTalkVoiceBase.h; sourceTree = "<group>"; };
 		2AF3C7B21CF771960090F4F9 /* AuthApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthApiKey.h; sourceTree = "<group>"; };
 		2AF3C7B31CF771960090F4F9 /* SdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SdkError.h; sourceTree = "<group>"; };
-		2AF3C7B41CF774BC0090F4F9 /* AiTalkAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiTalkAudioPlayer.h; sourceTree = "<group>"; };
-		2AF3C7B51CF774BC0090F4F9 /* AiTalkAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AiTalkAudioPlayer.m; sourceTree = "<group>"; };
+		2AF3C7B41CF774BC0090F4F9 /* AiTalkAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AiTalkAudioPlayer.h; path = ../AiTalkAudioPlayer.h; sourceTree = "<group>"; };
+		2AF3C7B51CF774BC0090F4F9 /* AiTalkAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AiTalkAudioPlayer.m; path = ../AiTalkAudioPlayer.m; sourceTree = "<group>"; };
 		2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
 		2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Keys.plist; path = Keys/Keys.plist; sourceTree = "<group>"; };
 		2AF9DBCA1CEF05F8001AB683 /* VILTMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VILTMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,9 +105,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2AF3C7AB1CF771960090F4F9 /* inc */ = {
+		2AD841E01CF9E26C00BB100B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2AF3C7AB1CF771960090F4F9 /* AiTalk */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2AF3C7AB1CF771960090F4F9 /* AiTalk */ = {
+			isa = PBXGroup;
+			children = (
+				2AF3C7B41CF774BC0090F4F9 /* AiTalkAudioPlayer.h */,
+				2AF3C7B51CF774BC0090F4F9 /* AiTalkAudioPlayer.m */,
 				2AF3C7AC1CF771960090F4F9 /* AiTalkError.h */,
 				2AF3C7AD1CF771960090F4F9 /* AiTalkProsody.h */,
 				2AF3C7AE1CF771960090F4F9 /* AiTalkSsml.h */,
@@ -119,6 +129,7 @@
 				2AF3C7A51CF771650090F4F9 /* libdocomo-aitalk-ios-sdk-1.0.1.a */,
 				2AF3C7A61CF771650090F4F9 /* libdocomo-common-ios-sdk-1.0.1.a */,
 			);
+			name = AiTalk;
 			path = inc;
 			sourceTree = "<group>";
 		};
@@ -145,9 +156,6 @@
 		2AF9DBCC1CEF05F8001AB683 /* VILTMaker */ = {
 			isa = PBXGroup;
 			children = (
-				2AF3C7B41CF774BC0090F4F9 /* AiTalkAudioPlayer.h */,
-				2AF3C7B51CF774BC0090F4F9 /* AiTalkAudioPlayer.m */,
-				2AF3C7AB1CF771960090F4F9 /* inc */,
 				2AD409021CF2D65F00214542 /* BorderButton.h */,
 				2AD409031CF2D65F00214542 /* BorderButton.m */,
 				2A1919411CF2DDCF009B8B54 /* ConstColor.swift */,
@@ -162,6 +170,7 @@
 				2AD409011CF2D65E00214542 /* VILTMaker-Bridging-Header.h */,
 				2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */,
 				2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */,
+				2AD841E01CF9E26C00BB100B /* Resources */,
 			);
 			path = VILTMaker;
 			sourceTree = "<group>";
