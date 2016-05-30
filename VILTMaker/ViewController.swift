@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet var previewQuestionLabel: UILabel!
     @IBOutlet var editQuestionTextView: UITextView!
-    @IBOutlet var editSelectButton: [BorderButton]!
+    @IBOutlet var previewSelectButton: [BorderButton]!
     
     let docomoSpeakModel: SpeakModel = SpeakModel()
     
@@ -22,7 +22,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         editQuestionTextView.delegate = self
         //初期値（仮置き）
-        editSelectButton[1].backgroundColor = ConstColor.pink
+        previewSelectButton[1].backgroundColor = ConstColor.pink
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +42,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     //MARK: ダブルタップ処理
     @IBAction func editButton1DoubleTapped(sender: UITapGestureRecognizer) {
+        NSLog("Edit Button 1 Double Tapped")
         self.doubleTappedGeneralWithButtonIndex(0)
     }
     @IBAction func editButton2DoubleTapped(sender: UITapGestureRecognizer) {
@@ -53,9 +54,9 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     func doubleTappedGeneralWithButtonIndex(index:Int){
         for j in 0...2 {
-            editSelectButton[j].backgroundColor = ConstColor.white
+            previewSelectButton[j].backgroundColor = ConstColor.white
         }
-        editSelectButton[index].backgroundColor = ConstColor.pink
+        previewSelectButton[index].backgroundColor = ConstColor.pink
     }
     
     //MARK: TextView処理

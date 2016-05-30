@@ -60,8 +60,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPH-n8-6dl"/>
-                                            <outletCollection property="gestureRecognizers" destination="WFB-tv-ypP" appends="YES" id="7Zi-HK-jZi"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m6I-vV-TO4"/>
+                                            <outletCollection property="gestureRecognizers" destination="Sq6-DP-aMp" appends="YES" id="VIv-P3-FZk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZV-LA-L5y" customClass="BorderButton">
@@ -84,8 +84,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ydu-Nd-FTE"/>
-                                            <outletCollection property="gestureRecognizers" destination="vm5-mr-Ia0" appends="YES" id="en9-5J-3Qs"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZvK-3U-Cjm"/>
+                                            <outletCollection property="gestureRecognizers" destination="jf9-Ci-9dA" appends="YES" id="aep-8b-oDM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDA-tm-tlZ" customClass="BorderButton">
@@ -107,8 +107,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uxI-yU-3d8"/>
-                                            <outletCollection property="gestureRecognizers" destination="svh-gP-hfZ" appends="YES" id="ZCL-vz-CNI"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pm5-Yl-cyB"/>
+                                            <outletCollection property="gestureRecognizers" destination="2e4-RY-eMY" appends="YES" id="Wf4-wR-vi9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -150,25 +150,25 @@
                     <connections>
                         <outlet property="editQuestionTextView" destination="9Xk-jm-Ydp" id="L6k-FG-yjZ"/>
                         <outlet property="previewQuestionLabel" destination="Taf-Rv-g75" id="fol-Bm-PuB"/>
-                        <outletCollection property="editSelectButton" destination="3uV-4F-ryo" collectionClass="NSMutableArray" id="lDI-cL-okw"/>
-                        <outletCollection property="editSelectButton" destination="JZV-LA-L5y" collectionClass="NSMutableArray" id="0db-tb-WCQ"/>
-                        <outletCollection property="editSelectButton" destination="MDA-tm-tlZ" collectionClass="NSMutableArray" id="Nxr-3y-Tib"/>
+                        <outletCollection property="previewSelectButton" destination="3uV-4F-ryo" collectionClass="NSMutableArray" id="Wj4-Mh-ofh"/>
+                        <outletCollection property="previewSelectButton" destination="JZV-LA-L5y" collectionClass="NSMutableArray" id="Xbh-jG-WI0"/>
+                        <outletCollection property="previewSelectButton" destination="MDA-tm-tlZ" collectionClass="NSMutableArray" id="G44-sB-Qkp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="WFB-tv-ypP" userLabel="Edit Button 1 Tap Gesture Recognizer">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Sq6-DP-aMp">
                     <connections>
-                        <action selector="editButton1DoubleTapped:" destination="BYZ-38-t0r" id="h0W-CX-PqO"/>
+                        <action selector="editButton1DoubleTapped:" destination="BYZ-38-t0r" id="vzF-44-Prx"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="vm5-mr-Ia0" userLabel="Edit Button 2 Tap Gesture Recognizer">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="jf9-Ci-9dA">
                     <connections>
-                        <action selector="editButton2DoubleTapped:" destination="BYZ-38-t0r" id="ofc-EF-1Of"/>
+                        <action selector="editButton2DoubleTapped:" destination="BYZ-38-t0r" id="tLS-he-XqB"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="svh-gP-hfZ" userLabel="Edit Button 3 Tap Gesture Recognizer">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="2e4-RY-eMY">
                     <connections>
-                        <action selector="editButton3DoubleTapped:" destination="BYZ-38-t0r" id="qdg-C2-pOb"/>
+                        <action selector="editButton3DoubleTapped:" destination="BYZ-38-t0r" id="pnh-zG-SPQ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
