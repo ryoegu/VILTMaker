@@ -139,6 +139,14 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enK-4m-agV">
+                                        <rect key="frame" x="0.0" y="707" width="598" height="140"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <state key="normal" title="音声入力"/>
+                                        <connections>
+                                            <action selector="voiceInputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QPc-bp-fSH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98115079365079361" green="0.98115079365079361" blue="0.98115079365079361" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -173,6 +181,26 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-269" y="191"/>
+        </scene>
+        <!--Reader View Controller-->
+        <scene sceneID="uMP-od-pKN">
+            <objects>
+                <viewController id="cXI-u9-sjb" customClass="QRReaderViewController" customModule="VILTMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O4T-sr-rtP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hhl-1U-O4U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zFN-1t-BxY">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPadPro"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5V-8y-L9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1919" y="191"/>
         </scene>
     </scenes>
     <resources>

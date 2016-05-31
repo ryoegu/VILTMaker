@@ -9,13 +9,16 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UITextViewDelegate {
+class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDelegate {
     
     @IBOutlet var previewQuestionLabel: UILabel!
     @IBOutlet var editQuestionTextView: UITextView!
     @IBOutlet var previewSelectButton: [BorderButton]!
     
     let docomoSpeakModel: SpeakModel = SpeakModel()
+    
+    var filePath: NSString!
+    var recorder: AVAudioRecorder!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +69,42 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     //MARK: Google Speech API
     
+    @IBAction func voiceInputButtonPushed(sender: UIButton) {
+        
+    }
     
+    func startRecord() {
+        self.filePath = self.makeFilePath()
+        do {
+        try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryRecord)
+        }catch{
+            
+        }
+        
+        var settings: NSDictionary = [
+            AVFormatIDKey: NSNumber.init(unsignedInt: kAudioFormatLinearPCM),
+            AVSampleRateKey: NSNumber.init(float: 16000.0),
+            AVNumberOfChannelsKey: NSNumber.init(unsignedInt: 1),
+            AVLinearPCMBitDepthKey: NSNumber.init(unsignedInt: 16)
+        ]
+        do {
+        self.recorder = try AVAudioRecorder(URL: NSURL.init(string: self.filePath as String)!, settings: settings as! [String : AnyObject])
+        }catch{
+            
+        }
+        self.recorder.delegate = self
+        self.recorder.prepareToRecord()
+        self.recorder.recordForDuration(15.0)
     
+        
+    }
+    
+    func makeFilePath() -> String {
+        let formatter: NSDateFormatter = NSDateFormatter()
+        formatter.setLocalizedDateFormatFromTemplate("yyyyMMddHHmmss")
+        let fileName: String = String(format: "%@.wav", formatter.stringFromDate(NSDate()))
+        return NSTemporaryDirectory().stringByAppendingString(fileName)
+    }
  
 }
 
