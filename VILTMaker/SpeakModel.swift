@@ -19,7 +19,7 @@ class SpeakModel: NSObject {
     }
     
     func speak(text: String) {
-        
+        NSLog("音声発信中[%@]",text)
         let ssml: AiTalkSsml = AiTalkSsml()
         let voice: AiTalkVoice = AiTalkVoice(voiceName: "nozomi")
         voice.addText(text)

@@ -29,11 +29,15 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wxX-9b-8lO">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="289"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="平行四辺形ABCDの対角線BD上に、BE=DFとなるような2点EとFをとる。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Taf-Rv-g75">
+                                    <label opaque="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="平行四辺形ABCDの対角線BD上に、BE=DFとなるような2点EとFをとる。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Taf-Rv-g75">
                                         <rect key="frame" x="29" y="74" width="710" height="106"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="DmV-z5-yVl" appends="YES" id="1yp-gE-hwu"/>
+                                        </connections>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="問題プレビュー" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCE-jG-cOW">
                                         <rect key="frame" x="24" y="19" width="147" height="47"/>
@@ -117,27 +121,31 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ykX-bw-79s">
                                 <rect key="frame" x="768" y="0.0" width="598" height="1024"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="平行四辺形ABCDの対角線BD上に、BE=DFとなるような2点EとFをとる。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-jm-Ydp">
-                                        <rect key="frame" x="36" y="58" width="526" height="110"/>
-                                        <color key="backgroundColor" red="0.96141286375661372" green="0.96141286375661372" blue="0.96141286375661372" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhF-T4-q7j">
                                         <rect key="frame" x="0.0" y="847" width="360" height="177"/>
                                         <color key="backgroundColor" red="0.3490429228315759" green="0.56245978896340665" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                         <state key="normal" title="O  K">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="okButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vAL-mY-vON"/>
+                                            <outletCollection property="gestureRecognizers" destination="wtL-Md-p8b" appends="YES" id="vTC-00-iPX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6z-vj-4YB">
                                         <rect key="frame" x="360" y="847" width="238" height="177"/>
                                         <color key="backgroundColor" red="1" green="0.32240548786868584" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                         <state key="normal" title="NG">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ngButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GqM-JR-b8p"/>
+                                            <outletCollection property="gestureRecognizers" destination="Qpg-mh-h7X" appends="YES" id="36a-7t-cMA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enK-4m-agV">
                                         <rect key="frame" x="0.0" y="707" width="598" height="140"/>
@@ -147,6 +155,32 @@
                                             <action selector="voiceInputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QPc-bp-fSH"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bcy-lp-jPh">
+                                        <rect key="frame" x="451" y="26" width="139" height="105"/>
+                                        <color key="backgroundColor" red="1" green="0.35891513022474686" blue="0.25432004946555653" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <state key="normal" title="保存">
+                                            <color key="titleColor" red="0.99825226426346236" green="1" blue="0.99012902690028126" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="lij-wx-xXv" appends="YES" id="ZMx-8V-1xh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SA0-OF-J6u">
+                                        <rect key="frame" x="308" y="26" width="139" height="105"/>
+                                        <color key="backgroundColor" red="1" green="0.35891513019999999" blue="0.25432004949999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <state key="normal" title="新規作成">
+                                            <color key="titleColor" red="0.99825226430000003" green="1" blue="0.99012902690000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="平行四辺形ABCDの対角線BD上に、BE=DFとなるような2点EとFをとる。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-jm-Ydp">
+                                        <rect key="frame" x="36" y="171" width="526" height="143"/>
+                                        <color key="backgroundColor" red="0.96141286375661372" green="0.96141286375661372" blue="0.96141286375661372" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98115079365079361" green="0.98115079365079361" blue="0.98115079365079361" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -156,7 +190,9 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPadPro"/>
                     <connections>
-                        <outlet property="editQuestionTextView" destination="9Xk-jm-Ydp" id="L6k-FG-yjZ"/>
+                        <outlet property="editingTextView" destination="9Xk-jm-Ydp" id="BOO-JP-pky"/>
+                        <outlet property="ngButton" destination="B6z-vj-4YB" id="NiM-HS-b7R"/>
+                        <outlet property="okButton" destination="nhF-T4-q7j" id="kY4-Pf-aTq"/>
                         <outlet property="previewQuestionLabel" destination="Taf-Rv-g75" id="fol-Bm-PuB"/>
                         <outletCollection property="previewSelectButton" destination="3uV-4F-ryo" collectionClass="NSMutableArray" id="Wj4-Mh-ofh"/>
                         <outletCollection property="previewSelectButton" destination="JZV-LA-L5y" collectionClass="NSMutableArray" id="Xbh-jG-WI0"/>
@@ -177,6 +213,26 @@
                 <tapGestureRecognizer numberOfTapsRequired="2" id="2e4-RY-eMY">
                     <connections>
                         <action selector="editButton3DoubleTapped:" destination="BYZ-38-t0r" id="pnh-zG-SPQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="DmV-z5-yVl" userLabel="Preview Question Label Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="previewQuestionLabelPushed:" destination="BYZ-38-t0r" id="nQe-56-mnZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="lij-wx-xXv" userLabel="Save Button Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="saveButtonDoubleTapped:" destination="BYZ-38-t0r" id="Zhz-Cx-TGp"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Qpg-mh-h7X" userLabel="NG Button Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="ngButtonDoubleTapped:" destination="BYZ-38-t0r" id="olI-O4-IgY"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="wtL-Md-p8b" userLabel="OK Button Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="okButtonDoubleTapped:" destination="BYZ-38-t0r" id="Laq-P2-4rJ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

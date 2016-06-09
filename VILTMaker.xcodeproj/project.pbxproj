@@ -11,6 +11,10 @@
 		2A1919421CF2DDCF009B8B54 /* ConstColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1919411CF2DDCF009B8B54 /* ConstColor.swift */; };
 		2A1919441CF2DE1A009B8B54 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1919431CF2DE1A009B8B54 /* UIColorExtension.swift */; };
 		2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7A8DDC1CF2DA8F0034239C /* example_figure.png */; };
+		2A839F401D0981CE00475ACF /* changeAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A839F3F1D0981CE00475ACF /* changeAnswer.mp3 */; };
+		2A839F431D0986B900475ACF /* cursorDouble.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A839F411D0986B900475ACF /* cursorDouble.mp3 */; };
+		2A839F441D0986B900475ACF /* cursorSingle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A839F421D0986B900475ACF /* cursorSingle.mp3 */; };
+		2A839F461D098C4C00475ACF /* okButton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A839F451D098C4C00475ACF /* okButton.mp3 */; };
 		2AB9D9C61CFD6F0100BC810E /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */; };
 		2AC76EF41CFA03B000F42F76 /* SpeakModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC76EF31CFA03B000F42F76 /* SpeakModel.swift */; };
 		2AD409041CF2D65F00214542 /* BorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD409031CF2D65F00214542 /* BorderButton.m */; };
@@ -51,6 +55,10 @@
 		2A1919411CF2DDCF009B8B54 /* ConstColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstColor.swift; sourceTree = "<group>"; };
 		2A1919431CF2DE1A009B8B54 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		2A7A8DDC1CF2DA8F0034239C /* example_figure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example_figure.png; sourceTree = "<group>"; };
+		2A839F3F1D0981CE00475ACF /* changeAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = changeAnswer.mp3; sourceTree = "<group>"; };
+		2A839F411D0986B900475ACF /* cursorDouble.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cursorDouble.mp3; sourceTree = "<group>"; };
+		2A839F421D0986B900475ACF /* cursorSingle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cursorSingle.mp3; sourceTree = "<group>"; };
+		2A839F451D098C4C00475ACF /* okButton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = okButton.mp3; sourceTree = "<group>"; };
 		2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
 		2AC76EF31CFA03B000F42F76 /* SpeakModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakModel.swift; sourceTree = "<group>"; };
 		2AD409011CF2D65E00214542 /* VILTMaker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VILTMaker-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -122,6 +130,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2A839F3C1D097F7B00475ACF /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				2A839F3F1D0981CE00475ACF /* changeAnswer.mp3 */,
+				2A839F411D0986B900475ACF /* cursorDouble.mp3 */,
+				2A839F421D0986B900475ACF /* cursorSingle.mp3 */,
+				2A839F451D098C4C00475ACF /* okButton.mp3 */,
+			);
+			name = Media;
+			sourceTree = "<group>";
+		};
 		2AC76EF21CFA036100F42F76 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +171,7 @@
 		2AD841E01CF9E26C00BB100B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A839F3C1D097F7B00475ACF /* Media */,
 				2AD409011CF2D65E00214542 /* VILTMaker-Bridging-Header.h */,
 				2AD841E31CF9EBBF00BB100B /* ConstantColor */,
 				2AD841E21CF9EB9F00BB100B /* APIKeyManagement */,
@@ -382,8 +402,12 @@
 			files = (
 				2AF9DBD81CEF05F9001AB683 /* LaunchScreen.storyboard in Resources */,
 				2AF9DBD51CEF05F9001AB683 /* Assets.xcassets in Resources */,
+				2A839F401D0981CE00475ACF /* changeAnswer.mp3 in Resources */,
 				2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */,
 				2AF9DBD31CEF05F8001AB683 /* Main.storyboard in Resources */,
+				2A839F431D0986B900475ACF /* cursorDouble.mp3 in Resources */,
+				2A839F441D0986B900475ACF /* cursorSingle.mp3 in Resources */,
+				2A839F461D098C4C00475ACF /* okButton.mp3 in Resources */,
 				2AF3C7BE1CF7AB610090F4F9 /* Keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

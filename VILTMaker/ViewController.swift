@@ -13,20 +13,36 @@ import SwiftyJSON
 class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate {
     
     @IBOutlet var previewQuestionLabel: UILabel!
-    @IBOutlet var editQuestionTextView: UITextView!
+    @IBOutlet var editingTextView: UITextView!
     @IBOutlet var previewSelectButton: [BorderButton]!
+    
+    @IBOutlet var okButton: UIButton!
+    @IBOutlet var ngButton: UIButton!
+    
     
     let docomoSpeakModel: SpeakModel = SpeakModel()
     
     var filePath: String!
     var recorder: AVAudioRecorder!
     
+    //効果音
+    var changeAnswerAudioPlayer: AVAudioPlayer!
+    var singleCursorAudioPlayer: AVAudioPlayer!
+    var doubleCursorAudioPlayer: AVAudioPlayer!
+    var okAudioPlayer: AVAudioPlayer!
+    
+    //直近タップされたものを記憶
+    var needToChangeObjectNumber: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        editQuestionTextView.delegate = self
+        editingTextView.delegate = self
         //初期値（仮置き）
         previewSelectButton[1].backgroundColor = ConstColor.pink
+        
+        //音声合成のための初期化処理
+        self.initAudioPlayers()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,19 +50,34 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: ONE TAP METHODS FOR ONLY VOICE OUTPUT
+    @IBAction func previewQuestionLabelPushed(sender: UITapGestureRecognizer) {
+        //1回タップで音声合成。
+        NSLog("PreviewQuestionLabel Pushed")
+        needToChangeObjectNumber = 4
+        docomoSpeakModel.speak(previewQuestionLabel.text!)
+    }
+    
     @IBAction func selectButtonPushed(sender: BorderButton) {
         //1回タップで音声合成。
         var buttonTitle = sender.currentTitle
         buttonTitle = buttonTitle?.stringByReplacingOccurrencesOfString("△", withString: "三角形")
         buttonTitle = buttonTitle?.stringByReplacingOccurrencesOfString("≡", withString: " 合同 ")
-        NSLog("buttonTitle==%@",buttonTitle!)
-        
         docomoSpeakModel.speak(buttonTitle!)
         
+        needToChangeObjectNumber = sender.tag
     }
+    
+    @IBAction func okButtonPushed(sender: UIButton) {
+        docomoSpeakModel.speak("OKボタン")
+    }
+    
+    @IBAction func ngButtonPushed(sender: UIButton) {
+        docomoSpeakModel.speak(String(sender.currentTitle!) + "ボタン")
+    }
+    
     //MARK: ダブルタップ処理
     @IBAction func editButton1DoubleTapped(sender: UITapGestureRecognizer) {
-        NSLog("Edit Button 1 Double Tapped")
         self.doubleTappedGeneralWithButtonIndex(0)
     }
     @IBAction func editButton2DoubleTapped(sender: UITapGestureRecognizer) {
@@ -57,18 +88,53 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
     }
     
     func doubleTappedGeneralWithButtonIndex(index:Int){
-        for j in 0...2 {
-            previewSelectButton[j].backgroundColor = ConstColor.white
+        if !changeAnswerAudioPlayer.playing {
+            changeAnswerAudioPlayer.play()
+            for j in 0...2 {
+                previewSelectButton[j].backgroundColor = ConstColor.white
+            }
+            previewSelectButton[index].backgroundColor = ConstColor.pink
         }
-        previewSelectButton[index].backgroundColor = ConstColor.pink
     }
+    
+    @IBAction func okButtonDoubleTapped(sender: UITapGestureRecognizer) {
+        okAudioPlayer.play()
+    }
+    @IBAction func ngButtonDoubleTapped(sender: UITapGestureRecognizer) {
+        NSLog("編集モード開始")
+        singleCursorAudioPlayer.play()
+        var setString: String = ""
+        
+        switch needToChangeObjectNumber {
+        case 1:
+            setString = previewSelectButton[0].currentTitle!
+            break
+        case 2:
+            setString = previewSelectButton[1].currentTitle!
+            break
+        case 3:
+            setString = previewSelectButton[2].currentTitle!
+            break
+        case 4:
+            setString = previewQuestionLabel.text!
+            break
+        default:
+            break
+        }
+        
+        editingTextView.text = setString
+    }
+
     
     //MARK: TextView処理
     func textViewDidChange(textView: UITextView) {
         previewQuestionLabel.text = textView.text
     }
     
-    
+    @IBAction func saveButtonDoubleTapped(sender: UITapGestureRecognizer) {
+        NSLog("Save Button Double Tapped")
+        
+    }
     
     @IBAction func voiceInputButtonPushed(sender: UIButton) {
         if sender.selected {
@@ -79,6 +145,9 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
             NSLog("STOPRECORD")
         }
     }
+    
+    //MARK: METHODS
+    
     
     //NSURLDataDelegate
     func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse) {
@@ -92,6 +161,7 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
         if let resultString = json["result"][0]["alternative"][0]["transcript"].string {
             //Now you got your value
             NSLog("google result == %@",resultString)
+            
         }
     }
     
@@ -164,6 +234,51 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
         }
         let data: NSData = NSData(contentsOfFile: self.filePath)!
         self.callGoogleRecognizeApi(data)
+    }
+    
+    //MARK: Set Audio Player(効果音)
+    func initAudioPlayers() {
+        
+        //Change Answer
+        do {
+            let filePath = NSBundle.mainBundle().pathForResource("changeAnswer", ofType: "mp3")
+            let audioPath = NSURL(fileURLWithPath: filePath!)
+            changeAnswerAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
+            changeAnswerAudioPlayer.prepareToPlay()
+        } catch {
+            print("Error")
+        }
+        
+        //Single Cursor
+        do {
+            let filePath = NSBundle.mainBundle().pathForResource("cursorSingle", ofType: "mp3")
+            let audioPath = NSURL(fileURLWithPath: filePath!)
+            singleCursorAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
+            singleCursorAudioPlayer.prepareToPlay()
+        } catch {
+            print("Error")
+        }
+        
+        //Double Cursor
+        do {
+            let filePath = NSBundle.mainBundle().pathForResource("cursorDouble", ofType: "mp3")
+            let audioPath = NSURL(fileURLWithPath: filePath!)
+            doubleCursorAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
+            doubleCursorAudioPlayer.prepareToPlay()
+        } catch {
+            print("Error")
+        }
+        
+        //OK Button
+        do {
+            let filePath = NSBundle.mainBundle().pathForResource("okButton", ofType: "mp3")
+            let audioPath = NSURL(fileURLWithPath: filePath!)
+            okAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
+            okAudioPlayer.prepareToPlay()
+        } catch {
+            print("Error")
+        }
+
     }
  
 }
