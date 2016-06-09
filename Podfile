@@ -7,6 +7,7 @@ target 'VILTMaker' do
 # 通信系ライブラリ（JSON取得）
 pod 'Alamofire', '~> 3.4'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+pod 'EZAudio', '~> 1.1.4'
 end
 
 target 'VILTMakerTests' do

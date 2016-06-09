@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08A596E4B2E2B094481ADED2 /* Pods_VILTMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30DBEB678DF669735552E46 /* Pods_VILTMaker.framework */; };
+		1F37BE7AEBABF06B3AD5E1E0 /* Pods_VILTMakerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3387E075D658446FF2F6B57 /* Pods_VILTMakerUITests.framework */; };
+		28A72E8FE5AB36DA320BD86E /* Pods_VILTMakerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F970BD7A35A7D01F6778601 /* Pods_VILTMakerTests.framework */; };
 		2A1919421CF2DDCF009B8B54 /* ConstColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1919411CF2DDCF009B8B54 /* ConstColor.swift */; };
 		2A1919441CF2DE1A009B8B54 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1919431CF2DE1A009B8B54 /* UIColorExtension.swift */; };
 		2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7A8DDC1CF2DA8F0034239C /* example_figure.png */; };
@@ -30,6 +31,7 @@
 		2AF9DBD81CEF05F9001AB683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AF9DBD61CEF05F9001AB683 /* LaunchScreen.storyboard */; };
 		2AF9DBE31CEF05F9001AB683 /* VILTMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBE21CEF05F9001AB683 /* VILTMakerTests.swift */; };
 		2AF9DBEE1CEF05F9001AB683 /* VILTMakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBED1CEF05F9001AB683 /* VILTMakerUITests.swift */; };
+		DB81DA175FC787FE74A48BA6 /* Pods_VILTMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A738CC8AAC3614C81BEF8379 /* Pods_VILTMaker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		077027A545C55C1D33D145DE /* Pods-VILTMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VILTMaker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VILTMaker/Pods-VILTMaker.debug.xcconfig"; sourceTree = "<group>"; };
-		1A18312F9EAC44A614FA8FE5 /* Pods-VILTMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VILTMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-VILTMaker/Pods-VILTMaker.release.xcconfig"; sourceTree = "<group>"; };
+		162914617AE0E11A45DB572C /* Pods-VILTMakerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VILTMakerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VILTMakerUITests/Pods-VILTMakerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2A1919411CF2DDCF009B8B54 /* ConstColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstColor.swift; sourceTree = "<group>"; };
 		2A1919431CF2DE1A009B8B54 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		2A7A8DDC1CF2DA8F0034239C /* example_figure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example_figure.png; sourceTree = "<group>"; };
@@ -91,7 +92,14 @@
 		2AF9DBE91CEF05F9001AB683 /* VILTMakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VILTMakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF9DBED1CEF05F9001AB683 /* VILTMakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VILTMakerUITests.swift; sourceTree = "<group>"; };
 		2AF9DBEF1CEF05F9001AB683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F30DBEB678DF669735552E46 /* Pods_VILTMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VILTMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F970BD7A35A7D01F6778601 /* Pods_VILTMakerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VILTMakerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A738CC8AAC3614C81BEF8379 /* Pods_VILTMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VILTMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3387E075D658446FF2F6B57 /* Pods_VILTMakerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VILTMakerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2D5E54E8A73D2A3DCAA4BA /* Pods-VILTMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VILTMaker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VILTMaker/Pods-VILTMaker.debug.xcconfig"; sourceTree = "<group>"; };
+		DD8595B54D4F200721B5B0C5 /* Pods-VILTMakerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VILTMakerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VILTMakerTests/Pods-VILTMakerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F47D8278CAD91F1EB6285385 /* Pods-VILTMakerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VILTMakerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VILTMakerTests/Pods-VILTMakerTests.release.xcconfig"; sourceTree = "<group>"; };
+		F540FEBF9385228B6271ACDF /* Pods-VILTMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VILTMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-VILTMaker/Pods-VILTMaker.release.xcconfig"; sourceTree = "<group>"; };
+		F98595CA46E6A7790474A18F /* Pods-VILTMakerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VILTMakerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VILTMakerUITests/Pods-VILTMakerUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +109,7 @@
 			files = (
 				2AF3C7A81CF771650090F4F9 /* libdocomo-common-ios-sdk-1.0.1.a in Frameworks */,
 				2AF3C7A71CF771650090F4F9 /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */,
-				08A596E4B2E2B094481ADED2 /* Pods_VILTMaker.framework in Frameworks */,
+				DB81DA175FC787FE74A48BA6 /* Pods_VILTMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A72E8FE5AB36DA320BD86E /* Pods_VILTMakerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,20 +125,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F37BE7AEBABF06B3AD5E1E0 /* Pods_VILTMakerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0DD22809F990D70614C18DB9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F30DBEB678DF669735552E46 /* Pods_VILTMaker.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		2A839F3C1D097F7B00475ACF /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,8 +239,8 @@
 				2AF9DBE11CEF05F9001AB683 /* VILTMakerTests */,
 				2AF9DBEC1CEF05F9001AB683 /* VILTMakerUITests */,
 				2AF9DBCB1CEF05F8001AB683 /* Products */,
-				49313864E46B85A6954FC1A4 /* Pods */,
-				0DD22809F990D70614C18DB9 /* Frameworks */,
+				FEA34AA0FE93F848E08FD4FD /* Pods */,
+				8FE337C18C60A50B27594BD4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -283,11 +285,25 @@
 			path = VILTMakerUITests;
 			sourceTree = "<group>";
 		};
-		49313864E46B85A6954FC1A4 /* Pods */ = {
+		8FE337C18C60A50B27594BD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				077027A545C55C1D33D145DE /* Pods-VILTMaker.debug.xcconfig */,
-				1A18312F9EAC44A614FA8FE5 /* Pods-VILTMaker.release.xcconfig */,
+				A738CC8AAC3614C81BEF8379 /* Pods_VILTMaker.framework */,
+				3F970BD7A35A7D01F6778601 /* Pods_VILTMakerTests.framework */,
+				D3387E075D658446FF2F6B57 /* Pods_VILTMakerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FEA34AA0FE93F848E08FD4FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD2D5E54E8A73D2A3DCAA4BA /* Pods-VILTMaker.debug.xcconfig */,
+				F540FEBF9385228B6271ACDF /* Pods-VILTMaker.release.xcconfig */,
+				DD8595B54D4F200721B5B0C5 /* Pods-VILTMakerTests.debug.xcconfig */,
+				F47D8278CAD91F1EB6285385 /* Pods-VILTMakerTests.release.xcconfig */,
+				162914617AE0E11A45DB572C /* Pods-VILTMakerUITests.debug.xcconfig */,
+				F98595CA46E6A7790474A18F /* Pods-VILTMakerUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -299,12 +315,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AF9DBF21CEF05F9001AB683 /* Build configuration list for PBXNativeTarget "VILTMaker" */;
 			buildPhases = (
-				5CA5951C5B1D8850B89CDAA7 /* Check Pods Manifest.lock */,
+				5AEBCDFA2C3C52417D4F9660 /* 📦 Check Pods Manifest.lock */,
 				2AF9DBC61CEF05F8001AB683 /* Sources */,
 				2AF9DBC71CEF05F8001AB683 /* Frameworks */,
 				2AF9DBC81CEF05F8001AB683 /* Resources */,
-				0EAFBA0AAD918D9C5127BB70 /* Embed Pods Frameworks */,
-				1B3680A5B923B6A36C223F5E /* Copy Pods Resources */,
+				7783664C385A38EBA3326E03 /* 📦 Embed Pods Frameworks */,
+				9C8FE152D93ABD1CEDBEC0D9 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,9 +335,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AF9DBF51CEF05F9001AB683 /* Build configuration list for PBXNativeTarget "VILTMakerTests" */;
 			buildPhases = (
+				F486DDF669DC26FED8C1A0F5 /* 📦 Check Pods Manifest.lock */,
 				2AF9DBDA1CEF05F9001AB683 /* Sources */,
 				2AF9DBDB1CEF05F9001AB683 /* Frameworks */,
 				2AF9DBDC1CEF05F9001AB683 /* Resources */,
+				FCCA93BE84D7708693260342 /* 📦 Embed Pods Frameworks */,
+				AFFAC73AD848CE66FC240EB2 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -337,9 +356,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AF9DBF81CEF05F9001AB683 /* Build configuration list for PBXNativeTarget "VILTMakerUITests" */;
 			buildPhases = (
+				B7B28D7642C157B5E4FCA79F /* 📦 Check Pods Manifest.lock */,
 				2AF9DBE51CEF05F9001AB683 /* Sources */,
 				2AF9DBE61CEF05F9001AB683 /* Frameworks */,
 				2AF9DBE71CEF05F9001AB683 /* Resources */,
+				568C0F9812906F0E010849A0 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -429,14 +450,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0EAFBA0AAD918D9C5127BB70 /* Embed Pods Frameworks */ = {
+		568C0F9812906F0E010849A0 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VILTMakerUITests/Pods-VILTMakerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AEBCDFA2C3C52417D4F9660 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7783664C385A38EBA3326E03 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,14 +495,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VILTMaker/Pods-VILTMaker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1B3680A5B923B6A36C223F5E /* Copy Pods Resources */ = {
+		9C8FE152D93ABD1CEDBEC0D9 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,19 +510,64 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VILTMaker/Pods-VILTMaker-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5CA5951C5B1D8850B89CDAA7 /* Check Pods Manifest.lock */ = {
+		AFFAC73AD848CE66FC240EB2 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VILTMakerTests/Pods-VILTMakerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7B28D7642C157B5E4FCA79F /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F486DDF669DC26FED8C1A0F5 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FCCA93BE84D7708693260342 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VILTMakerTests/Pods-VILTMakerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -631,7 +727,7 @@
 		};
 		2AF9DBF31CEF05F9001AB683 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 077027A545C55C1D33D145DE /* Pods-VILTMaker.debug.xcconfig */;
+			baseConfigurationReference = DD2D5E54E8A73D2A3DCAA4BA /* Pods-VILTMaker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -652,7 +748,7 @@
 		};
 		2AF9DBF41CEF05F9001AB683 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A18312F9EAC44A614FA8FE5 /* Pods-VILTMaker.release.xcconfig */;
+			baseConfigurationReference = F540FEBF9385228B6271ACDF /* Pods-VILTMaker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -672,6 +768,7 @@
 		};
 		2AF9DBF61CEF05F9001AB683 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD8595B54D4F200721B5B0C5 /* Pods-VILTMakerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = VILTMakerTests/Info.plist;
@@ -684,6 +781,7 @@
 		};
 		2AF9DBF71CEF05F9001AB683 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F47D8278CAD91F1EB6285385 /* Pods-VILTMakerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = VILTMakerTests/Info.plist;
@@ -696,6 +794,7 @@
 		};
 		2AF9DBF91CEF05F9001AB683 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 162914617AE0E11A45DB572C /* Pods-VILTMakerUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = VILTMakerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -707,6 +806,7 @@
 		};
 		2AF9DBFA1CEF05F9001AB683 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F98595CA46E6A7790474A18F /* Pods-VILTMakerUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = VILTMakerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
