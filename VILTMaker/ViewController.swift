@@ -243,7 +243,7 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
         isVoiceInputNow = true
         self.filePath = self.makeFilePath()
         do {
-        try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryRecord)
+        try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
             let settings: NSDictionary = [
                 AVFormatIDKey: NSNumber.init(unsignedInt: kAudioFormatLinearPCM),
                 AVSampleRateKey: NSNumber.init(float: 16000.0),
@@ -286,6 +286,12 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
     //MARK: Set Audio Player(効果音)
     func initAudioPlayers() {
         
+        do{
+            let session: AVAudioSession = AVAudioSession.sharedInstance()
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try session.setActive(true)
+        
+        
         //Change Answer
         do {
             let filePath = NSBundle.mainBundle().pathForResource("changeAnswer", ofType: "mp3")
@@ -325,7 +331,9 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
         } catch {
             print("Error")
         }
-
+        }catch{
+            
+        }
     }
  
 }
