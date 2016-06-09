@@ -9,8 +9,9 @@
 import UIKit
 import AVFoundation
 import SwiftyJSON
+import EZAudio
 
-class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate {
+class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate, EZMicrophoneDelegate {
     
     @IBOutlet var previewQuestionLabel: UILabel!
     @IBOutlet var editingTextView: UITextView!
@@ -34,6 +35,11 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
     //直近タップされたものを記憶
     var needToChangeObjectNumber: Int = 0
     
+    var isVoiceInputNow = false
+    
+    @IBOutlet var audioPlot: EZAudioPlot!
+    var microphone: EZMicrophone!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -43,8 +49,40 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
         
         //音声合成のための初期化処理
         self.initAudioPlayers()
+        
+        //波形
+        do {
+            let session: AVAudioSession = AVAudioSession.sharedInstance()
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try session.setActive(true)
+            
+            audioPlot.backgroundColor = ConstColor.main
+            audioPlot.color = ConstColor.white
+            audioPlot.plotType = EZPlotType.Buffer
+            audioPlot.shouldFill = true
+            audioPlot.shouldMirror = true
+            microphone = EZMicrophone(delegate: self)
+            microphone.startFetchingAudio()
+            
+        }catch{
+            
+        }
     }
-
+    
+    func microphone(microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
+        let weakSelf = self
+        dispatch_async(dispatch_get_main_queue(),{
+            weakSelf.audioPlot.updateBuffer(buffer[0], withBufferSize: bufferSize)
+        })
+    }
+    
+    func microphone(microphone: EZMicrophone!, hasAudioStreamBasicDescription audioStreamBasicDescription: AudioStreamBasicDescription) {
+        EZAudioUtilities.printASBD(audioStreamBasicDescription)
+    }
+    func microphone(microphone: EZMicrophone!, hasBufferList bufferList: UnsafeMutablePointer<AudioBufferList>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -125,6 +163,16 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
         editingTextView.text = setString
     }
 
+    @IBAction func voiceInputDoubleTapped(sender: UITapGestureRecognizer) {
+        if isVoiceInputNow {
+            NSLog("音声入力終了")
+            self.stopRecord()
+        }else{
+            NSLog("音声入力開始")
+            self.startRecord()
+        }
+        
+    }
     
     //MARK: TextView処理
     func textViewDidChange(textView: UITextView) {
@@ -137,13 +185,7 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
     }
     
     @IBAction func voiceInputButtonPushed(sender: UIButton) {
-        if sender.selected {
-            self.stopRecord()
-            NSLog("STOPRECORD")
-        }else{
-            self.startRecord()
-            NSLog("STOPRECORD")
-        }
+
     }
     
     //MARK: METHODS
@@ -161,12 +203,15 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
         if let resultString = json["result"][0]["alternative"][0]["transcript"].string {
             //Now you got your value
             NSLog("google result == %@",resultString)
-            
+            //音声認識結果をテキストビューに表示
+            editingTextView.text = resultString
         }
+        isVoiceInputNow = false
     }
     
     func connection(connection: NSURLConnection, didFailWithError error: NSError) {
         NSLog("ERROR == %@",error)
+        isVoiceInputNow = false
     }
     
     //MARK: Google Speech API
@@ -190,12 +235,12 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
         request.HTTPBody = data
         
         NSURLConnection(request: request, delegate: self)
-    
         
         
     }
     
     func startRecord() {
+        isVoiceInputNow = true
         self.filePath = self.makeFilePath()
         do {
         try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryRecord)
@@ -210,7 +255,6 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
                 self.recorder.delegate = self
                 self.recorder.prepareToRecord()
                 self.recorder.recordForDuration(15.0)
-
             }catch{
             }
         }catch{
@@ -218,6 +262,7 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
     }
     
     func stopRecord() {
+        isVoiceInputNow = false
         self.recorder.stop()
     }
     
@@ -235,6 +280,8 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
         let data: NSData = NSData(contentsOfFile: self.filePath)!
         self.callGoogleRecognizeApi(data)
     }
+    
+    
     
     //MARK: Set Audio Player(効果音)
     func initAudioPlayers() {

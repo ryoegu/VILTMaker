@@ -16,6 +16,7 @@
 		2A839F431D0986B900475ACF /* cursorDouble.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A839F411D0986B900475ACF /* cursorDouble.mp3 */; };
 		2A839F441D0986B900475ACF /* cursorSingle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A839F421D0986B900475ACF /* cursorSingle.mp3 */; };
 		2A839F461D098C4C00475ACF /* okButton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A839F451D098C4C00475ACF /* okButton.mp3 */; };
+		2A839F4F1D0991EE00475ACF /* EZAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A839F4E1D0991EE00475ACF /* EZAudio.framework */; };
 		2AB9D9C61CFD6F0100BC810E /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */; };
 		2AC76EF41CFA03B000F42F76 /* SpeakModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC76EF31CFA03B000F42F76 /* SpeakModel.swift */; };
 		2AD409041CF2D65F00214542 /* BorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD409031CF2D65F00214542 /* BorderButton.m */; };
@@ -60,6 +61,7 @@
 		2A839F411D0986B900475ACF /* cursorDouble.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cursorDouble.mp3; sourceTree = "<group>"; };
 		2A839F421D0986B900475ACF /* cursorSingle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cursorSingle.mp3; sourceTree = "<group>"; };
 		2A839F451D098C4C00475ACF /* okButton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = okButton.mp3; sourceTree = "<group>"; };
+		2A839F4E1D0991EE00475ACF /* EZAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZAudio.framework; path = "../../../Library/Developer/Xcode/DerivedData/VILTMaker-gnwsglaehcjpuhfyzxazfshqnlur/Build/Products/Debug-iphoneos/EZAudio/EZAudio.framework"; sourceTree = "<group>"; };
 		2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
 		2AC76EF31CFA03B000F42F76 /* SpeakModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakModel.swift; sourceTree = "<group>"; };
 		2AD409011CF2D65E00214542 /* VILTMaker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VILTMaker-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A839F4F1D0991EE00475ACF /* EZAudio.framework in Frameworks */,
 				2AF3C7A81CF771650090F4F9 /* libdocomo-common-ios-sdk-1.0.1.a in Frameworks */,
 				2AF3C7A71CF771650090F4F9 /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */,
 				DB81DA175FC787FE74A48BA6 /* Pods_VILTMaker.framework in Frameworks */,
@@ -288,6 +291,7 @@
 		8FE337C18C60A50B27594BD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A839F4E1D0991EE00475ACF /* EZAudio.framework */,
 				A738CC8AAC3614C81BEF8379 /* Pods_VILTMaker.framework */,
 				3F970BD7A35A7D01F6778601 /* Pods_VILTMakerTests.framework */,
 				D3387E075D658446FF2F6B57 /* Pods_VILTMakerUITests.framework */,

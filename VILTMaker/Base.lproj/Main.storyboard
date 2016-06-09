@@ -138,21 +138,13 @@
                                         <rect key="frame" x="360" y="847" width="238" height="177"/>
                                         <color key="backgroundColor" red="1" green="0.32240548786868584" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="75"/>
-                                        <state key="normal" title="NG">
+                                        <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                        <state key="normal" title="編集">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="ngButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GqM-JR-b8p"/>
                                             <outletCollection property="gestureRecognizers" destination="Qpg-mh-h7X" appends="YES" id="36a-7t-cMA"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enK-4m-agV">
-                                        <rect key="frame" x="0.0" y="707" width="598" height="140"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <state key="normal" title="音声入力"/>
-                                        <connections>
-                                            <action selector="voiceInputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QPc-bp-fSH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bcy-lp-jPh">
@@ -181,6 +173,20 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbZ-qw-hzR" customClass="EZAudioPlot">
+                                        <rect key="frame" x="36" y="359" width="526" height="261"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enK-4m-agV">
+                                        <rect key="frame" x="0.0" y="699" width="598" height="100"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <state key="normal" title="音声入力"/>
+                                        <connections>
+                                            <action selector="voiceInputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QPc-bp-fSH"/>
+                                            <outletCollection property="gestureRecognizers" destination="guc-DD-chq" appends="YES" id="WqO-Ds-YQY"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98115079365079361" green="0.98115079365079361" blue="0.98115079365079361" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -190,6 +196,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPadPro"/>
                     <connections>
+                        <outlet property="audioPlot" destination="pbZ-qw-hzR" id="Zdt-QI-4f1"/>
                         <outlet property="editingTextView" destination="9Xk-jm-Ydp" id="BOO-JP-pky"/>
                         <outlet property="ngButton" destination="B6z-vj-4YB" id="NiM-HS-b7R"/>
                         <outlet property="okButton" destination="nhF-T4-q7j" id="kY4-Pf-aTq"/>
@@ -233,6 +240,11 @@
                 <tapGestureRecognizer numberOfTapsRequired="2" id="wtL-Md-p8b" userLabel="OK Button Double Tap Gesture Recognizer">
                     <connections>
                         <action selector="okButtonDoubleTapped:" destination="BYZ-38-t0r" id="Laq-P2-4rJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="guc-DD-chq" userLabel="Voice Input Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="voiceInputDoubleTapped:" destination="BYZ-38-t0r" id="WSA-Dl-q7t"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

@@ -15,3 +15,5 @@
 #import "SdkError.h"
 
 #import "AiTalkAudioPlayer.h"
+
+#import <EZAudio/EZAudio.h>
