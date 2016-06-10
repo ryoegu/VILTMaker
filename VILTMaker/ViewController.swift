@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
     var singleCursorAudioPlayer: AVAudioPlayer!
     var doubleCursorAudioPlayer: AVAudioPlayer!
     var okAudioPlayer: AVAudioPlayer!
+    var recordStartAudioPlayer: AVAudioPlayer!
     
     //直近タップされたものを記憶
     var needToChangeObjectNumber: Int = 0
@@ -164,6 +165,7 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
     }
 
     @IBAction func voiceInputDoubleTapped(sender: UITapGestureRecognizer) {
+        recordStartAudioPlayer.play()
         if isVoiceInputNow {
             NSLog("音声入力終了")
             self.stopRecord()
@@ -205,6 +207,7 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
             NSLog("google result == %@",resultString)
             //音声認識結果をテキストビューに表示
             editingTextView.text = resultString
+            docomoSpeakModel.speak(resultString)
         }
         isVoiceInputNow = false
     }
@@ -286,11 +289,6 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
     //MARK: Set Audio Player(効果音)
     func initAudioPlayers() {
         
-        do{
-            let session: AVAudioSession = AVAudioSession.sharedInstance()
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try session.setActive(true)
-        
         
         //Change Answer
         do {
@@ -331,9 +329,17 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
         } catch {
             print("Error")
         }
-        }catch{
-            
+        
+        //Record Start Button
+        do {
+            let filePath = NSBundle.mainBundle().pathForResource("recordStart", ofType: "mp3")
+            let audioPath = NSURL(fileURLWithPath: filePath!)
+            recordStartAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
+            recordStartAudioPlayer.prepareToPlay()
+        } catch {
+            print("Error")
         }
+        
     }
  
 }
