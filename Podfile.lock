@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.4.0)
+  - C4 (1.1.0)
   - EZAudio (1.1.5):
     - EZAudio/Full (= 1.1.5)
   - EZAudio/Core (1.1.5)
@@ -11,6 +12,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
+  - C4 (~> 1.0)
   - EZAudio (~> 1.1.4)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -25,10 +27,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  C4: 376f0283d94033b954972d963bf1acdf13eb2a7d
   EZAudio: 3b1cb4b6d7ebca68f0c2478576d75940aad4aa99
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TPCircularBuffer: 4960a919e667280f7f38963d771f45871b64fe62
 
-PODFILE CHECKSUM: d735141c7b00d6a56bab297d18d430bbda5c69f5
+PODFILE CHECKSUM: a3777144a731ec89247e3d4b4e0e64adccdd0850
 
 COCOAPODS: 1.0.0
