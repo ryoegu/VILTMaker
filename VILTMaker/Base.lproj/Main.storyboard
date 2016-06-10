@@ -17,15 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Zc-IF-ami">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="example_figure.png" translatesAutoresizingMaskIntoConstraints="NO" id="zfq-hz-Reo">
-                                        <rect key="frame" x="19" y="308" width="731" height="697"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wxX-9b-8lO">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="289"/>
                                 <subviews>
@@ -190,6 +181,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.98115079365079361" green="0.98115079365079361" blue="0.98115079365079361" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Zc-IF-ami" customClass="C4View">
+                                <rect key="frame" x="0.0" y="289" width="768" height="735"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -271,7 +266,4 @@
             <point key="canvasLocation" x="-1919" y="191"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="example_figure.png" width="1536" height="1485"/>
-    </resources>
 </document>
