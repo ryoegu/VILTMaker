@@ -396,6 +396,9 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             self.onPanning(center)
         }
         
+        //let k = oosiView.width/50
+        //oosiView.transform = Transform.makeScale(2, 1)
+        
         addViews(Array(parser.getCircles().values),
                  Array(polygons.values),
                  Array(parser.getLabels().values),

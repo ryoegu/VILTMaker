@@ -16,7 +16,7 @@ public class YLLine: Line {
         self.name = name
         self.options = options
         super.init([begin, end])
-        lineWidth = 5
+        lineWidth = 40
     }
 
     public required init(coder: NSCoder) {

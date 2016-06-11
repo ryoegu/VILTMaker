@@ -18,27 +18,27 @@
 			<key>color</key>
 			<string>red</string>
 			<key>x</key>
-			<integer>-35</integer>
+			<integer>-210</integer>
 			<key>y</key>
-			<integer>-40</integer>
+			<integer>-240</integer>
 		</dict>
 		<key>Q</key>
 		<dict>
 			<key>color</key>
 			<string>green</string>
 			<key>x</key>
-			<integer>30</integer>
+			<integer>180</integer>
 			<key>y</key>
-			<integer>-10</integer>
+			<integer>-60</integer>
 		</dict>
 		<key>R</key>
 		<dict>
 			<key>color</key>
 			<string>gray</string>
 			<key>x</key>
-			<integer>-10</integer>
+			<integer>-60</integer>
 			<key>y</key>
-			<integer>35</integer>
+			<integer>210</integer>
 		</dict>
 	</dict>
 	<key>lines</key>
