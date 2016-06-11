@@ -1,5 +1,5 @@
 //
-//  UIViewController+OOSIView.swift
+//  OOSIView.swift
 //  VILTMaker
 //
 //  Created by Ryo Eguchi on 2016/06/10.
@@ -9,15 +9,17 @@
 import UIKit
 import C4
 
-var sounds: SoundManager!
-var speaker: YLSpeechSynthesizer!
-var points = [String: Point]()
-var polygons = [String: Polygon]()
-var prevNote: YLSoundNote? = nil
 
-extension ViewController {
+
+class OOSIView: View {
     
-    override func setup() {
+    var sounds: SoundManager!
+    var speaker: YLSpeechSynthesizer!
+    var points = [String: Point]()
+    var polygons = [String: Polygon]()
+    var prevNote: YLSoundNote? = nil
+    
+    override init() {
         canvas.backgroundColor = black
         speaker = YLSpeechSynthesizer()
         let parser = DemoPropParser(YLResource.loadBundleResource("Demo"))
@@ -37,6 +39,7 @@ extension ViewController {
                  Array(parser.getLabels().values),
                  Array(parser.getAngles().values))
     }
+
     
     func addViews(circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
         for p in polygons {

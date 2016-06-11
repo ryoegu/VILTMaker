@@ -43,9 +43,13 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var microphone: EZMicrophone!
     
     
+    var sounds: SoundManager!
+    var speaker: YLSpeechSynthesizer!
+    var points = [String: Point]()
+    var polygons = [String: Polygon]()
+    var prevNote: YLSoundNote? = nil
     
-    
-    override func viewDidLoad() {
+    /*override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         editingTextView.delegate = self
@@ -72,7 +76,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }catch{
             
         }
-    }
+    }*/
     
     func microphone(microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
         let weakSelf = self
@@ -345,6 +349,115 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }
         
     }
+    
+    
+    
+    override func setup() {
+        
+        editingTextView.delegate = self
+        //初期値（仮置き）
+        previewSelectButton[1].backgroundColor = ConstColor.pink
+        
+        //音声合成のための初期化処理
+        self.initAudioPlayers()
+        
+        //波形
+        do {
+            let session: AVAudioSession = AVAudioSession.sharedInstance()
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try session.setActive(true)
+            
+            audioPlot.backgroundColor = ConstColor.main
+            audioPlot.color = ConstColor.white
+            audioPlot.plotType = EZPlotType.Buffer
+            audioPlot.shouldFill = true
+            audioPlot.shouldMirror = true
+            microphone = EZMicrophone(delegate: self)
+            microphone.startFetchingAudio()
+            
+        }catch{
+            
+        }
+
+        
+        
+        canvas.backgroundColor = black
+        speaker = YLSpeechSynthesizer()
+        let parser = DemoPropParser(YLResource.loadBundleResource("Demo"))
+        points = parser.getPoints()
+        polygons = parser.getPolygons()
+        sounds = SoundManager(YLResource.loadBundleResource("resources"))
+        
+        canvas.addPanGestureRecognizer { _, center, _, _, _ in
+            self.onPanning(center)
+        }
+        
+        let k = canvas.width/100
+        canvas.transform = Transform.makeScale(k, k)
+        
+        addViews(Array(parser.getCircles().values),
+                 Array(polygons.values),
+                 Array(parser.getLabels().values),
+                 Array(parser.getAngles().values))
+        
+        
+        
+    }
+    
+    func addViews(circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
+        for p in polygons {
+            canvas.add(p)
+        }
+        for c in circles {
+            canvas.add(c)
+            c.addTapGestureRecognizer { _, center, _ in
+                print("Point:", center)
+                self.sounds.pong()
+                c.fillColor = Color(red: random01(), green: random01(), blue: random01(), alpha: 1)
+            }
+        }
+        for a in angles {
+            canvas.add(a)
+        }
+        for l in labels {
+            canvas.add(l)
+            l.addTapGestureRecognizer { _ in
+                self.speaker.speak(l.text)
+            }
+        }
+    }
+    
+    func onPanning(center: Point) {
+        print(center)
+        let ps = polygons.filter { _, polygon in
+            polygon.hitTest(center)
+        }
+        if let (name, _) = ps.first {
+            let i = name.startIndex
+            let ch = "\(name[i])"
+            let begin = conv(points[ch]!)
+            let d = distance(begin, rhs: center)
+            self.pip(d)
+            print("Line:", begin, center)
+        } else {
+            prevNote = nil
+        }
+    }
+    
+    func pip(distance: Double) {
+        let note = YLSoundNote(rawValue: Int(distance)/15)!
+        if let pr = prevNote {
+            if pr != note {
+                sounds.pip(note)
+            }
+        } else {
+            sounds.pip(note)
+        }
+        prevNote = note
+        
+    }
+    
+
  
 }
 

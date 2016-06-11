@@ -11,6 +11,8 @@
 		28A72E8FE5AB36DA320BD86E /* Pods_VILTMakerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F970BD7A35A7D01F6778601 /* Pods_VILTMakerTests.framework */; };
 		2A1919421CF2DDCF009B8B54 /* ConstColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1919411CF2DDCF009B8B54 /* ConstColor.swift */; };
 		2A1919441CF2DE1A009B8B54 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1919431CF2DE1A009B8B54 /* UIColorExtension.swift */; };
+		2A3E5F101D0BB0A200FC1A81 /* resources.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A3E5F0F1D0BB0A200FC1A81 /* resources.plist */; };
+		2A3E5F121D0BB0AD00FC1A81 /* Demo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A3E5F111D0BB0AD00FC1A81 /* Demo.plist */; };
 		2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7A8DDC1CF2DA8F0034239C /* example_figure.png */; };
 		2A7F0C551D0AC46800A3DECC /* YLAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C311D0AC46800A3DECC /* YLAudioPlayer.swift */; };
 		2A7F0C561D0AC46800A3DECC /* YLResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C321D0AC46800A3DECC /* YLResource.swift */; };
@@ -57,7 +59,6 @@
 		2AF9DBE31CEF05F9001AB683 /* VILTMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBE21CEF05F9001AB683 /* VILTMakerTests.swift */; };
 		2AF9DBEE1CEF05F9001AB683 /* VILTMakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBED1CEF05F9001AB683 /* VILTMakerUITests.swift */; };
 		2AFB61A51D0A4892009D6EB1 /* changeAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2AFB61A41D0A4892009D6EB1 /* changeAnswer.mp3 */; };
-		2AFB61A81D0A4FAD009D6EB1 /* UIViewController+OOSIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFB61A71D0A4FAD009D6EB1 /* UIViewController+OOSIView.swift */; };
 		DB81DA175FC787FE74A48BA6 /* Pods_VILTMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A738CC8AAC3614C81BEF8379 /* Pods_VILTMaker.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,8 @@
 		162914617AE0E11A45DB572C /* Pods-VILTMakerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VILTMakerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VILTMakerUITests/Pods-VILTMakerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2A1919411CF2DDCF009B8B54 /* ConstColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstColor.swift; sourceTree = "<group>"; };
 		2A1919431CF2DE1A009B8B54 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		2A3E5F0F1D0BB0A200FC1A81 /* resources.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = resources.plist; sourceTree = "<group>"; };
+		2A3E5F111D0BB0AD00FC1A81 /* Demo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Demo.plist; sourceTree = "<group>"; };
 		2A7A8DDC1CF2DA8F0034239C /* example_figure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example_figure.png; sourceTree = "<group>"; };
 		2A7F0C311D0AC46800A3DECC /* YLAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLAudioPlayer.swift; sourceTree = "<group>"; };
 		2A7F0C321D0AC46800A3DECC /* YLResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLResource.swift; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 		2A7F0C2E1D0AC46800A3DECC /* OOSI */ = {
 			isa = PBXGroup;
 			children = (
+				2A3E5F0F1D0BB0A200FC1A81 /* resources.plist */,
+				2A3E5F111D0BB0AD00FC1A81 /* Demo.plist */,
 				2A7F0C2F1D0AC46800A3DECC /* basic */,
 				2A7F0C3C1D0AC46800A3DECC /* sound */,
 				2A7F0C541D0AC46800A3DECC /* YLLogger.swift */,
@@ -553,12 +558,14 @@
 				2A7F0C631D0AC46800A3DECC /* pip_d4.caf in Resources */,
 				2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */,
 				2AF9DBD31CEF05F8001AB683 /* Main.storyboard in Resources */,
+				2A3E5F121D0BB0AD00FC1A81 /* Demo.plist in Resources */,
 				2A7F0C681D0AC46800A3DECC /* pip_g4.caf in Resources */,
 				2A839F431D0986B900475ACF /* cursorDouble.mp3 in Resources */,
 				2A7F0C661D0AC46800A3DECC /* pip_e5.caf in Resources */,
 				2AFB61A51D0A4892009D6EB1 /* changeAnswer.mp3 in Resources */,
 				2A7F0C5F1D0AC46800A3DECC /* pip_a4.caf in Resources */,
 				2A7F0C671D0AC46800A3DECC /* pip_f4.caf in Resources */,
+				2A3E5F101D0BB0A200FC1A81 /* resources.plist in Resources */,
 				2A7F0C601D0AC46800A3DECC /* pip_b4.caf in Resources */,
 				2A7F0C621D0AC46800A3DECC /* pip_c5.caf in Resources */,
 				2A839F441D0986B900475ACF /* cursorSingle.mp3 in Resources */,
@@ -729,7 +736,6 @@
 				2A7F0C5E1D0AC46800A3DECC /* YLWedge.swift in Sources */,
 				2AF9DBD01CEF05F8001AB683 /* ViewController.swift in Sources */,
 				2A7F0C5C1D0AC46800A3DECC /* YLTextShape.swift in Sources */,
-				2AFB61A81D0A4FAD009D6EB1 /* UIViewController+OOSIView.swift in Sources */,
 				2A7F0C581D0AC46800A3DECC /* YLSpeechSynthesizer.swift in Sources */,
 				2AF9DBCE1CEF05F8001AB683 /* AppDelegate.swift in Sources */,
 				2A7F0C571D0AC46800A3DECC /* YLSoundNote.swift in Sources */,
