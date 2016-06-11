@@ -33,14 +33,9 @@
 		2A7F0C671D0AC46800A3DECC /* pip_f4.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A7F0C451D0AC46800A3DECC /* pip_f4.caf */; };
 		2A7F0C681D0AC46800A3DECC /* pip_g4.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A7F0C461D0AC46800A3DECC /* pip_g4.caf */; };
 		2A7F0C691D0AC46800A3DECC /* pong.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A7F0C471D0AC46800A3DECC /* pong.caf */; };
-		2A7F0C6A1D0AC46800A3DECC /* YLTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C4A1D0AC46800A3DECC /* YLTutorialViewController.swift */; };
-		2A7F0C6B1D0AC46800A3DECC /* YLTutorialConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C4C1D0AC46800A3DECC /* YLTutorialConfigParser.swift */; };
-		2A7F0C6C1D0AC46800A3DECC /* YLTutorialSoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C4D1D0AC46800A3DECC /* YLTutorialSoundManager.swift */; };
-		2A7F0C6D1D0AC46800A3DECC /* YLTutorialGeometries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C4F1D0AC46800A3DECC /* YLTutorialGeometries.swift */; };
-		2A7F0C6E1D0AC46800A3DECC /* tutorial.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A7F0C501D0AC46800A3DECC /* tutorial.plist */; };
-		2A7F0C6F1D0AC46800A3DECC /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A7F0C511D0AC46800A3DECC /* Tutorial.storyboard */; };
-		2A7F0C701D0AC46800A3DECC /* YLTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C531D0AC46800A3DECC /* YLTutorialView.swift */; };
 		2A7F0C711D0AC46800A3DECC /* YLLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C541D0AC46800A3DECC /* YLLogger.swift */; };
+		2A7F0C731D0AC55300A3DECC /* DemoPropParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C721D0AC55300A3DECC /* DemoPropParser.swift */; };
+		2A7F0C751D0AC55D00A3DECC /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C741D0AC55D00A3DECC /* SoundManager.swift */; };
 		2A839F401D0981CE00475ACF /* recordStart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A839F3F1D0981CE00475ACF /* recordStart.mp3 */; };
 		2A839F431D0986B900475ACF /* cursorDouble.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A839F411D0986B900475ACF /* cursorDouble.mp3 */; };
 		2A839F441D0986B900475ACF /* cursorSingle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A839F421D0986B900475ACF /* cursorSingle.mp3 */; };
@@ -62,7 +57,7 @@
 		2AF9DBE31CEF05F9001AB683 /* VILTMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBE21CEF05F9001AB683 /* VILTMakerTests.swift */; };
 		2AF9DBEE1CEF05F9001AB683 /* VILTMakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBED1CEF05F9001AB683 /* VILTMakerUITests.swift */; };
 		2AFB61A51D0A4892009D6EB1 /* changeAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2AFB61A41D0A4892009D6EB1 /* changeAnswer.mp3 */; };
-		2AFB61A81D0A4FAD009D6EB1 /* OOSIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFB61A71D0A4FAD009D6EB1 /* OOSIView.swift */; };
+		2AFB61A81D0A4FAD009D6EB1 /* UIViewController+OOSIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFB61A71D0A4FAD009D6EB1 /* UIViewController+OOSIView.swift */; };
 		DB81DA175FC787FE74A48BA6 /* Pods_VILTMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A738CC8AAC3614C81BEF8379 /* Pods_VILTMaker.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,14 +104,9 @@
 		2A7F0C451D0AC46800A3DECC /* pip_f4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pip_f4.caf; sourceTree = "<group>"; };
 		2A7F0C461D0AC46800A3DECC /* pip_g4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pip_g4.caf; sourceTree = "<group>"; };
 		2A7F0C471D0AC46800A3DECC /* pong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pong.caf; sourceTree = "<group>"; };
-		2A7F0C4A1D0AC46800A3DECC /* YLTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLTutorialViewController.swift; sourceTree = "<group>"; };
-		2A7F0C4C1D0AC46800A3DECC /* YLTutorialConfigParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLTutorialConfigParser.swift; sourceTree = "<group>"; };
-		2A7F0C4D1D0AC46800A3DECC /* YLTutorialSoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLTutorialSoundManager.swift; sourceTree = "<group>"; };
-		2A7F0C4F1D0AC46800A3DECC /* YLTutorialGeometries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLTutorialGeometries.swift; sourceTree = "<group>"; };
-		2A7F0C501D0AC46800A3DECC /* tutorial.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorial.plist; sourceTree = "<group>"; };
-		2A7F0C511D0AC46800A3DECC /* Tutorial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
-		2A7F0C531D0AC46800A3DECC /* YLTutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLTutorialView.swift; sourceTree = "<group>"; };
 		2A7F0C541D0AC46800A3DECC /* YLLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLLogger.swift; sourceTree = "<group>"; };
+		2A7F0C721D0AC55300A3DECC /* DemoPropParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPropParser.swift; sourceTree = "<group>"; };
+		2A7F0C741D0AC55D00A3DECC /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		2A839F3F1D0981CE00475ACF /* recordStart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = recordStart.mp3; sourceTree = "<group>"; };
 		2A839F411D0986B900475ACF /* cursorDouble.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cursorDouble.mp3; sourceTree = "<group>"; };
 		2A839F421D0986B900475ACF /* cursorSingle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cursorSingle.mp3; sourceTree = "<group>"; };
@@ -155,7 +145,7 @@
 		2AF9DBED1CEF05F9001AB683 /* VILTMakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VILTMakerUITests.swift; sourceTree = "<group>"; };
 		2AF9DBEF1CEF05F9001AB683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AFB61A41D0A4892009D6EB1 /* changeAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = changeAnswer.mp3; sourceTree = "<group>"; };
-		2AFB61A71D0A4FAD009D6EB1 /* OOSIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOSIView.swift; sourceTree = "<group>"; };
+		2AFB61A71D0A4FAD009D6EB1 /* UIViewController+OOSIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+OOSIView.swift"; sourceTree = "<group>"; };
 		3F970BD7A35A7D01F6778601 /* Pods_VILTMakerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VILTMakerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A738CC8AAC3614C81BEF8379 /* Pods_VILTMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VILTMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3387E075D658446FF2F6B57 /* Pods_VILTMakerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VILTMakerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +192,6 @@
 			children = (
 				2A7F0C2F1D0AC46800A3DECC /* basic */,
 				2A7F0C3C1D0AC46800A3DECC /* sound */,
-				2A7F0C481D0AC46800A3DECC /* tutorial */,
 				2A7F0C541D0AC46800A3DECC /* YLLogger.swift */,
 			);
 			path = OOSI;
@@ -259,52 +248,6 @@
 			path = sound;
 			sourceTree = "<group>";
 		};
-		2A7F0C481D0AC46800A3DECC /* tutorial */ = {
-			isa = PBXGroup;
-			children = (
-				2A7F0C491D0AC46800A3DECC /* controller */,
-				2A7F0C4B1D0AC46800A3DECC /* misc */,
-				2A7F0C4E1D0AC46800A3DECC /* model */,
-				2A7F0C501D0AC46800A3DECC /* tutorial.plist */,
-				2A7F0C511D0AC46800A3DECC /* Tutorial.storyboard */,
-				2A7F0C521D0AC46800A3DECC /* view */,
-			);
-			path = tutorial;
-			sourceTree = "<group>";
-		};
-		2A7F0C491D0AC46800A3DECC /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				2A7F0C4A1D0AC46800A3DECC /* YLTutorialViewController.swift */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		2A7F0C4B1D0AC46800A3DECC /* misc */ = {
-			isa = PBXGroup;
-			children = (
-				2A7F0C4C1D0AC46800A3DECC /* YLTutorialConfigParser.swift */,
-				2A7F0C4D1D0AC46800A3DECC /* YLTutorialSoundManager.swift */,
-			);
-			path = misc;
-			sourceTree = "<group>";
-		};
-		2A7F0C4E1D0AC46800A3DECC /* model */ = {
-			isa = PBXGroup;
-			children = (
-				2A7F0C4F1D0AC46800A3DECC /* YLTutorialGeometries.swift */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		2A7F0C521D0AC46800A3DECC /* view */ = {
-			isa = PBXGroup;
-			children = (
-				2A7F0C531D0AC46800A3DECC /* YLTutorialView.swift */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
 		2A839F3C1D097F7B00475ACF /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +263,8 @@
 		2AC76EF21CFA036100F42F76 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2A7F0C721D0AC55300A3DECC /* DemoPropParser.swift */,
+				2A7F0C741D0AC55D00A3DECC /* SoundManager.swift */,
 				2AF9DBCD1CEF05F8001AB683 /* AppDelegate.swift */,
 				2AC76EF31CFA03B000F42F76 /* SpeakModel.swift */,
 			);
@@ -330,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */,
+				2AFB61A71D0A4FAD009D6EB1 /* UIViewController+OOSIView.swift */,
 				2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */,
 			);
 			name = Controller;
@@ -340,7 +286,6 @@
 			children = (
 				2AF9DBD11CEF05F8001AB683 /* Main.storyboard */,
 				2AF9DBD61CEF05F9001AB683 /* LaunchScreen.storyboard */,
-				2AFB61A71D0A4FAD009D6EB1 /* OOSIView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -598,10 +543,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A7F0C6E1D0AC46800A3DECC /* tutorial.plist in Resources */,
 				2A7F0C611D0AC46800A3DECC /* pip_c4.caf in Resources */,
 				2AF9DBD81CEF05F9001AB683 /* LaunchScreen.storyboard in Resources */,
-				2A7F0C6F1D0AC46800A3DECC /* Tutorial.storyboard in Resources */,
 				2AF9DBD51CEF05F9001AB683 /* Assets.xcassets in Resources */,
 				2A7F0C691D0AC46800A3DECC /* pong.caf in Resources */,
 				2A7F0C651D0AC46800A3DECC /* pip_e4.caf in Resources */,
@@ -771,9 +714,9 @@
 				2AC76EF41CFA03B000F42F76 /* SpeakModel.swift in Sources */,
 				2AD409041CF2D65F00214542 /* BorderButton.m in Sources */,
 				2AB9D9C61CFD6F0100BC810E /* QRReaderViewController.swift in Sources */,
+				2A7F0C731D0AC55300A3DECC /* DemoPropParser.swift in Sources */,
 				2A1919421CF2DDCF009B8B54 /* ConstColor.swift in Sources */,
-				2A7F0C6C1D0AC46800A3DECC /* YLTutorialSoundManager.swift in Sources */,
-				2A7F0C701D0AC46800A3DECC /* YLTutorialView.swift in Sources */,
+				2A7F0C751D0AC55D00A3DECC /* SoundManager.swift in Sources */,
 				2A7F0C5A1D0AC46800A3DECC /* YLLine.swift in Sources */,
 				2A7F0C561D0AC46800A3DECC /* YLResource.swift in Sources */,
 				2AF3C7BC1CF7A87F0090F4F9 /* KeyManager.swift in Sources */,
@@ -784,16 +727,13 @@
 				2AF3C7B61CF774BC0090F4F9 /* AiTalkAudioPlayer.m in Sources */,
 				2A7F0C5D1D0AC46800A3DECC /* YLTopology.swift in Sources */,
 				2A7F0C5E1D0AC46800A3DECC /* YLWedge.swift in Sources */,
-				2A7F0C6A1D0AC46800A3DECC /* YLTutorialViewController.swift in Sources */,
 				2AF9DBD01CEF05F8001AB683 /* ViewController.swift in Sources */,
 				2A7F0C5C1D0AC46800A3DECC /* YLTextShape.swift in Sources */,
-				2A7F0C6D1D0AC46800A3DECC /* YLTutorialGeometries.swift in Sources */,
-				2AFB61A81D0A4FAD009D6EB1 /* OOSIView.swift in Sources */,
+				2AFB61A81D0A4FAD009D6EB1 /* UIViewController+OOSIView.swift in Sources */,
 				2A7F0C581D0AC46800A3DECC /* YLSpeechSynthesizer.swift in Sources */,
 				2AF9DBCE1CEF05F8001AB683 /* AppDelegate.swift in Sources */,
 				2A7F0C571D0AC46800A3DECC /* YLSoundNote.swift in Sources */,
 				2A7F0C711D0AC46800A3DECC /* YLLogger.swift in Sources */,
-				2A7F0C6B1D0AC46800A3DECC /* YLTutorialConfigParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

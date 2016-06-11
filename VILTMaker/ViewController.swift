@@ -10,8 +10,9 @@ import UIKit
 import AVFoundation
 import SwiftyJSON
 import EZAudio
+import C4
 
-class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate, EZMicrophoneDelegate {
+class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate, EZMicrophoneDelegate {
     
     @IBOutlet var previewQuestionLabel: UILabel!
     @IBOutlet var editingTextView: UITextView!
@@ -40,6 +41,9 @@ class ViewController: UIViewController, UITextViewDelegate, AVAudioRecorderDeleg
     
     @IBOutlet var audioPlot: EZAudioPlot!
     var microphone: EZMicrophone!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
