@@ -49,6 +49,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var polygons = [String: Polygon]()
     var prevNote: YLSoundNote? = nil
     
+    let oosiView = View(frame: Rect(0,289,768,735))
+    
     /*override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -380,36 +382,32 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }
 
         
+
+        oosiView.backgroundColor = black
+        canvas.add(oosiView)
         
-        canvas.backgroundColor = black
         speaker = YLSpeechSynthesizer()
         let parser = DemoPropParser(YLResource.loadBundleResource("Demo"))
         points = parser.getPoints()
         polygons = parser.getPolygons()
         sounds = SoundManager(YLResource.loadBundleResource("resources"))
         
-        canvas.addPanGestureRecognizer { _, center, _, _, _ in
+        oosiView.addPanGestureRecognizer { _, center, _, _, _ in
             self.onPanning(center)
         }
-        
-        let k = canvas.width/100
-        canvas.transform = Transform.makeScale(k, k)
         
         addViews(Array(parser.getCircles().values),
                  Array(polygons.values),
                  Array(parser.getLabels().values),
                  Array(parser.getAngles().values))
-        
-        
-        
     }
     
     func addViews(circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
         for p in polygons {
-            canvas.add(p)
+            oosiView.add(p)
         }
         for c in circles {
-            canvas.add(c)
+            oosiView.add(c)
             c.addTapGestureRecognizer { _, center, _ in
                 print("Point:", center)
                 self.sounds.pong()
@@ -417,10 +415,10 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             }
         }
         for a in angles {
-            canvas.add(a)
+            oosiView.add(a)
         }
         for l in labels {
-            canvas.add(l)
+            oosiView.add(l)
             l.addTapGestureRecognizer { _ in
                 self.speaker.speak(l.text)
             }
