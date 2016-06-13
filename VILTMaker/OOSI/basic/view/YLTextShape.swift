@@ -13,7 +13,7 @@ import C4
 // イニシャライザを定義できず、事実上継承できないらしい。
 public class YLTextShape {
     class func create(center: Point, text: String, options: NSDictionary = NSDictionary()) -> TextShape {
-        let size = (options["size"] != nil) ? (options["size"] as! Double) : 10
+        let size = (options["size"] != nil) ? (options["size"] as! Double) : 40
         let f = Font(name: "Hiragino Kaku Gothic ProN", size: size)!
         let text = TextShape(text: text, font: f)!
         text.center = center

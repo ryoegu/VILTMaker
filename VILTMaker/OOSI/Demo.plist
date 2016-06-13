@@ -4,15 +4,6 @@
 <dict>
 	<key>points</key>
 	<dict>
-		<key>O</key>
-		<dict>
-			<key>color</key>
-			<string>red</string>
-			<key>x</key>
-			<integer>0</integer>
-			<key>y</key>
-			<integer>0</integer>
-		</dict>
 		<key>P</key>
 		<dict>
 			<key>color</key>
@@ -97,39 +88,30 @@
 	</dict>
 	<key>labels</key>
 	<dict>
-		<key>O</key>
-		<dict>
-			<key>x</key>
-			<integer>-10</integer>
-			<key>y</key>
-			<integer>-9</integer>
-			<key>text</key>
-			<string>O</string>
-		</dict>
 		<key>P</key>
 		<dict>
 			<key>x</key>
-			<integer>-45</integer>
+			<integer>-250</integer>
 			<key>y</key>
-			<integer>-48</integer>
+			<integer>-280</integer>
 			<key>text</key>
 			<string>P</string>
 		</dict>
 		<key>Q</key>
 		<dict>
 			<key>x</key>
-			<integer>42</integer>
+			<integer>210</integer>
 			<key>y</key>
-			<integer>-15</integer>
+			<integer>-100</integer>
 			<key>text</key>
 			<string>Q</string>
 		</dict>
 		<key>R</key>
 		<dict>
 			<key>x</key>
-			<integer>-22</integer>
+			<integer>-90</integer>
 			<key>y</key>
-			<integer>32</integer>
+			<integer>250</integer>
 			<key>text</key>
 			<string>R</string>
 		</dict>
@@ -142,7 +124,7 @@
 			<key>size</key>
 			<real>3.5</real>
 			<key>text</key>
-			<string>頂点の円をタップすると、カン という音が出ます</string>
+			<string></string>
 		</dict>
 		<key>description2</key>
 		<dict>
@@ -153,7 +135,7 @@
 			<key>size</key>
 			<real>3.5</real>
 			<key>text</key>
-			<string>辺をなぞると、音階が流れます</string>
+			<string></string>
 		</dict>
 		<key>description3</key>
 		<dict>
@@ -164,7 +146,7 @@
 			<key>size</key>
 			<real>3.5</real>
 			<key>text</key>
-			<string>文字をタップすると、その文字を読み上げます（認識悪い）</string>
+			<string></string>
 		</dict>
 	</dict>
 </dict>
