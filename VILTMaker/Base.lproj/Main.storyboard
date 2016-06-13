@@ -55,7 +55,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m6I-vV-TO4"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="cr3-Yb-04v"/>
                                             <outletCollection property="gestureRecognizers" destination="Sq6-DP-aMp" appends="YES" id="VIv-P3-FZk"/>
                                         </connections>
                                     </button>
@@ -79,7 +79,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZvK-3U-Cjm"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="0Zh-tv-etW"/>
                                             <outletCollection property="gestureRecognizers" destination="jf9-Ci-9dA" appends="YES" id="aep-8b-oDM"/>
                                         </connections>
                                     </button>
@@ -102,7 +102,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pm5-Yl-cyB"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="b72-R9-6iW"/>
                                             <outletCollection property="gestureRecognizers" destination="2e4-RY-eMY" appends="YES" id="Wf4-wR-vi9"/>
                                         </connections>
                                     </button>
@@ -121,7 +121,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="okButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vAL-mY-vON"/>
+                                            <action selector="okButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="vSJ-WT-r36"/>
                                             <outletCollection property="gestureRecognizers" destination="wtL-Md-p8b" appends="YES" id="vTC-00-iPX"/>
                                         </connections>
                                     </button>
@@ -134,7 +134,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="ngButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GqM-JR-b8p"/>
+                                            <action selector="ngButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="eOE-hW-60v"/>
                                             <outletCollection property="gestureRecognizers" destination="Qpg-mh-h7X" appends="YES" id="36a-7t-cMA"/>
                                         </connections>
                                     </button>

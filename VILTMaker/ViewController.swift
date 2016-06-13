@@ -446,7 +446,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     }
     
     func pip(distance: Double) {
-        let note = YLSoundNote(rawValue: Int(distance)/15)!
+        let note = YLSoundNote(rawValue: Int(distance)/70)!
         if let pr = prevNote {
             if pr != note {
                 sounds.pip(note)

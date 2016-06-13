@@ -13,7 +13,7 @@ public class YLCircle: Circle {
     let name: String
     let radius: Double
     let options: NSDictionary
-    public init(name: String, center: Point, radius: Double = 48, options: NSDictionary = NSDictionary()) {
+    public init(name: String, center: Point, radius: Double = 30, options: NSDictionary = NSDictionary()) {
         self.name = name
         self.radius = radius
         self.options = options

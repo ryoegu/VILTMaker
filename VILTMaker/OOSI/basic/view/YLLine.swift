@@ -23,8 +23,9 @@ public class YLLine: Line {
         fatalError("not implemented")
     }
     
-    public func buffer(b: Double = 4) -> Polygon {
+    public func buffer(b: Double = 15) -> Polygon {
         let (p1, p2) = endPoints
+        print("ENDPOINT===\(endPoints)")
         return YLPolygon(name: name, begin: p1, end: p2, buffer: b)
     }
     
