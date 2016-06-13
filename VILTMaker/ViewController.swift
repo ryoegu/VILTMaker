@@ -21,7 +21,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     @IBOutlet var okButton: UIButton!
     @IBOutlet var ngButton: UIButton!
     
-    
     let docomoSpeakModel: SpeakModel = SpeakModel()
     
     var filePath: String!
@@ -34,7 +33,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var okAudioPlayer: AVAudioPlayer!
     var recordStartAudioPlayer: AVAudioPlayer!
     
-    //直近タップされたものを記憶
+    // 直近タップされたものを記憶
     var needToChangeObjectNumber: Int = 0
     
     var isVoiceInputNow = false
@@ -49,66 +48,37 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var polygons = [String: Polygon]()
     var prevNote: YLSoundNote? = nil
     
+    // 図形領域
     let oosiView = View(frame: Rect(0,289,768,735))
     
-    /*override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+    //MARK: Setup and Initializiation Methods
+    override func setup() {
         editingTextView.delegate = self
         //初期値（仮置き）
         previewSelectButton[1].backgroundColor = ConstColor.pink
         
-        //音声合成のための初期化処理
+        //効果音のための初期化処理
         self.initAudioPlayers()
         
-        //波形
-        do {
-            let session: AVAudioSession = AVAudioSession.sharedInstance()
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try session.setActive(true)
-            
-            audioPlot.backgroundColor = ConstColor.main
-            audioPlot.color = ConstColor.white
-            audioPlot.plotType = EZPlotType.Buffer
-            audioPlot.shouldFill = true
-            audioPlot.shouldMirror = true
-            microphone = EZMicrophone(delegate: self)
-            microphone.startFetchingAudio()
-            
-        }catch{
-            
-        }
-    }*/
-    
-    func microphone(microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
-        let weakSelf = self
-        dispatch_async(dispatch_get_main_queue(),{
-            weakSelf.audioPlot.updateBuffer(buffer[0], withBufferSize: bufferSize)
-        })
-    }
-    
-    func microphone(microphone: EZMicrophone!, hasAudioStreamBasicDescription audioStreamBasicDescription: AudioStreamBasicDescription) {
-        EZAudioUtilities.printASBD(audioStreamBasicDescription)
-    }
-    func microphone(microphone: EZMicrophone!, hasBufferList bufferList: UnsafeMutablePointer<AudioBufferList>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
+        //Audio Plotのための初期化処理
+        self.audioPlotInit()
+
+        //OOSI Viewの初期化処理
+        self.oosiViewInit()
         
     }
+
+
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //MARK: ONE TAP METHODS FOR ONLY VOICE OUTPUT
+    //MARK: ワンタップ処理 (for only voice output)
     @IBAction func previewQuestionLabelPushed(sender: UITapGestureRecognizer) {
-        //1回タップで音声合成。
         NSLog("PreviewQuestionLabel Pushed")
         needToChangeObjectNumber = 4
         docomoSpeakModel.speak(previewQuestionLabel.text!)
     }
     
     @IBAction func selectButtonPushed(sender: BorderButton) {
-        //1回タップで音声合成。
         var buttonTitle = sender.currentTitle
         buttonTitle = buttonTitle?.stringByReplacingOccurrencesOfString("△", withString: "三角形")
         buttonTitle = buttonTitle?.stringByReplacingOccurrencesOfString("≡", withString: " 合同 ")
@@ -125,7 +95,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         docomoSpeakModel.speak(String(sender.currentTitle!) + "ボタン")
     }
     
-    //MARK: ダブルタップ処理
+    //MARK: ダブルタップ処理(UITapGestureRecognizer)
     @IBAction func editButton1DoubleTapped(sender: UITapGestureRecognizer) {
         self.doubleTappedGeneralWithButtonIndex(0)
     }
@@ -186,21 +156,21 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         
     }
     
-    //MARK: TextView処理
-    func textViewDidChange(textView: UITextView) {
-        previewQuestionLabel.text = textView.text
-    }
     
     @IBAction func saveButtonDoubleTapped(sender: UITapGestureRecognizer) {
         NSLog("Save Button Double Tapped")
         
     }
     
-    @IBAction func voiceInputButtonPushed(sender: UIButton) {
-
+    //MARK: TextView Delegate
+    func textViewDidChange(textView: UITextView) {
+        previewQuestionLabel.text = textView.text
     }
+
     
-    //MARK: METHODS
+    @IBAction func voiceInputButtonPushed(sender: UIButton) {
+        
+    }
     
     
     //NSURLDataDelegate
@@ -353,36 +323,9 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     }
     
     
-    
-    override func setup() {
+    // MARK: OOSI View
+    func oosiViewInit() {
         
-        editingTextView.delegate = self
-        //初期値（仮置き）
-        previewSelectButton[1].backgroundColor = ConstColor.pink
-        
-        //音声合成のための初期化処理
-        self.initAudioPlayers()
-        
-        //波形
-        do {
-            let session: AVAudioSession = AVAudioSession.sharedInstance()
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try session.setActive(true)
-            
-            audioPlot.backgroundColor = ConstColor.main
-            audioPlot.color = ConstColor.white
-            audioPlot.plotType = EZPlotType.Buffer
-            audioPlot.shouldFill = true
-            audioPlot.shouldMirror = true
-            microphone = EZMicrophone(delegate: self)
-            microphone.startFetchingAudio()
-            
-        }catch{
-            
-        }
-
-        
-
         oosiView.backgroundColor = black
         canvas.add(oosiView)
         
@@ -403,6 +346,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
                  Array(polygons.values),
                  Array(parser.getLabels().values),
                  Array(parser.getAngles().values))
+        
     }
     
     func addViews(circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
@@ -458,6 +402,45 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         
     }
     
+    
+    //MARK: Audio Plot Methods
+    func audioPlotInit() {
+        //波形
+        do {
+            let session: AVAudioSession = AVAudioSession.sharedInstance()
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try session.setActive(true)
+            audioPlot.backgroundColor = ConstColor.main
+            audioPlot.color = ConstColor.white
+            audioPlot.plotType = EZPlotType.Buffer
+            audioPlot.shouldFill = true
+            audioPlot.shouldMirror = true
+            microphone = EZMicrophone(delegate: self)
+            microphone.startFetchingAudio()
+        }catch{
+            
+        }
+    }
+    
+    func microphone(microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
+        let weakSelf = self
+        dispatch_async(dispatch_get_main_queue(),{
+            weakSelf.audioPlot.updateBuffer(buffer[0], withBufferSize: bufferSize)
+        })
+    }
+    
+    func microphone(microphone: EZMicrophone!, hasAudioStreamBasicDescription audioStreamBasicDescription: AudioStreamBasicDescription) {
+        EZAudioUtilities.printASBD(audioStreamBasicDescription)
+    }
+    func microphone(microphone: EZMicrophone!, hasBufferList bufferList: UnsafeMutablePointer<AudioBufferList>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
+        
+    }
+    
+    // MARK: Memori Warning
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
  
 }
