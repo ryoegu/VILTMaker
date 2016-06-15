@@ -256,10 +256,19 @@
                     <view key="view" contentMode="scaleToFill" id="zFN-1t-BxY">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZlV-57-qNw">
+                                <rect key="frame" x="0.0" y="0.0" width="1366" height="457"/>
+                                <color key="backgroundColor" red="0.72401586114944072" green="0.81050246409201743" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPadPro"/>
+                    <connections>
+                        <outlet property="qrView" destination="ZlV-57-qNw" id="kid-pq-kI2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5V-8y-L9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
