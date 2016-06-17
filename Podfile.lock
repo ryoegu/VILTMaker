@@ -7,6 +7,7 @@ PODS:
   - EZAudio/Full (1.1.5):
     - EZAudio/Core
     - TPCircularBuffer (= 1.1)
+  - NCMB (2.3.1)
   - SwiftyJSON (2.3.2)
   - TPCircularBuffer (1.1)
 
@@ -14,13 +15,19 @@ DEPENDENCIES:
   - Alamofire (~> 3.4)
   - C4 (~> 1.0)
   - EZAudio (~> 1.1.4)
+  - NCMB (from `https://github.com/NIFTYCloud-mbaas/ncmb_ios.git`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
+  NCMB:
+    :git: https://github.com/NIFTYCloud-mbaas/ncmb_ios.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
+  NCMB:
+    :commit: 331857ecf6e9c1095b7fcf946e1aab7038499326
+    :git: https://github.com/NIFTYCloud-mbaas/ncmb_ios.git
   SwiftyJSON:
     :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
@@ -29,9 +36,10 @@ SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   C4: 376f0283d94033b954972d963bf1acdf13eb2a7d
   EZAudio: 3b1cb4b6d7ebca68f0c2478576d75940aad4aa99
+  NCMB: 3decbc3527b85bad06fe1fc3a5cdf93b3bbcd9d9
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TPCircularBuffer: 4960a919e667280f7f38963d771f45871b64fe62
 
-PODFILE CHECKSUM: a3777144a731ec89247e3d4b4e0e64adccdd0850
+PODFILE CHECKSUM: 7ada292df37a52c7d6e077ab289581a8a876af02
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

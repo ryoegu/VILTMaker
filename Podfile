@@ -13,6 +13,9 @@ pod 'EZAudio', '~> 1.1.4'
 
 # for OOSI
 pod 'C4', '~> 1.0'
+
+# for Nifty Mobile Backend
+pod 'NCMB', :git => 'https://github.com/NIFTYCloud-mbaas/ncmb_ios.git'
 end
 
 target 'VILTMakerTests' do
