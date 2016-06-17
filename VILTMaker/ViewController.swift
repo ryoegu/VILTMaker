@@ -11,6 +11,7 @@ import AVFoundation
 import SwiftyJSON
 import EZAudio
 import C4
+import NCMB
 
 class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate, EZMicrophoneDelegate {
     
@@ -437,11 +438,34 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         
     }
     
-    // MARK: Memori Warning
+    // MARK: Memory Warning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+/*NCMBQuery *query = [NCMBQuery queryWithClassName:@"TestClass"];
+ [query whereKey:@"message" equalTo:@"test"];
+ [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+ if (error == nil) {
+ if ([objects count] > 0) {
+ NSLog(@"[FIND] %@", [[objects objectAtIndex:0] objectForKey:@"message"]);
+ } else {
+ NSError *saveError = nil;
+ NCMBObject *obj = [NCMBObject objectWithClassName:@"TestClass"];
+ [obj setObject:@"Hello, NCMB!" forKey:@"message"];
+ [obj save:&saveError];
+ if (saveError == nil) {
+ NSLog(@"[SAVE] Done");
+ } else {
+ NSLog(@"[SAVE-ERROR] %@", saveError);
+ }
+ }
+ } else {
+ NSLog(@"[ERROR] %@", error);
+ }
+ }];*/
+
 
  
 }

@@ -17,3 +17,5 @@
 #import "AiTalkAudioPlayer.h"
 
 #import <EZAudio/EZAudio.h>
+
+#import <NCMB/NCMB.h>
