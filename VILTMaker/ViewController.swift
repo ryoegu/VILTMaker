@@ -23,6 +23,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     let docomoSpeakModel: SpeakModel = SpeakModel()
     
+    var figureNumberString: String = ""
+    
     var filePath: String!
     var recorder: AVAudioRecorder!
     
@@ -95,6 +97,10 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         docomoSpeakModel.speak(String(sender.currentTitle!) + "ボタン")
     }
     
+    @IBAction func newButtonPushed(sender: UIButton) {
+        docomoSpeakModel.speak(String(sender.currentTitle!) + "ボタン")
+    }
+
     //MARK: ダブルタップ処理(UITapGestureRecognizer)
     @IBAction func editButton1DoubleTapped(sender: UITapGestureRecognizer) {
         self.doubleTappedGeneralWithButtonIndex(0)
@@ -153,14 +159,13 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             NSLog("音声入力開始")
             self.startRecord()
         }
-        
     }
     
-    
-    @IBAction func saveButtonDoubleTapped(sender: UITapGestureRecognizer) {
-        NSLog("Save Button Double Tapped")
-        
+
+    @IBAction func newButtonDoubleTapped(sender: UITapGestureRecognizer) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
     
     //MARK: TextView Delegate
     func textViewDidChange(textView: UITextView) {
@@ -269,7 +274,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     //MARK: Set Audio Player(効果音)
     func initAudioPlayers() {
         
-        
         //Change Answer
         do {
             let filePath = NSBundle.mainBundle().pathForResource("changeAnswer", ofType: "mp3")
@@ -330,7 +334,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         canvas.add(oosiView)
         
         speaker = YLSpeechSynthesizer()
-        let parser = DemoPropParser(YLResource.loadBundleResource("Demo"))
+        let parser = DemoPropParser(YLResource.loadBundleResource(figureNumberString))
         points = parser.getPoints()
         polygons = parser.getPolygons()
         sounds = SoundManager(YLResource.loadBundleResource("resources"))
@@ -338,9 +342,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         oosiView.addPanGestureRecognizer { _, center, _, _, _ in
             self.onPanning(center)
         }
-        
-        //let k = oosiView.width/50
-        //oosiView.transform = Transform.makeScale(2, 1)
         
         addViews(Array(parser.getCircles().values),
                  Array(polygons.values),
@@ -390,7 +391,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     }
     
     func pip(distance: Double) {
-        let note = YLSoundNote(rawValue: Int(distance)/70)!
+        let note = YLSoundNote(rawValue: Int(distance)/80)!
         if let pr = prevNote {
             if pr != note {
                 sounds.pip(note)

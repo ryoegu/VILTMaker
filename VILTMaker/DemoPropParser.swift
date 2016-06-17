@@ -10,9 +10,9 @@ import Foundation
 import C4
 
 func conv(p: Point) -> Point {
-    let x = map(p.x, min: -384, max: 384, toMin: 0, toMax: 768)
-    let y = map(p.y, min: 367.5, max: -367.5, toMin: 0, toMax: 735)
-    return Point(x, y)
+//    let x = map(p.x, min: -384, max: 384, toMin: 0, toMax: 768)
+//    let y = map(p.y, min: 367.5, max: -367.5, toMin: 0, toMax: 735)
+    return Point(p.x, p.y)
 }
 
 class DemoPropParser {

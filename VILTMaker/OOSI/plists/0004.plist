@@ -4,117 +4,117 @@
 <dict>
 	<key>points</key>
 	<dict>
-		<key>P</key>
+		<key>A</key>
 		<dict>
 			<key>color</key>
 			<string>red</string>
 			<key>x</key>
-			<integer>-210</integer>
+			<integer>88</integer>
 			<key>y</key>
-			<integer>-240</integer>
+			<integer>242</integer>
 		</dict>
-		<key>Q</key>
+		<key>B</key>
+		<dict>
+			<key>color</key>
+			<string>red</string>
+			<key>x</key>
+			<integer>20</integer>
+			<key>y</key>
+			<integer>615</integer>
+		</dict>
+		<key>C</key>
 		<dict>
 			<key>color</key>
 			<string>green</string>
 			<key>x</key>
-			<integer>180</integer>
+			<integer>561</integer>
 			<key>y</key>
-			<integer>-60</integer>
+			<integer>615</integer>
 		</dict>
-		<key>R</key>
+		<key>D</key>
 		<dict>
 			<key>color</key>
 			<string>gray</string>
 			<key>x</key>
-			<integer>-60</integer>
+			<integer>638</integer>
 			<key>y</key>
-			<integer>210</integer>
+			<integer>237</integer>
+		</dict>
+		<key>E</key>
+		<dict>
+			<key>color</key>
+			<string>gray</string>
+			<key>x</key>
+			<integer>202</integer>
+			<key>y</key>
+			<integer>494</integer>
+		</dict>
+		<key>F</key>
+		<dict>
+			<key>color</key>
+			<string>gray</string>
+			<key>x</key>
+			<integer>445</integer>
+			<key>y</key>
+			<integer>357</integer>
 		</dict>
 	</dict>
 	<key>lines</key>
 	<dict>
-		<key>PQ</key>
+		<key>AB</key>
 		<dict>
 			<key>begin</key>
-			<string>P</string>
+			<string>A</string>
 			<key>end</key>
-			<string>Q</string>
+			<string>B</string>
 		</dict>
-		<key>QR</key>
+		<key>BC</key>
 		<dict>
 			<key>begin</key>
-			<string>Q</string>
+			<string>B</string>
 			<key>end</key>
-			<string>R</string>
+			<string>C</string>
 		</dict>
-		<key>RP</key>
+		<key>CD</key>
 		<dict>
 			<key>begin</key>
-			<string>R</string>
+			<string>C</string>
 			<key>end</key>
-			<string>P</string>
+			<string>D</string>
+		</dict>
+		<key>AE</key>
+		<dict>
+			<key>begin</key>
+			<string>A</string>
+			<key>end</key>
+			<string>E</string>
+		</dict>
+		<key>AD</key>
+		<dict>
+			<key>begin</key>
+			<string>A</string>
+			<key>end</key>
+			<string>D</string>
+		</dict>
+		<key>FC</key>
+		<dict>
+			<key>begin</key>
+			<string>F</string>
+			<key>end</key>
+			<string>C</string>
+		</dict>
+		<key>BD</key>
+		<dict>
+			<key>begin</key>
+			<string>B</string>
+			<key>end</key>
+			<string>D</string>
 		</dict>
 	</dict>
 	<key>angles</key>
-	<dict>
-		<key>RPQ</key>
-		<dict>
-			<key>center</key>
-			<string>P</string>
-			<key>start</key>
-			<string>R</string>
-			<key>end</key>
-			<string>Q</string>
-		</dict>
-		<key>PQR</key>
-		<dict>
-			<key>center</key>
-			<string>Q</string>
-			<key>start</key>
-			<string>P</string>
-			<key>end</key>
-			<string>R</string>
-		</dict>
-		<key>QRP</key>
-		<dict>
-			<key>center</key>
-			<string>R</string>
-			<key>start</key>
-			<string>Q</string>
-			<key>end</key>
-			<string>P</string>
-		</dict>
-	</dict>
+	<dict/>
 	<key>labels</key>
 	<dict>
-		<key>P</key>
-		<dict>
-			<key>x</key>
-			<integer>-250</integer>
-			<key>y</key>
-			<integer>-280</integer>
-			<key>text</key>
-			<string>P</string>
-		</dict>
-		<key>Q</key>
-		<dict>
-			<key>x</key>
-			<integer>210</integer>
-			<key>y</key>
-			<integer>-100</integer>
-			<key>text</key>
-			<string>Q</string>
-		</dict>
-		<key>R</key>
-		<dict>
-			<key>x</key>
-			<integer>-90</integer>
-			<key>y</key>
-			<integer>250</integer>
-			<key>text</key>
-			<string>R</string>
-		</dict>
 		<key>description</key>
 		<dict>
 			<key>x</key>

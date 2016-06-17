@@ -70,7 +70,6 @@ class SpeakModel: NSObject {
         header[3] = String("F").utf8.first!
         header[4] = __uint8_t(totalDataLen & 0xff)
         header[5] = __uint8_t((totalDataLen >> 8) & 0xff)
-        
         header[6] = __uint8_t((totalDataLen >> 16) & 0xff)
         header[7] = __uint8_t((totalDataLen >> 24) & 0xff)
         header[8] = String("W").utf8.first!
