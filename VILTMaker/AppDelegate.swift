@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import NCMB
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,16 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-/*        [NCMB setApplicationKey:@"YOUR_APPLICATION_KEY" clientKey:@"YOUR_CLIENT_KEY"];*/
-        // DoCoMo開発者ポータルから取得したAPIキーの設定
-        if let niftyApplicationKey = KeyManager().getValue("NiftyApplicationKey") as? String {
-            if let niftyClientKey = KeyManager().getValue("NiftyClientKey") as? String{
-                NCMB.setApplicationKey(niftyApplicationKey, clientKey: niftyClientKey)
-            }
-            
-        }
-        
-
         return true
     }
 

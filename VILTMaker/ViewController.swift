@@ -158,7 +158,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }else{
             NSLog("音声入力開始")
             self.startRecord()
-            self.audioPlot.hidden= false
+            self.audioPlot.hidden = false
         }
     }
 
