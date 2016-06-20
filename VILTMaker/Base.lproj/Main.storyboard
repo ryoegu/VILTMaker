@@ -55,7 +55,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="cr3-Yb-04v"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="hGS-Fe-3Ps"/>
                                             <outletCollection property="gestureRecognizers" destination="Sq6-DP-aMp" appends="YES" id="VIv-P3-FZk"/>
                                         </connections>
                                     </button>
@@ -79,7 +79,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="0Zh-tv-etW"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="Xuu-MP-ySh"/>
                                             <outletCollection property="gestureRecognizers" destination="jf9-Ci-9dA" appends="YES" id="aep-8b-oDM"/>
                                         </connections>
                                     </button>
@@ -102,7 +102,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="b72-R9-6iW"/>
+                                            <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="wn3-yf-oup"/>
                                             <outletCollection property="gestureRecognizers" destination="2e4-RY-eMY" appends="YES" id="Wf4-wR-vi9"/>
                                         </connections>
                                     </button>
@@ -121,7 +121,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="okButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="vSJ-WT-r36"/>
+                                            <action selector="okButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="nNz-Qn-Oa6"/>
                                             <outletCollection property="gestureRecognizers" destination="wtL-Md-p8b" appends="YES" id="vTC-00-iPX"/>
                                         </connections>
                                     </button>
@@ -134,7 +134,7 @@
                                             <color key="titleColor" red="0.99825226430000003" green="1" blue="0.99012902690000004" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="newButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="UVi-lT-PE8"/>
+                                            <action selector="newButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="xd7-2S-ZaU"/>
                                             <outletCollection property="gestureRecognizers" destination="GAL-JH-NGS" appends="YES" id="2Sd-m2-K4Q"/>
                                         </connections>
                                     </button>
@@ -148,16 +148,6 @@
                                         <rect key="frame" x="36" y="359" width="526" height="261"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enK-4m-agV">
-                                        <rect key="frame" x="0.0" y="699" width="598" height="100"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <state key="normal" title="音声入力"/>
-                                        <connections>
-                                            <action selector="voiceInputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QPc-bp-fSH"/>
-                                            <outletCollection property="gestureRecognizers" destination="guc-DD-chq" appends="YES" id="WqO-Ds-YQY"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6z-vj-4YB">
                                         <rect key="frame" x="346" y="839" width="238" height="177"/>
                                         <color key="backgroundColor" red="1" green="0.32240548786868584" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -167,9 +157,13 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="ngButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="eOE-hW-60v"/>
+                                            <action selector="ngButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="jrg-7r-VVy"/>
                                             <outletCollection property="gestureRecognizers" destination="Qpg-mh-h7X" appends="YES" id="36a-7t-cMA"/>
                                         </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYf-gB-NRQ">
+                                        <rect key="frame" x="443" y="26" width="141" height="105"/>
+                                        <state key="normal" title="保存"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98115079365079361" green="0.98115079365079361" blue="0.98115079365079361" alpha="1" colorSpace="calibratedRGB"/>
@@ -215,11 +209,7 @@
                         <action selector="previewQuestionLabelPushed:" destination="BYZ-38-t0r" id="nQe-56-mnZ"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="lij-wx-xXv" userLabel="Save Button Double Tap Gesture Recognizer">
-                    <connections>
-                        <action selector="saveButtonDoubleTapped:" destination="BYZ-38-t0r" id="Zhz-Cx-TGp"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="lij-wx-xXv" userLabel="Save Button Double Tap Gesture Recognizer"/>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="Qpg-mh-h7X" userLabel="NG Button Double Tap Gesture Recognizer">
                     <connections>
                         <action selector="ngButtonDoubleTapped:" destination="BYZ-38-t0r" id="olI-O4-IgY"/>

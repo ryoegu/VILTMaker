@@ -14,8 +14,8 @@ pod 'EZAudio', '~> 1.1.4'
 # for OOSI
 pod 'C4', '~> 1.0'
 
-# for Nifty Mobile Backend
-pod 'NCMB', :git => 'https://github.com/NIFTYCloud-mbaas/ncmb_ios.git'
+# for Animation
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 end
 
 target 'VILTMakerTests' do

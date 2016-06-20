@@ -66,6 +66,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         
         //Audio Plotのための初期化処理
         self.audioPlotInit()
+        self.audioPlot.hidden = true
 
         //OOSI Viewの初期化処理
         self.oosiViewInit()
@@ -128,7 +129,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     }
     @IBAction func ngButtonDoubleTapped(sender: UITapGestureRecognizer) {
         NSLog("編集モード開始")
-        singleCursorAudioPlayer.play()
+        recordStartAudioPlayer.play()
         var setString: String = ""
         
         switch needToChangeObjectNumber {
@@ -149,19 +150,18 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }
         
         editingTextView.text = setString
-    }
-
-    @IBAction func voiceInputDoubleTapped(sender: UITapGestureRecognizer) {
-        recordStartAudioPlayer.play()
+        
         if isVoiceInputNow {
             NSLog("音声入力終了")
             self.stopRecord()
+            self.audioPlot.hidden = true
         }else{
             NSLog("音声入力開始")
             self.startRecord()
+            self.audioPlot.hidden= false
         }
     }
-    
+
 
     @IBAction func newButtonDoubleTapped(sender: UITapGestureRecognizer) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -436,6 +436,14 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     }
     func microphone(microphone: EZMicrophone!, hasBufferList bufferList: UnsafeMutablePointer<AudioBufferList>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
         
+    }
+    
+    // MARK: 大文字など、文字変換
+    func changeCharacter(string: String) -> String {
+        var bigString = string.uppercaseString
+        bigString = bigString.stringByReplacingOccurrencesOfString(" ", withString: "")
+        bigString = bigString.stringByReplacingOccurrencesOfString("合同", withString: "≡")
+        return bigString
     }
     
     // MARK: Memory Warning
