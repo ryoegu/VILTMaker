@@ -11,7 +11,6 @@ import AVFoundation
 import SwiftyJSON
 import EZAudio
 import C4
-import NCMB
 
 class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate, EZMicrophoneDelegate {
     
@@ -154,11 +153,17 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         if isVoiceInputNow {
             NSLog("音声入力終了")
             self.stopRecord()
-            self.audioPlot.hidden = true
+            
+            UIView.animateWithDuration(NSTimeInterval(CGFloat(3.0)), animations: { () -> Void in
+                self.audioPlot.hidden = true
+            })
         }else{
             NSLog("音声入力開始")
             self.startRecord()
-            self.audioPlot.hidden = false
+            UIView.animateWithDuration(NSTimeInterval(CGFloat(3.0)), animations: {
+                self.audioPlot.hidden = false
+            })
+            
         }
     }
 

@@ -16,6 +16,10 @@ pod 'C4', '~> 1.0'
 
 # for Animation
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+
+# Font Awesome
+pod ‘FontAwesome.swift’
+
 end
 
 target 'VILTMakerTests' do

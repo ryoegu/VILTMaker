@@ -7,7 +7,8 @@ PODS:
   - EZAudio/Full (1.1.5):
     - EZAudio/Core
     - TPCircularBuffer (= 1.1)
-  - NCMB (2.3.1)
+  - FontAwesome.swift (0.7.3)
+  - Spring (1.0.3)
   - SwiftyJSON (2.3.2)
   - TPCircularBuffer (1.1)
 
@@ -15,19 +16,21 @@ DEPENDENCIES:
   - Alamofire (~> 3.4)
   - C4 (~> 1.0)
   - EZAudio (~> 1.1.4)
-  - NCMB (from `https://github.com/NIFTYCloud-mbaas/ncmb_ios.git`)
+  - FontAwesome.swift
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
-  NCMB:
-    :git: https://github.com/NIFTYCloud-mbaas/ncmb_ios.git
+  Spring:
+    :branch: swift2
+    :git: https://github.com/MengTo/Spring.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
-  NCMB:
-    :commit: 331857ecf6e9c1095b7fcf946e1aab7038499326
-    :git: https://github.com/NIFTYCloud-mbaas/ncmb_ios.git
+  Spring:
+    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :git: https://github.com/MengTo/Spring.git
   SwiftyJSON:
     :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
@@ -36,10 +39,11 @@ SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   C4: 376f0283d94033b954972d963bf1acdf13eb2a7d
   EZAudio: 3b1cb4b6d7ebca68f0c2478576d75940aad4aa99
-  NCMB: 3decbc3527b85bad06fe1fc3a5cdf93b3bbcd9d9
+  FontAwesome.swift: f694fe0f667d6d3390b5919cdb0556a27b75d427
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TPCircularBuffer: 4960a919e667280f7f38963d771f45871b64fe62
 
-PODFILE CHECKSUM: 7ada292df37a52c7d6e077ab289581a8a876af02
+PODFILE CHECKSUM: 6266142d93e218a30843ada59cf76449352000a0
 
 COCOAPODS: 1.0.1
