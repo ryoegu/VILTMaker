@@ -11,6 +11,7 @@ import AVFoundation
 import SwiftyJSON
 import EZAudio
 import C4
+import FontAwesome_swift
 
 class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate, EZMicrophoneDelegate {
     
@@ -20,6 +21,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     @IBOutlet var okButton: UIButton!
     @IBOutlet var ngButton: UIButton!
+    @IBOutlet var saveButton: UIButton!
     
     let docomoSpeakModel: SpeakModel = SpeakModel()
     

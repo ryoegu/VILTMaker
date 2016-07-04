@@ -118,6 +118,50 @@
 	</dict>
 	<key>labels</key>
 	<dict>
+		<key>A</key>
+		<dict>
+			<key>x</key>
+			<integer>92</integer>
+			<key>y</key>
+			<integer>157</integer>
+			<key>size</key>
+			<integer>45</integer>
+			<key>text</key>
+			<string>A</string>
+		</dict>
+		<key>B</key>
+		<dict>
+			<key>x</key>
+			<integer>35</integer>
+			<key>y</key>
+			<integer>692</integer>
+			<key>size</key>
+			<integer>45</integer>
+			<key>text</key>
+			<string>B</string>
+		</dict>
+		<key>C</key>
+		<dict>
+			<key>x</key>
+			<integer>707</integer>
+			<key>y</key>
+			<integer>680</integer>
+			<key>size</key>
+			<integer>45</integer>
+			<key>text</key>
+			<string>C</string>
+		</dict>
+		<key>D</key>
+		<dict>
+			<key>x</key>
+			<integer>563</integer>
+			<key>y</key>
+			<integer>175</integer>
+			<key>size</key>
+			<integer>45</integer>
+			<key>text</key>
+			<string>D</string>
+		</dict>
 		<key>description</key>
 		<dict>
 			<key>x</key>

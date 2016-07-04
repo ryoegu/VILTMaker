@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="FontAwesome.otf">
+            <string>FontAwesome</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -112,21 +117,8 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ykX-bw-79s">
                                 <rect key="frame" x="768" y="0.0" width="598" height="1024"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhF-T4-q7j">
-                                        <rect key="frame" x="8" y="839" width="330" height="177"/>
-                                        <color key="backgroundColor" red="0.3490429228315759" green="0.56245978896340665" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="75"/>
-                                        <state key="normal" title="O  K">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="okButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="nNz-Qn-Oa6"/>
-                                            <outletCollection property="gestureRecognizers" destination="wtL-Md-p8b" appends="YES" id="vTC-00-iPX"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SA0-OF-J6u">
-                                        <rect key="frame" x="36" y="26" width="302" height="105"/>
+                                        <rect key="frame" x="36" y="63" width="302" height="105"/>
                                         <color key="backgroundColor" red="1" green="0.35891513019999999" blue="0.25432004949999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
@@ -139,17 +131,38 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="平行四辺形ABCDの対角線BD上に、BE=DFとなるような2点EとFをとる。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-jm-Ydp">
-                                        <rect key="frame" x="36" y="171" width="548" height="143"/>
+                                        <rect key="frame" x="36" y="208" width="548" height="143"/>
                                         <color key="backgroundColor" red="0.96141286375661372" green="0.96141286375661372" blue="0.96141286375661372" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYf-gB-NRQ">
+                                        <rect key="frame" x="356" y="63" width="228" height="105"/>
+                                        <color key="backgroundColor" red="0.9137254901960784" green="0.27058823529411763" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="37"/>
+                                        <state key="normal" title=" SAVE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbZ-qw-hzR" customClass="EZAudioPlot">
-                                        <rect key="frame" x="36" y="359" width="548" height="261"/>
+                                        <rect key="frame" x="36" y="746" width="548" height="261"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhF-T4-q7j">
+                                        <rect key="frame" x="8" y="368" width="330" height="177"/>
+                                        <color key="backgroundColor" red="0.3490429228315759" green="0.56245978896340665" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                        <state key="normal" title="O  K">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="okButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="nNz-Qn-Oa6"/>
+                                            <outletCollection property="gestureRecognizers" destination="wtL-Md-p8b" appends="YES" id="vTC-00-iPX"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6z-vj-4YB">
-                                        <rect key="frame" x="346" y="839" width="238" height="177"/>
+                                        <rect key="frame" x="346" y="368" width="238" height="177"/>
                                         <color key="backgroundColor" red="1" green="0.32240548786868584" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="56"/>
@@ -160,10 +173,6 @@
                                             <action selector="ngButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="jrg-7r-VVy"/>
                                             <outletCollection property="gestureRecognizers" destination="Qpg-mh-h7X" appends="YES" id="36a-7t-cMA"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYf-gB-NRQ">
-                                        <rect key="frame" x="443" y="26" width="141" height="105"/>
-                                        <state key="normal" title="保存"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98115079365079361" green="0.98115079365079361" blue="0.98115079365079361" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,6 +192,7 @@
                         <outlet property="ngButton" destination="B6z-vj-4YB" id="NiM-HS-b7R"/>
                         <outlet property="okButton" destination="nhF-T4-q7j" id="kY4-Pf-aTq"/>
                         <outlet property="previewQuestionLabel" destination="Taf-Rv-g75" id="fol-Bm-PuB"/>
+                        <outlet property="saveButton" destination="TYf-gB-NRQ" id="jVA-94-icM"/>
                         <outletCollection property="previewSelectButton" destination="3uV-4F-ryo" collectionClass="NSMutableArray" id="Wj4-Mh-ofh"/>
                         <outletCollection property="previewSelectButton" destination="JZV-LA-L5y" collectionClass="NSMutableArray" id="Xbh-jG-WI0"/>
                         <outletCollection property="previewSelectButton" destination="MDA-tm-tlZ" collectionClass="NSMutableArray" id="G44-sB-Qkp"/>
@@ -227,7 +237,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-269" y="191"/>
+            <point key="canvasLocation" x="-269" y="307"/>
         </scene>
         <!--Reader View Controller-->
         <scene sceneID="uMP-od-pKN">

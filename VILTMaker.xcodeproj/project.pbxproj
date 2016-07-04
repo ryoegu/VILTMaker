@@ -16,7 +16,7 @@
 		2A1BEE001D13D4D100CD1C1B /* 0002.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BEDFF1D13D4D100CD1C1B /* 0002.plist */; };
 		2A1BEE021D13D70000CD1C1B /* 0003.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BEE011D13D70000CD1C1B /* 0003.plist */; };
 		2A1BEE041D13D8BB00CD1C1B /* 0004.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BEE031D13D8BB00CD1C1B /* 0004.plist */; };
-		2A22EA771D17B29B00865038 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A22EA761D17B29B00865038 /* fontawesome-webfont.ttf */; };
+		2A22EA791D17B65A00865038 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A22EA781D17B65A00865038 /* FontAwesome.otf */; };
 		2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7A8DDC1CF2DA8F0034239C /* example_figure.png */; };
 		2A7F0C551D0AC46800A3DECC /* YLAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C311D0AC46800A3DECC /* YLAudioPlayer.swift */; };
 		2A7F0C561D0AC46800A3DECC /* YLResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C321D0AC46800A3DECC /* YLResource.swift */; };
@@ -92,7 +92,7 @@
 		2A1BEDFF1D13D4D100CD1C1B /* 0002.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0002.plist; sourceTree = "<group>"; };
 		2A1BEE011D13D70000CD1C1B /* 0003.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0003.plist; sourceTree = "<group>"; };
 		2A1BEE031D13D8BB00CD1C1B /* 0004.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0004.plist; sourceTree = "<group>"; };
-		2A22EA761D17B29B00865038 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fontawesome-webfont.ttf"; path = "../fontawesome-webfont.ttf"; sourceTree = "<group>"; };
+		2A22EA781D17B65A00865038 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		2A7A8DDC1CF2DA8F0034239C /* example_figure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example_figure.png; sourceTree = "<group>"; };
 		2A7F0C311D0AC46800A3DECC /* YLAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLAudioPlayer.swift; sourceTree = "<group>"; };
 		2A7F0C321D0AC46800A3DECC /* YLResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLResource.swift; sourceTree = "<group>"; };
@@ -315,7 +315,7 @@
 		2AD841E01CF9E26C00BB100B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2A22EA761D17B29B00865038 /* fontawesome-webfont.ttf */,
+				2A22EA781D17B65A00865038 /* FontAwesome.otf */,
 				2A7F0C2E1D0AC46800A3DECC /* OOSI */,
 				2A839F3C1D097F7B00475ACF /* Media */,
 				2AD409011CF2D65E00214542 /* VILTMaker-Bridging-Header.h */,
@@ -580,6 +580,7 @@
 				2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */,
 				2A1BEDFD1D13D4C500CD1C1B /* 0001.plist in Resources */,
 				2AF9DBD31CEF05F8001AB683 /* Main.storyboard in Resources */,
+				2A22EA791D17B65A00865038 /* FontAwesome.otf in Resources */,
 				2A7F0C681D0AC46800A3DECC /* pip_g4.caf in Resources */,
 				2A839F431D0986B900475ACF /* cursorDouble.mp3 in Resources */,
 				2A7F0C661D0AC46800A3DECC /* pip_e5.caf in Resources */,
@@ -587,7 +588,6 @@
 				2A7F0C5F1D0AC46800A3DECC /* pip_a4.caf in Resources */,
 				2A7F0C671D0AC46800A3DECC /* pip_f4.caf in Resources */,
 				2A7F0C601D0AC46800A3DECC /* pip_b4.caf in Resources */,
-				2A22EA771D17B29B00865038 /* fontawesome-webfont.ttf in Resources */,
 				2A7F0C621D0AC46800A3DECC /* pip_c5.caf in Resources */,
 				2A839F441D0986B900475ACF /* cursorSingle.mp3 in Resources */,
 				2A839F461D098C4C00475ACF /* okButton.mp3 in Resources */,
