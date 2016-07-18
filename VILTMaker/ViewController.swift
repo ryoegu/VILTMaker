@@ -16,12 +16,16 @@ import FontAwesome_swift
 class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate, EZMicrophoneDelegate {
     
     @IBOutlet var previewQuestionLabel: UILabel!
-    @IBOutlet var editingTextView: UITextView!
+    @IBOutlet var beforeChangingTextView: UITextView!
+    
+    @IBOutlet var afterChangingTextView: UITextView!
     @IBOutlet var previewSelectButton: [BorderButton]!
     
+    @IBOutlet var editView: UIView!
     @IBOutlet var okButton: UIButton!
     @IBOutlet var ngButton: UIButton!
     @IBOutlet var saveButton: UIButton!
+    @IBOutlet var voiceInputButton: UIButton!
     
     let docomoSpeakModel: SpeakModel = SpeakModel()
     
@@ -58,7 +62,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     //MARK: Setup and Initializiation Methods
     override func setup() {
-        editingTextView.delegate = self
+        beforeChangingTextView.delegate = self
+        afterChangingTextView.delegate = self
         //初期値（仮置き）
         previewSelectButton[1].backgroundColor = ConstColor.pink
         
@@ -67,11 +72,12 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         
         //Audio Plotのための初期化処理
         self.audioPlotInit()
-        self.audioPlot.hidden = true
+        self.audioPlot.alpha = 0
 
         //OOSI Viewの初期化処理
         self.oosiViewInit()
         
+        self.editView.hidden = true
     }
 
 
@@ -81,15 +87,18 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         NSLog("PreviewQuestionLabel Pushed")
         needToChangeObjectNumber = 4
         docomoSpeakModel.speak(previewQuestionLabel.text!)
+        self.beforeChangingTextView.text = previewQuestionLabel.text
     }
     
     @IBAction func selectButtonPushed(sender: BorderButton) {
         var buttonTitle = sender.currentTitle
+        self.beforeChangingTextView.text = buttonTitle
         buttonTitle = buttonTitle?.stringByReplacingOccurrencesOfString("△", withString: "三角形")
         buttonTitle = buttonTitle?.stringByReplacingOccurrencesOfString("≡", withString: " 合同 ")
         docomoSpeakModel.speak(buttonTitle!)
         
         needToChangeObjectNumber = sender.tag
+        
     }
     
     @IBAction func okButtonPushed(sender: UIButton) {
@@ -97,11 +106,11 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     }
     
     @IBAction func ngButtonPushed(sender: UIButton) {
-        docomoSpeakModel.speak(String(sender.currentTitle!) + "ボタン")
+        docomoSpeakModel.speak("編集ボタン")
     }
     
     @IBAction func newButtonPushed(sender: UIButton) {
-        docomoSpeakModel.speak(String(sender.currentTitle!) + "ボタン")
+        docomoSpeakModel.speak("新規作成ボタン")
     }
 
     //MARK: ダブルタップ処理(UITapGestureRecognizer)
@@ -128,8 +137,38 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     @IBAction func okButtonDoubleTapped(sender: UITapGestureRecognizer) {
         okAudioPlayer.play()
     }
+    
+    
+    @IBAction func voiceInputButtonDoubleTapped(sender: UITapGestureRecognizer) {
+        recordStartAudioPlayer.play()
+        
+        if isVoiceInputNow {
+            NSLog("音声入力終了")
+            self.stopRecord()
+            
+            UIView.animateWithDuration(NSTimeInterval(CGFloat(0.5)), animations: { () -> Void in
+                self.audioPlot.alpha = 0
+                self.voiceInputButton.hidden = true
+                self.afterChangingTextView.hidden = false
+            })
+        }else{
+            NSLog("音声入力開始")
+            self.startRecord()
+            UIView.animateWithDuration(NSTimeInterval(CGFloat(0.5)), animations: {
+                self.audioPlot.alpha = 1
+            })
+            
+        }
+        
+        
+    }
+    
     @IBAction func ngButtonDoubleTapped(sender: UITapGestureRecognizer) {
         NSLog("編集モード開始")
+        editView.hidden = false
+        afterChangingTextView.hidden = true
+        voiceInputButton.hidden = false
+        
         recordStartAudioPlayer.play()
         var setString: String = ""
         
@@ -150,23 +189,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             break
         }
         
-        editingTextView.text = setString
-        
-        if isVoiceInputNow {
-            NSLog("音声入力終了")
-            self.stopRecord()
-            
-            UIView.animateWithDuration(NSTimeInterval(CGFloat(3.0)), animations: { () -> Void in
-                self.audioPlot.hidden = true
-            })
-        }else{
-            NSLog("音声入力開始")
-            self.startRecord()
-            UIView.animateWithDuration(NSTimeInterval(CGFloat(3.0)), animations: {
-                self.audioPlot.hidden = false
-            })
-            
-        }
+        beforeChangingTextView.text = setString
     }
 
 
@@ -199,7 +222,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             //Now you got your value
             NSLog("google result == %@",resultString)
             //音声認識結果をテキストビューに表示
-            editingTextView.text = resultString
+            afterChangingTextView.text = resultString
             docomoSpeakModel.speak(resultString)
         }
         isVoiceInputNow = false
@@ -277,141 +300,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         self.callGoogleRecognizeApi(data)
     }
     
-    
-    
-    //MARK: Set Audio Player(効果音)
-    func initAudioPlayers() {
-        
-        //Change Answer
-        do {
-            let filePath = NSBundle.mainBundle().pathForResource("changeAnswer", ofType: "mp3")
-            let audioPath = NSURL(fileURLWithPath: filePath!)
-            changeAnswerAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
-            changeAnswerAudioPlayer.prepareToPlay()
-        } catch {
-            print("Error")
-        }
-        
-        //Single Cursor
-        do {
-            let filePath = NSBundle.mainBundle().pathForResource("cursorSingle", ofType: "mp3")
-            let audioPath = NSURL(fileURLWithPath: filePath!)
-            singleCursorAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
-            singleCursorAudioPlayer.prepareToPlay()
-        } catch {
-            print("Error")
-        }
-        
-        //Double Cursor
-        do {
-            let filePath = NSBundle.mainBundle().pathForResource("cursorDouble", ofType: "mp3")
-            let audioPath = NSURL(fileURLWithPath: filePath!)
-            doubleCursorAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
-            doubleCursorAudioPlayer.prepareToPlay()
-        } catch {
-            print("Error")
-        }
-        
-        //OK Button
-        do {
-            let filePath = NSBundle.mainBundle().pathForResource("okButton", ofType: "mp3")
-            let audioPath = NSURL(fileURLWithPath: filePath!)
-            okAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
-            okAudioPlayer.prepareToPlay()
-        } catch {
-            print("Error")
-        }
-        
-        //Record Start Button
-        do {
-            let filePath = NSBundle.mainBundle().pathForResource("recordStart", ofType: "mp3")
-            let audioPath = NSURL(fileURLWithPath: filePath!)
-            recordStartAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
-            recordStartAudioPlayer.prepareToPlay()
-        } catch {
-            print("Error")
-        }
-        
-    }
-    
-    
-    // MARK: OOSI View
-    func oosiViewInit() {
-        
-        oosiView.backgroundColor = black
-        canvas.add(oosiView)
-        
-        speaker = YLSpeechSynthesizer()
-        let parser = DemoPropParser(YLResource.loadBundleResource(figureNumberString))
-        points = parser.getPoints()
-        polygons = parser.getPolygons()
-        sounds = SoundManager(YLResource.loadBundleResource("resources"))
-        
-        oosiView.addPanGestureRecognizer { _, center, _, _, _ in
-            self.onPanning(center)
-        }
-        
-        addViews(Array(parser.getCircles().values),
-                 Array(polygons.values),
-                 Array(parser.getLabels().values),
-                 Array(parser.getAngles().values))
-        
-    }
-    
-    func addViews(circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
-        for p in polygons {
-            oosiView.add(p)
-        }
-        for c in circles {
-            oosiView.add(c)
-            c.addTapGestureRecognizer { _, center, _ in
-                print("Point:", center)
-                self.sounds.pong()
-                c.fillColor = Color(red: random01(), green: random01(), blue: random01(), alpha: 1)
-            }
-        }
-        for a in angles {
-            oosiView.add(a)
-        }
-        for l in labels {
-            oosiView.add(l)
-            l.addTapGestureRecognizer { _ in
-                self.speaker.speak(l.text)
-            }
-        }
-    }
-    
-    func onPanning(center: Point) {
-        print(center)
-        let ps = polygons.filter { _, polygon in
-            polygon.hitTest(center)
-        }
-        if let (name, _) = ps.first {
-            let i = name.startIndex
-            let ch = "\(name[i])"
-            let begin = conv(points[ch]!)
-            let d = distance(begin, rhs: center)
-            self.pip(d)
-            print("Line:", begin, center)
-        } else {
-            prevNote = nil
-        }
-    }
-    
-    func pip(distance: Double) {
-        let note = YLSoundNote(rawValue: Int(distance)/80)!
-        if let pr = prevNote {
-            if pr != note {
-                sounds.pip(note)
-            }
-        } else {
-            sounds.pip(note)
-        }
-        prevNote = note
-        
-    }
-    
-    
     //MARK: Audio Plot Methods
     func audioPlotInit() {
         //波形
@@ -458,30 +346,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-/*NCMBQuery *query = [NCMBQuery queryWithClassName:@"TestClass"];
- [query whereKey:@"message" equalTo:@"test"];
- [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
- if (error == nil) {
- if ([objects count] > 0) {
- NSLog(@"[FIND] %@", [[objects objectAtIndex:0] objectForKey:@"message"]);
- } else {
- NSError *saveError = nil;
- NCMBObject *obj = [NCMBObject objectWithClassName:@"TestClass"];
- [obj setObject:@"Hello, NCMB!" forKey:@"message"];
- [obj save:&saveError];
- if (saveError == nil) {
- NSLog(@"[SAVE] Done");
- } else {
- NSLog(@"[SAVE-ERROR] %@", saveError);
- }
- }
- } else {
- NSLog(@"[ERROR] %@", error);
- }
- }];*/
-
-
  
 }
 

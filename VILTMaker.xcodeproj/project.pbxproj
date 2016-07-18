@@ -17,6 +17,8 @@
 		2A1BEE021D13D70000CD1C1B /* 0003.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BEE011D13D70000CD1C1B /* 0003.plist */; };
 		2A1BEE041D13D8BB00CD1C1B /* 0004.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BEE031D13D8BB00CD1C1B /* 0004.plist */; };
 		2A22EA791D17B65A00865038 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A22EA781D17B65A00865038 /* FontAwesome.otf */; };
+		2A72AFDC1D3C57760049663A /* ViewControllerAudioExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */; };
+		2A72AFDE1D3C57FB0049663A /* OOSIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */; };
 		2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7A8DDC1CF2DA8F0034239C /* example_figure.png */; };
 		2A7F0C551D0AC46800A3DECC /* YLAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C311D0AC46800A3DECC /* YLAudioPlayer.swift */; };
 		2A7F0C561D0AC46800A3DECC /* YLResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C321D0AC46800A3DECC /* YLResource.swift */; };
@@ -93,6 +95,8 @@
 		2A1BEE011D13D70000CD1C1B /* 0003.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0003.plist; sourceTree = "<group>"; };
 		2A1BEE031D13D8BB00CD1C1B /* 0004.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0004.plist; sourceTree = "<group>"; };
 		2A22EA781D17B65A00865038 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAudioExtension.swift; sourceTree = "<group>"; };
+		2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOSIViewExtension.swift; sourceTree = "<group>"; };
 		2A7A8DDC1CF2DA8F0034239C /* example_figure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example_figure.png; sourceTree = "<group>"; };
 		2A7F0C311D0AC46800A3DECC /* YLAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLAudioPlayer.swift; sourceTree = "<group>"; };
 		2A7F0C321D0AC46800A3DECC /* YLResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLResource.swift; sourceTree = "<group>"; };
@@ -298,6 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */,
+				2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */,
+				2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */,
 				2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */,
 			);
 			name = Controller;
@@ -752,6 +758,7 @@
 				2A7F0C551D0AC46800A3DECC /* YLAudioPlayer.swift in Sources */,
 				2A1919441CF2DE1A009B8B54 /* UIColorExtension.swift in Sources */,
 				2A7F0C591D0AC46800A3DECC /* YLCircle.swift in Sources */,
+				2A72AFDE1D3C57FB0049663A /* OOSIViewExtension.swift in Sources */,
 				2A7F0C5B1D0AC46800A3DECC /* YLPolygon.swift in Sources */,
 				2AF3C7B61CF774BC0090F4F9 /* AiTalkAudioPlayer.m in Sources */,
 				2A7F0C5D1D0AC46800A3DECC /* YLTopology.swift in Sources */,
@@ -760,6 +767,7 @@
 				2A7F0C5C1D0AC46800A3DECC /* YLTextShape.swift in Sources */,
 				2A7F0C581D0AC46800A3DECC /* YLSpeechSynthesizer.swift in Sources */,
 				2AF9DBCE1CEF05F8001AB683 /* AppDelegate.swift in Sources */,
+				2A72AFDC1D3C57760049663A /* ViewControllerAudioExtension.swift in Sources */,
 				2A7F0C571D0AC46800A3DECC /* YLSoundNote.swift in Sources */,
 				2A7F0C711D0AC46800A3DECC /* YLLogger.swift in Sources */,
 			);
