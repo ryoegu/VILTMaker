@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="dhW-py-O6M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="cXI-u9-sjb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -222,6 +222,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYf-gB-NRQ" customClass="BorderButton">
                                         <rect key="frame" x="360" y="17" width="105" height="105"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="50"/>
                                         <state key="normal" title="">
                                             <color key="titleColor" red="0.96141286380000002" green="0.60666733520000005" blue="0.2224546691" alpha="1" colorSpace="calibratedRGB"/>
@@ -237,6 +238,9 @@
                                                 <real key="value" value="52.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ckM-96-TGi" appends="YES" id="GhB-Z3-3Jp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhF-T4-q7j" customClass="BorderButton">
                                         <rect key="frame" x="8" y="144" width="330" height="139"/>
@@ -373,6 +377,7 @@
                         <outlet property="audioPlot" destination="pbZ-qw-hzR" id="Zdt-QI-4f1"/>
                         <outlet property="beforeChangingTextView" destination="NaS-Nm-YZQ" id="5I4-oS-V3D"/>
                         <outlet property="editView" destination="8zi-3a-mNv" id="REX-Nw-L6a"/>
+                        <outlet property="figureView" destination="0Zc-IF-ami" id="bPj-u7-pqa"/>
                         <outlet property="ngButton" destination="B6z-vj-4YB" id="NiM-HS-b7R"/>
                         <outlet property="okButton" destination="nhF-T4-q7j" id="kY4-Pf-aTq"/>
                         <outlet property="previewQuestionLabel" destination="Taf-Rv-g75" id="fol-Bm-PuB"/>
@@ -446,6 +451,11 @@
                 <tapGestureRecognizer numberOfTapsRequired="2" id="aSJ-a8-sGO" userLabel="List Button Double Tap Gesture Recognizer">
                     <connections>
                         <action selector="listButtonDoubleTapped:" destination="BYZ-38-t0r" id="hSV-Yk-a8B"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="ckM-96-TGi" userLabel="Save Button Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="saveButtonDoubleTapped:" destination="BYZ-38-t0r" id="FJD-Hw-hUW"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

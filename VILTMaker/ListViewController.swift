@@ -7,10 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var wholeArray: [AnyObject] = []
+    var ListItems:Results<Question>?{
+        do{
+            let realm = try Realm()
+            return realm.objects(Question)
+        }catch{
+            print("エラー")
+        }
+        return nil
+    }
     
     @IBOutlet var listCollectionView: UICollectionView!
     override func viewDidLoad() {

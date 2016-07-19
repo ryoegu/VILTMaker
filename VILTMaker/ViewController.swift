@@ -12,6 +12,7 @@ import SwiftyJSON
 import EZAudio
 import C4
 import FontAwesome_swift
+import RealmSwift
 
 class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate, EZMicrophoneDelegate {
     
@@ -28,6 +29,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var voiceInputButton: UIButton!
     
+    @IBOutlet var figureView: UIView!
     let docomoSpeakModel: SpeakModel = SpeakModel()
     
     var figureNumberString: String = ""
@@ -63,9 +65,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     let oosiView = View(frame: Rect(0,289,768,735))
     
     
-    //仮でUserDefaultsに保存
-    var wholeArray: [AnyObject] = []
-    let saveData = NSUserDefaults.standardUserDefaults()
     
     
     //MARK: Setup and Initializiation Methods
@@ -256,16 +255,22 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         
         
         
-            self.previewTitleLabel.font = UIFont.systemFontOfSize(CGFloat(fontSize))
-            self.previewQuestionLabel.font = UIFont.systemFontOfSize(CGFloat(fontSize))
+        self.previewTitleLabel.font = UIFont.systemFontOfSize(CGFloat(fontSize))
+        self.previewQuestionLabel.font = UIFont.systemFontOfSize(CGFloat(fontSize))
+        
+        for i in 0...2 {
+            self.previewSelectButton[i].titleLabel?.font = UIFont.systemFontOfSize(CGFloat(fontSize))
             
-            for i in 0...2 {
-                self.previewSelectButton[i].titleLabel?.font = UIFont.systemFontOfSize(CGFloat(fontSize))
-                
-            }
-            self.beforeChangingTextView.font = UIFont.systemFontOfSize(CGFloat(fontSize))
-            self.afterChangingTextView.font = UIFont.systemFontOfSize(CGFloat(fontSize))
+        }
+        self.beforeChangingTextView.font = UIFont.systemFontOfSize(CGFloat(fontSize))
+        self.afterChangingTextView.font = UIFont.systemFontOfSize(CGFloat(fontSize))
     }
+    
+    
+    @IBAction func saveButtonDoubleTapped(sender: UITapGestureRecognizer) {
+        self.saveQuestion()
+    }
+    
     
     @IBAction func listButtonDoubleTapped(sender: UITapGestureRecognizer) {
         performSegueWithIdentifier("toList", sender: nil)
@@ -326,10 +331,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         for i in 0...2 {
             previewSelectButton[i].setTitle("選択肢" + String(i+1), forState: .Normal)
         }
-    }
-    
-    //realm
-    func saveToArray() {
     }
  
 }

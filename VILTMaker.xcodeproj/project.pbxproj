@@ -58,11 +58,14 @@
 		2AB9D9C61CFD6F0100BC810E /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */; };
 		2AC76EF41CFA03B000F42F76 /* SpeakModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC76EF31CFA03B000F42F76 /* SpeakModel.swift */; };
 		2AD409041CF2D65F00214542 /* BorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD409031CF2D65F00214542 /* BorderButton.m */; };
-		2AF3C7A71CF771650090F4F9 /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF3C7A51CF771650090F4F9 /* libdocomo-aitalk-ios-sdk-1.0.1.a */; };
-		2AF3C7A81CF771650090F4F9 /* libdocomo-common-ios-sdk-1.0.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF3C7A61CF771650090F4F9 /* libdocomo-common-ios-sdk-1.0.1.a */; };
 		2AF3C7B61CF774BC0090F4F9 /* AiTalkAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3C7B51CF774BC0090F4F9 /* AiTalkAudioPlayer.m */; };
 		2AF3C7BC1CF7A87F0090F4F9 /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */; };
 		2AF3C7BE1CF7AB610090F4F9 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */; };
+		2AF75C7E1D3E871900F455D0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF75C7D1D3E871900F455D0 /* Question.swift */; };
+		2AF75C801D3E897E00F455D0 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF75C7F1D3E897E00F455D0 /* RealmExtension.swift */; };
+		2AF75C811D3E8C4D00F455D0 /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF3C7A51CF771650090F4F9 /* libdocomo-aitalk-ios-sdk-1.0.1.a */; };
+		2AF75C851D3E91CD00F455D0 /* noimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AF75C841D3E91CD00F455D0 /* noimage.jpg */; };
+		2AF75C881D3E94F500F455D0 /* ScreenCaptureUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF75C871D3E94F500F455D0 /* ScreenCaptureUtil.swift */; };
 		2AF9DBCE1CEF05F8001AB683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBCD1CEF05F8001AB683 /* AppDelegate.swift */; };
 		2AF9DBD01CEF05F8001AB683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */; };
 		2AF9DBD31CEF05F8001AB683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AF9DBD11CEF05F8001AB683 /* Main.storyboard */; };
@@ -158,6 +161,10 @@
 		2AF3C7B51CF774BC0090F4F9 /* AiTalkAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AiTalkAudioPlayer.m; path = ../AiTalkAudioPlayer.m; sourceTree = "<group>"; };
 		2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
 		2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Keys.plist; path = Keys/Keys.plist; sourceTree = "<group>"; };
+		2AF75C7D1D3E871900F455D0 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		2AF75C7F1D3E897E00F455D0 /* RealmExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
+		2AF75C841D3E91CD00F455D0 /* noimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noimage.jpg; sourceTree = "<group>"; };
+		2AF75C871D3E94F500F455D0 /* ScreenCaptureUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenCaptureUtil.swift; sourceTree = "<group>"; };
 		2AF9DBCA1CEF05F8001AB683 /* VILTMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VILTMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF9DBCD1CEF05F8001AB683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -187,9 +194,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AF75C811D3E8C4D00F455D0 /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */,
 				2A839F4F1D0991EE00475ACF /* EZAudio.framework in Frameworks */,
-				2AF3C7A81CF771650090F4F9 /* libdocomo-common-ios-sdk-1.0.1.a in Frameworks */,
-				2AF3C7A71CF771650090F4F9 /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */,
 				DB81DA175FC787FE74A48BA6 /* Pods_VILTMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +234,7 @@
 		2A2A72691D3E53FA00582D1B /* pictures */ = {
 			isa = PBXGroup;
 			children = (
+				2AF75C841D3E91CD00F455D0 /* noimage.jpg */,
 				2A2A72651D3E53F100582D1B /* welcome.png */,
 				2A2A72661D3E53F100582D1B /* welcome@2x.png */,
 			);
@@ -315,6 +322,8 @@
 				2A7F0C741D0AC55D00A3DECC /* SoundManager.swift */,
 				2AF9DBCD1CEF05F8001AB683 /* AppDelegate.swift */,
 				2AC76EF31CFA03B000F42F76 /* SpeakModel.swift */,
+				2AF75C7D1D3E871900F455D0 /* Question.swift */,
+				2AF75C871D3E94F500F455D0 /* ScreenCaptureUtil.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -325,6 +334,7 @@
 				2A2A726B1D3E65A300582D1B /* QuestionCollectionViewCell.swift */,
 				2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */,
 				2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */,
+				2AF75C7F1D3E897E00F455D0 /* RealmExtension.swift */,
 				2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */,
 				2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */,
 				2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */,
@@ -623,6 +633,7 @@
 				2A7F0C671D0AC46800A3DECC /* pip_f4.caf in Resources */,
 				2A7F0C601D0AC46800A3DECC /* pip_b4.caf in Resources */,
 				2A2A72671D3E53F100582D1B /* welcome.png in Resources */,
+				2AF75C851D3E91CD00F455D0 /* noimage.jpg in Resources */,
 				2A7F0C621D0AC46800A3DECC /* pip_c5.caf in Resources */,
 				2A839F441D0986B900475ACF /* cursorSingle.mp3 in Resources */,
 				2A839F461D098C4C00475ACF /* okButton.mp3 in Resources */,
@@ -780,6 +791,8 @@
 				2AB9D9C61CFD6F0100BC810E /* QRReaderViewController.swift in Sources */,
 				2A7F0C731D0AC55300A3DECC /* DemoPropParser.swift in Sources */,
 				2A2A726D1D3E65A300582D1B /* QuestionCollectionViewCell.swift in Sources */,
+				2AF75C7E1D3E871900F455D0 /* Question.swift in Sources */,
+				2AF75C801D3E897E00F455D0 /* RealmExtension.swift in Sources */,
 				2A2A72701D3E73E000582D1B /* ListViewController.swift in Sources */,
 				2A1919421CF2DDCF009B8B54 /* ConstColor.swift in Sources */,
 				2A72AFE01D3C5D030049663A /* SpeechExtension.swift in Sources */,
@@ -799,6 +812,7 @@
 				2A7F0C5C1D0AC46800A3DECC /* YLTextShape.swift in Sources */,
 				2A7F0C581D0AC46800A3DECC /* YLSpeechSynthesizer.swift in Sources */,
 				2AF9DBCE1CEF05F8001AB683 /* AppDelegate.swift in Sources */,
+				2AF75C881D3E94F500F455D0 /* ScreenCaptureUtil.swift in Sources */,
 				2A72AFDC1D3C57760049663A /* ViewControllerAudioExtension.swift in Sources */,
 				2A7F0C571D0AC46800A3DECC /* YLSoundNote.swift in Sources */,
 				2A7F0C711D0AC46800A3DECC /* YLLogger.swift in Sources */,
@@ -955,6 +969,27 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/VILTMaker",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"C4\"",
+					"-framework",
+					"\"EZAudio\"",
+					"-framework",
+					"\"FontAwesome_swift\"",
+					"-framework",
+					"\"Realm\"",
+					"-framework",
+					"\"RealmSwift\"",
+					"-framework",
+					"\"Spring\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"TPCircularBuffer\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.yairilab.VILTMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VILTMaker/VILTMaker-Bridging-Header.h";
@@ -975,6 +1010,27 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/VILTMaker",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"C4\"",
+					"-framework",
+					"\"EZAudio\"",
+					"-framework",
+					"\"FontAwesome_swift\"",
+					"-framework",
+					"\"Realm\"",
+					"-framework",
+					"\"RealmSwift\"",
+					"-framework",
+					"\"Spring\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"TPCircularBuffer\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.yairilab.VILTMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";

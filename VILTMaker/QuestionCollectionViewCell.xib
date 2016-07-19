@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="310"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqs-1S-KWO">
-                        <rect key="frame" x="0.0" y="310" width="300" height="44"/>
+                        <rect key="frame" x="0.0" y="310" width="300" height="48"/>
                         <color key="backgroundColor" red="0.41960784309999999" green="0.75686274509999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
