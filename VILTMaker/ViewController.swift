@@ -15,6 +15,7 @@ import FontAwesome_swift
 
 class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate, EZMicrophoneDelegate {
     
+    @IBOutlet var previewTitleLabel: UILabel!
     @IBOutlet var previewQuestionLabel: UILabel!
     @IBOutlet var beforeChangingTextView: UITextView!
     
@@ -45,6 +46,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var needToChangeObjectNumber: Int = 0
     
     var isVoiceInputNow = false
+    var bigNumber: Int = 0
+    var correctAnswerWithNumber: Int = 0
     
     @IBOutlet var audioPlot: EZAudioPlot!
     var microphone: EZMicrophone!
@@ -58,6 +61,11 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     // 図形領域
     let oosiView = View(frame: Rect(0,289,768,735))
+    
+    
+    //仮でUserDefaultsに保存
+    var wholeArray: [AnyObject] = []
+    let saveData = NSUserDefaults.standardUserDefaults()
     
     
     //MARK: Setup and Initializiation Methods
@@ -78,11 +86,19 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         self.oosiViewInit()
         
         self.editView.hidden = true
+        
+        self.reset()
     }
-
-
     
     //MARK: ワンタップ処理 (for only voice output)
+    @IBAction func previewTitleLabelPushed(sender: UITapGestureRecognizer) {
+        NSLog("PreviewTitleLabel Pushed")
+        needToChangeObjectNumber = 5
+        docomoSpeakModel.speak(previewTitleLabel.text!)
+        self.beforeChangingTextView.text = previewTitleLabel.text
+        
+    }
+    
     @IBAction func previewQuestionLabelPushed(sender: UITapGestureRecognizer) {
         NSLog("PreviewQuestionLabel Pushed")
         needToChangeObjectNumber = 4
@@ -131,11 +147,24 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
                 previewSelectButton[j].backgroundColor = ConstColor.white
             }
             previewSelectButton[index].backgroundColor = ConstColor.pink
+            correctAnswerWithNumber = index
         }
     }
     
     @IBAction func okButtonDoubleTapped(sender: UITapGestureRecognizer) {
         okAudioPlayer.play()
+        let afterString = afterChangingTextView.text
+        switch needToChangeObjectNumber {
+        case 4:
+            previewQuestionLabel.text = afterString
+            break
+        case 5:
+            previewTitleLabel.text = afterString
+            break
+        default:
+            previewSelectButton[needToChangeObjectNumber-1].setTitle(afterString, forState: .Normal)
+            break
+        }
     }
     
     
@@ -185,6 +214,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         case 4:
             setString = previewQuestionLabel.text!
             break
+        case 5:
+            setString = previewTitleLabel.text!
         default:
             break
         }
@@ -193,8 +224,51 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     }
 
 
+    
+    //上部ボタン
     @IBAction func newButtonDoubleTapped(sender: UITapGestureRecognizer) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func resetButtonDoubleTapped(sender: UITapGestureRecognizer) {
+        NSLog("Reset Button Tapped")
+        self.reset()
+    }
+    
+    
+    @IBAction func bigButtonDoubleTapped(sender: UITapGestureRecognizer) {
+        bigNumber = bigNumber + 1
+        if bigNumber >= 2 {
+            bigNumber = -1
+        }
+        
+        var fontSize = 24
+        switch bigNumber {
+        case -1:
+            fontSize = 22
+            break
+        case 1:
+            fontSize = 26
+            break
+        default:
+            break
+        }
+        
+        
+        
+            self.previewTitleLabel.font = UIFont.systemFontOfSize(CGFloat(fontSize))
+            self.previewQuestionLabel.font = UIFont.systemFontOfSize(CGFloat(fontSize))
+            
+            for i in 0...2 {
+                self.previewSelectButton[i].titleLabel?.font = UIFont.systemFontOfSize(CGFloat(fontSize))
+                
+            }
+            self.beforeChangingTextView.font = UIFont.systemFontOfSize(CGFloat(fontSize))
+            self.afterChangingTextView.font = UIFont.systemFontOfSize(CGFloat(fontSize))
+    }
+    
+    @IBAction func listButtonDoubleTapped(sender: UITapGestureRecognizer) {
+        performSegueWithIdentifier("toList", sender: nil)
     }
     
     
@@ -206,99 +280,10 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     @IBAction func voiceInputButtonPushed(sender: UIButton) {
         
-    }
-    
-    
-    //NSURLDataDelegate
-    func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse) {
-    }
-    
-    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
-        
-        let json = JSON(data: data)
-        NSLog("データを受け取りました")
-        print(json)
-        if let resultString = json["result"][0]["alternative"][0]["transcript"].string {
-            //Now you got your value
-            NSLog("google result == %@",resultString)
-            //音声認識結果をテキストビューに表示
-            afterChangingTextView.text = resultString
-            docomoSpeakModel.speak(resultString)
-        }
-        isVoiceInputNow = false
-    }
-    
-    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
-        NSLog("ERROR == %@",error)
-        isVoiceInputNow = false
-    }
-    
-    //MARK: Google Speech API
-    func callGoogleRecognizeApi(data: NSData) {
-        NSLog("CALL GOOGLE RECOGNIZE API")
-        var googleSpeechAPIKey: String = ""
-        
-        
-        //APIキーを読み込み
-        if let speechAPIKEY = KeyManager().getValue("GoogleSpeechAPIKey") as? String {
-            googleSpeechAPIKey = speechAPIKEY
-        }
-        
-        let urlStr = NSString.localizedStringWithFormat("https://www.google.com/speech-api/v2/recognize?xjerr=1&client=chromium&lang=ja-JP&maxresults=10&pfilter=0&xjerr=1&key=%@", googleSpeechAPIKey)
-        let url: NSURL = NSURL(string: urlStr as String)!
-        
-        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        request.addValue("audio/l16; rate=16000", forHTTPHeaderField: "Content-Type")
-        request.addValue("chromium", forHTTPHeaderField: "client")
-        request.HTTPBody = data
-        
-        NSURLConnection(request: request, delegate: self)
-        
         
     }
     
-    func startRecord() {
-        isVoiceInputNow = true
-        self.filePath = self.makeFilePath()
-        do {
-        try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-            let settings: NSDictionary = [
-                AVFormatIDKey: NSNumber.init(unsignedInt: kAudioFormatLinearPCM),
-                AVSampleRateKey: NSNumber.init(float: 16000.0),
-                AVNumberOfChannelsKey: NSNumber.init(unsignedInt: 1),
-                AVLinearPCMBitDepthKey: NSNumber.init(unsignedInt: 16)
-            ]
-            do {
-                self.recorder = try AVAudioRecorder(URL: NSURL.init(string: self.filePath as String)!, settings: settings as! [String : AnyObject])
-                self.recorder.delegate = self
-                self.recorder.prepareToRecord()
-                self.recorder.recordForDuration(15.0)
-            }catch{
-            }
-        }catch{
-        }
-    }
     
-    func stopRecord() {
-        isVoiceInputNow = false
-        self.recorder.stop()
-    }
-    
-    func makeFilePath() -> String {
-        let formatter: NSDateFormatter = NSDateFormatter()
-        formatter.dateFormat = "yyyyMMddHHmmss"
-        let fileName: String = String(format: "%@.wav", formatter.stringFromDate(NSDate()))
-        return NSTemporaryDirectory().stringByAppendingString(fileName)
-    }
-    
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
-        if !flag {
-            return
-        }
-        let data: NSData = NSData(contentsOfFile: self.filePath)!
-        self.callGoogleRecognizeApi(data)
-    }
     
     //MARK: Audio Plot Methods
     func audioPlotInit() {
@@ -319,19 +304,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }
     }
     
-    func microphone(microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
-        let weakSelf = self
-        dispatch_async(dispatch_get_main_queue(),{
-            weakSelf.audioPlot.updateBuffer(buffer[0], withBufferSize: bufferSize)
-        })
-    }
-    
-    func microphone(microphone: EZMicrophone!, hasAudioStreamBasicDescription audioStreamBasicDescription: AudioStreamBasicDescription) {
-        EZAudioUtilities.printASBD(audioStreamBasicDescription)
-    }
-    func microphone(microphone: EZMicrophone!, hasBufferList bufferList: UnsafeMutablePointer<AudioBufferList>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
-        
-    }
+
     
     // MARK: 大文字など、文字変換
     func changeCharacter(string: String) -> String {
@@ -345,6 +318,38 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func reset() {
+        previewTitleLabel.text = "タイトル"
+        previewQuestionLabel.text = "ここをタップして問題文を入力"
+        for i in 0...2 {
+            previewSelectButton[i].setTitle("選択肢" + String(i+1), forState: .Normal)
+        }
+    }
+    
+    
+    //このメソッドはそのうち廃止。すべてRealmに統一。
+    func saveToArray() {
+        
+        //画面のスクショを取得
+        let rect: CGRect = CGRectMake(0,289,768,735)
+        UIGraphicsBeginImageContext(rect.size)
+        self.view.layer.renderInContext(UIGraphicsGetCurrentContext!)
+        let capture = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        
+        let questionDictionary = [
+            "file_name": previewTitleLabel.text,
+            "question": previewQuestionLabel.text,
+            "answer1": previewSelectButton[0].currentTitle,
+            "answer2": previewSelectButton[1].currentTitle,
+            "answer3": previewSelectButton[2].currentTitle,
+            "correct_answer": correctAnswerWithNumber,
+            "plist_filename": filePath
+        ]
+        
     }
  
 }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="cXI-u9-sjb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="dhW-py-O6M">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="FontAwesome.otf">
+            <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
             <string>FontAwesome</string>
@@ -120,6 +121,16 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0V-3P-Z57">
+                                        <rect key="frame" x="291" y="8" width="469" height="47"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="IwG-tO-qAe" appends="YES" id="Aee-dm-AVL"/>
+                                        </connections>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90742807539682535" green="0.90742807539682535" blue="0.90742807539682535" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -150,9 +161,9 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zi-3a-mNv">
-                                        <rect key="frame" x="0.0" y="297" width="598" height="280"/>
+                                        <rect key="frame" x="0.0" y="297" width="598" height="386"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="平行四辺形ABCDの対角線BD上に、BE=DFとなるような2点EとFをとる。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-jm-Ydp">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-jm-Ydp">
                                                 <rect key="frame" x="307" y="51" width="263" height="229"/>
                                                 <color key="backgroundColor" red="0.96141286375661372" green="0.96141286375661372" blue="0.96141286375661372" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -196,10 +207,11 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="voiceInputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4IN-Kt-nIt"/>
                                                     <outletCollection property="gestureRecognizers" destination="VVt-Ge-vJJ" appends="YES" id="0Is-ou-KqQ"/>
                                                 </connections>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="平行四辺形ABCDの対角線BD上に、" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NaS-Nm-YZQ">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NaS-Nm-YZQ">
                                                 <rect key="frame" x="16" y="51" width="234" height="221"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -276,6 +288,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3c-4z-Zai" customClass="BorderButton">
                                         <rect key="frame" x="247" y="17" width="105" height="105"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="50"/>
                                         <state key="normal" title="">
                                             <color key="titleColor" red="0.96141286380000002" green="0.022015047419999999" blue="0.70501928280000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -291,9 +304,13 @@
                                                 <real key="value" value="52.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="4F3-uD-c5b" appends="YES" id="tC5-9d-dGG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNb-Bv-RG1" customClass="BorderButton">
                                         <rect key="frame" x="473" y="17" width="105" height="105"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="46"/>
                                         <state key="normal" title="">
                                             <color key="titleColor" red="1" green="0.2734198598" blue="0.352490154" alpha="1" colorSpace="calibratedRGB"/>
@@ -309,11 +326,15 @@
                                                 <real key="value" value="52.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="aSJ-a8-sGO" appends="YES" id="sCI-80-3e7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQj-Ii-Eet" customClass="BorderButton">
                                         <rect key="frame" x="134" y="17" width="105" height="105"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="50"/>
-                                        <state key="normal" title="">
+                                        <state key="normal" title="">
                                             <color key="titleColor" red="0.34904292279999999" green="0.56245978900000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -327,9 +348,12 @@
                                                 <real key="value" value="52.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="NcQ-yq-392" appends="YES" id="vJM-pK-SrB"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbZ-qw-hzR" customClass="EZAudioPlot">
-                                        <rect key="frame" x="25" y="595" width="548" height="198"/>
+                                        <rect key="frame" x="25" y="805" width="548" height="198"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -352,11 +376,13 @@
                         <outlet property="ngButton" destination="B6z-vj-4YB" id="NiM-HS-b7R"/>
                         <outlet property="okButton" destination="nhF-T4-q7j" id="kY4-Pf-aTq"/>
                         <outlet property="previewQuestionLabel" destination="Taf-Rv-g75" id="fol-Bm-PuB"/>
+                        <outlet property="previewTitleLabel" destination="k0V-3P-Z57" id="wyN-QB-cmG"/>
                         <outlet property="saveButton" destination="TYf-gB-NRQ" id="jVA-94-icM"/>
                         <outlet property="voiceInputButton" destination="0R0-1J-fiz" id="IEv-AA-WbJ"/>
                         <outletCollection property="previewSelectButton" destination="3uV-4F-ryo" collectionClass="NSMutableArray" id="Wj4-Mh-ofh"/>
                         <outletCollection property="previewSelectButton" destination="JZV-LA-L5y" collectionClass="NSMutableArray" id="Xbh-jG-WI0"/>
                         <outletCollection property="previewSelectButton" destination="MDA-tm-tlZ" collectionClass="NSMutableArray" id="G44-sB-Qkp"/>
+                        <segue destination="dhW-py-O6M" kind="modal" identifier="toList" modalTransitionStyle="crossDissolve" id="gjS-zN-rkT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -402,8 +428,97 @@
                         <action selector="voiceInputButtonDoubleTapped:" destination="BYZ-38-t0r" id="IiO-iM-Jlg"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="IwG-tO-qAe" userLabel="Title Label Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="previewTitleLabelPushed:" destination="BYZ-38-t0r" id="Tle-05-idi"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="NcQ-yq-392" userLabel="Reset Button Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="resetButtonDoubleTapped:" destination="BYZ-38-t0r" id="9Pg-C8-s9R"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="4F3-uD-c5b" userLabel="Big Button Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="bigButtonDoubleTapped:" destination="BYZ-38-t0r" id="m9N-p0-9Hc"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="aSJ-a8-sGO" userLabel="List Button Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="listButtonDoubleTapped:" destination="BYZ-38-t0r" id="hSV-Yk-a8B"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-203" y="215"/>
+            <point key="canvasLocation" x="-363" y="215"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="XxO-za-bst">
+            <objects>
+                <viewController id="dhW-py-O6M" customClass="ListViewController" customModule="VILTMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i4A-w3-MvT"/>
+                        <viewControllerLayoutGuide type="bottom" id="wWY-3d-CNk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Va-Rs-lbH">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mN7-ET-4s5" customClass="BorderButton">
+                                <rect key="frame" x="1236" y="20" width="105" height="105"/>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="46"/>
+                                <state key="normal" title="">
+                                    <color key="titleColor" red="1" green="0.2734198598" blue="0.352490154" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.2734198598" blue="0.352490154" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="52.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sWC-MG-SQB">
+                                <rect key="frame" x="0.0" y="0.0" width="1214" height="1024"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="edj-yb-GOr">
+                                    <size key="itemSize" width="298" height="392"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="NY0-l2-Opr">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="300" height="400"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="5Va-Rs-lbH" id="TQP-hN-UwQ"/>
+                                    <outlet property="delegate" destination="5Va-Rs-lbH" id="hTD-4q-WmA"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPadPro"/>
+                    <connections>
+                        <outlet property="listCollectionView" destination="sWC-MG-SQB" id="vMH-6h-hyF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aKP-zy-tjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1209" y="215"/>
         </scene>
         <!--Reader View Controller-->
         <scene sceneID="uMP-od-pKN">

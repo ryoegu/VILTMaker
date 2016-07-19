@@ -17,8 +17,14 @@
 		2A1BEE021D13D70000CD1C1B /* 0003.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BEE011D13D70000CD1C1B /* 0003.plist */; };
 		2A1BEE041D13D8BB00CD1C1B /* 0004.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BEE031D13D8BB00CD1C1B /* 0004.plist */; };
 		2A22EA791D17B65A00865038 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A22EA781D17B65A00865038 /* FontAwesome.otf */; };
+		2A2A72671D3E53F100582D1B /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2A72651D3E53F100582D1B /* welcome.png */; };
+		2A2A726A1D3E554900582D1B /* welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A2A72661D3E53F100582D1B /* welcome@2x.png */; };
+		2A2A726D1D3E65A300582D1B /* QuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A726B1D3E65A300582D1B /* QuestionCollectionViewCell.swift */; };
+		2A2A726E1D3E65A300582D1B /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A2A726C1D3E65A300582D1B /* QuestionCollectionViewCell.xib */; };
+		2A2A72701D3E73E000582D1B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A726F1D3E73E000582D1B /* ListViewController.swift */; };
 		2A72AFDC1D3C57760049663A /* ViewControllerAudioExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */; };
 		2A72AFDE1D3C57FB0049663A /* OOSIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */; };
+		2A72AFE01D3C5D030049663A /* SpeechExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */; };
 		2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7A8DDC1CF2DA8F0034239C /* example_figure.png */; };
 		2A7F0C551D0AC46800A3DECC /* YLAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C311D0AC46800A3DECC /* YLAudioPlayer.swift */; };
 		2A7F0C561D0AC46800A3DECC /* YLResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F0C321D0AC46800A3DECC /* YLResource.swift */; };
@@ -95,8 +101,14 @@
 		2A1BEE011D13D70000CD1C1B /* 0003.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0003.plist; sourceTree = "<group>"; };
 		2A1BEE031D13D8BB00CD1C1B /* 0004.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0004.plist; sourceTree = "<group>"; };
 		2A22EA781D17B65A00865038 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		2A2A72651D3E53F100582D1B /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
+		2A2A72661D3E53F100582D1B /* welcome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome@2x.png"; sourceTree = "<group>"; };
+		2A2A726B1D3E65A300582D1B /* QuestionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCollectionViewCell.swift; sourceTree = "<group>"; };
+		2A2A726C1D3E65A300582D1B /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
+		2A2A726F1D3E73E000582D1B /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAudioExtension.swift; sourceTree = "<group>"; };
 		2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOSIViewExtension.swift; sourceTree = "<group>"; };
+		2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechExtension.swift; sourceTree = "<group>"; };
 		2A7A8DDC1CF2DA8F0034239C /* example_figure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example_figure.png; sourceTree = "<group>"; };
 		2A7F0C311D0AC46800A3DECC /* YLAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLAudioPlayer.swift; sourceTree = "<group>"; };
 		2A7F0C321D0AC46800A3DECC /* YLResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YLResource.swift; sourceTree = "<group>"; };
@@ -213,6 +225,15 @@
 			path = plists;
 			sourceTree = "<group>";
 		};
+		2A2A72691D3E53FA00582D1B /* pictures */ = {
+			isa = PBXGroup;
+			children = (
+				2A2A72651D3E53F100582D1B /* welcome.png */,
+				2A2A72661D3E53F100582D1B /* welcome@2x.png */,
+			);
+			name = pictures;
+			sourceTree = "<group>";
+		};
 		2A7F0C2E1D0AC46800A3DECC /* OOSI */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,10 +322,13 @@
 		2AC76EF51CFA067C00F42F76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2A2A726B1D3E65A300582D1B /* QuestionCollectionViewCell.swift */,
 				2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */,
 				2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */,
 				2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */,
 				2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */,
+				2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */,
+				2A2A726F1D3E73E000582D1B /* ListViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -314,6 +338,7 @@
 			children = (
 				2AF9DBD11CEF05F8001AB683 /* Main.storyboard */,
 				2AF9DBD61CEF05F9001AB683 /* LaunchScreen.storyboard */,
+				2A2A726C1D3E65A300582D1B /* QuestionCollectionViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -321,6 +346,7 @@
 		2AD841E01CF9E26C00BB100B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A2A72691D3E53FA00582D1B /* pictures */,
 				2A22EA781D17B65A00865038 /* FontAwesome.otf */,
 				2A7F0C2E1D0AC46800A3DECC /* OOSI */,
 				2A839F3C1D097F7B00475ACF /* Media */,
@@ -578,12 +604,14 @@
 				2A7F0C691D0AC46800A3DECC /* pong.caf in Resources */,
 				2A7F0C651D0AC46800A3DECC /* pip_e4.caf in Resources */,
 				2A7F0C641D0AC46800A3DECC /* pip_d5.caf in Resources */,
+				2A2A726E1D3E65A300582D1B /* QuestionCollectionViewCell.xib in Resources */,
 				2A1BEE001D13D4D100CD1C1B /* 0002.plist in Resources */,
 				2A1BEDFE1D13D4C500CD1C1B /* resources.plist in Resources */,
 				2A839F401D0981CE00475ACF /* recordStart.mp3 in Resources */,
 				2A7F0C631D0AC46800A3DECC /* pip_d4.caf in Resources */,
 				2A1BEE041D13D8BB00CD1C1B /* 0004.plist in Resources */,
 				2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */,
+				2A2A726A1D3E554900582D1B /* welcome@2x.png in Resources */,
 				2A1BEDFD1D13D4C500CD1C1B /* 0001.plist in Resources */,
 				2AF9DBD31CEF05F8001AB683 /* Main.storyboard in Resources */,
 				2A22EA791D17B65A00865038 /* FontAwesome.otf in Resources */,
@@ -594,6 +622,7 @@
 				2A7F0C5F1D0AC46800A3DECC /* pip_a4.caf in Resources */,
 				2A7F0C671D0AC46800A3DECC /* pip_f4.caf in Resources */,
 				2A7F0C601D0AC46800A3DECC /* pip_b4.caf in Resources */,
+				2A2A72671D3E53F100582D1B /* welcome.png in Resources */,
 				2A7F0C621D0AC46800A3DECC /* pip_c5.caf in Resources */,
 				2A839F441D0986B900475ACF /* cursorSingle.mp3 in Resources */,
 				2A839F461D098C4C00475ACF /* okButton.mp3 in Resources */,
@@ -750,7 +779,10 @@
 				2AD409041CF2D65F00214542 /* BorderButton.m in Sources */,
 				2AB9D9C61CFD6F0100BC810E /* QRReaderViewController.swift in Sources */,
 				2A7F0C731D0AC55300A3DECC /* DemoPropParser.swift in Sources */,
+				2A2A726D1D3E65A300582D1B /* QuestionCollectionViewCell.swift in Sources */,
+				2A2A72701D3E73E000582D1B /* ListViewController.swift in Sources */,
 				2A1919421CF2DDCF009B8B54 /* ConstColor.swift in Sources */,
+				2A72AFE01D3C5D030049663A /* SpeechExtension.swift in Sources */,
 				2A7F0C751D0AC55D00A3DECC /* SoundManager.swift in Sources */,
 				2A7F0C5A1D0AC46800A3DECC /* YLLine.swift in Sources */,
 				2A7F0C561D0AC46800A3DECC /* YLResource.swift in Sources */,

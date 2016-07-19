@@ -70,6 +70,11 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         dispatch_async(sessionQueue) {
             self.session.startRunning()
         }
+        let image: UIImage = UIImage(named: "welcome.png")!
+        let imageView: UIImageView = UIImageView(image: image)
+        let rect: CGRect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        imageView.frame = rect
+        self.view.addSubview(imageView)
         
         //発音を開始
         docomoSpeakModel.speak("点図のQRコードを読み込ませてください。")
