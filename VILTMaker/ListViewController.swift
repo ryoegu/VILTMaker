@@ -11,7 +11,6 @@ import UIKit
 class ListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var wholeArray: [AnyObject] = []
-    let saveData = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet var listCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -24,9 +23,7 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if saveData.objectForKey("WHOLE") != nil {
-            wholeArray = saveData.objectForKey("WHOLE") as! Array
-        }
+
         listCollectionView.reloadData()
     }
 
@@ -38,7 +35,6 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! QuestionCollectionViewCell
         
-        let nowIndexPathDictionary: (AnyObject) = wholeArray[indexPath.row]
         
         cell.titleLabel.text = "TEST"
         cell.imageView.image = UIImage(named: "welcome.png")
@@ -50,7 +46,7 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return wholeArray.count
+        return 2
         
         //TODO: これは1ではない
     }

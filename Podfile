@@ -20,6 +20,9 @@ pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2
 # Font Awesome
 pod ‘FontAwesome.swift’
 
+# Databse
+pod 'RealmSwift'
+
 end
 
 target 'VILTMakerTests' do

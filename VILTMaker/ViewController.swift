@@ -328,28 +328,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }
     }
     
-    
-    //このメソッドはそのうち廃止。すべてRealmに統一。
+    //realm
     func saveToArray() {
-        
-        //画面のスクショを取得
-        let rect: CGRect = CGRectMake(0,289,768,735)
-        UIGraphicsBeginImageContext(rect.size)
-        self.view.layer.renderInContext(UIGraphicsGetCurrentContext!)
-        let capture = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        
-        let questionDictionary = [
-            "file_name": previewTitleLabel.text,
-            "question": previewQuestionLabel.text,
-            "answer1": previewSelectButton[0].currentTitle,
-            "answer2": previewSelectButton[1].currentTitle,
-            "answer3": previewSelectButton[2].currentTitle,
-            "correct_answer": correctAnswerWithNumber,
-            "plist_filename": filePath
-        ]
-        
     }
  
 }

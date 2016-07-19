@@ -8,6 +8,11 @@ PODS:
     - EZAudio/Core
     - TPCircularBuffer (= 1.1)
   - FontAwesome.swift (0.7.3)
+  - Realm (1.0.0):
+    - Realm/Headers (= 1.0.0)
+  - Realm/Headers (1.0.0)
+  - RealmSwift (1.0.0):
+    - Realm (= 1.0.0)
   - Spring (1.0.3)
   - SwiftyJSON (2.3.2)
   - TPCircularBuffer (1.1)
@@ -17,6 +22,7 @@ DEPENDENCIES:
   - C4 (~> 1.0)
   - EZAudio (~> 1.1.4)
   - FontAwesome.swift
+  - RealmSwift
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -40,10 +46,12 @@ SPEC CHECKSUMS:
   C4: 376f0283d94033b954972d963bf1acdf13eb2a7d
   EZAudio: 3b1cb4b6d7ebca68f0c2478576d75940aad4aa99
   FontAwesome.swift: f694fe0f667d6d3390b5919cdb0556a27b75d427
+  Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
+  RealmSwift: 3229306d020d96f83b335f87a0dcbf2cef0e6a2b
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TPCircularBuffer: 4960a919e667280f7f38963d771f45871b64fe62
 
-PODFILE CHECKSUM: 6266142d93e218a30843ada59cf76449352000a0
+PODFILE CHECKSUM: 3800ab980986dab91480f229fb5a45d69921aec7
 
 COCOAPODS: 1.0.1
