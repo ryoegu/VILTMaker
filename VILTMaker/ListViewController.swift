@@ -45,8 +45,11 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! QuestionCollectionViewCell
         
         
-        cell.titleLabel.text = "TEST"
-        cell.imageView.image = UIImage(named: "welcome.png")
+        let list = ListItems?[indexPath.row]
+        
+        
+        cell.titleLabel.text = list?.name
+        cell.imageView.image = UIImage(data: (list?.image)!)
         return cell
     }
     
@@ -55,9 +58,8 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return ListItems?.count ?? 0
         
-        //TODO: これは1ではない
     }
     
     
