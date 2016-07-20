@@ -26,6 +26,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     
     let docomoSpeakModel: SpeakModel = SpeakModel()
     var doubleCursorAudioPlayer: AVAudioPlayer!
+    let saveData = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,6 +145,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "QuestionView" {
+            saveData.setObject("", forKey: "uuid")
             let mainView: ViewController = segue.destinationViewController as! ViewController
             mainView.figureNumberString = self.figureNumberString
             

@@ -10,6 +10,8 @@ import Foundation
 import RealmSwift
 
 class Question: Object{
+    
+    dynamic var id: String = ""
     /// 名前
     dynamic var name = ""
     /// 問題文
@@ -29,5 +31,8 @@ class Question: Object{
     
     //スクショ
     dynamic var image = NSData()
-
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

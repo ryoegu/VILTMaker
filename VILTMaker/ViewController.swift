@@ -33,6 +33,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     let docomoSpeakModel: SpeakModel = SpeakModel()
     
     var figureNumberString: String = ""
+    var uuid: String = ""
     
     var filePath: String!
     var recorder: AVAudioRecorder!
@@ -63,16 +64,14 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     // 図形領域
     let oosiView = View(frame: Rect(0,289,768,735))
-    
-    
-    
+
     
     //MARK: Setup and Initializiation Methods
     override func setup() {
         beforeChangingTextView.delegate = self
         afterChangingTextView.delegate = self
         //初期値（仮置き）
-        previewSelectButton[1].backgroundColor = ConstColor.pink
+        //previewSelectButton[1].backgroundColor = ConstColor.pink
         
         //効果音のための初期化処理
         self.initAudioPlayers()
@@ -80,14 +79,54 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         //Audio Plotのための初期化処理
         self.audioPlotInit()
         self.audioPlot.alpha = 0
-
+        
+        
+        uuid = ""
         //OOSI Viewの初期化処理
         self.oosiViewInit()
+    
         
         self.editView.hidden = true
-        
-        self.reset()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NSLog("SETUP INITIALIZATION")
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey("uuid") != nil {
+            uuid = NSUserDefaults.standardUserDefaults().objectForKey("uuid") as! String
+        }
+        NSLog("uuid(from UD)===%@",uuid)
+        
+        if uuid != ""{
+            //一覧画面からアクセスした場合
+            do {
+                let realm = try Realm()
+                let object = realm.objects(Question).filter("id = '\(uuid)'").first
+                print(object)
+                self.reset((object?.name)!, question: (object?.question)!, button1: (object?.answer1)!, button2: (object?.answer2)!, button3: (object?.answer3)!, correctAnswer: (object?.correctAnswer)!, plistFileName: (object?.plistFileName)!)
+                
+                //OOSI Viewの初期化処理
+                
+                self.oosiViewInit()
+                self.oosiViewResources()
+                
+                return
+                
+                
+            } catch{
+                // handle error
+            }
+        }else{
+            NSLog("FIGURE === %@",figureNumberString)
+            self.reset(plistFileName: figureNumberString)
+            self.oosiViewResources()
+            
+        }
+        
+    }
+
     
     //MARK: ワンタップ処理 (for only voice output)
     @IBAction func previewTitleLabelPushed(sender: UITapGestureRecognizer) {
@@ -95,7 +134,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         needToChangeObjectNumber = 5
         docomoSpeakModel.speak(previewTitleLabel.text!)
         self.beforeChangingTextView.text = previewTitleLabel.text
-        
     }
     
     @IBAction func previewQuestionLabelPushed(sender: UITapGestureRecognizer) {
@@ -111,7 +149,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         buttonTitle = buttonTitle?.stringByReplacingOccurrencesOfString("△", withString: "三角形")
         buttonTitle = buttonTitle?.stringByReplacingOccurrencesOfString("≡", withString: " 合同 ")
         docomoSpeakModel.speak(buttonTitle!)
-        
         needToChangeObjectNumber = sender.tag
         
     }
@@ -226,12 +263,14 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     //上部ボタン
     @IBAction func newButtonDoubleTapped(sender: UITapGestureRecognizer) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.performSegueWithIdentifier("QRView", sender: nil)
     }
     
     @IBAction func resetButtonDoubleTapped(sender: UITapGestureRecognizer) {
         NSLog("Reset Button Tapped")
+        
         self.reset()
+        docomoSpeakModel.speak("すべての入力項目がリセットされました")
     }
     
     
@@ -245,11 +284,14 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         switch bigNumber {
         case -1:
             fontSize = 22
+            docomoSpeakModel.speak("やや小さめサイズ")
             break
         case 1:
             fontSize = 26
+            docomoSpeakModel.speak("大きめサイズ")
             break
         default:
+            docomoSpeakModel.speak("標準サイズ")
             break
         }
         
@@ -269,10 +311,12 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     @IBAction func saveButtonDoubleTapped(sender: UITapGestureRecognizer) {
         self.saveQuestion()
+        docomoSpeakModel.speak("問題が保存されました")
     }
     
     
     @IBAction func listButtonDoubleTapped(sender: UITapGestureRecognizer) {
+        uuid = ""
         performSegueWithIdentifier("toList", sender: nil)
     }
     
@@ -325,12 +369,22 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         // Dispose of any resources that can be recreated.
     }
     
-    func reset() {
-        previewTitleLabel.text = "タイトル"
-        previewQuestionLabel.text = "ここをタップして問題文を入力"
-        for i in 0...2 {
-            previewSelectButton[i].setTitle("選択肢" + String(i+1), forState: .Normal)
+    func reset(title: String = "タイトル", question: String = "ここをタップして問題文を入力", button1: String = "選択肢1", button2: String = "選択肢2", button3: String = "選択肢3", correctAnswer: Int = 0, plistFileName: String = "") {
+        
+        
+        previewTitleLabel.text = title
+        previewQuestionLabel.text = question
+        previewSelectButton[0].setTitle(button1, forState: .Normal)
+        previewSelectButton[1].setTitle(button2, forState: .Normal)
+        previewSelectButton[2].setTitle(button3, forState: .Normal)
+        
+        if correctAnswer != 0 {
+            doubleTappedGeneralWithButtonIndex(correctAnswer-1)
         }
+        
+        figureNumberString = plistFileName
+        
+        
     }
  
 }

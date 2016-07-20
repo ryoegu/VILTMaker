@@ -65,7 +65,6 @@
 		2AF75C801D3E897E00F455D0 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF75C7F1D3E897E00F455D0 /* RealmExtension.swift */; };
 		2AF75C811D3E8C4D00F455D0 /* libdocomo-aitalk-ios-sdk-1.0.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF3C7A51CF771650090F4F9 /* libdocomo-aitalk-ios-sdk-1.0.1.a */; };
 		2AF75C851D3E91CD00F455D0 /* noimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AF75C841D3E91CD00F455D0 /* noimage.jpg */; };
-		2AF75C881D3E94F500F455D0 /* ScreenCaptureUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF75C871D3E94F500F455D0 /* ScreenCaptureUtil.swift */; };
 		2AF9DBCE1CEF05F8001AB683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBCD1CEF05F8001AB683 /* AppDelegate.swift */; };
 		2AF9DBD01CEF05F8001AB683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */; };
 		2AF9DBD31CEF05F8001AB683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AF9DBD11CEF05F8001AB683 /* Main.storyboard */; };
@@ -812,7 +811,6 @@
 				2A7F0C5C1D0AC46800A3DECC /* YLTextShape.swift in Sources */,
 				2A7F0C581D0AC46800A3DECC /* YLSpeechSynthesizer.swift in Sources */,
 				2AF9DBCE1CEF05F8001AB683 /* AppDelegate.swift in Sources */,
-				2AF75C881D3E94F500F455D0 /* ScreenCaptureUtil.swift in Sources */,
 				2A72AFDC1D3C57760049663A /* ViewControllerAudioExtension.swift in Sources */,
 				2A7F0C571D0AC46800A3DECC /* YLSoundNote.swift in Sources */,
 				2A7F0C711D0AC46800A3DECC /* YLLogger.swift in Sources */,

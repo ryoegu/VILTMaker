@@ -11,7 +11,10 @@ import UIKit
 struct ScreenCaptureUtil {
     static func take(view: UIView)->UIImage{
         
-        let layer = view.layer
+        let imageView = UIView(frame: CGRectMake(0, 289, 768, 735))
+        view.addSubView(imageView)
+        
+        let layer = imageView.layer
         let scale = UIScreen.mainScreen().scale
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
         

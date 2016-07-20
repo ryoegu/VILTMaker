@@ -13,13 +13,21 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var ListItems:Results<Question>?{
         do{
+            let config = Realm.Configuration(
+                schemaVersion: 1,
+                migrationBlock: { migration, oldSchemaVersion in
+                    if (oldSchemaVersion < 1) {}
+            })
+            Realm.Configuration.defaultConfiguration = config
+            
             let realm = try Realm()
             return realm.objects(Question)
-        }catch{
-            print("エラー")
+        }catch let error as NSError{
+            print("error === %@",error)
         }
         return nil
     }
+    var uuid: String = ""
     
     @IBOutlet var listCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -29,11 +37,14 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.listCollectionView.dataSource = self
         listCollectionView.registerNib(UINib(nibName: "QuestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
     }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
         listCollectionView.reloadData()
+    }
+    @IBAction func close(sender: UIButton) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +61,17 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         cell.titleLabel.text = list?.name
         cell.imageView.image = UIImage(data: (list?.image)!)
+        let df = NSDateFormatter()
+        df.dateFormat = "MM/dd HH:mm"
+        cell.timeLabel.text = df.stringFromDate((list?.makingDate)!)
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let list = ListItems?[indexPath.row]
+        uuid = (list?.id)!
+        NSUserDefaults.standardUserDefaults().setObject(uuid, forKey: "uuid")
+        performSegueWithIdentifier("QuestionView", sender: nil)
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -59,20 +80,10 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return ListItems?.count ?? 0
-        
     }
     
-    
-    
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

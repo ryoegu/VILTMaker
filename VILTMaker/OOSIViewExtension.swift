@@ -17,8 +17,11 @@ extension ViewController {
         
         oosiView.backgroundColor = black
         canvas.add(oosiView)
-        
         speaker = YLSpeechSynthesizer()
+
+    }
+    
+    func oosiViewResources() {
         let parser = DemoPropParser(YLResource.loadBundleResource(figureNumberString))
         points = parser.getPoints()
         polygons = parser.getPolygons()
@@ -32,7 +35,6 @@ extension ViewController {
                  Array(polygons.values),
                  Array(parser.getLabels().values),
                  Array(parser.getAngles().values))
-        
     }
     
     func addViews(circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
@@ -55,6 +57,21 @@ extension ViewController {
             l.addTapGestureRecognizer { _ in
                 self.speaker.speak(l.text)
             }
+        }
+    }
+    
+    func removeViews(circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
+        for p in polygons {
+            oosiView.remove(p)
+        }
+        for c in circles {
+            oosiView.remove(c)
+        }
+        for a in angles {
+            oosiView.remove(a)
+        }
+        for l in labels {
+            oosiView.remove(l)
         }
     }
     
