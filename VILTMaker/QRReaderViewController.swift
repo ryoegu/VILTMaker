@@ -14,19 +14,19 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     var previewLayer: AVCaptureVideoPreviewLayer!
     @IBOutlet var qrView: UIView!
     
-    private let targetTypes = [AVMetadataObjectTypeQRCode]
+    fileprivate let targetTypes = [AVMetadataObjectTypeQRCode]
     
     var figureNumberString: String!
     
     // キャプチャセッションを作成
-    private let session = AVCaptureSession()
+    fileprivate let session = AVCaptureSession()
     // 専用のキューを作成
-    private let sessionQueue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL)
+    fileprivate let sessionQueue = DispatchQueue(label: "session queue", attributes: [])
 
     
     let docomoSpeakModel: SpeakModel = SpeakModel()
     var doubleCursorAudioPlayer: AVAudioPlayer!
-    let saveData = NSUserDefaults.standardUserDefaults()
+    let saveData = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +35,14 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         
         // プレビュー用のレイヤーを作成
         let layer = AVCaptureVideoPreviewLayer(session: session)
-        layer.videoGravity = AVLayerVideoGravityResizeAspectFill
-        qrView.layer.addSublayer(layer)
+        layer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        qrView.layer.addSublayer(layer!)
         previewLayer = layer
         
-        dispatch_async(sessionQueue) {
+        sessionQueue.async {
             // カメラの取得と設定
-            let devices = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo).flatMap {
-                ($0.position == .Front) ? $0 : nil
+            let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).flatMap {
+                (($0 as AnyObject).position == .front) ? $0 : nil
             }
             guard let device = devices.first as? AVCaptureDevice else {
                 assertionFailure("Not Found Camera")
@@ -58,22 +58,22 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
             }
             
             let output = AVCaptureMetadataOutput()
-            output.setMetadataObjectsDelegate(self, queue: dispatch_queue_create("meta queue", DISPATCH_QUEUE_SERIAL))
+            output.setMetadataObjectsDelegate(self, queue: DispatchQueue(label: "meta queue", attributes: []))
             self.session.addOutput(output)
             output.metadataObjectTypes = self.targetTypes
         }
 
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // キャプチャセッションを開始
-        dispatch_async(sessionQueue) {
+        sessionQueue.async {
             self.session.startRunning()
         }
         let image: UIImage = UIImage(named: "welcome.png")!
         let imageView: UIImageView = UIImageView(image: image)
-        let rect: CGRect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        let rect: CGRect = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         imageView.frame = rect
         self.view.addSubview(imageView)
         
@@ -81,7 +81,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         docomoSpeakModel.speak("点図のQRコードを読み込ませてください。")
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // プレビューのサイズを合わせる
         previewLayer.frame = qrView.bounds
@@ -93,25 +93,25 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     }
     
     // MARK: -
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         typealias code = (value: String, rect: CGRect)
         
         let items: [code] = metadataObjects.flatMap {
             guard let obj = $0 as? AVMetadataMachineReadableCodeObject else { return nil }
             // ターゲットとするタイプのコードか確認
-            guard let _ = targetTypes.indexOf(obj.type) else { return nil }
+            guard let _ = targetTypes.index(of: obj.type) else { return nil }
             
             // コードのタイプとデータを取得
-            let value = (obj.type.componentsSeparatedByString(".").last ?? "") + "\n" + obj.stringValue
-            let rect = previewLayer.transformedMetadataObjectForMetadataObject(obj).bounds
-            if !self.doubleCursorAudioPlayer.playing {
+            let value = (obj.type.components(separatedBy: ".").last ?? "") + "\n" + obj.stringValue
+            let rect = previewLayer.transformedMetadataObject(for: obj).bounds
+            if !self.doubleCursorAudioPlayer.isPlaying {
                 self.doubleCursorAudioPlayer.play()
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
 
                     // Main Thread
                     self.figureNumberString = obj.stringValue
                 
-                    self.performSegueWithIdentifier("QuestionView", sender: nil)
+                    self.performSegue(withIdentifier: "QuestionView", sender: nil)
                 });
 
                 
@@ -120,21 +120,21 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         }
         
          // マーカーの追加
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             self.qrView.subviews.forEach { $0.removeFromSuperview() }
             items.forEach {
                 let v = UIView(frame: $0.rect)
-                v.backgroundColor = UIColor.clearColor()
-                v.layer.borderColor = UIColor.greenColor().CGColor
+                v.backgroundColor = UIColor.clear
+                v.layer.borderColor = UIColor.green.cgColor
                 v.layer.borderWidth = 2
                 let lb = UILabel(frame: v.bounds)
                 lb.numberOfLines = -1
                 lb.adjustsFontSizeToFitWidth = true
                 lb.text = $0.value
-                lb.textAlignment = .Center
+                lb.textAlignment = .center
                 lb.center = CGPoint(x: v.bounds.width / 2, y: v.bounds.height / 2)
-                lb.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.3)
-                lb.textColor = UIColor.yellowColor()
+                lb.backgroundColor = UIColor.blue.withAlphaComponent(0.3)
+                lb.textColor = UIColor.yellow
                 v.addSubview(lb)
                 print(lb.text)
                 /*self.qrView.addSubview(v)*/
@@ -143,10 +143,10 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "QuestionView" {
-            saveData.setObject("", forKey: "uuid")
-            let mainView: ViewController = segue.destinationViewController as! ViewController
+            saveData.set("", forKey: "uuid")
+            let mainView: ViewController = segue.destination as! ViewController
             mainView.figureNumberString = self.figureNumberString
             
             self.session.stopRunning()
@@ -158,9 +158,9 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     func initAudioPlayers() {
         //Single Cursor
         do {
-            let filePath = NSBundle.mainBundle().pathForResource("cursorDouble", ofType: "mp3")
-            let audioPath = NSURL(fileURLWithPath: filePath!)
-            doubleCursorAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
+            let filePath = Bundle.main.path(forResource: "cursorDouble", ofType: "mp3")
+            let audioPath = URL(fileURLWithPath: filePath!)
+            doubleCursorAudioPlayer = try AVAudioPlayer(contentsOf: audioPath)
             doubleCursorAudioPlayer.prepareToPlay()
         } catch {
             print("Error")

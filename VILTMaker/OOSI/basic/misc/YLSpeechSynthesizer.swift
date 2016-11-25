@@ -9,20 +9,20 @@
 import Foundation
 import AVFoundation
 
-public class YLSpeechSynthesizer: NSObject {
+open class YLSpeechSynthesizer: NSObject {
     let speaker: AVSpeechSynthesizer
 
     public override init() {
         speaker = AVSpeechSynthesizer()
     }
     
-    public func speak(s: String) {
-        if speaker.speaking {
-            speaker.stopSpeakingAtBoundary(.Immediate)
+    open func speak(_ s: String) {
+        if speaker.isSpeaking {
+            speaker.stopSpeaking(at: .immediate)
         }
         let ut = AVSpeechUtterance(string: s)
         ut.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         ut.rate = 0.6
-        speaker.speakUtterance(ut)
+        speaker.speak(ut)
     }
 }

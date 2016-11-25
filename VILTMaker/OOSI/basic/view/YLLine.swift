@@ -23,13 +23,13 @@ public class YLLine: Line {
         fatalError("not implemented")
     }
     
-    public func buffer(b: Double = 15) -> Polygon {
+    open func buffer(_ b: Double = 15) -> Polygon {
         let (p1, p2) = endPoints
         print("ENDPOINT===\(endPoints)")
         return YLPolygon(name: name, begin: p1, end: p2, buffer: b)
     }
     
-    public override var description: String {
+    open override var description: String {
         let (p1, p2) = endPoints
         return "\(name): \(p1) -> \(p2) "
     }

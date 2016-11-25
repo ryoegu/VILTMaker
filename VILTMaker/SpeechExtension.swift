@@ -13,10 +13,10 @@ import EZAudio
 
 extension ViewController {
     //NSURLDataDelegate
-    func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse) {
+    func connection(_ connection: NSURLConnection, didReceiveResponse response: URLResponse) {
     }
     
-    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
+    func connection(_ connection: NSURLConnection, didReceiveData data: Data) {
         
         let json = JSON(data: data)
         NSLog("データを受け取りました")
@@ -32,13 +32,13 @@ extension ViewController {
         isVoiceInputNow = false
     }
     
-    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
+    func connection(_ connection: NSURLConnection, didFailWithError error: NSError) {
         NSLog("ERROR == %@",error)
         isVoiceInputNow = false
     }
     
     //MARK: Google Speech API
-    func callGoogleRecognizeApi(data: NSData) {
+    func callGoogleRecognizeApi(_ data: Data) {
         var googleSpeechAPIKey: String = ""
         
         
@@ -48,15 +48,15 @@ extension ViewController {
         }
         
         let urlStr = NSString.localizedStringWithFormat("https://www.google.com/speech-api/v2/recognize?xjerr=1&client=chromium&lang=ja-JP&maxresults=10&pfilter=0&xjerr=1&key=%@", googleSpeechAPIKey)
-        let url: NSURL = NSURL(string: urlStr as String)!
+        let url: URL = URL(string: urlStr as String)!
         
-        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
+        let request: NSMutableURLRequest = NSMutableURLRequest(url: url)
+        request.httpMethod = "POST"
         request.addValue("audio/l16; rate=16000", forHTTPHeaderField: "Content-Type")
         request.addValue("chromium", forHTTPHeaderField: "client")
-        request.HTTPBody = data
+        request.httpBody = data
         
-        NSURLConnection(request: request, delegate: self)
+        NSURLConnection(request: request as URLRequest, delegate: self)
         
         
     }
@@ -67,16 +67,16 @@ extension ViewController {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
             let settings: NSDictionary = [
-                AVFormatIDKey: NSNumber.init(unsignedInt: kAudioFormatLinearPCM),
-                AVSampleRateKey: NSNumber.init(float: 16000.0),
-                AVNumberOfChannelsKey: NSNumber.init(unsignedInt: 1),
-                AVLinearPCMBitDepthKey: NSNumber.init(unsignedInt: 16)
+                AVFormatIDKey: NSNumber.init(value: kAudioFormatLinearPCM as UInt32),
+                AVSampleRateKey: NSNumber.init(value: 16000.0 as Float),
+                AVNumberOfChannelsKey: NSNumber.init(value: 1 as UInt32),
+                AVLinearPCMBitDepthKey: NSNumber.init(value: 16 as UInt32)
             ]
             do {
-                self.recorder = try AVAudioRecorder(URL: NSURL.init(string: self.filePath as String)!, settings: settings as! [String : AnyObject])
+                self.recorder = try AVAudioRecorder(url: URL.init(string: self.filePath as String)!, settings: settings as! [String : AnyObject])
                 self.recorder.delegate = self
                 self.recorder.prepareToRecord()
-                self.recorder.recordForDuration(15.0)
+                self.recorder.record(forDuration: 15.0)
             }catch{
             }
         }catch{
@@ -89,31 +89,31 @@ extension ViewController {
     }
     
     func makeFilePath() -> String {
-        let formatter: NSDateFormatter = NSDateFormatter()
+        let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "yyyyMMddHHmmss"
-        let fileName: String = String(format: "%@.wav", formatter.stringFromDate(NSDate()))
-        return NSTemporaryDirectory().stringByAppendingString(fileName)
+        let fileName: String = String(format: "%@.wav", formatter.string(from: Date()))
+        return NSTemporaryDirectory() + fileName
     }
     
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
             return
         }
-        let data: NSData = NSData(contentsOfFile: self.filePath)!
+        let data: Data = try! Data(contentsOf: URL(fileURLWithPath: self.filePath))
         self.callGoogleRecognizeApi(data)
     }
     
-    func microphone(microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
+    func microphone(_ microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
         let weakSelf = self
-        dispatch_async(dispatch_get_main_queue(),{
+        DispatchQueue.main.async(execute: {
             weakSelf.audioPlot.updateBuffer(buffer[0], withBufferSize: bufferSize)
         })
     }
     
-    func microphone(microphone: EZMicrophone!, hasAudioStreamBasicDescription audioStreamBasicDescription: AudioStreamBasicDescription) {
+    func microphone(_ microphone: EZMicrophone!, hasAudioStreamBasicDescription audioStreamBasicDescription: AudioStreamBasicDescription) {
         EZAudioUtilities.printASBD(audioStreamBasicDescription)
     }
-    func microphone(microphone: EZMicrophone!, hasBufferList bufferList: UnsafeMutablePointer<AudioBufferList>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
+    func microphone(_ microphone: EZMicrophone!, hasBufferList bufferList: UnsafeMutablePointer<AudioBufferList>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
         
     }
 

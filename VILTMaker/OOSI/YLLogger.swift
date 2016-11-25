@@ -10,21 +10,21 @@ import Foundation
 import C4
 
 class YLLogger {
-    let date0: NSDate
-    var log: [(NSTimeInterval, Double, Double)]
+    let date0: Date
+    var log: [(TimeInterval, Double, Double)]
     init() {
-        date0 = NSDate()
+        date0 = Date()
         log = []
     }
     
-    func record(date: NSDate, point: Point) {
-        let diff = date.timeIntervalSinceDate(date0)
+    func record(_ date: Date, point: Point) {
+        let diff = date.timeIntervalSince(date0)
         log.append(diff, point.x, point.y)
     }
     
-    func save(filename: String) {
-        let docDir = NSURL(fileURLWithPath: "\(NSHomeDirectory())/Documents/")
-        let path = "\(docDir.path!)/\(filename)"
+    func save(_ filename: String) {
+        let docDir = URL(fileURLWithPath: "\(NSHomeDirectory())/Documents/")
+        let path = "\(docDir.path)/\(filename)"
  
         var s = ""
         for (date, x, y) in log {
@@ -32,7 +32,7 @@ class YLLogger {
             s += s1
         }
         do {
-            try s.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding)
+            try s.write(toFile: path, atomically: true, encoding: String.Encoding.utf8)
         } catch _ {
         }
         print(path)
@@ -40,8 +40,8 @@ class YLLogger {
     }
     
     func getName() -> String {
-        let format = NSDateFormatter()
+        let format = DateFormatter()
         format.dateFormat = "yyyyMMdd_HHmmss"
-        return format.stringFromDate(date0) + ".csv"
+        return format.string(from: date0) + ".csv"
     }
 }

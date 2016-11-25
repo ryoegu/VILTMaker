@@ -9,7 +9,7 @@
 import Foundation
 import C4
 
-public class YLWedge: Wedge {
+open class YLWedge: Wedge {
     let name: String
     let radius: Double
     let start: Double
@@ -26,7 +26,7 @@ public class YLWedge: Wedge {
         strokeColor = C4Purple
     }
     
-    public override var description: String {
+    open override var description: String {
         return "\(name): \(center), (\(start) -> \(end)), \(radius)"
         
     }

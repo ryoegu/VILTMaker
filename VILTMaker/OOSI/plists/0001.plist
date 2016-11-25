@@ -9,45 +9,45 @@
 			<key>color</key>
 			<string>red</string>
 			<key>x</key>
-			<integer>130</integer>
+			<integer>142</integer>
 			<key>y</key>
-			<integer>220</integer>
+			<integer>187</integer>
 		</dict>
 		<key>B</key>
 		<dict>
 			<key>color</key>
 			<string>red</string>
 			<key>x</key>
-			<integer>9</integer>
+			<integer>13</integer>
 			<key>y</key>
-			<integer>630</integer>
+			<integer>601</integer>
 		</dict>
 		<key>C</key>
 		<dict>
 			<key>color</key>
 			<string>green</string>
 			<key>x</key>
-			<integer>663</integer>
+			<integer>678</integer>
 			<key>y</key>
-			<integer>630</integer>
+			<integer>613</integer>
 		</dict>
 		<key>D</key>
 		<dict>
 			<key>color</key>
 			<string>gray</string>
 			<key>x</key>
-			<integer>530</integer>
+			<integer>543</integer>
 			<key>y</key>
-			<integer>220</integer>
+			<integer>190</integer>
 		</dict>
 		<key>E</key>
 		<dict>
 			<key>color</key>
 			<string>gray</string>
 			<key>x</key>
-			<integer>328</integer>
+			<integer>338</integer>
 			<key>y</key>
-			<integer>373</integer>
+			<integer>349</integer>
 		</dict>
 	</dict>
 	<key>lines</key>
@@ -154,13 +154,24 @@
 		<key>D</key>
 		<dict>
 			<key>x</key>
-			<integer>563</integer>
+			<integer>558</integer>
 			<key>y</key>
-			<integer>175</integer>
+			<integer>141</integer>
 			<key>size</key>
 			<integer>45</integer>
 			<key>text</key>
 			<string>D</string>
+		</dict>
+		<key>E</key>
+		<dict>
+			<key>x</key>
+			<integer>346</integer>
+			<key>y</key>
+			<integer>417</integer>
+			<key>size</key>
+			<integer>45</integer>
+			<key>text</key>
+			<string>E</string>
 		</dict>
 		<key>description</key>
 		<dict>

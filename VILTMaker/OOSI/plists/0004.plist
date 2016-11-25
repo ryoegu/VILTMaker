@@ -115,6 +115,72 @@
 	<dict/>
 	<key>labels</key>
 	<dict>
+		<key>A</key>
+		<dict>
+			<key>x</key>
+			<integer>87</integer>
+			<key>y</key>
+			<real>178.5</real>
+			<key>size</key>
+			<integer>50</integer>
+			<key>text</key>
+			<string>A</string>
+		</dict>
+		<key>B</key>
+		<dict>
+			<key>x</key>
+			<integer>30</integer>
+			<key>y</key>
+			<integer>688</integer>
+			<key>size</key>
+			<integer>50</integer>
+			<key>text</key>
+			<string>B</string>
+		</dict>
+		<key>C</key>
+		<dict>
+			<key>x</key>
+			<integer>605</integer>
+			<key>y</key>
+			<integer>661</integer>
+			<key>size</key>
+			<integer>50</integer>
+			<key>text</key>
+			<string>C</string>
+		</dict>
+		<key>D</key>
+		<dict>
+			<key>x</key>
+			<integer>686</integer>
+			<key>y</key>
+			<integer>168</integer>
+			<key>size</key>
+			<integer>50</integer>
+			<key>text</key>
+			<string>D</string>
+		</dict>
+		<key>E</key>
+		<dict>
+			<key>x</key>
+			<integer>239</integer>
+			<key>y</key>
+			<integer>537</integer>
+			<key>size</key>
+			<integer>50</integer>
+			<key>text</key>
+			<string>E</string>
+		</dict>
+		<key>F</key>
+		<dict>
+			<key>x</key>
+			<integer>451</integer>
+			<key>y</key>
+			<integer>292</integer>
+			<key>size</key>
+			<integer>50</integer>
+			<key>text</key>
+			<string>F</string>
+		</dict>
 		<key>description</key>
 		<dict>
 			<key>x</key>

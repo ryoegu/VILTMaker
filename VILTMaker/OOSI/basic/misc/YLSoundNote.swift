@@ -9,31 +9,31 @@
 import Foundation
 
 public enum YLSoundNote: Int {
-    case C4, D4, E4, F4, G4, A4, B4, C5, D5, E5
+    case c4, d4, e4, f4, g4, a4, b4, c5, d5, e5
     
     public var description: String {
         get {
             switch(self) {
-            case .C4:
+            case .c4:
                 return "C4"
-            case .D4:
+            case .d4:
                 return "D4"
-            case .E4:
+            case .e4:
                 return "E4"
-            case .F4:
+            case .f4:
                 return "F4"
-            case .G4:
+            case .g4:
                 return "G4"
-            case .A4:
+            case .a4:
                 return "A4"
-            case .B4:
+            case .b4:
                 return "B4"
                 
-            case .C5:
+            case .c5:
                 return "C5"
-            case .D5:
+            case .d5:
                 return "D5"
-            case .E5:
+            case .e5:
                 return "E5"
             
             }

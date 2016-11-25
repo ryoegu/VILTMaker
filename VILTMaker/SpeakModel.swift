@@ -18,45 +18,45 @@ class SpeakModel: NSObject {
         }
     }
     
-    func speak(text: String) {
+    func speak(_ text: String) {
         NSLog("音声発信中[%@]",text)
         let ssml: AiTalkSsml = AiTalkSsml()
         let voice: AiTalkVoice = AiTalkVoice(voiceName: "nozomi")
         voice.addText(text)
-        ssml.addVoice(voice)
+        ssml.add(voice)
         let search: AiTalkTextToSpeech = AiTalkTextToSpeech()
-        let sendError = search.requestAiTalkSsmlToSound(ssml.makeSsml(), onComplete: { (data) in
+        let sendError = search.requestAiTalkSsml(toSound: ssml.make(), onComplete: { (data) in
             NSLog("onComplete")
-            self.playAudio(data)
+            self.playAudio(data!)
         }) { (receiveError) in
-            self.onError(receiveError)
+            self.onError(receiveError!)
         }
         if (sendError != nil) {
-            self.onError(sendError)
+            self.onError(sendError!)
         }
         
     }
     
-    func playAudio(data: NSData){
-        NSLog("playAudio data.length=%d",Int(data.length))
+    func playAudio(_ data: Data){
+        NSLog("playAudio data.length=%d",Int(data.count))
         let convertData = AiTalkTextToSpeech.convertByteOrder16(data)
-        AiTalkAudioPlayer.manager().playSound(self.addHeader(convertData))
+        AiTalkAudioPlayer.manager().playSound(self.addHeader(convertData!))
     }
     
-    func addHeader(data: NSData) -> NSData{
+    func addHeader(_ data: Data) -> Data{
         var soundFileData: NSMutableData = NSMutableData()
-        if data.length > 0 {
-            let header: [UInt8] = self.setHeader(data.length)
-            let headerData = NSData(bytes: header, length: 44)
+        if data.count > 0 {
+            let header: [UInt8] = self.setHeader(data.count)
+            let headerData = Data(bytes: UnsafePointer<UInt8>(header), count: 44)
             soundFileData = NSMutableData()
-            soundFileData.appendData(headerData.subdataWithRange(NSMakeRange(0, 44)))
-            soundFileData.appendData(data)
+            soundFileData.append(headerData.subdata(in: NSMakeRange(0, 44)))
+            soundFileData.append(data)
         }
-        return soundFileData
+        return soundFileData as Data
     }
     
-    func setHeader(dataLength: Int) -> [UInt8] {
-        var header:[UInt8] = Array(count: 44, repeatedValue: 0)
+    func setHeader(_ dataLength: Int) -> [UInt8] {
+        var header:[UInt8] = Array(repeating: 0, count: 44)
         let longSampleRate: CLong = 16000
         let channels: Int = 1
         let byteRate = 16 * 11025 * channels / 8
@@ -112,16 +112,16 @@ class SpeakModel: NSObject {
         return header
     }
     
-    func onError(error: NSError){
+    func onError(_ error: NSError){
         NSLog("onError")
         let errorMessage: String = "ErrorCode:" + String(error.code) + "\nMessage:" + String(error.localizedDescription)
-        let alert = UIAlertController(title: "ErrorCode", message: errorMessage, preferredStyle: .Alert)
+        let alert = UIAlertController(title: "ErrorCode", message: errorMessage, preferredStyle: .alert)
         
         //アラートにボタンを追加
         alert.addAction(
             UIAlertAction(
                 title: "OK",
-                style: UIAlertActionStyle.Default,
+                style: UIAlertActionStyle.default,
                 handler: nil
             )
         )

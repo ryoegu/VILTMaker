@@ -9,7 +9,7 @@
 import Foundation
 import C4
 
-public class YLAudioPlayer: NSObject {
+open class YLAudioPlayer: NSObject {
     let player: AudioPlayer
     
     public init(_ name: String) {
@@ -18,7 +18,7 @@ public class YLAudioPlayer: NSObject {
         super.init()
     }
     
-    public var volume: Double {
+    open var volume: Double {
         get {
             return player.volume
         }
@@ -27,7 +27,7 @@ public class YLAudioPlayer: NSObject {
         }
     }
     
-    public func play() {
+    open func play() {
         let remain = player.duration - player.currentTime
         if !player.playing {
             player.play()
@@ -39,12 +39,12 @@ public class YLAudioPlayer: NSObject {
         }
     }
     
-    public func stop() {
+    open func stop() {
         player.stop()
         player.currentTime = 0
     }
     
-    public override var description: String {
+    open override var description: String {
         return player.description
     }
 }

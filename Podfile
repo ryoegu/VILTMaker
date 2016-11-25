@@ -4,24 +4,21 @@
 use_frameworks!
 
 target 'VILTMaker' do
-# 通信系ライブラリ（JSON取得）
-pod 'Alamofire', '~> 3.4'
-pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
-
 # 音声波形実装用
 pod 'EZAudio', '~> 1.1.4'
 
 # for OOSI
-pod 'C4', '~> 1.0'
+pod 'C4'
 
 # for Animation
-pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 
 # Font Awesome
-pod ‘FontAwesome.swift’
+pod 'FontAwesome.swift'
 
-# Databse
+# Realm
 pod 'RealmSwift'
+pod 'SwiftyJSON'
 
 end
 

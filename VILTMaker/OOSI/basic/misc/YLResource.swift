@@ -8,52 +8,52 @@
 
 import Foundation
 
-public class YLResource {
-    public class func loadPropertyList(url: String) -> NSDictionary {
-        let xmlData = NSData(contentsOfURL: NSURL(string: url)!)!
-        return (try! NSPropertyListSerialization.propertyListWithData(
-            xmlData,
-            options: NSPropertyListMutabilityOptions.MutableContainersAndLeaves,
+open class YLResource {
+    open class func loadPropertyList(_ url: String) -> NSDictionary {
+        let xmlData = try! Data(contentsOf: URL(string: url)!)
+        return (try! PropertyListSerialization.propertyList(
+            from: xmlData,
+            options: PropertyListSerialization.MutabilityOptions.mutableContainersAndLeaves,
             format: nil)) as! NSDictionary
     }
 
-    public class func loadBundleResource(name: String) -> NSDictionary {
-        let path = NSBundle.mainBundle().pathForResource(name, ofType: "plist")
+    open class func loadBundleResource(_ name: String) -> NSDictionary {
+        let path = Bundle.main.path(forResource: name, ofType: "plist")
         return NSDictionary(contentsOfFile: path!)!
     }
 
-    public class func getURL(name: String, type: String) -> NSURL {
-        return NSBundle.mainBundle().URLForResource(name, withExtension: type)!
+    open class func getURL(_ name: String, type: String) -> URL {
+        return Bundle.main.url(forResource: name, withExtension: type)!
     }
 
-    public class func loadBundleResource(name: String, type: String) -> NSData {
+    open class func loadBundleResource(_ name: String, type: String) -> Data {
         let url = getURL(name, type: type)
-        return NSData(contentsOfURL: url)!
+        return (try! Data(contentsOf: url))
     }
     
-    public class func removeAllFiles(dir: NSURL) {
-        let fileManager = NSFileManager.defaultManager()
+    open class func removeAllFiles(_ dir: URL) {
+        let fileManager = FileManager.default
         for file in getDirectoryContents(dir) {
             do {
-                try fileManager.removeItemAtPath(file.path!)
+                try fileManager.removeItem(atPath: file.path)
             } catch _ {
             }
         }
     }
  
-    public class func getDocDirURL() -> NSURL {
+    open class func getDocDirURL() -> URL {
         let docDir = "\(NSHomeDirectory())/Documents/"
-        return NSURL(fileURLWithPath: docDir)
+        return URL(fileURLWithPath: docDir)
     }
 
-    public class func getDirectoryContents(dir: NSURL) -> [NSURL] {
-        let props = NSArray(objects: NSURLLocalizedNameKey,
-            NSURLCreationDateKey, NSURLLocalizedTypeDescriptionKey)
-        let fileManager = NSFileManager.defaultManager()
-        let array = try! fileManager.contentsOfDirectoryAtURL(
-            dir,
+    open class func getDirectoryContents(_ dir: URL) -> [URL] {
+        let props = NSArray(objects: URLResourceKey.localizedNameKey,
+            URLResourceKey.creationDateKey, URLResourceKey.localizedTypeDescriptionKey)
+        let fileManager = FileManager.default
+        let array = try! fileManager.contentsOfDirectory(
+            at: dir,
             includingPropertiesForKeys: Array(props.map {$0 as! String}),
-            options: ([.SkipsPackageDescendants, .SkipsHiddenFiles]))
+            options: ([.skipsPackageDescendants, .skipsHiddenFiles]))
         return array
         
     }

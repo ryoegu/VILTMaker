@@ -11,8 +11,8 @@ import C4
 
 // TextShapeは子がアクセス可能なイニシャライザがないので、
 // イニシャライザを定義できず、事実上継承できないらしい。
-public class YLTextShape {
-    class func create(center: Point, text: String, options: NSDictionary = NSDictionary()) -> TextShape {
+open class YLTextShape {
+    class func create(_ center: Point, text: String, options: NSDictionary = NSDictionary()) -> TextShape {
         let size = (options["size"] != nil) ? (options["size"] as! Double) : 40
         let f = Font(name: "Hiragino Kaku Gothic ProN", size: size)!
         let text = TextShape(text: text, font: f)!

@@ -12,7 +12,7 @@ import Foundation
 
 struct KeyManager {
     
-    private let keyFilePath = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")
+    fileprivate let keyFilePath = Bundle.main.path(forResource: "Keys", ofType: "plist")
     
     func getKeys() -> NSDictionary? {
         guard let keyFilePath = keyFilePath else {
@@ -21,7 +21,7 @@ struct KeyManager {
         return NSDictionary(contentsOfFile: keyFilePath)
     }
     
-    func getValue(key: String) -> AnyObject? {
+    func getValue(_ key: String) -> AnyObject? {
         guard let keys = getKeys() else {
             return nil
         }

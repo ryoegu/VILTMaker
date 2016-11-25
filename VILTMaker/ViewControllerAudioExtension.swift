@@ -17,9 +17,9 @@ extension ViewController: AVAudioPlayerDelegate {
         
         //Change Answer
         do {
-            let filePath = NSBundle.mainBundle().pathForResource("changeAnswer", ofType: "mp3")
-            let audioPath = NSURL(fileURLWithPath: filePath!)
-            changeAnswerAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
+            let filePath = Bundle.main.path(forResource: "changeAnswer", ofType: "mp3")
+            let audioPath = URL(fileURLWithPath: filePath!)
+            changeAnswerAudioPlayer = try AVAudioPlayer(contentsOf: audioPath)
             changeAnswerAudioPlayer.prepareToPlay()
         } catch {
             print("Error")
@@ -27,9 +27,9 @@ extension ViewController: AVAudioPlayerDelegate {
         
         //Single Cursor
         do {
-            let filePath = NSBundle.mainBundle().pathForResource("cursorSingle", ofType: "mp3")
-            let audioPath = NSURL(fileURLWithPath: filePath!)
-            singleCursorAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
+            let filePath = Bundle.main.path(forResource: "cursorSingle", ofType: "mp3")
+            let audioPath = URL(fileURLWithPath: filePath!)
+            singleCursorAudioPlayer = try AVAudioPlayer(contentsOf: audioPath)
             singleCursorAudioPlayer.prepareToPlay()
         } catch {
             print("Error")
@@ -37,9 +37,9 @@ extension ViewController: AVAudioPlayerDelegate {
         
         //Double Cursor
         do {
-            let filePath = NSBundle.mainBundle().pathForResource("cursorDouble", ofType: "mp3")
-            let audioPath = NSURL(fileURLWithPath: filePath!)
-            doubleCursorAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
+            let filePath = Bundle.main.path(forResource: "cursorDouble", ofType: "mp3")
+            let audioPath = URL(fileURLWithPath: filePath!)
+            doubleCursorAudioPlayer = try AVAudioPlayer(contentsOf: audioPath)
             doubleCursorAudioPlayer.prepareToPlay()
         } catch {
             print("Error")
@@ -47,9 +47,9 @@ extension ViewController: AVAudioPlayerDelegate {
         
         //OK Button
         do {
-            let filePath = NSBundle.mainBundle().pathForResource("okButton", ofType: "mp3")
-            let audioPath = NSURL(fileURLWithPath: filePath!)
-            okAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
+            let filePath = Bundle.main.path(forResource: "okButton", ofType: "mp3")
+            let audioPath = URL(fileURLWithPath: filePath!)
+            okAudioPlayer = try AVAudioPlayer(contentsOf: audioPath)
             okAudioPlayer.prepareToPlay()
         } catch {
             print("Error")
@@ -57,9 +57,9 @@ extension ViewController: AVAudioPlayerDelegate {
         
         //Record Start Button
         do {
-            let filePath = NSBundle.mainBundle().pathForResource("recordStart", ofType: "mp3")
-            let audioPath = NSURL(fileURLWithPath: filePath!)
-            recordStartAudioPlayer = try AVAudioPlayer(contentsOfURL: audioPath)
+            let filePath = Bundle.main.path(forResource: "recordStart", ofType: "mp3")
+            let audioPath = URL(fileURLWithPath: filePath!)
+            recordStartAudioPlayer = try AVAudioPlayer(contentsOf: audioPath)
             recordStartAudioPlayer.prepareToPlay()
         } catch {
             print("Error")

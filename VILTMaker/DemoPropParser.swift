@@ -9,7 +9,7 @@
 import Foundation
 import C4
 
-func conv(p: Point) -> Point {
+func conv(_ p: Point) -> Point {
 //    let x = map(p.x, min: -384, max: 384, toMin: 0, toMax: 768)
 //    let y = map(p.y, min: 367.5, max: -367.5, toMin: 0, toMax: 735)
     return Point(p.x, p.y)
@@ -17,7 +17,7 @@ func conv(p: Point) -> Point {
 
 class DemoPropParser {
     let props: NSDictionary
-    private var points = [String: Point]()
+    fileprivate var points = [String: Point]()
 
     init(_ props: NSDictionary) {
         self.props = props
@@ -28,7 +28,7 @@ class DemoPropParser {
         }
     }
     
-    func createPoint(props: NSDictionary) -> Point {
+    func createPoint(_ props: NSDictionary) -> Point {
         let x = props["x"] as! Double
         let y = props["y"] as! Double
         return Point(x, y)

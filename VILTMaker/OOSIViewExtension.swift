@@ -37,7 +37,7 @@ extension ViewController {
                  Array(parser.getAngles().values))
     }
     
-    func addViews(circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
+    func addViews(_ circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
         for p in polygons {
             oosiView.add(p)
         }
@@ -60,7 +60,7 @@ extension ViewController {
         }
     }
     
-    func removeViews(circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
+    func removeViews(_ circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
         for p in polygons {
             oosiView.remove(p)
         }
@@ -75,7 +75,7 @@ extension ViewController {
         }
     }
     
-    func onPanning(center: Point) {
+    func onPanning(_ center: Point) {
         print(center)
         let ps = polygons.filter { _, polygon in
             polygon.hitTest(center)
@@ -92,7 +92,7 @@ extension ViewController {
         }
     }
     
-    func pip(distance: Double) {
+    func pip(_ distance: Double) {
         let note = YLSoundNote(rawValue: Int(distance)/80)!
         if let pr = prevNote {
             if pr != note {

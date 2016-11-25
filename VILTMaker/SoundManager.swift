@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class SoundManager {
-    private let pongSound: YLAudioPlayer
-    private let pipSounds: [YLSoundNote: YLAudioPlayer]
+open class SoundManager {
+    fileprivate let pongSound: YLAudioPlayer
+    fileprivate let pipSounds: [YLSoundNote: YLAudioPlayer]
     
     func getAllSounds() -> [YLAudioPlayer] {
         return [pongSound] + pipSounds.values
@@ -18,28 +18,28 @@ public class SoundManager {
     
     init(_ plist: NSDictionary) {
         let sounds1 = plist["sounds"] as! NSDictionary
-        func create(key: String) -> YLAudioPlayer {
+        func create(_ key: String) -> YLAudioPlayer {
             let name = "\(sounds1[key]!).caf"
             return YLAudioPlayer(name)
         }
         pongSound = create("pong")
         
         pipSounds = [
-            .C4: create("c4"),
-            .D4: create("d4"),
-            .E4: create("e4"),
-            .F4: create("f4"),
-            .G4: create("g4"),
-            .A4: create("a4"),
-            .B4: create("b4"),
-            .C5: create("c5"),
-            .D5: create("d5"),
-            .E5: create("e5")]
+            .c4: create("c4"),
+            .d4: create("d4"),
+            .e4: create("e4"),
+            .f4: create("f4"),
+            .g4: create("g4"),
+            .a4: create("a4"),
+            .b4: create("b4"),
+            .c5: create("c5"),
+            .d5: create("d5"),
+            .e5: create("e5")]
         
     }
     
     
-    func pip(note: YLSoundNote) {
+    func pip(_ note: YLSoundNote) {
         let sound = pipSounds[note]!
         stopOtherSoundExcepting(sound)
         sound.play()
@@ -50,7 +50,7 @@ public class SoundManager {
         pongSound.play()
     }
     
-    func stopOtherSoundExcepting(player: YLAudioPlayer) {
+    func stopOtherSoundExcepting(_ player: YLAudioPlayer) {
         for player1 in getAllSounds() {
             if player != player1 {
                 player1.stop()

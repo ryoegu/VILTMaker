@@ -35,16 +35,16 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Do any additional setup after loading the view.
         self.listCollectionView.delegate = self
         self.listCollectionView.dataSource = self
-        listCollectionView.registerNib(UINib(nibName: "QuestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        listCollectionView.register(UINib(nibName: "QuestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
     }
 
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         listCollectionView.reloadData()
     }
-    @IBAction func close(sender: UIButton) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func close(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,8 +52,8 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Dispose of any resources that can be recreated.
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! QuestionCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! QuestionCollectionViewCell
         
         
         let list = ListItems?[indexPath.row]
@@ -61,24 +61,24 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         cell.titleLabel.text = list?.name
         cell.imageView.image = UIImage(data: (list?.image)!)
-        let df = NSDateFormatter()
+        let df = DateFormatter()
         df.dateFormat = "MM/dd HH:mm"
-        cell.timeLabel.text = df.stringFromDate((list?.makingDate)!)
+        cell.timeLabel.text = df.string(from: (list?.makingDate)!)
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let list = ListItems?[indexPath.row]
         uuid = (list?.id)!
-        NSUserDefaults.standardUserDefaults().setObject(uuid, forKey: "uuid")
-        performSegueWithIdentifier("QuestionView", sender: nil)
+        UserDefaults.standard.set(uuid, forKey: "uuid")
+        performSegue(withIdentifier: "QuestionView", sender: nil)
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return ListItems?.count ?? 0
     }
     

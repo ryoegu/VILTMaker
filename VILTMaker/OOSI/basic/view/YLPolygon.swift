@@ -9,7 +9,7 @@
 import Foundation
 import C4
 
-public class YLPolygon: Polygon {
+open class YLPolygon: Polygon {
     let name: String
     let options: NSDictionary
     public convenience init(name: String, begin: Point, end: Point, buffer: Double = 5) {
@@ -38,7 +38,7 @@ public class YLPolygon: Polygon {
         fatalError("not implemented")
     }
 
-    public override var description: String {
+    open override var description: String {
         return points.reduce("\(name): ") { s, p in "\(s) \(p)" }
     }
 }

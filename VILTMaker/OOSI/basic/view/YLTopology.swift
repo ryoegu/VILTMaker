@@ -9,24 +9,24 @@
 import Foundation
 
 public enum YLTopology {
-    case OnPoint(String)
-    case OnLine(String, Double)
-    case OnPie(String)
-    case Void
+    case onPoint(String)
+    case onLine(String, Double)
+    case onPie(String)
+    case void
     
     public var description: String {
         get {
             switch self {
-            case .OnPoint(let name):
+            case .onPoint(let name):
                 return "Point \(name)"
   
-            case .OnPie(let name):
+            case .onPie(let name):
                 return "Pie \(name)"
                 
-            case .OnLine(let name, let dist):
+            case .onLine(let name, let dist):
                 return "Line \(name): dist = \(dist)"
                 
-            case .Void:
+            case .void:
                 return "Void"
             }
         }
@@ -35,7 +35,7 @@ public enum YLTopology {
     public var isOnPoint: Bool {
         get {
             switch self {
-            case .OnPoint(_):
+            case .onPoint(_):
                 return true
             default:
                 return false
@@ -46,7 +46,7 @@ public enum YLTopology {
     public var isOnLine: Bool {
         get {
             switch self {
-            case .OnLine(_):
+            case .onLine(_):
                 return true
             default:
                 return false
@@ -57,17 +57,17 @@ public enum YLTopology {
 
 public func == (left: YLTopology, right: YLTopology) -> Bool {
     switch (left, right) {
-    case let (.OnPoint(name1), .OnPoint(name2)):
+    case let (.onPoint(name1), .onPoint(name2)):
         return name1 == name2
         
-    case let (.OnLine(name1, dist1), .OnLine(name2, dist2)):
+    case let (.onLine(name1, dist1), .onLine(name2, dist2)):
         return name1 == name2 && dist1 == dist2
 
-    case let (.OnPie(name1), .OnPie(name2)):
+    case let (.onPie(name1), .onPie(name2)):
         return name1 == name2
         
     case
-        (.Void, .Void):
+        (.void, .void):
         return true
         
     default:

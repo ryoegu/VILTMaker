@@ -50,12 +50,12 @@ extension ViewController {
         question.correctAnswer = correctAnswerWithNumber
         
         question.plistFileName = figureNumberString
-        question.makingDate = NSDate()
+        question.makingDate = Date()
         let screenshot = take()
         question.image = UIImagePNGRepresentation(screenshot)!
         
         if uuid == "" {
-            question.id = NSUUID().UUIDString
+            question.id = UUID().uuidString
             NSLog("UUID作成成功")
         }else{
             question.id = uuid
@@ -76,7 +76,7 @@ extension ViewController {
     }
     
     
-    private func isValidateInputContents() -> Bool{
+    fileprivate func isValidateInputContents() -> Bool{
         // タイトルチェック
         if let name = previewTitleLabel.text{
             if name == "タイト" {
@@ -110,7 +110,7 @@ extension ViewController {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 1.0)
         
         // 描画
-        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         
         // 描画が行われたスクリーンショットの取得
         let screenShot = UIGraphicsGetImageFromCurrentImageContext()
@@ -118,9 +118,9 @@ extension ViewController {
         // スクリーンショットの取得終了
         UIGraphicsEndImageContext()
         
-        let cropRect  = CGRectMake(0, 289, 768, 735)
-        let cropRef   = CGImageCreateWithImageInRect(screenShot.CGImage, cropRect)
-        let cropImage = UIImage(CGImage: cropRef!)
+        let cropRect  = CGRect(x: 0, y: 289, width: 768, height: 735)
+        let cropRef   = screenShot?.cgImage?.cropping(to: cropRect)
+        let cropImage = UIImage(cgImage: cropRef!)
 
         return cropImage
         

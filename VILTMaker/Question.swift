@@ -27,10 +27,10 @@ class Question: Object{
     dynamic var plistFileName = ""
     
     //作成日時
-    dynamic var makingDate = NSDate(timeIntervalSince1970: 0)
+    dynamic var makingDate = Date(timeIntervalSince1970: 0)
     
     //スクショ
-    dynamic var image = NSData()
+    dynamic var image = Data()
     
     override static func primaryKey() -> String? {
         return "id"

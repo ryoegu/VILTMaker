@@ -9,7 +9,7 @@
 import Foundation
 import C4
 
-public class YLCircle: Circle {
+open class YLCircle: Circle {
     let name: String
     let radius: Double
     let options: NSDictionary
@@ -34,7 +34,7 @@ public class YLCircle: Circle {
         fatalError("not implemented")
     }
     
-    public override var description: String {
+    open override var description: String {
         return "\(name): (\(center), \(radius))"
     }
 }
