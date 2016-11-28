@@ -103,8 +103,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             //一覧画面からアクセスした場合
             do {
                 let realm = try Realm()
-                let object = realm.objects(Question).filter("id = '\(uuid)'").first
-                print(object)
+                let object = realm.objects(Question.self).filter("id = '\(uuid)'").first
                 self.reset((object?.name)!, question: (object?.question)!, button1: (object?.answer1)!, button2: (object?.answer2)!, button3: (object?.answer3)!, correctAnswer: (object?.correctAnswer)!, plistFileName: (object?.plistFileName)!)
                 
                 //OOSI Viewの初期化処理
@@ -263,7 +262,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     //上部ボタン
     @IBAction func newButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
-        self.performSegueWithIdentifier("QRView", sender: nil)
+        self.performSegue(withIdentifier: "QRView", sender: nil)
     }
     
     @IBAction func resetButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
@@ -317,7 +316,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     @IBAction func listButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
         uuid = ""
-        performSegueWithIdentifier("toList", sender: nil)
+        performSegue(withIdentifier: "toList", sender: nil)
     }
     
     

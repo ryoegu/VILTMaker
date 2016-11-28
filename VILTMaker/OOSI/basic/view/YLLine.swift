@@ -9,7 +9,7 @@
 import Foundation
 import C4
 
-public class YLLine: Line {
+open class YLLine: Line {
     let name: String
     let options: NSDictionary
     public init(name: String, begin: Point, end: Point, options: NSDictionary = NSDictionary()) {

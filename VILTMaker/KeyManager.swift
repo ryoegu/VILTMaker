@@ -21,7 +21,7 @@ struct KeyManager {
         return NSDictionary(contentsOfFile: keyFilePath)
     }
     
-    func getValue(_ key: String) -> AnyObject? {
+    func getValue(_ key: String) -> Any? {
         guard let keys = getKeys() else {
             return nil
         }

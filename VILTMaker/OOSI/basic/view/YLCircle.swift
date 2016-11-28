@@ -9,11 +9,12 @@
 import Foundation
 import C4
 
-open class YLCircle: Circle {
-    let name: String
-    let radius: Double
-    let options: NSDictionary
-    public init(name: String, center: Point, radius: Double = 30, options: NSDictionary = NSDictionary()) {
+class YLCircle: Circle {
+    internal let name: String
+    internal let radius: Double
+    internal let options: NSDictionary
+    
+    public init(name: String, center: Point, radius: Double = 0, options: NSDictionary = NSDictionary()) {
         self.name = name
         self.radius = radius
         self.options = options

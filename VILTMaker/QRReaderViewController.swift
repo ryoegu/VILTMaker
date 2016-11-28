@@ -136,8 +136,6 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
                 lb.backgroundColor = UIColor.blue.withAlphaComponent(0.3)
                 lb.textColor = UIColor.yellow
                 v.addSubview(lb)
-                print(lb.text)
-                /*self.qrView.addSubview(v)*/
             }
         }
         

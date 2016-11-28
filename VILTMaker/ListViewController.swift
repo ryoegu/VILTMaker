@@ -21,7 +21,7 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
             Realm.Configuration.defaultConfiguration = config
             
             let realm = try Realm()
-            return realm.objects(Question)
+            return realm.objects(Question.self)
         }catch let error as NSError{
             print("error === %@",error)
         }

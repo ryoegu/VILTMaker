@@ -50,10 +50,14 @@ open class YLResource {
         let props = NSArray(objects: URLResourceKey.localizedNameKey,
             URLResourceKey.creationDateKey, URLResourceKey.localizedTypeDescriptionKey)
         let fileManager = FileManager.default
-        let array = try! fileManager.contentsOfDirectory(
+        /*let array = try! fileManager.contentsOfDirectory(
             at: dir,
             includingPropertiesForKeys: Array(props.map {$0 as! String}),
-            options: ([.skipsPackageDescendants, .skipsHiddenFiles]))
+            options: ([.skipsPackageDescendants, .skipsHiddenFiles]))*/
+        
+        
+        
+        let array = try! fileManager.contentsOfDirectory(at: dir, includingPropertiesForKeys: Array(props.map{$0} as! [URLResourceKey]), options: ([.skipsPackageDescendants, .skipsHiddenFiles]))
         return array
         
     }

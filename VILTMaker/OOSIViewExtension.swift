@@ -18,7 +18,15 @@ extension ViewController {
         oosiView.backgroundColor = black
         canvas.add(oosiView)
         speaker = YLSpeechSynthesizer()
+        
+        let myTap = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapGesture(sender:)))
+        myTap.numberOfTapsRequired = 2
 
+
+    }
+    
+    internal func tapGesture(sender: UITapGestureRecognizer){
+        print("tapnumber == \(sender.numberOfTouches)")
     }
     
     func oosiViewResources() {
@@ -26,15 +34,25 @@ extension ViewController {
         points = parser.getPoints()
         polygons = parser.getPolygons()
         sounds = SoundManager(YLResource.loadBundleResource("resources"))
+    
         
-        oosiView.addPanGestureRecognizer { _, center, _, _, _ in
+        oosiView.addPanGestureRecognizer { locations, center, translation, velocity, state in
             self.onPanning(center)
+        }
+        
+        //Double Tap Gesture Recognizer(レイヤー別インターフェースの実装)
+        oosiView.addDoubleTapGestureRecognizer{_,_,_ in 
+            print("DOUBLE TAPPED")
         }
         
         addViews(Array(parser.getCircles().values),
                  Array(polygons.values),
                  Array(parser.getLabels().values),
                  Array(parser.getAngles().values))
+    }
+    
+    func tappedDouble(sender: UITapGestureRecognizer!) {
+        print("double tapped enabled...")
     }
     
     func addViews(_ circles: [Circle], _ polygons: [Polygon], _ labels: [TextShape], _ angles: [Wedge]) {
@@ -77,9 +95,11 @@ extension ViewController {
     
     func onPanning(_ center: Point) {
         print(center)
+        
         let ps = polygons.filter { _, polygon in
             polygon.hitTest(center)
         }
+        
         if let (name, _) = ps.first {
             let i = name.startIndex
             let ch = "\(name[i])"
@@ -87,10 +107,13 @@ extension ViewController {
             let d = distance(begin, rhs: center)
             self.pip(d)
             print("Line:", begin, center)
+            
+            
         } else {
             prevNote = nil
         }
     }
+
     
     func pip(_ distance: Double) {
         let note = YLSoundNote(rawValue: Int(distance)/80)!
@@ -102,6 +125,9 @@ extension ViewController {
             sounds.pip(note)
         }
         prevNote = note
+    }
+    
+    func showGradient() {
         
     }
     

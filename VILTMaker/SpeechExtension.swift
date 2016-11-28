@@ -13,11 +13,8 @@ import EZAudio
 
 extension ViewController {
     //NSURLDataDelegate
-    func connection(_ connection: NSURLConnection, didReceiveResponse response: URLResponse) {
-    }
     
-    func connection(_ connection: NSURLConnection, didReceiveData data: Data) {
-        
+    func connection(_ connection: NSURLConnection, didReceive data: Data) {
         let json = JSON(data: data)
         NSLog("データを受け取りました")
         print(json)
@@ -32,15 +29,15 @@ extension ViewController {
         isVoiceInputNow = false
     }
     
-    func connection(_ connection: NSURLConnection, didFailWithError error: NSError) {
-        NSLog("ERROR == %@",error)
+    
+    func connection(_ connection: NSURLConnection, didFailWithError error: Error) {
+        print("ERROR == \(error)")
         isVoiceInputNow = false
     }
     
     //MARK: Google Speech API
     func callGoogleRecognizeApi(_ data: Data) {
         var googleSpeechAPIKey: String = ""
-        
         
         //APIキーを読み込み
         if let speechAPIKEY = KeyManager().getValue("GoogleSpeechAPIKey") as? String {
@@ -103,7 +100,7 @@ extension ViewController {
         self.callGoogleRecognizeApi(data)
     }
     
-    func microphone(_ microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
+    func microphone(_ microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>?>!, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
         let weakSelf = self
         DispatchQueue.main.async(execute: {
             weakSelf.audioPlot.updateBuffer(buffer[0], withBufferSize: bufferSize)

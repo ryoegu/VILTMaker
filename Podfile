@@ -20,6 +20,9 @@ pod 'FontAwesome.swift'
 pod 'RealmSwift'
 pod 'SwiftyJSON'
 
+# Alamofire
+pod 'Alamofire', '~> 4.0'
+
 end
 
 target 'VILTMakerTests' do

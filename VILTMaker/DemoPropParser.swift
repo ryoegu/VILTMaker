@@ -44,6 +44,8 @@ class DemoPropParser {
             let name = k as! String
             let p = conv(points[name]!)
             let c = YLCircle(name: name, center: p, options: pointProps as! NSDictionary)
+            
+            
             circles[name] = c
         }
         return circles

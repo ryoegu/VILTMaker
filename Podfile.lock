@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.2.0)
   - C4 (2.0.0)
   - EZAudio (1.1.5):
     - EZAudio/Full (= 1.1.5)
@@ -17,6 +18,7 @@ PODS:
   - TPCircularBuffer (1.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - C4
   - EZAudio (~> 1.1.4)
   - FontAwesome.swift
@@ -35,6 +37,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   C4: fdd95ad49af46865219b84b743fa956593fd898c
   EZAudio: 3b1cb4b6d7ebca68f0c2478576d75940aad4aa99
   FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
@@ -44,6 +47,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   TPCircularBuffer: 4960a919e667280f7f38963d771f45871b64fe62
 
-PODFILE CHECKSUM: d160f3a1a62a5f658bd73c555b5bfc272dd9ec25
+PODFILE CHECKSUM: e1f7ffd07b23107e1793623a6c9db4d088c269e4
 
 COCOAPODS: 1.1.1
