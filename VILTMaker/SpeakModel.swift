@@ -49,7 +49,7 @@ class SpeakModel: NSObject {
             let header: [UInt8] = self.setHeader(data.count)
             let headerData = Data(bytes: UnsafePointer<UInt8>(header), count: 44)
             soundFileData = NSMutableData()
-            soundFileData.append(headerData.subdata(in: 0..<45))
+            soundFileData.append(headerData.subdata(in: 0..<44))
             soundFileData.append(data)
         }
         return soundFileData as Data

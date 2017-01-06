@@ -64,7 +64,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     // 図形領域
     let oosiView = View(frame: Rect(0,289,768,735))
-
+    
+    @IBOutlet var gestureInterface: UIView!
     
     //MARK: Setup and Initializiation Methods
     override func setup() {
@@ -84,6 +85,9 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         uuid = ""
         //OOSI Viewの初期化処理
         self.oosiViewInit()
+        
+        //Trackpad Interfaceの初期化処理
+        self.trackpadInterfaceInit()
     
         
         self.editView.isHidden = true
@@ -351,7 +355,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             
         }
     }
-    
 
     
     // MARK: 大文字など、文字変換

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="cXI-u9-sjb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="cXI-u9-sjb">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -169,7 +169,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zi-3a-mNv">
-                                        <rect key="frame" x="0.0" y="297" width="598" height="386"/>
+                                        <rect key="frame" x="0.0" y="297" width="598" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-jm-Ydp">
@@ -378,9 +378,15 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbZ-qw-hzR" customClass="EZAudioPlot">
-                                        <rect key="frame" x="25" y="749" width="548" height="254"/>
+                                        <rect key="frame" x="25" y="605" width="548" height="69"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vsf-FI-Meo">
+                                        <rect key="frame" x="0.0" y="682" width="598" height="342"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98115079365079361" green="0.98115079365079361" blue="0.98115079365079361" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -399,6 +405,7 @@
                         <outlet property="beforeChangingTextView" destination="NaS-Nm-YZQ" id="5I4-oS-V3D"/>
                         <outlet property="editView" destination="8zi-3a-mNv" id="REX-Nw-L6a"/>
                         <outlet property="figureView" destination="0Zc-IF-ami" id="bPj-u7-pqa"/>
+                        <outlet property="gestureInterface" destination="Vsf-FI-Meo" id="GCd-zE-ccN"/>
                         <outlet property="ngButton" destination="B6z-vj-4YB" id="NiM-HS-b7R"/>
                         <outlet property="okButton" destination="nhF-T4-q7j" id="kY4-Pf-aTq"/>
                         <outlet property="previewQuestionLabel" destination="Taf-Rv-g75" id="fol-Bm-PuB"/>
@@ -413,16 +420,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="Sq6-DP-aMp">
-                    <connections>
-                        <action selector="editButton1DoubleTapped:" destination="BYZ-38-t0r" id="vzF-44-Prx"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="jf9-Ci-9dA">
-                    <connections>
-                        <action selector="editButton2DoubleTapped:" destination="BYZ-38-t0r" id="tLS-he-XqB"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="2e4-RY-eMY">
                     <connections>
                         <action selector="editButton3DoubleTapped:" destination="BYZ-38-t0r" id="pnh-zG-SPQ"/>
@@ -433,20 +430,34 @@
                         <action selector="previewQuestionLabelPushed:" destination="BYZ-38-t0r" id="nQe-56-mnZ"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Sq6-DP-aMp">
+                    <connections>
+                        <action selector="editButton1DoubleTapped:" destination="BYZ-38-t0r" id="vzF-44-Prx"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="VVt-Ge-vJJ" userLabel="Voice Input Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="voiceInputButtonDoubleTapped:" destination="BYZ-38-t0r" id="IiO-iM-Jlg"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="ckM-96-TGi" userLabel="Save Button Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="saveButtonDoubleTapped:" destination="BYZ-38-t0r" id="FJD-Hw-hUW"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="Vf4-5G-0hA" userLabel="Title Label Tap Gesture Recognizer">
                     <connections>
                         <action selector="previewTitleLabelPushed:" destination="BYZ-38-t0r" id="2Ki-ou-tpi"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="lij-wx-xXv" userLabel="Save Button Double Tap Gesture Recognizer"/>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="Qpg-mh-h7X" userLabel="NG Button Double Tap Gesture Recognizer">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="aSJ-a8-sGO" userLabel="List Button Double Tap Gesture Recognizer">
                     <connections>
-                        <action selector="ngButtonDoubleTapped:" destination="BYZ-38-t0r" id="olI-O4-IgY"/>
+                        <action selector="listButtonDoubleTapped:" destination="BYZ-38-t0r" id="hSV-Yk-a8B"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="wtL-Md-p8b" userLabel="OK Button Double Tap Gesture Recognizer">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="jf9-Ci-9dA">
                     <connections>
-                        <action selector="okButtonDoubleTapped:" destination="BYZ-38-t0r" id="Laq-P2-4rJ"/>
+                        <action selector="editButton2DoubleTapped:" destination="BYZ-38-t0r" id="tLS-he-XqB"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="guc-DD-chq" userLabel="Voice Input Double Tap Gesture Recognizer"/>
@@ -455,14 +466,14 @@
                         <action selector="newButtonDoubleTapped:" destination="BYZ-38-t0r" id="NxS-kF-TiX"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="VVt-Ge-vJJ" userLabel="Voice Input Tap Gesture Recognizer">
-                    <connections>
-                        <action selector="voiceInputButtonDoubleTapped:" destination="BYZ-38-t0r" id="IiO-iM-Jlg"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="NcQ-yq-392" userLabel="Reset Button Tap Gesture Recognizer">
                     <connections>
                         <action selector="resetButtonDoubleTapped:" destination="BYZ-38-t0r" id="9Pg-C8-s9R"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Qpg-mh-h7X" userLabel="NG Button Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="ngButtonDoubleTapped:" destination="BYZ-38-t0r" id="olI-O4-IgY"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="4F3-uD-c5b" userLabel="Big Button Double Tap Gesture Recognizer">
@@ -470,16 +481,12 @@
                         <action selector="bigButtonDoubleTapped:" destination="BYZ-38-t0r" id="m9N-p0-9Hc"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="aSJ-a8-sGO" userLabel="List Button Double Tap Gesture Recognizer">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="wtL-Md-p8b" userLabel="OK Button Double Tap Gesture Recognizer">
                     <connections>
-                        <action selector="listButtonDoubleTapped:" destination="BYZ-38-t0r" id="hSV-Yk-a8B"/>
+                        <action selector="okButtonDoubleTapped:" destination="BYZ-38-t0r" id="Laq-P2-4rJ"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="ckM-96-TGi" userLabel="Save Button Double Tap Gesture Recognizer">
-                    <connections>
-                        <action selector="saveButtonDoubleTapped:" destination="BYZ-38-t0r" id="FJD-Hw-hUW"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="lij-wx-xXv" userLabel="Save Button Double Tap Gesture Recognizer"/>
             </objects>
             <point key="canvasLocation" x="-363" y="215"/>
         </scene>

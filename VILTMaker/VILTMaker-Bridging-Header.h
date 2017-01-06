@@ -11,8 +11,6 @@
 #import "AiTalkTextToSpeech.h"
 #import "AiTalkVoice.h"
 #import "AiTalkVoiceBase.h"
-#import "AuthApiKey.h"
-#import "SdkError.h"
 
 #import "AiTalkAudioPlayer.h"
 

@@ -4,6 +4,7 @@
 //
 //  Created by Ryo Eguchi on 2016/07/18.
 //  Copyright © 2016年 Ryo Eguchi. All rights reserved.
+//  Supported by Owen.
 //
 
 import Foundation
@@ -11,6 +12,8 @@ import UIKit
 import C4
 
 extension ViewController {
+    
+    
     
     // MARK: OOSI View
     func oosiViewInit() {

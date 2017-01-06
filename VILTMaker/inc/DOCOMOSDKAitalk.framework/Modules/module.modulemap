@@ -1,0 +1,6 @@
+framework module DOCOMOSDKAitalk {
+  umbrella header "DOCOMOSDKAitalk.h"
+
+  export *
+  module * { export * }
+}

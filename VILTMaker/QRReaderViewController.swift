@@ -78,7 +78,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         self.view.addSubview(imageView)
         
         //発音を開始
-        docomoSpeakModel.speak("点図のQRコードを読み込ませてください。")
+        docomoSpeakModel.speak("QRコードを読み込んでください。")
     }
     
     override func viewDidAppear(_ animated: Bool) {

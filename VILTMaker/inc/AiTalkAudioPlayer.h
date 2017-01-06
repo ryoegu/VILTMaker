@@ -26,7 +26,4 @@
  */
 - (void)playSound:(NSData *)data;
 
-
--(Byte *)setHeader:(long)dataLength;
-- (NSData*)addHeader:(NSData*)data;
 @end
