@@ -10,6 +10,7 @@
 import Foundation
 import UIKit
 import C4
+import Spring
 
 extension ViewController {
     
@@ -29,6 +30,10 @@ extension ViewController {
         let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(downSwipe(_:)))
         downSwipe.direction = .down
         self.gestureInterface.addGestureRecognizer(downSwipe)
+        
+        let oneTap = UITapGestureRecognizer(target: self, action: #selector(oneTapGesture(_:)))
+        oneTap.numberOfTapsRequired = 1
+        self.gestureInterface.addGestureRecognizer(oneTap)
         
     }
     
@@ -55,6 +60,12 @@ extension ViewController {
         print("DOWN")
         selectedObject = selectedObject + 1
         gestureFunction()
+    }
+    
+    func oneTapGesture(_ sender: UITapGestureRecognizer) {
+        print("ONE TAP")
+        self.tapGesture()
+        
     }
     
     func gestureFunction() {
@@ -127,6 +138,20 @@ extension ViewController {
         previewSelectButton[1].layer.borderColor = UIColor.blue.cgColor
         previewSelectButton[2].layer.borderColor = UIColor.blue.cgColor
         oosiView.layer?.borderWidth = 0
+    }
+    
+    func tapGesture() {
+        if self.selectedObject >= 0 && self.selectedObject <= 4 {
+            goToEditMode()
+        }
+    }
+    
+    func goToEditMode() {
+        editModeAnimation()
+        docomoSpeakModel.speak("編集モード。マイクボタン。")
+        selectedObject = 10
+        
+        
     }
     
     

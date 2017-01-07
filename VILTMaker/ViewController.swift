@@ -15,6 +15,7 @@ import FontAwesome_swift
 import RealmSwift
 import Speech
 import UITags
+import Spring
 
 class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, EZMicrophoneDelegate {
     
@@ -36,7 +37,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     @IBOutlet var afterChangingTextView: UITextView!
     
     
-    @IBOutlet var editView: UIView!
+    
+    @IBOutlet var editView: SpringView!
     @IBOutlet var okButton: UIButton!
     @IBOutlet var ngButton: UIButton!
     @IBOutlet var saveButton: UIButton!
@@ -128,6 +130,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         self.tagsView.delegate = self
         self.wordEditView.isHidden = true
         self.wordEditViewInit()
+        
+        self.editView.isHidden = true
         
     }
     
@@ -349,95 +353,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     func textViewDidChange(_ textView: UITextView) {
         previewQuestionLabel.text = textView.text
     }
-
-    
-    @IBAction func voiceInputButtonPushed(_ sender: UIButton) {
-        recordStartAudioPlayer.play()
-        
-        if audioEngine.isRunning {
-            NSLog("音声入力終了")
-            self.stopRecord()
-            self.analyzedStringArray = self.getMorphologicalAnalysis(self.afterChangingTextView.text)
-            self.tagsView.tags = self.analyzedStringArray
-            docomoSpeakModel.speak(self.afterChangingTextView.text)
-            
-        }else{
-            NSLog("音声入力開始")
-            self.startRecord()
-            
-        }
-    }
-    
-    @IBAction func voiceOutputButtonTapped(_ sender: BorderButton) {
-        docomoSpeakModel.speak(self.joinedAllAnalyzedString(self.analyzedStringArray))
-    }
-    
-    @IBAction func wordEditVoiceInputButtonTapped(_ sender: BorderButton) {
-        
-        recordStartAudioPlayer.play()
-        if audioEngine.isRunning {
-            NSLog("音声入力終了")
-            self.stopRecord()
-            
-            UIView.animate(withDuration: TimeInterval(CGFloat(0.5)), animations: {
-                
-                self.wordEditVoiceInputButton.frame = CGRect(x: 432, y: 8, width: 60, height: 47)
-                self.wordEditDoneButton.frame = CGRect(x: 507, y: 8, width: 77, height: 47)
-                
-                
-            })
-            
-            self.wordEditLabel.text = joinedAllAnalyzedString(self.getMorphologicalAnalysis(self.afterChangingTextView.text))
-            if self.afterChangingTextView.text == "" {
-                self.wordEditLabel.text = "認識されませんでした"
-            }
-            docomoSpeakModel.speak(self.wordEditLabel.text!)
-        }else{
-            self.afterChangingTextView.text = ""
-            NSLog("音声入力開始")
-            self.startRecord()
-            UIView.animate(withDuration: TimeInterval(CGFloat(0.8)), animations: {
-                self.wordEditLabel.isHidden = false
-                self.wordEditVoiceInputButton.frame = CGRect(x: 432, y: 8, width: 140, height: 47)
-                self.wordEditDoneButton.frame = CGRect(x: 584, y: 8, width: 0, height: 47)
-                self.wordEditDoneButton.backgroundColor = UIColor.blue
-                self.wordEditDoneButton.setTitle("DONE", for: UIControlState.normal)
-                
-            })
-            
-            
-        }
-    }
-    
-    @IBAction func wordEditDoneButtonTapped(_ sender: BorderButton) {
-        
-        if self.wordEditLabel.text == "" {
-            self.analyzedStringArray.remove(at: self.selectedWordInTagsView)
-        }else if self.wordEditLabel.text == "認識されませんでした"{
-            
-        }else{
-            self.analyzedStringArray[self.selectedWordInTagsView] = self.wordEditLabel.text!
-        }
-        self.wordEditViewInit()
-        self.selectedWordInTagsView = -1
-        self.wordEditView.isHidden = true
-        self.tagsView.tags = self.analyzedStringArray
-        
-    }
-    
-    
-    func wordEditViewInit() {
-        
-        self.wordEditLabel.isHidden = true
-        self.wordEditLabel.text = ""
-        self.wordEditVoiceInputButton.frame = CGRect(x: 155, y: 8, width: 210, height:47)
-        self.wordEditDoneButton.frame = CGRect(x: 373, y: 8, width: 210, height: 47)
-        self.wordEditDoneButton.backgroundColor = UIColor.red
-        self.wordEditDoneButton.setTitle("", for: UIControlState.normal)
-        
-    }
-    
-
 
     
     // MARK: Memory Warning

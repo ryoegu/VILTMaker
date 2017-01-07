@@ -168,7 +168,7 @@
                                             <outletCollection property="gestureRecognizers" destination="GAL-JH-NGS" appends="YES" id="2Sd-m2-K4Q"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zi-3a-mNv">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zi-3a-mNv" customClass="SpringView" customModule="Spring">
                                         <rect key="frame" x="0.0" y="141" width="598" height="456"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -492,7 +492,7 @@
                     <connections>
                         <outlet property="afterChangingTextView" destination="9Xk-jm-Ydp" id="eBG-ec-wit"/>
                         <outlet property="audioPlot" destination="pbZ-qw-hzR" id="Zdt-QI-4f1"/>
-                        <outlet property="editView" destination="8zi-3a-mNv" id="REX-Nw-L6a"/>
+                        <outlet property="editView" destination="8zi-3a-mNv" id="itW-y0-C5m"/>
                         <outlet property="figureView" destination="0Zc-IF-ami" id="bPj-u7-pqa"/>
                         <outlet property="gestureInterface" destination="Vsf-FI-Meo" id="GCd-zE-ccN"/>
                         <outlet property="previewQuestionLabel" destination="Taf-Rv-g75" id="fol-Bm-PuB"/>
@@ -579,7 +579,6 @@
                         <action selector="okButtonDoubleTapped:" destination="BYZ-38-t0r" id="Laq-P2-4rJ"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="lij-wx-xXv" userLabel="Save Button Double Tap Gesture Recognizer"/>
             </objects>
             <point key="canvasLocation" x="-363" y="215"/>
         </scene>
