@@ -16,12 +16,22 @@ import RealmSwift
 
 class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate, EZMicrophoneDelegate {
     
+    /* Preview Area Objects */
     @IBOutlet var previewTitleLabel: UILabel!
     @IBOutlet var previewQuestionLabel: UILabel!
+    @IBOutlet var previewSelectButton: [BorderButton]!
+    // Figure View
+    let oosiView = View(frame: Rect(0,289,768,735))
+    
+    
+    /* Edit Area Objects */
+    @IBOutlet var commonButtons: [BorderButton]!
+    
     @IBOutlet var beforeChangingTextView: UITextView!
     
+    
     @IBOutlet var afterChangingTextView: UITextView!
-    @IBOutlet var previewSelectButton: [BorderButton]!
+    
     
     @IBOutlet var editView: UIView!
     @IBOutlet var okButton: UIButton!
@@ -55,17 +65,18 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     @IBOutlet var audioPlot: EZAudioPlot!
     var microphone: EZMicrophone!
     
-    
     var sounds: SoundManager!
     var speaker: YLSpeechSynthesizer!
     var points = [String: Point]()
     var polygons = [String: Polygon]()
     var prevNote: YLSoundNote? = nil
     
-    // 図形領域
-    let oosiView = View(frame: Rect(0,289,768,735))
+    
     
     @IBOutlet var gestureInterface: UIView!
+    
+    var selectedObject: Int = 0
+    
     
     //MARK: Setup and Initializiation Methods
     override func setup() {
@@ -134,8 +145,11 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     //MARK: ワンタップ処理 (for only voice output)
     @IBAction func previewTitleLabelPushed(_ sender: UITapGestureRecognizer) {
         NSLog("PreviewTitleLabel Pushed")
+        
+        selectedObject = 1
+        self.gestureFunction()
+        
         needToChangeObjectNumber = 5
-        docomoSpeakModel.speak(previewTitleLabel.text!)
         self.beforeChangingTextView.text = previewTitleLabel.text
     }
     
@@ -371,7 +385,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         // Dispose of any resources that can be recreated.
     }
     
-    func reset(_ title: String = "タイトル", question: String = "ここをタップして問題文を入力", button1: String = "選択肢1", button2: String = "選択肢2", button3: String = "選択肢3", correctAnswer: Int = 0, plistFileName: String = "") {
+    func reset(_ title: String = "タイトル", question: String = "問題文エリア", button1: String = "選択肢1", button2: String = "選択肢2", button3: String = "選択肢3", correctAnswer: Int = 0, plistFileName: String = "") {
         
         
         previewTitleLabel.text = title
