@@ -13,6 +13,8 @@ import Foundation
 
 extension ViewController {
     func getMorphologicalAnalysis(_ recognizedString: String) {
+        
+        //参考URL http://dev.classmethod.jp/smartphone/iphone/ios10-morphological-analysis-from-speechrecognizer/
         // "en" = 英語
         // "ja" = 日本語
         
@@ -34,5 +36,7 @@ extension ViewController {
         print("MA_RESULT===\(resultStringArray)")
         
     }
+    
+    
 
 }

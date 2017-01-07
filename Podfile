@@ -23,6 +23,9 @@ pod 'SwiftyJSON'
 # Alamofire
 pod 'Alamofire', '~> 4.0'
 
+# UITags
+pod 'UITags'
+
 end
 
 target 'VILTMakerTests' do
