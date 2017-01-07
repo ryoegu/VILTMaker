@@ -153,7 +153,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.request()
+        self.requestAPI()
     }
 
     
@@ -353,6 +353,9 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
 //                self.voiceInputButton.isHidden = true
                 self.afterChangingTextView.isHidden = false
             })
+            
+            self.getMorphologicalAnalysis(self.afterChangingTextView.text)
+            
         }else{
             NSLog("音声入力開始")
             self.startRecord()

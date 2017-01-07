@@ -36,6 +36,11 @@
 	<string>このアプリはマイクを使用します。</string>
 	<key>NSCameraUsageDescription</key>
 	<string>このアプリはカメラを使用します。</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>

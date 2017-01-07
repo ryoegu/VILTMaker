@@ -8,7 +8,6 @@
 
 import UIKit
 import Foundation
-import SwiftyJSON
 import EZAudio
 import Speech
 
@@ -38,7 +37,7 @@ extension ViewController {
     
     //MARK: Speech API
     
-    func request() {
+    func requestAPI() {
         
         SFSpeechRecognizer.requestAuthorization { (status) in
             

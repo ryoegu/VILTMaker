@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F37BE7AEBABF06B3AD5E1E0 /* Pods_VILTMakerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3387E075D658446FF2F6B57 /* Pods_VILTMakerUITests.framework */; };
 		28A72E8FE5AB36DA320BD86E /* Pods_VILTMakerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F970BD7A35A7D01F6778601 /* Pods_VILTMakerTests.framework */; };
+		2A0F93421E214A240048BD31 /* MorphologicalAnalysisExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0F93411E214A240048BD31 /* MorphologicalAnalysisExtension.swift */; };
 		2A1919421CF2DDCF009B8B54 /* ConstColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1919411CF2DDCF009B8B54 /* ConstColor.swift */; };
 		2A1919441CF2DE1A009B8B54 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1919431CF2DE1A009B8B54 /* UIColorExtension.swift */; };
 		2A1BEDFD1D13D4C500CD1C1B /* 0001.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BEDFB1D13D4C500CD1C1B /* 0001.plist */; };
@@ -116,6 +117,7 @@
 
 /* Begin PBXFileReference section */
 		162914617AE0E11A45DB572C /* Pods-VILTMakerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VILTMakerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VILTMakerUITests/Pods-VILTMakerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2A0F93411E214A240048BD31 /* MorphologicalAnalysisExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorphologicalAnalysisExtension.swift; sourceTree = "<group>"; };
 		2A1919411CF2DDCF009B8B54 /* ConstColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstColor.swift; sourceTree = "<group>"; };
 		2A1919431CF2DE1A009B8B54 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		2A1BEDFB1D13D4C500CD1C1B /* 0001.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0001.plist; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				2A2A726B1D3E65A300582D1B /* QuestionCollectionViewCell.swift */,
 				2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */,
 				2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */,
+				2A0F93411E214A240048BD31 /* MorphologicalAnalysisExtension.swift */,
 				2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */,
 				2AF7B0C01DF575E5001CFEFB /* GestureInterfaceExtension.swift */,
 				2AF75C7F1D3E897E00F455D0 /* RealmExtension.swift */,
@@ -846,6 +849,7 @@
 				2AF7B0C11DF575E5001CFEFB /* GestureInterfaceExtension.swift in Sources */,
 				2A1919441CF2DE1A009B8B54 /* UIColorExtension.swift in Sources */,
 				2A7F0C591D0AC46800A3DECC /* YLCircle.swift in Sources */,
+				2A0F93421E214A240048BD31 /* MorphologicalAnalysisExtension.swift in Sources */,
 				2A72AFDE1D3C57FB0049663A /* OOSIViewExtension.swift in Sources */,
 				2A7F0C5B1D0AC46800A3DECC /* YLPolygon.swift in Sources */,
 				2A7F0C5D1D0AC46800A3DECC /* YLTopology.swift in Sources */,
