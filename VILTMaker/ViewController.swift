@@ -14,6 +14,7 @@ import C4
 import FontAwesome_swift
 import RealmSwift
 import Speech
+import UITags
 
 class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, EZMicrophoneDelegate {
     
@@ -31,6 +32,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     @IBOutlet var beforeChangingTextView: UITextView!
     
     
+    @IBOutlet var tagsView: UITags!
     @IBOutlet var afterChangingTextView: UITextView!
     
     
@@ -59,7 +61,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     // 直近タップされたものを記憶
     var needToChangeObjectNumber: Int = 0
     
-    var isVoiceInputNow = false
     var bigNumber: Int = 0
     var correctAnswerWithNumber: Int = 0
     
@@ -71,12 +72,12 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var points = [String: Point]()
     var polygons = [String: Polygon]()
     var prevNote: YLSoundNote? = nil
-    
-    
+
     
     @IBOutlet var gestureInterface: UIView!
     
     var selectedObject: Int = 0
+    var selectedWordInTagsView: Int = -1
     
     
     //音声認識
@@ -84,6 +85,17 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     let audioEngine: AVAudioEngine = AVAudioEngine()
     var recognitionTask: SFSpeechRecognitionTask!
+    
+    //音声認識された言葉の配列
+    var analyzedStringArray: [String]!
+    
+    //単語編集モード
+    
+    @IBOutlet var wordEditView: UIView!
+    @IBOutlet var wordEditLabel: UILabel!
+    @IBOutlet var wordEditVoiceInputButton: BorderButton!
+    @IBOutlet var wordEditDoneButton: BorderButton!
+    
     
     //MARK: Setup and Initializiation Methods
     override func setup() {
@@ -111,6 +123,11 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         
         //音声認識のため
         speechRecognizer?.delegate = self
+        
+        //UITags
+        self.tagsView.delegate = self
+        self.wordEditView.isHidden = true
+        self.wordEditViewInit()
         
     }
     
@@ -235,12 +252,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }
     }
     
-    
-    @IBAction func voiceInputButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
-        
-        
-    }
-    
     @IBAction func ngButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
         NSLog("編集モード開始")
         editView.isHidden = false
@@ -341,66 +352,97 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
 
     
     @IBAction func voiceInputButtonPushed(_ sender: UIButton) {
-        
         recordStartAudioPlayer.play()
         
-        if isVoiceInputNow {
+        if audioEngine.isRunning {
             NSLog("音声入力終了")
             self.stopRecord()
-            
-            UIView.animate(withDuration: TimeInterval(CGFloat(0.5)), animations: { () -> Void in
-                self.audioPlot.alpha = 0
-//                self.voiceInputButton.isHidden = true
-                self.afterChangingTextView.isHidden = false
-            })
-            
-            self.getMorphologicalAnalysis(self.afterChangingTextView.text)
+            self.analyzedStringArray = self.getMorphologicalAnalysis(self.afterChangingTextView.text)
+            self.tagsView.tags = self.analyzedStringArray
+            docomoSpeakModel.speak(self.afterChangingTextView.text)
             
         }else{
             NSLog("音声入力開始")
             self.startRecord()
+            
+        }
+    }
+    
+    @IBAction func voiceOutputButtonTapped(_ sender: BorderButton) {
+        docomoSpeakModel.speak(self.joinedAllAnalyzedString(self.analyzedStringArray))
+    }
+    
+    @IBAction func wordEditVoiceInputButtonTapped(_ sender: BorderButton) {
+        
+        recordStartAudioPlayer.play()
+        if audioEngine.isRunning {
+            NSLog("音声入力終了")
+            self.stopRecord()
+            
             UIView.animate(withDuration: TimeInterval(CGFloat(0.5)), animations: {
-                self.audioPlot.alpha = 1
+                
+                self.wordEditVoiceInputButton.frame = CGRect(x: 432, y: 8, width: 60, height: 47)
+                self.wordEditDoneButton.frame = CGRect(x: 507, y: 8, width: 77, height: 47)
+                
+                
             })
             
-        }
-
-    }
-    
-    
-    
-    //MARK: Audio Plot Methods
-    func audioPlotInit() {
-        //波形
-        do {
-            let session: AVAudioSession = AVAudioSession.sharedInstance()
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try session.setActive(true)
-            audioPlot.backgroundColor = ConstColor.main
-            audioPlot.color = ConstColor.white
-            audioPlot.plotType = EZPlotType.buffer
-            audioPlot.shouldFill = true
-            audioPlot.shouldMirror = true
-            microphone = EZMicrophone(delegate: self)
-            microphone.startFetchingAudio()
-        }catch{
+            self.wordEditLabel.text = joinedAllAnalyzedString(self.getMorphologicalAnalysis(self.afterChangingTextView.text))
+            if self.afterChangingTextView.text == "" {
+                self.wordEditLabel.text = "認識されませんでした"
+            }
+            docomoSpeakModel.speak(self.wordEditLabel.text!)
+        }else{
+            self.afterChangingTextView.text = ""
+            NSLog("音声入力開始")
+            self.startRecord()
+            UIView.animate(withDuration: TimeInterval(CGFloat(0.8)), animations: {
+                self.wordEditLabel.isHidden = false
+                self.wordEditVoiceInputButton.frame = CGRect(x: 432, y: 8, width: 140, height: 47)
+                self.wordEditDoneButton.frame = CGRect(x: 584, y: 8, width: 0, height: 47)
+                self.wordEditDoneButton.backgroundColor = UIColor.blue
+                self.wordEditDoneButton.setTitle("DONE", for: UIControlState.normal)
+                
+            })
+            
             
         }
     }
-
     
-    // MARK: 大文字など、文字変換
-    func changeCharacter(_ string: String) -> String {
-        var bigString = string.uppercased()
-        bigString = bigString.replacingOccurrences(of: " ", with: "")
-        bigString = bigString.replacingOccurrences(of: "合同", with: "≡")
-        return bigString
+    @IBAction func wordEditDoneButtonTapped(_ sender: BorderButton) {
+        
+        if self.wordEditLabel.text == "" {
+            self.analyzedStringArray.remove(at: self.selectedWordInTagsView)
+        }else if self.wordEditLabel.text == "認識されませんでした"{
+            
+        }else{
+            self.analyzedStringArray[self.selectedWordInTagsView] = self.wordEditLabel.text!
+        }
+        self.wordEditViewInit()
+        self.selectedWordInTagsView = -1
+        self.wordEditView.isHidden = true
+        self.tagsView.tags = self.analyzedStringArray
+        
     }
+    
+    
+    func wordEditViewInit() {
+        
+        self.wordEditLabel.isHidden = true
+        self.wordEditLabel.text = ""
+        self.wordEditVoiceInputButton.frame = CGRect(x: 155, y: 8, width: 210, height:47)
+        self.wordEditDoneButton.frame = CGRect(x: 373, y: 8, width: 210, height: 47)
+        self.wordEditDoneButton.backgroundColor = UIColor.red
+        self.wordEditDoneButton.setTitle("", for: UIControlState.normal)
+        
+    }
+    
+
+
     
     // MARK: Memory Warning
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func reset(_ title: String = "タイトル", question: String = "問題文エリア", button1: String = "選択肢1", button2: String = "選択肢2", button3: String = "選択肢3", correctAnswer: Int = 0, plistFileName: String = "") {

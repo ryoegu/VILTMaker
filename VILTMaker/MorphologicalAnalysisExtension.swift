@@ -10,9 +10,10 @@
 
 import UIKit
 import Foundation
+import UITags
 
 extension ViewController {
-    func getMorphologicalAnalysis(_ recognizedString: String) {
+    func getMorphologicalAnalysis(_ recognizedString: String) -> [String] {
         
         //参考URL http://dev.classmethod.jp/smartphone/iphone/ios10-morphological-analysis-from-speechrecognizer/
         // "en" = 英語
@@ -33,10 +34,47 @@ extension ViewController {
             resultStringArray.append(subString)
  
         }
-        print("MA_RESULT===\(resultStringArray)")
+        return resultStringArray
         
+//        self.tagsView.tags = self.analyzedStringArray
     }
     
+    func joinedAllAnalyzedString(_ strArray: [String]) -> String {
+        let allJoinedString = strArray.joined()
+        return allJoinedString
+    }
     
+    // MARK: 大文字など、文字変換
+    func changeCharacter(_ string: String) -> String {
+        var bigString = string.uppercased()
+        bigString = bigString.replacingOccurrences(of: " ", with: "")
+        bigString = bigString.replacingOccurrences(of: "合同", with: "≡")
+        return bigString
+    }
 
+}
+
+extension ViewController: UITagsViewDelegate{
+    
+    func tagSelected(atIndex index: Int) {
+        print("Tag at index:\(index) selected")
+        selectedWordInTagsView = index
+        docomoSpeakModel.speak(self.analyzedStringArray[index])
+        
+        UIView.animate(withDuration: TimeInterval(CGFloat(0.8)), animations: {
+            self.wordEditView.isHidden = false
+        })
+
+        
+        
+    }
+    func tagDeselected(atIndex index:Int) -> Void {
+        print("Tag at index:\(index) deselected")
+        selectedWordInTagsView = -1 //初期値は-1
+        UIView.animate(withDuration: TimeInterval(CGFloat(0.8)), animations: {
+            self.wordEditView.isHidden = true
+        })
+    }
+
+    
 }

@@ -14,23 +14,36 @@ import Speech
 extension ViewController {
 
     func startRecord() {
+        UIView.animate(withDuration: TimeInterval(CGFloat(0.5)), animations: {
+            self.audioPlot.alpha = 1
+        })
         
-        isVoiceInputNow = true
         do {
             print("start recording")
             try startRecording()
         }
         catch let error {
-            isVoiceInputNow = false
             print(error.localizedDescription)
-            }
+            UIView.animate(withDuration: TimeInterval(CGFloat(0.5)), animations: { () -> Void in
+                self.audioPlot.alpha = 0
+                //                self.voiceInputButton.isHidden = true
+                self.afterChangingTextView.isHidden = false
+            })
+        }
+        
+        
 
     }
     
     func stopRecord() {
         audioEngine.stop()
         recognitionRequest?.endAudio()
-        isVoiceInputNow = false
+        
+        UIView.animate(withDuration: TimeInterval(CGFloat(0.5)), animations: { () -> Void in
+            self.audioPlot.alpha = 0
+            //                self.voiceInputButton.isHidden = true
+            self.afterChangingTextView.isHidden = false
+        })
         
         
     }
@@ -83,7 +96,7 @@ extension ViewController {
             var isFinal = false
             if let result = result {
                 /* VOICE RECOGNITION RESULT */
-                print(result.bestTranscription.formattedString)
+                print("VOICE RECOG===\(result.bestTranscription.formattedString)")
                 self.afterChangingTextView.text = result.bestTranscription.formattedString
                 isFinal = result.isFinal
             }
@@ -124,7 +137,26 @@ extension ViewController {
         try audioEngine.start()
     }
     
-    //MARK: EZMicrophone
+    //MARK: EZMicrophone, Audio Plot Methods
+    
+    func audioPlotInit() {
+        //波形
+        do {
+            let session: AVAudioSession = AVAudioSession.sharedInstance()
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try session.setActive(true)
+            audioPlot.backgroundColor = ConstColor.main
+            audioPlot.color = ConstColor.white
+            audioPlot.plotType = EZPlotType.buffer
+            audioPlot.shouldFill = true
+            audioPlot.shouldMirror = true
+            microphone = EZMicrophone(delegate: self)
+            microphone.startFetchingAudio()
+        }catch{
+            
+        }
+    }
+
     
     func microphone(_ microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>?>!, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
         let weakSelf = self
