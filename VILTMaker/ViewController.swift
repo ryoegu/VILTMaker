@@ -13,8 +13,9 @@ import EZAudio
 import C4
 import FontAwesome_swift
 import RealmSwift
+import Speech
 
-class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, NSURLConnectionDataDelegate, EZMicrophoneDelegate {
+class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, EZMicrophoneDelegate {
     
     /* Preview Area Objects */
     @IBOutlet var previewTitleLabel: UILabel!
@@ -24,7 +25,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     let oosiView = View(frame: Rect(0,289,768,735))
     
     
-    /* Edit Area Objects */
+    /* Common Area Objects */
     @IBOutlet var commonButtons: [BorderButton]!
     
     @IBOutlet var beforeChangingTextView: UITextView!
@@ -78,9 +79,14 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var selectedObject: Int = 0
     
     
+    //音声認識
+    let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ja_JP"))
+    var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    let audioEngine: AVAudioEngine = AVAudioEngine()
+    var recognitionTask: SFSpeechRecognitionTask!
+    
     //MARK: Setup and Initializiation Methods
     override func setup() {
-        beforeChangingTextView.delegate = self
         afterChangingTextView.delegate = self
         //初期値（仮置き）
         //previewSelectButton[1].backgroundColor = ConstColor.pink
@@ -101,7 +107,11 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         self.trackpadInterfaceInit()
     
         
-        self.editView.isHidden = true
+        self.editView.isHidden = false
+        
+        //音声認識のため
+        speechRecognizer?.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,6 +149,11 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.request()
     }
 
     
@@ -222,25 +237,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     
     @IBAction func voiceInputButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
-        recordStartAudioPlayer.play()
-        
-        if isVoiceInputNow {
-            NSLog("音声入力終了")
-            self.stopRecord()
-            
-            UIView.animate(withDuration: TimeInterval(CGFloat(0.5)), animations: { () -> Void in
-                self.audioPlot.alpha = 0
-                self.voiceInputButton.isHidden = true
-                self.afterChangingTextView.isHidden = false
-            })
-        }else{
-            NSLog("音声入力開始")
-            self.startRecord()
-            UIView.animate(withDuration: TimeInterval(CGFloat(0.5)), animations: {
-                self.audioPlot.alpha = 1
-            })
-            
-        }
         
         
     }
@@ -346,7 +342,26 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     @IBAction func voiceInputButtonPushed(_ sender: UIButton) {
         
+        recordStartAudioPlayer.play()
         
+        if isVoiceInputNow {
+            NSLog("音声入力終了")
+            self.stopRecord()
+            
+            UIView.animate(withDuration: TimeInterval(CGFloat(0.5)), animations: { () -> Void in
+                self.audioPlot.alpha = 0
+//                self.voiceInputButton.isHidden = true
+                self.afterChangingTextView.isHidden = false
+            })
+        }else{
+            NSLog("音声入力開始")
+            self.startRecord()
+            UIView.animate(withDuration: TimeInterval(CGFloat(0.5)), animations: {
+                self.audioPlot.alpha = 1
+            })
+            
+        }
+
     }
     
     

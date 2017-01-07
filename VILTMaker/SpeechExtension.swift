@@ -10,95 +10,122 @@ import UIKit
 import Foundation
 import SwiftyJSON
 import EZAudio
+import Speech
 
 extension ViewController {
-    //NSURLDataDelegate
-    
-    func connection(_ connection: NSURLConnection, didReceive data: Data) {
-        let json = JSON(data: data)
-        NSLog("データを受け取りました")
-        print(json)
-        if var resultString = json["result"][0]["alternative"][0]["transcript"].string {
-            //Now you got your value
-            NSLog("google result == %@",resultString)
-            //音声認識結果をテキストビューに表示
-            resultString = changeCharacter(resultString)
-            afterChangingTextView.text = resultString
-            docomoSpeakModel.speak(resultString)
-        }
-        isVoiceInputNow = false
-    }
-    
-    
-    func connection(_ connection: NSURLConnection, didFailWithError error: Error) {
-        print("ERROR == \(error)")
-        isVoiceInputNow = false
-    }
-    
-    //MARK: Google Speech API
-    func callGoogleRecognizeApi(_ data: Data) {
-        var googleSpeechAPIKey: String = ""
-        
-        //APIキーを読み込み
-        if let speechAPIKEY = KeyManager().getValue("GoogleSpeechAPIKey") as? String {
-            googleSpeechAPIKey = speechAPIKEY
-        }
-        
-        let urlStr = NSString.localizedStringWithFormat("https://www.google.com/speech-api/v2/recognize?xjerr=1&client=chromium&lang=ja-JP&maxresults=10&pfilter=0&xjerr=1&key=%@", googleSpeechAPIKey)
-        let url: URL = URL(string: urlStr as String)!
-        
-        let request: NSMutableURLRequest = NSMutableURLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("audio/l16; rate=16000", forHTTPHeaderField: "Content-Type")
-        request.addValue("chromium", forHTTPHeaderField: "client")
-        request.httpBody = data
-        
-        NSURLConnection(request: request as URLRequest, delegate: self)
-        
-        
-    }
-    
+
     func startRecord() {
+        
         isVoiceInputNow = true
-        self.filePath = self.makeFilePath()
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-            let settings: NSDictionary = [
-                AVFormatIDKey: NSNumber.init(value: kAudioFormatLinearPCM as UInt32),
-                AVSampleRateKey: NSNumber.init(value: 16000.0 as Float),
-                AVNumberOfChannelsKey: NSNumber.init(value: 1 as UInt32),
-                AVLinearPCMBitDepthKey: NSNumber.init(value: 16 as UInt32)
-            ]
-            do {
-                self.recorder = try AVAudioRecorder(url: URL.init(string: self.filePath as String)!, settings: settings as! [String : AnyObject])
-                self.recorder.delegate = self
-                self.recorder.prepareToRecord()
-                self.recorder.record(forDuration: 15.0)
-            }catch{
-            }
-        }catch{
+            print("start recording")
+            try startRecording()
         }
+        catch let error {
+            isVoiceInputNow = false
+            print(error.localizedDescription)
+            }
+
     }
     
     func stopRecord() {
+        audioEngine.stop()
+        recognitionRequest?.endAudio()
         isVoiceInputNow = false
-        self.recorder.stop()
+        
+        
     }
     
-    func makeFilePath() -> String {
-        let formatter: DateFormatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMddHHmmss"
-        let fileName: String = String(format: "%@.wav", formatter.string(from: Date()))
-        return NSTemporaryDirectory() + fileName
-    }
+    //MARK: Speech API
     
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if !flag {
-            return
+    func request() {
+        
+        SFSpeechRecognizer.requestAuthorization { (status) in
+            
+            OperationQueue.main.addOperation {
+                
+                switch status {
+                    
+                case .authorized: print("authorized")
+                case .denied: print("denied")
+                case .restricted: print("restricted")
+                case .notDetermined: print("notDetermined")
+                }
+            }
         }
-        let data: Data = try! Data(contentsOf: URL(fileURLWithPath: self.filePath))
-        self.callGoogleRecognizeApi(data)
     }
+    
+    private func startRecording() throws {
+        
+        refreshTask()
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        try audioSession.setMode(AVAudioSessionModeMeasurement)
+        try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        guard let inputNode = audioEngine.inputNode else {
+            
+            fatalError("Audio Engine has no inputNode")
+        }
+        
+        guard let recognitionRequest = recognitionRequest else {
+            
+            fatalError("Unable to create a SFSpeechAudioBufferRecognition object")
+        }
+        
+        recognitionRequest.shouldReportPartialResults = true
+        
+        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { [weak self] result, error in
+            
+            guard let `self` = self else { return }
+            
+            var isFinal = false
+            if let result = result {
+                /* VOICE RECOGNITION RESULT */
+                print(result.bestTranscription.formattedString)
+                self.afterChangingTextView.text = result.bestTranscription.formattedString
+                isFinal = result.isFinal
+            }
+            
+            if error != nil || isFinal {
+                
+                self.audioEngine.stop()
+                inputNode.removeTap(onBus: 0)
+                
+                self.recognitionRequest = nil
+                self.recognitionTask = nil
+                
+            }
+        })
+        
+        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat, block: { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
+            
+            self.recognitionRequest?.append(buffer)
+        })
+        
+        try startAudioEngine()
+    }
+    
+    private func refreshTask() {
+        
+        if let recognitionTask = recognitionTask {
+            
+            recognitionTask.cancel()
+            self.recognitionTask = nil
+        }
+    }
+    
+    private func startAudioEngine() throws {
+        
+        audioEngine.prepare()
+        
+        try audioEngine.start()
+    }
+    
+    //MARK: EZMicrophone
     
     func microphone(_ microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>?>!, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
         let weakSelf = self
@@ -113,5 +140,13 @@ extension ViewController {
     func microphone(_ microphone: EZMicrophone!, hasBufferList bufferList: UnsafeMutablePointer<AudioBufferList>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
         
     }
+}
 
+// MARK: - SFSpeechRecognizerDelegate
+
+extension ViewController: SFSpeechRecognizerDelegate {
+    
+    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+        
+    }
 }

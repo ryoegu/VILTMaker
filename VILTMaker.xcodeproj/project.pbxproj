@@ -355,12 +355,12 @@
 			children = (
 				2A2A726B1D3E65A300582D1B /* QuestionCollectionViewCell.swift */,
 				2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */,
+				2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */,
 				2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */,
 				2AF7B0C01DF575E5001CFEFB /* GestureInterfaceExtension.swift */,
 				2AF75C7F1D3E897E00F455D0 /* RealmExtension.swift */,
 				2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */,
 				2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */,
-				2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */,
 				2A2A726F1D3E73E000582D1B /* ListViewController.swift */,
 			);
 			name = Controller;
