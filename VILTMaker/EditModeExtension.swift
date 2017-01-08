@@ -21,7 +21,7 @@ extension ViewController {
      編集モードは、3つのボタンと1つのView、内包されている単語編集モードがあり、それぞれ、
      ・[11]マイクボタン（音声入力ボタン） voiceInputButton
      ・[12]スピーカーボタン（音声出力ボタン）voiceOutputButton
-     ・[13]DONEボタン（決定ボタン）doneButton
+     ・[13]DONEボタン（決定ボタン）editModeDoneButton
      ・[14]✗ボタン（編集モードを閉じるボタン） editModeExitButton
      ・[100番代〜]tagsView（単語音節ごとに区切られているもの）
      とする。
@@ -41,7 +41,7 @@ extension ViewController {
     //MARK: Edit Mode
     
     func editModeAnimation() {
-        if self.editView.isHidden {
+        if self.selectedObject >= 0 && self.selectedObject <= 4 {
             //もともと表示されていなかった場合
             self.editView.isHidden = false
             self.editView.animation = "fadeInUp"
@@ -56,8 +56,8 @@ extension ViewController {
             
         }
         self.editView.animate()
-        
     }
+
     
 
     
@@ -83,11 +83,41 @@ extension ViewController {
     }
     
     @IBAction func editModeDoneButtonPushed(_ sender: BorderButton) {
+        saveToPreview()
+        closeEditMode()
+    }
+    
+    func saveToPreview() {
         
+        if analyzedStringArray != nil {
+            let afterString = joinedAllAnalyzedString(self.analyzedStringArray)
+            switch needToChangeObjectNumber {
+            case 1:
+                previewQuestionLabel.text = afterString
+                break
+            case 0:
+                previewTitleLabel.text = afterString
+                break
+            default:
+                previewSelectButton[needToChangeObjectNumber-2].setTitle(afterString, for: UIControlState())
+                break
+            }
+        }
     }
     
     @IBAction func editModeExitButtonPushed(_ sender: BorderButton) {
+        closeEditMode()
+    }
+    
+    func closeEditMode() {
+        self.editView.animation = "fadeOut"
+        self.editView.curve = "easeInOut"
+        self.editView.duration = 1.5
+        self.editView.animate()
         
+        self.selectedObject = needToChangeObjectNumber
+        self.tagsView.tags = []
+        gestureFunction()
     }
     
     //MARK: Word Edit Mode

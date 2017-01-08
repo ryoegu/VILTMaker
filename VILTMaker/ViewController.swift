@@ -30,19 +30,31 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     /* Common Area Objects */
     @IBOutlet var commonButtons: [BorderButton]!
     
-    @IBOutlet var beforeChangingTextView: UITextView!
     
     
-    @IBOutlet var tagsView: UITags!
-    @IBOutlet var afterChangingTextView: UITextView!
-    
-    
+    /* Edit mode Objects */
     
     @IBOutlet var editView: SpringView!
-    @IBOutlet var okButton: UIButton!
-    @IBOutlet var ngButton: UIButton!
-    @IBOutlet var saveButton: UIButton!
     @IBOutlet var voiceInputButton: UIButton!
+    @IBOutlet var voiceOutputButton: UIButton!
+    @IBOutlet var editModeDoneButton: UIButton!
+    @IBOutlet var editModeExitButton: UIButton!
+    @IBOutlet var tagsView: UITags!
+    
+    /* Word Edit View Objects */
+    @IBOutlet var wordEditView: UIView!
+    @IBOutlet var wordEditLabel: UILabel!
+    @IBOutlet var wordEditVoiceInputButton: BorderButton!
+    @IBOutlet var wordEditDoneButton: BorderButton!
+    
+    /* Voice and Microphone Objects */
+    @IBOutlet var afterChangingTextView: UITextView!
+    @IBOutlet var audioPlot: EZAudioPlot!
+    
+    
+    
+    @IBOutlet var saveButton: UIButton!
+    
     
     @IBOutlet var figureView: UIView!
     let docomoSpeakModel: SpeakModel = SpeakModel()
@@ -66,7 +78,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var bigNumber: Int = 0
     var correctAnswerWithNumber: Int = 0
     
-    @IBOutlet var audioPlot: EZAudioPlot!
+    
     var microphone: EZMicrophone!
     
     var sounds: SoundManager!
@@ -90,13 +102,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     //音声認識された言葉の配列
     var analyzedStringArray: [String]!
-    
-    //単語編集モード
-    
-    @IBOutlet var wordEditView: UIView!
-    @IBOutlet var wordEditLabel: UILabel!
-    @IBOutlet var wordEditVoiceInputButton: BorderButton!
-    @IBOutlet var wordEditDoneButton: BorderButton!
     
     
     //MARK: Setup and Initializiation Methods
@@ -181,28 +186,24 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     //MARK: ワンタップ処理 (for only voice output)
     @IBAction func previewTitleLabelPushed(_ sender: UITapGestureRecognizer) {
         NSLog("PreviewTitleLabel Pushed")
-        
         selectedObject = 1
         self.gestureFunction()
         
-        needToChangeObjectNumber = 5
-        self.beforeChangingTextView.text = previewTitleLabel.text
+        needToChangeObjectNumber = 0
     }
     
     @IBAction func previewQuestionLabelPushed(_ sender: UITapGestureRecognizer) {
         NSLog("PreviewQuestionLabel Pushed")
-        needToChangeObjectNumber = 4
+        needToChangeObjectNumber = 1
         docomoSpeakModel.speak(previewQuestionLabel.text!)
-        self.beforeChangingTextView.text = previewQuestionLabel.text
     }
     
     @IBAction func selectButtonPushed(_ sender: BorderButton) {
         var buttonTitle = sender.currentTitle
-        self.beforeChangingTextView.text = buttonTitle
         buttonTitle = buttonTitle?.replacingOccurrences(of: "△", with: "三角形")
         buttonTitle = buttonTitle?.replacingOccurrences(of: "≡", with: " 合同 ")
         docomoSpeakModel.speak(buttonTitle!)
-        needToChangeObjectNumber = sender.tag
+        needToChangeObjectNumber = sender.tag + 1
         
     }
     
@@ -244,14 +245,14 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         okAudioPlayer.play()
         let afterString = afterChangingTextView.text
         switch needToChangeObjectNumber {
-        case 4:
+        case 1:
             previewQuestionLabel.text = afterString
             break
-        case 5:
+        case 0:
             previewTitleLabel.text = afterString
             break
         default:
-            previewSelectButton[needToChangeObjectNumber-1].setTitle(afterString, for: UIControlState())
+            previewSelectButton[needToChangeObjectNumber-2].setTitle(afterString, for: UIControlState())
             break
         }
     }
@@ -263,28 +264,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         voiceInputButton.isHidden = false
         
         recordStartAudioPlayer.play()
-        var setString: String = ""
         
-        switch needToChangeObjectNumber {
-        case 1:
-            setString = previewSelectButton[0].currentTitle!
-            break
-        case 2:
-            setString = previewSelectButton[1].currentTitle!
-            break
-        case 3:
-            setString = previewSelectButton[2].currentTitle!
-            break
-        case 4:
-            setString = previewQuestionLabel.text!
-            break
-        case 5:
-            setString = previewTitleLabel.text!
-        default:
-            break
-        }
-        
-        beforeChangingTextView.text = setString
     }
 
 
@@ -332,7 +312,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             self.previewSelectButton[i].titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
             
         }
-        self.beforeChangingTextView.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
         self.afterChangingTextView.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
     }
     
