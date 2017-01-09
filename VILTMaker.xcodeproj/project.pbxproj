@@ -70,6 +70,7 @@
 		2ADF58461E1FA81D007C048D /* AiTalkAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF58451E1FA81D007C048D /* AiTalkAudioPlayer.m */; };
 		2AF3C7BC1CF7A87F0090F4F9 /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */; };
 		2AF3C7BE1CF7AB610090F4F9 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */; };
+		2AF620841E2233B700FBC644 /* MagicControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF620831E2233B700FBC644 /* MagicControllerExtension.swift */; };
 		2AF75C801D3E897E00F455D0 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF75C7F1D3E897E00F455D0 /* RealmExtension.swift */; };
 		2AF75C851D3E91CD00F455D0 /* noimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AF75C841D3E91CD00F455D0 /* noimage.jpg */; };
 		2AF7B0C11DF575E5001CFEFB /* GestureInterfaceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF7B0C01DF575E5001CFEFB /* GestureInterfaceExtension.swift */; };
@@ -184,6 +185,7 @@
 		2ADF58521E1FAA7C007C048D /* AiTalkVoiceBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiTalkVoiceBase.h; sourceTree = "<group>"; };
 		2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
 		2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Keys.plist; path = Keys/Keys.plist; sourceTree = "<group>"; };
+		2AF620831E2233B700FBC644 /* MagicControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicControllerExtension.swift; sourceTree = "<group>"; };
 		2AF75C7F1D3E897E00F455D0 /* RealmExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
 		2AF75C841D3E91CD00F455D0 /* noimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noimage.jpg; sourceTree = "<group>"; };
 		2AF75C871D3E94F500F455D0 /* ScreenCaptureUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenCaptureUtil.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				2A2A726B1D3E65A300582D1B /* QuestionCollectionViewCell.swift */,
 				2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */,
 				2A0F93431E2193100048BD31 /* EditModeExtension.swift */,
+				2AF620831E2233B700FBC644 /* MagicControllerExtension.swift */,
 				2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */,
 				2A0F93411E214A240048BD31 /* MorphologicalAnalysisExtension.swift */,
 				2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */,
@@ -836,6 +839,7 @@
 				2AC76EF41CFA03B000F42F76 /* SpeakModel.swift in Sources */,
 				2AD409041CF2D65F00214542 /* BorderButton.m in Sources */,
 				2AB9D9C61CFD6F0100BC810E /* QRReaderViewController.swift in Sources */,
+				2AF620841E2233B700FBC644 /* MagicControllerExtension.swift in Sources */,
 				2ADF58461E1FA81D007C048D /* AiTalkAudioPlayer.m in Sources */,
 				2AA99C901DE7E05C0041CD8A /* Question.swift in Sources */,
 				2A7F0C731D0AC55300A3DECC /* DemoPropParser.swift in Sources */,

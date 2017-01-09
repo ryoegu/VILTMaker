@@ -15,54 +15,54 @@ import Spring
 extension ViewController {
     
     func trackpadInterfaceInit() {
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(rightSwipe(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.rightSwipe))
         rightSwipe.direction = .right
         self.gestureInterface.addGestureRecognizer(rightSwipe)
         
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(leftSwipe(_:)))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.leftSwipe))
         leftSwipe.direction = .left
         self.gestureInterface.addGestureRecognizer(leftSwipe)
         
-        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(upSwipe(_:)))
+        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.upSwipe))
         upSwipe.direction = .up
         self.gestureInterface.addGestureRecognizer(upSwipe)
         
-        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(downSwipe(_:)))
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.downSwipe))
         downSwipe.direction = .down
         self.gestureInterface.addGestureRecognizer(downSwipe)
         
-        let oneTap = UITapGestureRecognizer(target: self, action: #selector(oneTapGesture(_:)))
+        let oneTap = UITapGestureRecognizer(target: self, action: #selector(self.oneTapGesture))
         oneTap.numberOfTapsRequired = 1
         self.gestureInterface.addGestureRecognizer(oneTap)
         
     }
     
-    func rightSwipe(_ sender: UISwipeGestureRecognizer) {
+    func rightSwipe() {
         print("RIGHT")
         selectedObject = selectedObject + 1
         gestureFunction()
     }
     
-    func leftSwipe(_ sender: UISwipeGestureRecognizer) {
+    func leftSwipe() {
         print("LEFT")
         selectedObject = selectedObject - 1
         gestureFunction()
     }
     
-    func upSwipe(_ sender: UISwipeGestureRecognizer) {
+    func upSwipe() {
         print("UP")
         selectedObject = selectedObject - 1
         gestureFunction()
         
     }
     
-    func downSwipe(_ sender: UISwipeGestureRecognizer) {
+    func downSwipe() {
         print("DOWN")
         selectedObject = selectedObject + 1
         gestureFunction()
     }
     
-    func oneTapGesture(_ sender: UITapGestureRecognizer) {
+    func oneTapGesture() {
         print("ONE TAP")
         self.tapGesture()
         

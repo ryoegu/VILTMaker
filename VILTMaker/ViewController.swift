@@ -16,6 +16,7 @@ import RealmSwift
 import Speech
 import UITags
 import Spring
+import MultipeerConnectivity
 
 class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, EZMicrophoneDelegate {
     
@@ -103,6 +104,11 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     //音声認識された言葉の配列
     var analyzedStringArray: [String]!
     
+    //Multipeer Connectivity
+    var peerID:MCPeerID!
+    var session:MCSession!
+    var browser:MCNearbyServiceBrowser!
+    var advertiser:MCNearbyServiceAdvertiser? = nil
     
     //MARK: Setup and Initializiation Methods
     override func setup() {
@@ -137,6 +143,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         self.wordEditViewInit()
         
         self.editView.isHidden = true
+        
+        
         
     }
     
@@ -179,6 +187,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.setupSession() //Bluetooth Connect to VILT Controller
+
         self.requestAPI()
     }
 
