@@ -82,6 +82,7 @@
 		2AF9DBE31CEF05F9001AB683 /* VILTMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBE21CEF05F9001AB683 /* VILTMakerTests.swift */; };
 		2AF9DBEE1CEF05F9001AB683 /* VILTMakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF9DBED1CEF05F9001AB683 /* VILTMakerUITests.swift */; };
 		2AFB61A51D0A4892009D6EB1 /* changeAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2AFB61A41D0A4892009D6EB1 /* changeAnswer.mp3 */; };
+		2AFFFB0D1E2482EB00434AB5 /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFFFB0C1E2482EB00434AB5 /* DrawViewController.swift */; };
 		DB81DA175FC787FE74A48BA6 /* Pods_VILTMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A738CC8AAC3614C81BEF8379 /* Pods_VILTMaker.framework */; };
 /* End PBXBuildFile section */
 
@@ -204,6 +205,7 @@
 		2AF9DBED1CEF05F9001AB683 /* VILTMakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VILTMakerUITests.swift; sourceTree = "<group>"; };
 		2AF9DBEF1CEF05F9001AB683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AFB61A41D0A4892009D6EB1 /* changeAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = changeAnswer.mp3; sourceTree = "<group>"; };
+		2AFFFB0C1E2482EB00434AB5 /* DrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 		3F970BD7A35A7D01F6778601 /* Pods_VILTMakerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VILTMakerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A738CC8AAC3614C81BEF8379 /* Pods_VILTMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VILTMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3387E075D658446FF2F6B57 /* Pods_VILTMakerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VILTMakerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,6 +363,7 @@
 			children = (
 				2A2A726B1D3E65A300582D1B /* QuestionCollectionViewCell.swift */,
 				2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */,
+				2AFFFB0C1E2482EB00434AB5 /* DrawViewController.swift */,
 				2A0F93431E2193100048BD31 /* EditModeExtension.swift */,
 				2AF620831E2233B700FBC644 /* MagicControllerExtension.swift */,
 				2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */,
@@ -840,6 +843,7 @@
 				2AD409041CF2D65F00214542 /* BorderButton.m in Sources */,
 				2AB9D9C61CFD6F0100BC810E /* QRReaderViewController.swift in Sources */,
 				2AF620841E2233B700FBC644 /* MagicControllerExtension.swift in Sources */,
+				2AFFFB0D1E2482EB00434AB5 /* DrawViewController.swift in Sources */,
 				2ADF58461E1FA81D007C048D /* AiTalkAudioPlayer.m in Sources */,
 				2AA99C901DE7E05C0041CD8A /* Question.swift in Sources */,
 				2A7F0C731D0AC55300A3DECC /* DemoPropParser.swift in Sources */,

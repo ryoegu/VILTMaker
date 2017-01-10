@@ -15,6 +15,24 @@
     </customFonts>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="Bx4-mu-2zb">
+            <objects>
+                <viewController id="1Dj-Tu-sGq" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ynm-gd-32J"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fpz-67-7UG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="psx-ko-A2v">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPA-6i-jX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1886" y="246"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VILTMaker" customModuleProvider="target" sceneMemberID="viewController">
@@ -746,7 +764,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5V-8y-L9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1930" y="215"/>
+            <point key="canvasLocation" x="-363" y="-1083"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
