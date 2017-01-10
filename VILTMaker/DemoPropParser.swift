@@ -21,6 +21,7 @@ class DemoPropParser {
 
     init(_ props: NSDictionary) {
         self.props = props
+        print("PROP DICTIONARY======\(props)")
         for (name, pointProps) in props["points"] as! NSDictionary {
             let k = name as! String
             let p = createPoint(pointProps as! NSDictionary)

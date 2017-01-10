@@ -17,11 +17,11 @@ extension ViewController: MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, 
         session = MCSession(peer: peerID)
         session.delegate = self
         
-        advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: "sampler20160823")
+        advertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: "sampler20170823")
         advertiser?.delegate = self
         advertiser?.startAdvertisingPeer()
         
-        browser = MCNearbyServiceBrowser(peer: peerID, serviceType: "sampler20160823")
+        browser = MCNearbyServiceBrowser(peer: peerID, serviceType: "sampler20170823")
         browser.delegate = self;
         browser.startBrowsingForPeers()
     }
@@ -43,12 +43,23 @@ extension ViewController: MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, 
         switch state {
         case MCSessionState.connected:
             print("Connected: \(peerID.displayName)")
+            DispatchQueue.main.async {
+                self.statusLabel.textColor = UIColor.green
+            }
+            
             
         case MCSessionState.connecting:
             print("Connecting: \(peerID.displayName)")
+            DispatchQueue.main.async {
+                self.statusLabel.textColor = UIColor.yellow
+            }
+            
             
         case MCSessionState.notConnected:
             print("Not Connected: \(peerID.displayName)")
+            DispatchQueue.main.async {
+                self.statusLabel.textColor = UIColor.red
+            }
         }
     }
     
@@ -57,6 +68,7 @@ extension ViewController: MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, 
         //※point!!（非同期なのでpromiseで認知してあげる必要がある.）
         
         DispatchQueue.main.async {
+            self.statusLabel.textColor = UIColor.green
             print("相手からのdata : \(str!)")
             
             switch str! {
@@ -92,6 +104,11 @@ extension ViewController: MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, 
     
     //    Peer を発見した際に呼ばれるメソッド
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?){
+        
+        DispatchQueue.main.async {
+            self.statusLabel.textColor = UIColor.yellow
+        }
+        
         print("peer discovered")
         print("device : \(peerID.displayName)")
         //発見した Peer へ招待を送る
@@ -101,11 +118,16 @@ extension ViewController: MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, 
     //    Peer を見失った際に呼ばれるメソッド
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         print("peer lost")
+        DispatchQueue.main.async {
+            self.statusLabel.textColor = UIColor.red
+        }
+        
     }
     
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser,didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         //招待を受けるかどうかと自身のセッションを返す
         invitationHandler(true, session)
+        
     }
     
 

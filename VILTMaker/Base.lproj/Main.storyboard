@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="cXI-u9-sjb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="1Dj-Tu-sGq">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,10 +14,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Draw View Controller-->
         <scene sceneID="Bx4-mu-2zb">
             <objects>
-                <viewController id="1Dj-Tu-sGq" sceneMemberID="viewController">
+                <viewController id="1Dj-Tu-sGq" customClass="DrawViewController" customModule="VILTMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ynm-gd-32J"/>
                         <viewControllerLayoutGuide type="bottom" id="Fpz-67-7UG"/>
@@ -25,12 +25,93 @@
                     <view key="view" contentMode="scaleToFill" id="psx-ko-A2v">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WZa-ia-wm6">
+                                <rect key="frame" x="0.0" y="63" width="1366" height="3"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Touch View" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYI-E4-af0">
+                                <rect key="frame" x="1094" y="0.0" width="272" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RnU-Vr-w2z">
+                                <rect key="frame" x="0.0" y="289" width="768" height="735"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wn6-HD-uzN">
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="735"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3T-F7-hi4" customClass="BorderButton">
+                                <rect key="frame" x="891" y="399" width="183" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
+                                <state key="normal" title="UNDO">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.2137387003" blue="0.099672294420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pressUndoButton:" destination="1Dj-Tu-sGq" eventType="touchUpInside" id="CzP-Av-4eC"/>
+                                    <action selector="voiceInputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MWb-S9-sqh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsF-Ga-GZU" customClass="BorderButton">
+                                <rect key="frame" x="891" y="552" width="183" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
+                                <state key="normal" title="FINISH">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.2137387003" blue="0.099672294420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pressSaveButton:" destination="1Dj-Tu-sGq" eventType="touchUpInside" id="uJi-Ie-g7F"/>
+                                    <action selector="voiceInputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NdJ-ZH-Ehj"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="canvasView" destination="Wn6-HD-uzN" id="GZb-In-GfR"/>
+                        <outlet property="scrollView" destination="RnU-Vr-w2z" id="AdD-bq-a1L"/>
+                        <segue destination="BYZ-38-t0r" kind="modal" identifier="toMainView" modalTransitionStyle="coverVertical" id="WW7-Ct-aUP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPA-6i-jX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1886" y="246"/>
+            <point key="canvasLocation" x="-2274" y="253"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -73,123 +154,20 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zi-3a-mNv" customClass="SpringView" customModule="Spring">
-                                        <rect key="frame" x="0.0" y="141" width="598" height="456"/>
+                                        <rect key="frame" x="14" y="141" width="576" height="346"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="編集モード" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiu-bl-ZGY">
-                                                <rect key="frame" x="0.0" y="14" width="167" height="65"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gmT-r0-sLd">
-                                                <rect key="frame" x="0.0" y="0.0" width="598" height="12"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="576" height="12"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.27474088649226114" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.43529411764705883" green="0.11372549019607843" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0R0-1J-fiz" customClass="BorderButton">
-                                                <rect key="frame" x="182" y="23" width="110" height="47"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <gestureRecognizers/>
-                                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
-                                                <state key="normal" title="">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="1" green="0.2137387003" blue="0.099672294420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="voiceInputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4IN-Kt-nIt"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0A-zX-zLd" customClass="BorderButton">
-                                                <rect key="frame" x="418" y="23" width="110" height="47"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.22582807547062411" green="0.39658543305412663" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <gestureRecognizers/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="DONE">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="editModeDoneButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NVT-yY-Cqv"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTH-aL-a3i" customClass="BorderButton">
-                                                <rect key="frame" x="543" y="23" width="47" height="47"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <gestureRecognizers/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="✗">
-                                                    <color key="titleColor" red="0.23405726446578484" green="0.23292655304324481" blue="0.23518797588832485" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="23.5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="editModeExitButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="07d-jM-jfx"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahT-Fh-mgL" customClass="BorderButton">
-                                                <rect key="frame" x="300" y="23" width="110" height="47"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <gestureRecognizers/>
-                                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
-                                                <state key="normal" title="">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="1" green="0.2137387003" blue="0.099672294420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="voiceOutputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KyP-tt-TAT"/>
-                                                </connections>
-                                            </button>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zrY-Rw-uKl">
-                                                <rect key="frame" x="0.0" y="260" width="598" height="66"/>
+                                                <rect key="frame" x="0.0" y="260" width="576" height="66"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="単語編集" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grZ-eE-2Aa">
-                                                        <rect key="frame" x="14" y="13" width="133" height="37"/>
+                                                        <rect key="frame" x="14" y="13" width="110" height="37"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -203,7 +181,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQM-id-Nng" customClass="BorderButton">
-                                                        <rect key="frame" x="155" y="8" width="210" height="47"/>
+                                                        <rect key="frame" x="140" y="8" width="210" height="47"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="0.2258280755" green="0.3965854331" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <gestureRecognizers/>
@@ -227,7 +205,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMw-8J-VOt" customClass="BorderButton">
-                                                        <rect key="frame" x="373" y="8" width="210" height="47"/>
+                                                        <rect key="frame" x="358" y="8" width="210" height="47"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="1" green="0.2137387003" blue="0.099672294420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <gestureRecognizers/>
@@ -254,7 +232,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJ5-LU-kFD" customClass="UITags" customModule="UITags">
-                                                <rect key="frame" x="33" y="87" width="533" height="160"/>
+                                                <rect key="frame" x="33" y="87" width="514" height="160"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
@@ -281,6 +259,109 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0R0-1J-fiz" customClass="BorderButton">
+                                                <rect key="frame" x="160" y="23" width="110" height="47"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="33"/>
+                                                <state key="normal" title="">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="1" green="0.2137387003" blue="0.099672294420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="voiceInputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4IN-Kt-nIt"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0A-zX-zLd" customClass="BorderButton">
+                                                <rect key="frame" x="396" y="23" width="110" height="47"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.22582807547062411" green="0.39658543305412663" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="DONE">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="editModeDoneButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NVT-yY-Cqv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTH-aL-a3i" customClass="BorderButton">
+                                                <rect key="frame" x="521" y="23" width="47" height="47"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="✗">
+                                                    <color key="titleColor" red="0.23405726446578484" green="0.23292655304324481" blue="0.23518797588832485" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="23.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="editModeExitButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="07d-jM-jfx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahT-Fh-mgL" customClass="BorderButton">
+                                                <rect key="frame" x="278" y="23" width="110" height="47"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="25"/>
+                                                <state key="normal" title="">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="1" green="0.2137387003" blue="0.099672294420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="voiceOutputButtonPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KyP-tt-TAT"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="文字編集" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiu-bl-ZGY">
+                                                <rect key="frame" x="0.0" y="27" width="138" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
@@ -377,23 +458,39 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vsf-FI-Meo">
-                                        <rect key="frame" x="0.0" y="810" width="598" height="214"/>
+                                        <rect key="frame" x="0.0" y="1011" width="598" height="13"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-jm-Ydp">
-                                        <rect key="frame" x="22" y="633" width="554" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.96141286375661372" green="0.96141286375661372" blue="0.96141286375661372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbZ-qw-hzR" customClass="EZAudioPlot">
-                                        <rect key="frame" x="25" y="718" width="548" height="69"/>
+                                        <rect key="frame" x="0.0" y="727" width="598" height="289"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-jm-Ydp">
+                                                <rect key="frame" x="22" y="192" width="554" height="80"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.9371764762" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Controller Connection" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soH-bG-B9G">
+                                        <rect key="frame" x="426" y="698" width="128" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="•" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTT-Vs-JAr">
+                                        <rect key="frame" x="562" y="698" width="28" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.16995883034603876" blue="0.045672955214342781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98115079365079361" green="0.98115079365079361" blue="0.98115079365079361" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -444,7 +541,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="hGS-Fe-3Ps"/>
-                                            <outletCollection property="gestureRecognizers" destination="Sq6-DP-aMp" appends="YES" id="VIv-P3-FZk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZV-LA-L5y" customClass="BorderButton">
@@ -468,7 +564,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="Xuu-MP-ySh"/>
-                                            <outletCollection property="gestureRecognizers" destination="jf9-Ci-9dA" appends="YES" id="aep-8b-oDM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDA-tm-tlZ" customClass="BorderButton">
@@ -492,7 +587,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDragInside" id="wn3-yf-oup"/>
-                                            <outletCollection property="gestureRecognizers" destination="2e4-RY-eMY" appends="YES" id="Wf4-wR-vi9"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eov-vC-14l">
@@ -530,6 +624,7 @@
                         <outlet property="previewQuestionLabel" destination="Taf-Rv-g75" id="fol-Bm-PuB"/>
                         <outlet property="previewTitleLabel" destination="k0V-3P-Z57" id="wyN-QB-cmG"/>
                         <outlet property="saveButton" destination="TYf-gB-NRQ" id="jVA-94-icM"/>
+                        <outlet property="statusLabel" destination="uTT-Vs-JAr" id="wQL-Za-uJn"/>
                         <outlet property="tagsView" destination="rJ5-LU-kFD" id="0tq-G2-uAd"/>
                         <outlet property="voiceInputButton" destination="0R0-1J-fiz" id="IEv-AA-WbJ"/>
                         <outlet property="voiceOutputButton" destination="ahT-Fh-mgL" id="nax-sW-LdR"/>
@@ -550,25 +645,10 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="2e4-RY-eMY">
-                    <connections>
-                        <action selector="editButton3DoubleTapped:" destination="BYZ-38-t0r" id="pnh-zG-SPQ"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="2e4-RY-eMY"/>
                 <tapGestureRecognizer id="DmV-z5-yVl" userLabel="Preview Question Label Tap Gesture Recognizer">
                     <connections>
                         <action selector="previewQuestionLabelPushed:" destination="BYZ-38-t0r" id="nQe-56-mnZ"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="Sq6-DP-aMp">
-                    <connections>
-                        <action selector="editButton1DoubleTapped:" destination="BYZ-38-t0r" id="vzF-44-Prx"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="VVt-Ge-vJJ" userLabel="Voice Input Tap Gesture Recognizer"/>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="ckM-96-TGi" userLabel="Save Button Double Tap Gesture Recognizer">
-                    <connections>
-                        <action selector="saveButtonDoubleTapped:" destination="BYZ-38-t0r" id="FJD-Hw-hUW"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Vf4-5G-0hA" userLabel="Title Label Tap Gesture Recognizer">
@@ -576,16 +656,19 @@
                         <action selector="previewTitleLabelPushed:" destination="BYZ-38-t0r" id="2Ki-ou-tpi"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Sq6-DP-aMp"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="VVt-Ge-vJJ" userLabel="Voice Input Tap Gesture Recognizer"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="ckM-96-TGi" userLabel="Save Button Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="saveButtonDoubleTapped:" destination="BYZ-38-t0r" id="FJD-Hw-hUW"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="aSJ-a8-sGO" userLabel="List Button Double Tap Gesture Recognizer">
                     <connections>
                         <action selector="listButtonDoubleTapped:" destination="BYZ-38-t0r" id="hSV-Yk-a8B"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="jf9-Ci-9dA">
-                    <connections>
-                        <action selector="editButton2DoubleTapped:" destination="BYZ-38-t0r" id="tLS-he-XqB"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="jf9-Ci-9dA"/>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="guc-DD-chq" userLabel="Voice Input Double Tap Gesture Recognizer"/>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="GAL-JH-NGS" userLabel="New Tap Gesture Recognizer">
                     <connections>
@@ -597,19 +680,9 @@
                         <action selector="resetButtonDoubleTapped:" destination="BYZ-38-t0r" id="9Pg-C8-s9R"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="Qpg-mh-h7X" userLabel="NG Button Double Tap Gesture Recognizer">
-                    <connections>
-                        <action selector="ngButtonDoubleTapped:" destination="BYZ-38-t0r" id="olI-O4-IgY"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="4F3-uD-c5b" userLabel="Big Button Double Tap Gesture Recognizer">
                     <connections>
                         <action selector="bigButtonDoubleTapped:" destination="BYZ-38-t0r" id="m9N-p0-9Hc"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="wtL-Md-p8b" userLabel="OK Button Double Tap Gesture Recognizer">
-                    <connections>
-                        <action selector="okButtonDoubleTapped:" destination="BYZ-38-t0r" id="Laq-P2-4rJ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -654,7 +727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRo-9F-Bj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-363" y="1435"/>
+            <point key="canvasLocation" x="-3652" y="-253"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="XxO-za-bst">
@@ -764,7 +837,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5V-8y-L9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-363" y="-1083"/>
+            <point key="canvasLocation" x="-1886" y="-969"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -773,6 +846,6 @@
         <simulatedScreenMetrics key="destination" type="ipad12_9.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RqO-3c-dHa"/>
+        <segue reference="WW7-Ct-aUP"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -40,7 +40,15 @@ extension ViewController {
     
     //MARK: Edit Mode
     
+    func editViewInit() {
+        self.editView.layer.masksToBounds = true
+        self.editView.layer.borderColor = UIColor(hex: "6F1DFF").cgColor
+        self.editView.layer.borderWidth = 3.0
+        self.editView.layer.cornerRadius = 3.0
+    }
+    
     func editModeAnimation() {
+
         if self.selectedObject >= 0 && self.selectedObject <= 4 {
             //もともと表示されていなかった場合
             self.editView.isHidden = false

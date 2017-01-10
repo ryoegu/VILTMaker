@@ -109,6 +109,11 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var session:MCSession!
     var browser:MCNearbyServiceBrowser!
     var advertiser:MCNearbyServiceAdvertiser? = nil
+    @IBOutlet var statusLabel: UILabel!
+    
+    var figureDictionary: Dictionary<String,Any>!
+    
+    
     
     //MARK: Setup and Initializiation Methods
     override func setup() {
@@ -144,6 +149,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         
         self.editView.isHidden = true
         
+        editViewInit()
         
         
     }
@@ -176,12 +182,20 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             } catch{
                 // handle error
             }
-        }else{
+        }else if figureNumberString != ""{
+            //QRコード画面からアクセスした場合
             NSLog("FIGURE === %@",figureNumberString)
             self.reset(plistFileName: figureNumberString)
             self.oosiViewResources()
             
+        }else{
+            //点図読み取り画面からアクセスした場合
+            self.reset()
+            self.oosiViewResources(figureDictionary)
+            
         }
+        self.selectedObject = 0
+        gestureFunction()
         
     }
     
@@ -196,23 +210,26 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     //MARK: ワンタップ処理 (for only voice output)
     @IBAction func previewTitleLabelPushed(_ sender: UITapGestureRecognizer) {
         NSLog("PreviewTitleLabel Pushed")
-        selectedObject = 1
+        needToChangeObjectNumber = 0
+        selectedObject = 0
         self.gestureFunction()
         
-        needToChangeObjectNumber = 0
+        
     }
     
     @IBAction func previewQuestionLabelPushed(_ sender: UITapGestureRecognizer) {
         NSLog("PreviewQuestionLabel Pushed")
         needToChangeObjectNumber = 1
-        docomoSpeakModel.speak(previewQuestionLabel.text!)
+        selectedObject = 1
+        self.gestureFunction()
     }
     
     @IBAction func selectButtonPushed(_ sender: BorderButton) {
         var buttonTitle = sender.currentTitle
         buttonTitle = buttonTitle?.replacingOccurrences(of: "△", with: "三角形")
         buttonTitle = buttonTitle?.replacingOccurrences(of: "≡", with: " 合同 ")
-        docomoSpeakModel.speak(buttonTitle!)
+        selectedObject = sender.tag + 1
+        self.gestureFunction()
         needToChangeObjectNumber = sender.tag + 1
         
     }
@@ -313,8 +330,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             break
         }
         
-        
-        
         self.previewTitleLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
         self.previewQuestionLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
         
@@ -363,8 +378,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }
         
         figureNumberString = plistFileName
-        
-        
+ 
     }
  
 }

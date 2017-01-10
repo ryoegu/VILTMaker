@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 
-class NewViewController: UIViewController, UIScrollViewDelegate,UIDocumentInteractionControllerDelegate {
+class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInteractionControllerDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var canvasView: UIImageView!
@@ -38,7 +38,7 @@ class NewViewController: UIViewController, UIScrollViewDelegate,UIDocumentIntera
     var pointNumber = 1
     
     var pointDic = [String:Any]()
-    var data = [String:Any]()
+    var dataDictionary = [String:Any]()
     
     //開始位置を保持します.
     var beganTouchPoint: CGPoint = CGPoint()
@@ -73,7 +73,7 @@ class NewViewController: UIViewController, UIScrollViewDelegate,UIDocumentIntera
     fileprivate func prepareDrawing() {
         
         //実際のお絵描きで言う描く手段(色えんぴつ？クレヨン？絵の具？など)の準備
-        let myDraw = UIPanGestureRecognizer(target: self, action: #selector(NewViewController.drawGesture(_:)))
+        let myDraw = UIPanGestureRecognizer(target: self, action: #selector(DrawViewController.drawGesture(_:)))
         myDraw.maximumNumberOfTouches = 1
         self.scrollView.addGestureRecognizer(myDraw)
         
@@ -196,9 +196,9 @@ class NewViewController: UIViewController, UIScrollViewDelegate,UIDocumentIntera
     
 
     func setData(num: Int, pos: CGPoint) {
-        var posDic = [String:Any]()
-        posDic["x"] = pos.x
-        posDic["y"] = pos.y
+        var posDic = [String:Double]()
+        posDic["x"] = Double(pos.x)
+        posDic["y"] = Double(pos.y)
         
         pointDic["point\(pointNumber)"] = posDic
         
@@ -389,21 +389,39 @@ class NewViewController: UIViewController, UIScrollViewDelegate,UIDocumentIntera
         UIImageWriteToSavedPhotosAlbum(self.canvasView.image!, self, nil, nil)  //カメラロールへの保存
         //self.performSegue(withIdentifier: "toMain", sender: self)
         
-        data["points"] = pointDic
+        dataDictionary["points"] = pointDic
         setLineDic()
-        print("result: \(data)")
+        dataDictionary["labels"] = [:]
+        dataDictionary["angles"] = [:]
         
-        saveToPlistWithArray(dic: data as NSDictionary)
+        print("result: \(dataDictionary)")
+        
+        saveToPlistWithArray(dic: dataDictionary as NSDictionary)
     
-        let alert: UIAlertController = UIAlertController(title: "お知らせ", message: "保存が完了しました", preferredStyle:  UIAlertControllerStyle.alert)
+        /*let alert: UIAlertController = UIAlertController(title: "お知らせ", message: "保存が完了しました", preferredStyle:  UIAlertControllerStyle.alert)
         
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
             (action: UIAlertAction!) -> Void in
             print("OK")
         })
         alert.addAction(defaultAction)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)*/
+        
         currentDrawNumber += 1
+        
+        performSegue(withIdentifier: "toMainView", sender: nil)
+        
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toMainView") {
+            
+            let mainView = segue.destination as! ViewController
+            mainView.figureDictionary = self.dataDictionary
+        }
+        
     }
     
     func setLineDic() {
@@ -433,7 +451,7 @@ class NewViewController: UIViewController, UIScrollViewDelegate,UIDocumentIntera
             }
             idx += 1
         }
-        data["lines"] = lineDic
+        dataDictionary["lines"] = lineDic
     }
     
     /**

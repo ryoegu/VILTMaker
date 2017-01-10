@@ -12,9 +12,7 @@ import UIKit
 import C4
 
 extension ViewController {
-    
-    
-    
+
     // MARK: OOSI View
     func oosiViewInit() {
         
@@ -32,8 +30,16 @@ extension ViewController {
         print("tapnumber == \(sender.numberOfTouches)")
     }
     
-    func oosiViewResources() {
-        let parser = DemoPropParser(YLResource.loadBundleResource(figureNumberString))
+    func oosiViewResources(_ dictionary:Dictionary<String, Any> = [:]) {
+        
+        var parser: DemoPropParser!
+        
+        if dictionary.isEmpty {
+            parser = DemoPropParser(YLResource.loadBundleResource(figureNumberString))
+        }else{
+            parser = DemoPropParser(dictionary as NSDictionary)
+        }
+        
         points = parser.getPoints()
         polygons = parser.getPolygons()
         sounds = SoundManager(YLResource.loadBundleResource("resources"))
@@ -53,6 +59,8 @@ extension ViewController {
                  Array(parser.getLabels().values),
                  Array(parser.getAngles().values))
     }
+    
+    
     
     func tappedDouble(sender: UITapGestureRecognizer!) {
         print("double tapped enabled...")

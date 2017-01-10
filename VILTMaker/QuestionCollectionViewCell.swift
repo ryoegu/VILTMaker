@@ -13,6 +13,7 @@ class QuestionCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
