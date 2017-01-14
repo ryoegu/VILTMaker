@@ -21,6 +21,7 @@ class SentenceEditView: UIView {
     @IBOutlet var tagsView: UITags!
     
     /* Word Edit View Objects */
+    @IBOutlet var wordEditGuideLabel: UILabel!
     @IBOutlet var wordEditView: UIView!
     @IBOutlet var wordEditLabel: UILabel!
     @IBOutlet var wordEditVoiceInputButton: BorderButton!
@@ -35,6 +36,11 @@ class SentenceEditView: UIView {
         loadXib()
         wordEditViewInit()
         tagsViewInit()
+        
+        self.wordEditGuideLabel.layer.masksToBounds = true
+        self.wordEditGuideLabel.layer.borderWidth = 2.0
+        self.wordEditGuideLabel.layer.borderColor = UIColor.black.cgColor
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,7 +81,8 @@ class SentenceEditView: UIView {
         }
     }
     
-    fileprivate func wordEditViewInit() {
+    func wordEditViewInit() {
+        
         
         self.wordEditLabel.isHidden = true
         self.wordEditLabel.text = ""

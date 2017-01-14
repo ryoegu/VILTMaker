@@ -24,6 +24,7 @@
                 <outlet property="voiceInputButton" destination="aNf-nl-sw4" id="1bW-Iz-FWJ"/>
                 <outlet property="voiceOutputButton" destination="ezZ-RA-kLs" id="mkM-x9-Dhj"/>
                 <outlet property="wordEditDoneButton" destination="uhC-o8-mmN" id="3EC-eP-rHN"/>
+                <outlet property="wordEditGuideLabel" destination="EQd-eL-dcM" id="9Pk-5i-B56"/>
                 <outlet property="wordEditLabel" destination="PXa-2p-nP6" id="asl-Dh-1JO"/>
                 <outlet property="wordEditView" destination="HwQ-Ea-U8D" id="EM2-3D-Cjv"/>
                 <outlet property="wordEditVoiceInputButton" destination="Vie-RL-ASV" id="W3u-9p-lKJ"/>
@@ -52,13 +53,6 @@
                     <rect key="frame" x="0.0" y="332" width="576" height="66"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="単語編集" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-eL-dcM">
-                            <rect key="frame" x="14" y="13" width="110" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXa-2p-nP6">
                             <rect key="frame" x="155" y="4" width="269" height="58"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -114,6 +108,13 @@
                                 <action selector="wordEditDoneButtonTapped:" destination="-1" eventType="touchUpInside" id="Qhd-GA-thu"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="単語編集" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQd-eL-dcM">
+                            <rect key="frame" x="14" y="10" width="118" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>

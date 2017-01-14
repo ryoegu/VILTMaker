@@ -66,6 +66,8 @@ extension SentenceEditView: UITagsViewDelegate{
         UIView.animate(withDuration: TimeInterval(CGFloat(0.8)), animations: {
             self.wordEditView.isHidden = false
         })
+        
+        wordEditViewInit()
 
         
         
