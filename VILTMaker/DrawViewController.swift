@@ -200,37 +200,76 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
         posDic["x"] = Double(pos.x)
         posDic["y"] = Double(pos.y)
         
-        pointDic["point\(pointNumber)"] = posDic
+        
+        
+        pointDic["\(convertToAlphabet(pointNumber))"] = posDic
         
         pointNumber += 1
     }
     
-    /*
-    func setData(num: Int, startPos: CGPoint, finishPos: CGPoint) {
-        var beginDic = [String:Any]()
-        beginDic["x"] = startPos.x
-        beginDic["y"] = startPos.y
-        
-        var endDic = [String:Any]()
-        endDic["x"] = finishPos.x
-        endDic["y"] = finishPos.y
-        
-        var lineDic = [String:Any]()
-        lineDic["begin"] = beginDic
-        lineDic["end"] = endDic
-
-        var pointDic = [String:Any]()
-        pointDic["x"] = startPos.x
-        pointDic["y"] = startPos.y
-        
-        var pointsDic = [String:Any]()
-        pointsDic["point\(num)"] = lineDic
-        
-        data["points"] = pointsDic
-        
-    }
- */
     
+    func convertToAlphabet(_ num: Int) -> String {
+        var returnString = ""
+        switch num {
+        case 1:
+            returnString = "A"
+        case 2:
+            returnString = "B"
+        case 3:
+            returnString = "C"
+        case 4:
+            returnString = "D"
+        case 5:
+            returnString = "E"
+        case 6:
+            returnString = "F"
+        case 7:
+            returnString = "G"
+        case 8:
+            returnString = "H"
+        case 9:
+            returnString = "I"
+        case 10:
+            returnString = "J"
+        case 11:
+            returnString = "K"
+        case 12:
+            returnString = "L"
+        case 13:
+            returnString = "M"
+        case 14:
+            returnString = "N"
+        case 15:
+            returnString = "O"
+        case 16:
+            returnString = "P"
+        case 17:
+            returnString = "Q"
+        case 18:
+            returnString = "R"
+        case 19:
+            returnString = "S"
+        case 20:
+            returnString = "T"
+        case 21:
+            returnString = "U"
+        case 22:
+            returnString = "V"
+        case 23:
+            returnString = "W"
+        case 24:
+            returnString = "X"
+        case 25:
+            returnString = "Y"
+        case 26:
+            returnString = "Z"
+        default:
+            returnString = "Z"
+        }
+        
+        return returnString
+    }
+
     /**
      UIGestureRecognizerのStatusが.Changedの時に実行するDraw動作
      
@@ -297,34 +336,7 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
         return convertPoint
         
     }
-    
-    /**
-     Redボタンを押した時の動作
-     ペンを赤色にする
-     */
-    @IBAction func selectRed(_ sender: AnyObject) {
-        
-        drawColor = UIColor.red      //赤色に変更する
-    }
-    
-    /**
-     Greenボタンを押した時の動作
-     ペンを緑色にする
-     */
-    @IBAction func selectGreen(_ sender: AnyObject) {
-        
-        drawColor = UIColor.green    //緑色に変更する
-    }
-    
-    /**
-     Blueボタンを押した時の動作
-     ペンを青色にする
-     */
-    @IBAction func selectBlue(_ sender: AnyObject) {
-        
-        drawColor = UIColor.blue     //青色に変更する
-        
-    }
+
     
     /**
      Blackボタンを押した時の動作
@@ -432,22 +444,29 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
         var keys : Array = Array(pointDic.keys)
         keys.sort { $0 < $1 }
         
+        
+        
+        
         var idx = 1
         var posname = ""
         var isEven = false
+        var beginKey = ""
         
         for key in keys {
             if idx % 2 != 0 {
                 posname = "begin"
                 isEven = false
+                beginKey = key
+                
             } else {
                 posname = "end"
                 isEven = true
             }
+            
             posDic[posname] = key
             
             if isEven {
-                lineDic["line\(idx/2)"] = posDic
+                lineDic["\(beginKey)\(key)"] = posDic
             }
             idx += 1
         }

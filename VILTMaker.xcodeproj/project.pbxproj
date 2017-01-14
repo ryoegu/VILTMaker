@@ -10,7 +10,6 @@
 		1F37BE7AEBABF06B3AD5E1E0 /* Pods_VILTMakerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3387E075D658446FF2F6B57 /* Pods_VILTMakerUITests.framework */; };
 		28A72E8FE5AB36DA320BD86E /* Pods_VILTMakerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F970BD7A35A7D01F6778601 /* Pods_VILTMakerTests.framework */; };
 		2A0F93421E214A240048BD31 /* MorphologicalAnalysisExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0F93411E214A240048BD31 /* MorphologicalAnalysisExtension.swift */; };
-		2A0F93441E2193100048BD31 /* EditModeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0F93431E2193100048BD31 /* EditModeExtension.swift */; };
 		2A1919421CF2DDCF009B8B54 /* ConstColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1919411CF2DDCF009B8B54 /* ConstColor.swift */; };
 		2A1919441CF2DE1A009B8B54 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1919431CF2DE1A009B8B54 /* UIColorExtension.swift */; };
 		2A1BEDFD1D13D4C500CD1C1B /* 0001.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A1BEDFB1D13D4C500CD1C1B /* 0001.plist */; };
@@ -28,6 +27,10 @@
 		2A2A726D1D3E65A300582D1B /* QuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A726B1D3E65A300582D1B /* QuestionCollectionViewCell.swift */; };
 		2A2A726E1D3E65A300582D1B /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A2A726C1D3E65A300582D1B /* QuestionCollectionViewCell.xib */; };
 		2A2A72701D3E73E000582D1B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A726F1D3E73E000582D1B /* ListViewController.swift */; };
+		2A3940671E2A1C2000B97B3F /* SentenceEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A3940661E2A1C2000B97B3F /* SentenceEditView.xib */; };
+		2A3940691E2A1C3000B97B3F /* SentenceEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3940681E2A1C3000B97B3F /* SentenceEditView.swift */; };
+		2A39406B1E2A1D2F00B97B3F /* BasicExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A39406A1E2A1D2F00B97B3F /* BasicExtension.swift */; };
+		2A39406D1E2A3CDB00B97B3F /* RealmConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A39406C1E2A3CDB00B97B3F /* RealmConstants.swift */; };
 		2A72AFDC1D3C57760049663A /* ViewControllerAudioExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */; };
 		2A72AFDE1D3C57FB0049663A /* OOSIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */; };
 		2A72AFE01D3C5D030049663A /* SpeechExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */; };
@@ -135,6 +138,10 @@
 		2A2A726B1D3E65A300582D1B /* QuestionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		2A2A726C1D3E65A300582D1B /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
 		2A2A726F1D3E73E000582D1B /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		2A3940661E2A1C2000B97B3F /* SentenceEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SentenceEditView.xib; sourceTree = "<group>"; };
+		2A3940681E2A1C3000B97B3F /* SentenceEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentenceEditView.swift; sourceTree = "<group>"; };
+		2A39406A1E2A1D2F00B97B3F /* BasicExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicExtension.swift; sourceTree = "<group>"; };
+		2A39406C1E2A3CDB00B97B3F /* RealmConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmConstants.swift; path = Keys/RealmConstants.swift; sourceTree = "<group>"; };
 		2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAudioExtension.swift; sourceTree = "<group>"; };
 		2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOSIViewExtension.swift; sourceTree = "<group>"; };
 		2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechExtension.swift; sourceTree = "<group>"; };
@@ -348,6 +355,7 @@
 		2AC76EF21CFA036100F42F76 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2A39406A1E2A1D2F00B97B3F /* BasicExtension.swift */,
 				2AA99C8F1DE7E05C0041CD8A /* Question.swift */,
 				2A7F0C721D0AC55300A3DECC /* DemoPropParser.swift */,
 				2A7F0C741D0AC55D00A3DECC /* SoundManager.swift */,
@@ -384,6 +392,8 @@
 				2AF9DBD11CEF05F8001AB683 /* Main.storyboard */,
 				2AF9DBD61CEF05F9001AB683 /* LaunchScreen.storyboard */,
 				2A2A726C1D3E65A300582D1B /* QuestionCollectionViewCell.xib */,
+				2A3940661E2A1C2000B97B3F /* SentenceEditView.xib */,
+				2A3940681E2A1C3000B97B3F /* SentenceEditView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -417,6 +427,7 @@
 		2AD841E21CF9EB9F00BB100B /* APIKeyManagement */ = {
 			isa = PBXGroup;
 			children = (
+				2A39406C1E2A3CDB00B97B3F /* RealmConstants.swift */,
 				2AF3C7BB1CF7A87F0090F4F9 /* KeyManager.swift */,
 				2AF3C7BD1CF7AB610090F4F9 /* Keys.plist */,
 			);
@@ -673,6 +684,7 @@
 				2A2A72671D3E53F100582D1B /* welcome.png in Resources */,
 				2AF75C851D3E91CD00F455D0 /* noimage.jpg in Resources */,
 				2A7F0C621D0AC46800A3DECC /* pip_c5.caf in Resources */,
+				2A3940671E2A1C2000B97B3F /* SentenceEditView.xib in Resources */,
 				2A839F441D0986B900475ACF /* cursorSingle.mp3 in Resources */,
 				2A839F461D098C4C00475ACF /* okButton.mp3 in Resources */,
 				2A1BEE021D13D70000CD1C1B /* 0003.plist in Resources */,
@@ -857,8 +869,10 @@
 				2A7F0C561D0AC46800A3DECC /* YLResource.swift in Sources */,
 				2AF3C7BC1CF7A87F0090F4F9 /* KeyManager.swift in Sources */,
 				2A7F0C551D0AC46800A3DECC /* YLAudioPlayer.swift in Sources */,
+				2A39406B1E2A1D2F00B97B3F /* BasicExtension.swift in Sources */,
 				2AF7B0C11DF575E5001CFEFB /* GestureInterfaceExtension.swift in Sources */,
 				2A1919441CF2DE1A009B8B54 /* UIColorExtension.swift in Sources */,
+				2A39406D1E2A3CDB00B97B3F /* RealmConstants.swift in Sources */,
 				2A7F0C591D0AC46800A3DECC /* YLCircle.swift in Sources */,
 				2A0F93421E214A240048BD31 /* MorphologicalAnalysisExtension.swift in Sources */,
 				2A72AFDE1D3C57FB0049663A /* OOSIViewExtension.swift in Sources */,
@@ -866,8 +880,8 @@
 				2A7F0C5D1D0AC46800A3DECC /* YLTopology.swift in Sources */,
 				2A7F0C5E1D0AC46800A3DECC /* YLWedge.swift in Sources */,
 				2AF9DBD01CEF05F8001AB683 /* ViewController.swift in Sources */,
+				2A3940691E2A1C3000B97B3F /* SentenceEditView.swift in Sources */,
 				2A7F0C5C1D0AC46800A3DECC /* YLTextShape.swift in Sources */,
-				2A0F93441E2193100048BD31 /* EditModeExtension.swift in Sources */,
 				2A7F0C581D0AC46800A3DECC /* YLSpeechSynthesizer.swift in Sources */,
 				2AF9DBCE1CEF05F8001AB683 /* AppDelegate.swift in Sources */,
 				2A72AFDC1D3C57760049663A /* ViewControllerAudioExtension.swift in Sources */,

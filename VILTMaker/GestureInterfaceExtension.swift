@@ -125,19 +125,19 @@ extension ViewController {
         /* Edit Mode Buttons */
         case 11:
             //編集モードマイクボタン
-            voiceInputButton.layer.borderWidth = 3
+            editView.voiceInputButton.layer.borderWidth = 3
             docomoSpeakModel.speak("マイクボタン")
         case 12:
             //編集モードスピーカーボタン
-            voiceOutputButton.layer.borderWidth = 3
+            editView.voiceOutputButton.layer.borderWidth = 3
             docomoSpeakModel.speak("確認ボタン")
         case 13:
             //決定ボタン
-            editModeDoneButton.layer.borderWidth = 3
+            editView.editModeDoneButton.layer.borderWidth = 3
             docomoSpeakModel.speak("この内容で決定")
         case 14:
             //編集モード閉じるボタン
-            editModeExitButton.layer.borderWidth = 3
+            editView.editModeExitButton.layer.borderWidth = 3
             docomoSpeakModel.speak("編集モードを閉じる")
         case 15:
             //形態素解析View用にあけておく
@@ -165,10 +165,10 @@ extension ViewController {
         oosiView.layer?.borderWidth = 0
         
         /* edit mode buttons */
-        voiceOutputButton.layer.borderWidth = 0
-        voiceInputButton.layer.borderWidth = 0
-        editModeDoneButton.layer.borderWidth = 0
-        editModeExitButton.layer.borderWidth = 0
+        editView.voiceOutputButton.layer.borderWidth = 0
+        editView.voiceInputButton.layer.borderWidth = 0
+        editView.editModeDoneButton.layer.borderWidth = 0
+        editView.editModeExitButton.layer.borderWidth = 0
         
     }
     
@@ -176,15 +176,15 @@ extension ViewController {
         
         switch selectedObject {
         case 0:
-            goToEditMode()
+            goToEditMode(0)
         case 1:
-            goToEditMode()
+            goToEditMode(1)
         case 2:
-            goToEditMode()
+            goToEditMode(2)
         case 3:
-            goToEditMode()
+            goToEditMode(3)
         case 4:
-            goToEditMode()
+            goToEditMode(4)
         case 5:
             //図形編集モード
             return
@@ -200,21 +200,42 @@ extension ViewController {
             return
         /* 編集モード */
         case 11:
-            voiceInputButtonPushed(voiceInputButton)
+            editView.voiceInputButtonPushed(editView.voiceInputButton)
         case 12:
-            voiceOutputButtonPushed(voiceOutputButton as! BorderButton)
+            editView.voiceOutputButtonPushed(editView.voiceOutputButton as! BorderButton)
         case 13:
-            editModeDoneButtonPushed(editModeDoneButton as! BorderButton)
+            editView.editModeDoneButtonPushed(editView.editModeDoneButton as! BorderButton)
         case 14:
-            editModeExitButtonPushed(editModeExitButton as! BorderButton)
+            editView.editModeExitButtonPushed(editView.editModeExitButton as! BorderButton)
         default:
             return
         }
     }
     
-    func goToEditMode() {
-        editModeAnimation()
+    func goToEditMode(_ number: Int) {
+        editView.editModeAnimation()
         //TODO: 編集モードにはいったことを示す効果音
+        
+        var originalText = ""
+        switch number {
+        case 0:
+            originalText = self.previewTitleLabel.text!
+        case 1:
+            originalText = self.previewQuestionLabel.text!
+        case 2:
+            originalText = (previewSelectButton[0].titleLabel?.text!)!
+        case 3:
+            originalText = (previewSelectButton[1].titleLabel?.text!)!
+        case 4:
+            originalText = (previewSelectButton[2].titleLabel?.text!)!
+            
+        default:
+            break
+        }
+        analyzedStringArray = editView.getMorphologicalAnalysis(originalText)
+        editView.tagsView.tags = analyzedStringArray
+        afterChangingTextView.text = ""
+        
         selectedObject = 11
         gestureFunction()
         

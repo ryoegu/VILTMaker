@@ -12,7 +12,7 @@ import UIKit
 import Foundation
 import UITags
 
-extension ViewController {
+extension SentenceEditView {
     func getMorphologicalAnalysis(_ recognizedString: String) -> [String] {
         
         //参考URL http://dev.classmethod.jp/smartphone/iphone/ios10-morphological-analysis-from-speechrecognizer/
@@ -51,15 +51,17 @@ extension ViewController {
         bigString = bigString.replacingOccurrences(of: "合同", with: "≡")
         return bigString
     }
-
+    
 }
 
-extension ViewController: UITagsViewDelegate{
+extension SentenceEditView: UITagsViewDelegate{
     
     func tagSelected(atIndex index: Int) {
         print("Tag at index:\(index) selected")
         selectedWordInTagsView = index
-        docomoSpeakModel.speak(self.analyzedStringArray[index])
+        if let tmp = UIApplication.shared.forwardViewController as? ViewController {
+            tmp.docomoSpeakModel.speak(tmp.analyzedStringArray[index])
+        }
         
         UIView.animate(withDuration: TimeInterval(CGFloat(0.8)), animations: {
             self.wordEditView.isHidden = false

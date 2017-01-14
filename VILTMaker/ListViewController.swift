@@ -20,7 +20,19 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
             })
             Realm.Configuration.defaultConfiguration = config
             
-            let realm = try Realm()
+            
+            var url: String!
+            
+            if let address = KeyManager().getValue("AWSRealmServerAddress") as? String {
+                url = address
+            }
+            
+            let syncServerURL = URL(string: "\(url!)~/Question")!
+            let user = SyncUser.current!
+            let configuration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: syncServerURL))
+            //一覧画面からアクセスした場合
+            let realm = try! Realm(configuration: configuration)
+                    
             return realm.objects(Question.self)
         }catch let error as NSError{
             print("error === %@",error)

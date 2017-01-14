@@ -31,22 +31,9 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     /* Common Area Objects */
     @IBOutlet var commonButtons: [BorderButton]!
     
-    
-    
     /* Edit mode Objects */
     
-    @IBOutlet var editView: SpringView!
-    @IBOutlet var voiceInputButton: UIButton!
-    @IBOutlet var voiceOutputButton: UIButton!
-    @IBOutlet var editModeDoneButton: UIButton!
-    @IBOutlet var editModeExitButton: UIButton!
-    @IBOutlet var tagsView: UITags!
-    
-    /* Word Edit View Objects */
-    @IBOutlet var wordEditView: UIView!
-    @IBOutlet var wordEditLabel: UILabel!
-    @IBOutlet var wordEditVoiceInputButton: BorderButton!
-    @IBOutlet var wordEditDoneButton: BorderButton!
+    var editView: SentenceEditView!
     
     /* Voice and Microphone Objects */
     @IBOutlet var afterChangingTextView: UITextView!
@@ -92,7 +79,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     @IBOutlet var gestureInterface: UIView!
     
     var selectedObject: Int = 0
-    var selectedWordInTagsView: Int = -1
+    
     
     
     //音声認識
@@ -114,9 +101,16 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var figureDictionary: Dictionary<String,Any>!
     
     
+    var realm: Realm!
+    
+    @IBOutlet var leftView: UIView!
     
     //MARK: Setup and Initializiation Methods
     override func setup() {
+        
+        editView = SentenceEditView(frame: CGRect(x: 788, y: 150, width: 576, height: 400))
+        self.view.addSubview(editView)
+        
         afterChangingTextView.delegate = self
         //初期値（仮置き）
         //previewSelectButton[1].backgroundColor = ConstColor.pink
@@ -136,23 +130,14 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         //Trackpad Interfaceの初期化処理
         self.trackpadInterfaceInit()
     
-        
-        self.editView.isHidden = false
-        
+                
         //音声認識のため
         speechRecognizer?.delegate = self
         
-        //UITags
-        self.tagsView.delegate = self
-        self.wordEditView.isHidden = true
-        self.wordEditViewInit()
-        
-        self.editView.isHidden = true
-        
-        editViewInit()
-        
         
     }
+    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -164,10 +149,24 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }
         NSLog("uuid(from UD)===%@",uuid)
         
+        var url: String!
+        
+        if let address = KeyManager().getValue("AWSRealmServerAddress") as? String {
+            url = address
+        }
+
+        let syncServerURL = URL(string: "\(url!)~/Question")!
+        
+        
         if uuid != ""{
             //一覧画面からアクセスした場合
             do {
-                let realm = try Realm()
+                
+                
+//                let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: syncServerURL))
+                realm = try! Realm()
+
+                
                 let object = realm.objects(Question.self).filter("id = '\(uuid)'").first
                 self.reset((object?.name)!, question: (object?.question)!, button1: (object?.answer1)!, button2: (object?.answer2)!, button3: (object?.answer3)!, correctAnswer: (object?.correctAnswer)!, plistFileName: (object?.plistFileName)!)
                 
@@ -284,18 +283,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }
     }
     
-    @IBAction func ngButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
-        NSLog("編集モード開始")
-        editView.isHidden = false
-        afterChangingTextView.isHidden = true
-        voiceInputButton.isHidden = false
-        
-        recordStartAudioPlayer.play()
-        
-    }
 
-
-    
     //上部ボタン
     @IBAction func newButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
         self.performSegue(withIdentifier: "QRView", sender: nil)

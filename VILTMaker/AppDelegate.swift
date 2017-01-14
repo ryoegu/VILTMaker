@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        connectToRealmServer()
         return true
     }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -38,6 +41,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func connectToRealmServer() {
+        var url: String!
+        
+        if let address = KeyManager().getValue("AWSRealmServerAddress") as? String {
+            url = address
+        }
+        
+        let serverURL = NSURL(string: url)!
+        
+        let usernameCredentials = SyncCredentials.usernamePassword(username: "VILTMaker", password: "yairilab2017")
+        
+        
+        
+        SyncUser.logIn(with: usernameCredentials,
+                       server: serverURL as URL) { user, error in
+                        if let user = user {
+                            // can now open a synchronized Realm with this user
+                            print("SUCCEED")
+                        } else if let error = error {
+                            // handle error
+                            print("ERROR")
+                            print(error)
+                        }
+        }
+ 
+        
+        
     }
 
 

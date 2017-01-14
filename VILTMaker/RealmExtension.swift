@@ -63,7 +63,6 @@ extension ViewController {
         }
         // ToDoデータを永続化する処理
         do{
-            let realm = try Realm()
             try realm.write{
                 realm.add(question, update: true)
             }
