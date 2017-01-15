@@ -140,12 +140,17 @@ extension ViewController {
             editView.editModeExitButton.layer.borderWidth = 3
             docomoSpeakModel.speak("編集モードを閉じる")
         case 15:
-            //形態素解析View用にあけておく
+            //形態素解析View用
             //ここにきたら自動的に100番台へ
-            return
+            selectedObject = 100
+            gestureFunction()
+        case 99:
+            selectedObject = 12
+            gestureFunction()
         default:
             //100番台
-            return
+            self.editView.selectCell(selectedObject-100)
+            
         }
     }
     

@@ -31,6 +31,7 @@
 		2A3940691E2A1C3000B97B3F /* SentenceEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3940681E2A1C3000B97B3F /* SentenceEditView.swift */; };
 		2A39406B1E2A1D2F00B97B3F /* BasicExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A39406A1E2A1D2F00B97B3F /* BasicExtension.swift */; };
 		2A39406D1E2A3CDB00B97B3F /* RealmConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A39406C1E2A3CDB00B97B3F /* RealmConstants.swift */; };
+		2A39406F1E2A520100B97B3F /* FigureEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A39406E1E2A520100B97B3F /* FigureEditView.xib */; };
 		2A72AFDC1D3C57760049663A /* ViewControllerAudioExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */; };
 		2A72AFDE1D3C57FB0049663A /* OOSIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */; };
 		2A72AFE01D3C5D030049663A /* SpeechExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */; };
@@ -141,6 +142,7 @@
 		2A3940681E2A1C3000B97B3F /* SentenceEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentenceEditView.swift; sourceTree = "<group>"; };
 		2A39406A1E2A1D2F00B97B3F /* BasicExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicExtension.swift; sourceTree = "<group>"; };
 		2A39406C1E2A3CDB00B97B3F /* RealmConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmConstants.swift; path = Keys/RealmConstants.swift; sourceTree = "<group>"; };
+		2A39406E1E2A520100B97B3F /* FigureEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FigureEditView.xib; sourceTree = "<group>"; };
 		2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAudioExtension.swift; sourceTree = "<group>"; };
 		2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOSIViewExtension.swift; sourceTree = "<group>"; };
 		2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechExtension.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				2A2A726C1D3E65A300582D1B /* QuestionCollectionViewCell.xib */,
 				2A3940661E2A1C2000B97B3F /* SentenceEditView.xib */,
 				2A3940681E2A1C3000B97B3F /* SentenceEditView.swift */,
+				2A39406E1E2A520100B97B3F /* FigureEditView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				2A839F401D0981CE00475ACF /* recordStart.mp3 in Resources */,
 				2A7F0C631D0AC46800A3DECC /* pip_d4.caf in Resources */,
 				2A1BEE041D13D8BB00CD1C1B /* 0004.plist in Resources */,
+				2A39406F1E2A520100B97B3F /* FigureEditView.xib in Resources */,
 				2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */,
 				2A2A726A1D3E554900582D1B /* welcome@2x.png in Resources */,
 				2A1BEDFD1D13D4C500CD1C1B /* 0001.plist in Resources */,

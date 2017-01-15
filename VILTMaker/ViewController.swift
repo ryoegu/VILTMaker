@@ -108,7 +108,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     //MARK: Setup and Initializiation Methods
     override func setup() {
         
-        editView = SentenceEditView(frame: CGRect(x: 788, y: 150, width: 576, height: 400))
+        editView = SentenceEditView(frame: CGRect(x: 785, y: 150, width: 576, height: 400))
         self.view.addSubview(editView)
         
         afterChangingTextView.delegate = self

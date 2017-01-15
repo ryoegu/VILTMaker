@@ -14,7 +14,7 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
     @IBOutlet weak var canvasView: UIImageView!
     
     var lastPoint: CGPoint?                 //直前のタッチ座標の保存用
-    var lineWidth: CGFloat = 100.0                //描画用の線の太さの保存用
+    var lineWidth: CGFloat = 30.0                //描画用の線の太さの保存用
     //var bezierPath = UIBezierPath()         //お絵描きに使用
     var bezierPath: UIBezierPath?           //お絵描きに使用
     var drawColor = UIColor()               //描画色の保存用
@@ -49,7 +49,7 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
         
         scrollView.delegate = self
         scrollView.minimumZoomScale = 1.0                   // 最小拡大率
-        scrollView.maximumZoomScale = 4.0                   // 最大拡大率
+        scrollView.maximumZoomScale = 1.0                   // 最大拡大率
         scrollView.zoomScale = 1.0                          // 表示時の拡大率(初期値)
         
         prepareDrawing()
@@ -77,7 +77,7 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
         myDraw.maximumNumberOfTouches = 1
         self.scrollView.addGestureRecognizer(myDraw)
         
-        drawColor = UIColor.black                           //draw色を黒色に決定する
+        drawColor = UIColor.yellow                           //draw色を黒色に決定する
         //lineWidth = CGFloat(sliderValue.value) * scale    //線の太さを決定する
         
         //実際のお絵描きで言うキャンバスの準備 (=何も描かれていないUIImageの作成)
@@ -92,7 +92,9 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
      */
     func prepareCanvas() {
         //キャンバスのサイズの決定
-        let canvasSize = CGSize(width: view.frame.width * 2, height: view.frame.width * 2)
+        //let canvasSize = CGSize(width: view.frame.width * 2, height: view.frame.width * 2)
+        let canvasSize = CGSize(width: 768, height: 735)
+        
         //キャンバスのRectの決定
         let canvasRect = CGRect(x: 0, y: 0, width: canvasSize.width, height: canvasSize.height)
         //コンテキスト作成(キャンバスのUIImageを作成する為)
@@ -100,14 +102,14 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
         //キャンバス用UIImage(まだ空っぽ)
         var firstCanvasImage = UIImage()
         //白色塗りつぶし作業1
-        UIColor.white.setFill()
+        UIColor.black.setFill()
         //白色塗りつぶし作業2
         UIRectFill(canvasRect)
         //firstCanvasImageの内容を描く(真っ白)
         firstCanvasImage.draw(in: canvasRect)
         firstCanvasImage = UIGraphicsGetImageFromCurrentImageContext()!              //何も描かれてないUIImageを取得
         canvasView.contentMode = .scaleAspectFit                                    //contentModeの設定
-        canvasView.image = firstCanvasImage                                         //画面の表示を更新
+        canvasView.image = firstCanvasImage                                       //画面の表示を更新
         UIGraphicsEndImageContext()                                                 //コンテキストを閉じる
     }
     
@@ -348,16 +350,6 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
     }
     
     /**
-     スライダーを動かした時の動作
-     ペンの太さを変更する
-     */
-    //@IBAction func slideSlider(_ sender: AnyObject) {
-        
-       // lineWidth = CGFloat(sliderValue.value) * scale
-        
-   // }
-    
-    /**
      Undoボタンを押した時の動作
      Undoを実行する
      */
@@ -410,15 +402,6 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
         
         saveToPlistWithArray(dic: dataDictionary as NSDictionary)
     
-        /*let alert: UIAlertController = UIAlertController(title: "お知らせ", message: "保存が完了しました", preferredStyle:  UIAlertControllerStyle.alert)
-        
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
-            (action: UIAlertAction!) -> Void in
-            print("OK")
-        })
-        alert.addAction(defaultAction)
-        present(alert, animated: true, completion: nil)*/
-        
         currentDrawNumber += 1
         
         performSegue(withIdentifier: "toMainView", sender: nil)
@@ -473,109 +456,9 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
         dataDictionary["lines"] = lineDic
     }
     
-    /**
-     Instagramボタンを押した時の動作
-     URLスキームを使ってInstagramアプリのライブラリ画面を表示する
-     */
-    @IBAction func pressInstagramButton(_ sender: AnyObject) {
-        
-        var imageIdentifier: String?
-        PHPhotoLibrary.shared().performChanges({ () -> Void in
-            let createAssetRequest = PHAssetChangeRequest.creationRequestForAsset(from: self.canvasView.image!)
-            let placeHolder = createAssetRequest.placeholderForCreatedAsset
-            imageIdentifier = placeHolder!.localIdentifier
-        }, completionHandler: { (success, error) -> Void in
-            print("Finished adding asset.\(success ? "success" : "error")")
-            print("\(imageIdentifier)")
-            let testURL = URL(string: "instagram://library?LocalIdentifier=" + imageIdentifier!)
-            if UIApplication.shared.canOpenURL(testURL!) {
-                UIApplication.shared.openURL(testURL!)
-            }
-        })
-        
-    }
-    
-    @IBAction func pressOpenIn(_ sender: AnyObject) {
-        let imageData = UIImageJPEGRepresentation(self.canvasView.image!, 1.0)
-        let tmpDirectoryPath = NSTemporaryDirectory()   //tmpディレクトリを取得
-        let imageName = "tmp.jpg"
-        let imagePath = tmpDirectoryPath + imageName
-        let imageURLForOptionMenu = URL(fileURLWithPath: imagePath)
-        
-        do {
-            try imageData?.write(to: imageURLForOptionMenu, options: .atomicWrite)
-        } catch {
-            fatalError("can't save image to tmp directory.")
-        }
-        
-        interactionController = UIDocumentInteractionController(url: imageURLForOptionMenu)
-        interactionController?.delegate = self
-        self.interactionController?.uti = "public.jpg"
-        interactionController?.presentOptionsMenu(from: self.view.frame, in: self.view, animated: true)
-    }
-    
-    @IBAction func toMainButton(_ sender: UIButton) {
+        @IBAction func toMainButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-
-    
-    //最初からあるメソッド
-    func saveFileSampler() {
-        
-        var dataList:[String] = ["ddd\n","fhfh"]
-        
-        do {
-            
-            //ユーザーが保存したCSVファイルのパス
-            userPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/sample.csv"
-            
-            var path = userPath!
-            /*if(fileManager.fileExists(atPath: path) == false){
-                //ユーザーが保存したCSVファイルが無い場合は、初期CSVファイルから読み込む。
-                path = Bundle.main.path(forResource: "sample", ofType: "csv")!
-            }
-            
-            //CSVファイルのデータを取得する。
-            let csvData = try String(contentsOfFile:path, encoding:String.Encoding.utf8)
-            
-            //改行区切りでデータを分割して配列に格納する。
-            //dataList = csvData.componentsSeparated(by: "\n")
-            
-            //CSVファイルの出力先を確認する。
-            print(userPath)
-            */
-            saveCSV(datalist: dataList)
-            
-        } catch {
-            print(error)
-        }
-    }
-
-    
-    
-    //CSVファイル保存メソッド
-    func saveCSV(datalist: [String]) {
-        
-        //改行区切りで部活配列を連結する。
-        let outputStr = datalist.joined(separator: "\n")
-        
-        do {
-            if(outputStr == "") {
-                //部活配列が空の場合はユーザーが保存したCSVファイルを削除する。
-                try fileManager.removeItem(atPath: userPath)
-            } else {
-                //ファイルを出力する。
-                try outputStr.write(toFile: userPath, atomically: false, encoding: String.Encoding.utf8 )
-            }
-        } catch {
-            print(error)
-        }
-    }
-
-    
-    
     
     func saveToPlistWithArray(dic: NSDictionary) {
         let directory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -598,10 +481,4 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
         
     }
  
-    
-    
-    
 }
-
-
-

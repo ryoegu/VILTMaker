@@ -103,6 +103,8 @@ class SentenceEditView: UIView {
             
             titleLabel.text = labelSet(tmp.needToChangeObjectNumber)
             
+            
+            
             if tmp.selectedObject >= 0 && tmp.selectedObject <= 4 {
                 //もともと表示されていなかった場合
                 self.contentView.isHidden = false
@@ -179,6 +181,10 @@ class SentenceEditView: UIView {
             
             
         }
+        
+    }
+    
+    @IBAction func setCorrectAnswer(_ sender: BorderButton) {
         
     }
     
@@ -262,6 +268,31 @@ class SentenceEditView: UIView {
         
     }
     
+    func selectCell(_ row: Int) {
+        //self.tagsView.collectionView?.delegate = self
+        let indexPath: IndexPath = IndexPath(row: row, section: 0)
+        //self.tagsView.collectionView(self.tagsView, didSelectItemAt: indexPath)
+        
+        if let tmp = UIApplication.shared.forwardViewController as? ViewController {
+            
+            if tmp.analyzedStringArray.count-1 < row {
+                tmp.selectedObject = 100
+                tmp.gestureFunction()
+            }else{
+                self.tagsView.collectionView(self.tagsView.collectionView!, didSelectItemAt: indexPath)
+            }
+        }
+    }
+
     
-    
+}
+
+extension SentenceEditView {
+    @IBAction func testButton() {
+        //self.tagsView.collectionView?.delegate = self
+        let indexPath: IndexPath = IndexPath(row: 1, section: 0)
+        //self.tagsView.collectionView(self.tagsView, didSelectItemAt: indexPath)
+        self.tagsView.collectionView(self.tagsView.collectionView!, didSelectItemAt: indexPath)
+    }
+
 }
