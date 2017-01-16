@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Realm
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -44,31 +45,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func connectToRealmServer() {
-        var url: String!
         
-        if let address = KeyManager().getValue("AWSRealmServerAddress") as? String {
-            url = address
-        }
+//        if let user = RLMSyncUser.all.first {
+//            RealmConstants.setDefaultUser(user: user.value)
+//            
+//        
+//        } else {
+        //    let credential: SyncCredentials = SyncCredentials.accessToken(RealmConstants.adminToken, identity: RealmConstants.identity)
+        let credential: SyncCredentials = SyncCredentials.usernamePassword(username: RealmConstants.identity, password: RealmConstants.password, register: false)
         
-        let serverURL = NSURL(string: url)!
-        
-        let usernameCredentials = SyncCredentials.usernamePassword(username: "VILTMaker", password: "yairilab2017")
-        
-        
-        
-        SyncUser.logIn(with: usernameCredentials,
-                       server: serverURL as URL) { user, error in
-                        if let user = user {
-                            // can now open a synchronized Realm with this user
-                            print("SUCCEED")
-                        } else if let error = error {
-                            // handle error
-                            print("ERROR")
-                            print(error)
-                        }
-        }
- 
-        
+            
+            SyncUser.logIn(with: credential, server: RealmConstants.authURL, onCompletion: { [weak self] (user, error) in
+                if let user = user {
+                    print("set default user\(user)")
+                    RealmConstants.setDefaultUser(user: user)
+
+                } else if let error = error {
+                    print("login failed \(error)")
+                }
+            })
+//        }
         
     }
 

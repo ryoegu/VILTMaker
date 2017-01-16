@@ -27,12 +27,12 @@ extension ViewController {
         }catch{
             
         }*/
-        let config = Realm.Configuration(
-            schemaVersion: 1,
-            migrationBlock: { migration, oldSchemaVersion in
-                if (oldSchemaVersion < 1) {}
-        })
-        Realm.Configuration.defaultConfiguration = config
+//        let config = Realm.Configuration(
+//            schemaVersion: 1,
+//            migrationBlock: { migration, oldSchemaVersion in
+//                if (oldSchemaVersion < 1) {}
+//        })
+//        Realm.Configuration.defaultConfiguration = config
         
         // 入力チェック
         if isValidateInputContents() == false{
@@ -49,7 +49,12 @@ extension ViewController {
         
         question.correctAnswer = correctAnswerWithNumber
         
-        question.plistFileName = figureNumberString
+        //question.plistFileName = figureNumberString
+        
+        let ddata = NSKeyedArchiver.archivedData(withRootObject: figureDictionary)
+        
+        
+        question.oosiDictionaryData = ddata
         question.makingDate = Date()
         let screenshot = take()
         question.image = UIImagePNGRepresentation(screenshot)!
@@ -63,6 +68,8 @@ extension ViewController {
         }
         // ToDoデータを永続化する処理
         do{
+            let realm = try! Realm()
+
             try realm.write{
                 realm.add(question, update: true)
             }

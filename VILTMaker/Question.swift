@@ -23,8 +23,8 @@ class Question: Object{
     
     ///正しい答え
     dynamic var correctAnswer = 0
-    /// plistファイル名前
-    dynamic var plistFileName = ""
+    /// OOSI配列
+    dynamic var oosiDictionaryData = Data()
     
     //作成日時
     dynamic var makingDate = Date(timeIntervalSince1970: 0)

@@ -12,6 +12,7 @@ import SwiftyJSON
 import EZAudio
 import C4
 import FontAwesome_swift
+import Realm
 import RealmSwift
 import Speech
 import UITags
@@ -100,13 +101,11 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     var figureDictionary: Dictionary<String,Any>!
     
-    
-    var realm: Realm!
-    
     @IBOutlet var leftView: UIView!
     
     //MARK: Setup and Initializiation Methods
     override func setup() {
+
         
         editView = SentenceEditView(frame: CGRect(x: 785, y: 150, width: 576, height: 400))
         self.view.addSubview(editView)
@@ -149,13 +148,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }
         NSLog("uuid(from UD)===%@",uuid)
         
-        var url: String!
-        
-        if let address = KeyManager().getValue("AWSRealmServerAddress") as? String {
-            url = address
-        }
-
-        let syncServerURL = URL(string: "\(url!)~/Question")!
         
         
         if uuid != ""{
@@ -163,12 +155,13 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             do {
                 
                 
-//                let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: syncServerURL))
-                realm = try! Realm()
+                
+                
+                let realm = try! Realm()
 
                 
                 let object = realm.objects(Question.self).filter("id = '\(uuid)'").first
-                self.reset((object?.name)!, question: (object?.question)!, button1: (object?.answer1)!, button2: (object?.answer2)!, button3: (object?.answer3)!, correctAnswer: (object?.correctAnswer)!, plistFileName: (object?.plistFileName)!)
+                self.reset((object?.name)!, question: (object?.question)!, button1: (object?.answer1)!, button2: (object?.answer2)!, button3: (object?.answer3)!, correctAnswer: (object?.correctAnswer)!, figureDictionaryData: (object?.oosiDictionaryData)!)
                 
                 //OOSI Viewの初期化処理
                 
@@ -184,8 +177,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }else if figureNumberString != ""{
             //QRコード画面からアクセスした場合
             NSLog("FIGURE === %@",figureNumberString)
-            self.reset(plistFileName: figureNumberString)
-            self.oosiViewResources()
+            //self.reset(plistFileName: figureNumberString)
+            //self.oosiViewResources()
             
         }else{
             //点図読み取り画面からアクセスした場合
@@ -352,7 +345,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         super.didReceiveMemoryWarning()
     }
     
-    func reset(_ title: String = "タイトル", question: String = "問題文エリア", button1: String = "選択肢1", button2: String = "選択肢2", button3: String = "選択肢3", correctAnswer: Int = 0, plistFileName: String = "") {
+    func reset(_ title: String = "タイトル", question: String = "問題文エリア", button1: String = "選択肢1", button2: String = "選択肢2", button3: String = "選択肢3", correctAnswer: Int = 0, figureDictionaryData: Data? = nil) {
         
         
         previewTitleLabel.text = title
@@ -365,8 +358,12 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             doubleTappedGeneralWithButtonIndex(correctAnswer-1)
         }
         
-        figureNumberString = plistFileName
+//        figureNumberString = plistFileName
  
+        
+        if figureDictionaryData != nil {
+            self.figureDictionary = NSKeyedUnarchiver.unarchiveObject(with: figureDictionaryData!) as! Dictionary<String, Any>!
+        }
     }
  
 }
