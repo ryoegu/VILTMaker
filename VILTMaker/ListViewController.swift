@@ -13,25 +13,8 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var ListItems:Results<Question>?{
         do{
-            let config = Realm.Configuration(
-                schemaVersion: 1,
-                migrationBlock: { migration, oldSchemaVersion in
-                    if (oldSchemaVersion < 1) {}
-            })
-            Realm.Configuration.defaultConfiguration = config
             
-            
-            var url: String!
-            
-            if let address = KeyManager().getValue("AWSRealmServerAddress") as? String {
-                url = address
-            }
-            
-            let syncServerURL = URL(string: "\(url!)~/Question")!
-            let user = SyncUser.current!
-            let configuration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: syncServerURL))
-            //一覧画面からアクセスした場合
-            let realm = try! Realm(configuration: configuration)
+            let realm = try! Realm()
                     
             return realm.objects(Question.self)
         }catch let error as NSError{
@@ -82,8 +65,15 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let list = ListItems?[indexPath.row]
         uuid = (list?.id)!
-        UserDefaults.standard.set(uuid, forKey: "uuid")
+        
         performSegue(withIdentifier: "QuestionView", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "QuestionView" {
+            let quizView = segue.destination as! ViewController
+            quizView.uuid = self.uuid
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

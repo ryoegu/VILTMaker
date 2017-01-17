@@ -122,7 +122,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         self.audioPlot.alpha = 0
         
         
-        uuid = ""
         //OOSI Viewの初期化処理
         self.oosiViewInit()
         
@@ -143,20 +142,14 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         
         NSLog("SETUP INITIALIZATION")
         
-        if UserDefaults.standard.object(forKey: "uuid") != nil {
-            uuid = UserDefaults.standard.object(forKey: "uuid") as! String
-        }
         NSLog("uuid(from UD)===%@",uuid)
         
         
         
-        if uuid != ""{
+        
+        if uuid != "" {
             //一覧画面からアクセスした場合
             do {
-                
-                
-                
-                
                 let realm = try! Realm()
 
                 
@@ -166,7 +159,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
                 //OOSI Viewの初期化処理
                 
                 self.oosiViewInit()
-                self.oosiViewResources()
+                self.oosiViewResources(figureDictionary)
                 
                 return
                 
@@ -174,13 +167,15 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             } catch{
                 // handle error
             }
-        }else if figureNumberString != ""{
-            //QRコード画面からアクセスした場合
-            NSLog("FIGURE === %@",figureNumberString)
-            //self.reset(plistFileName: figureNumberString)
-            //self.oosiViewResources()
-            
-        }else{
+        }
+//        else if figureNumberString != ""{
+//            //QRコード画面からアクセスした場合
+//            NSLog("FIGURE === %@",figureNumberString)
+//            //self.reset(plistFileName: figureNumberString)
+//            //self.oosiViewResources()
+//            
+//        }
+        else{
             //点図読み取り画面からアクセスした場合
             self.reset()
             self.oosiViewResources(figureDictionary)
@@ -193,6 +188,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
         self.setupSession() //Bluetooth Connect to VILT Controller
 
         self.requestAPI()
