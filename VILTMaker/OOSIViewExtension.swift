@@ -50,6 +50,19 @@ extension ViewController {
         //Double Tap Gesture Recognizer(レイヤー別インターフェースの実装)
         oosiView.addDoubleTapGestureRecognizer{_,_,_ in 
             print("DOUBLE TAPPED")
+            
+        }
+        
+        oosiView.addDoubleTapGestureRecognizer { (points, point, recognizer) in
+            let c = Circle(center: point, radius: 30)
+            self.oosiView.add(c)
+            c.addTapGestureRecognizer { _, center, _ in
+                print("Point:", center)
+                self.sounds.pong()
+                
+                c.fillColor = Color(red: random01(), green: random01(), blue: random01(), alpha: 1)
+            }
+            
         }
         
         addViews(Array(parser.getCircles().values),
