@@ -113,18 +113,28 @@ extension ViewController {
             return
         case 6:
             //Common Button 1
+            commonButtons[0].layer.borderColor = UIColor.gray.cgColor
+            docomoSpeakModel.speak("新規作成ボタン")
             return
         case 7:
             //Common Button 2
+            commonButtons[1].layer.borderColor = UIColor.gray.cgColor
+            docomoSpeakModel.speak("最初に戻るボタン")
             return
         case 8:
             //Common Button 3
+            commonButtons[2].layer.borderColor = UIColor.gray.cgColor
+            docomoSpeakModel.speak("音声スピード調整")
             return
         case 9:
             //Common Button 4
+            commonButtons[3].layer.borderColor = UIColor.gray.cgColor
+            docomoSpeakModel.speak("保存ボタン")
             return
         case 10:
             //Common Button 5
+            commonButtons[4].layer.borderColor = UIColor.gray.cgColor
+            docomoSpeakModel.speak("一覧ボタン")
             return
         /* Edit Mode Buttons */
         case 11:
@@ -179,6 +189,13 @@ extension ViewController {
         editView.editModeDoneButton.layer.borderWidth = 0
         editView.editModeExitButton.layer.borderWidth = 0
         
+        /* common buttons */
+        commonButtons[0].layer.borderColor = UIColor.blue.cgColor
+        commonButtons[1].layer.borderColor = UIColor.blue.cgColor
+        commonButtons[2].layer.borderColor = UIColor.blue.cgColor
+        commonButtons[3].layer.borderColor = UIColor.blue.cgColor
+        commonButtons[4].layer.borderColor = UIColor.blue.cgColor
+        
     }
     
     func tapGesture() {
@@ -202,8 +219,10 @@ extension ViewController {
         case 7:
             return
         case 8:
+            goToSpeedChange()
             return
         case 9:
+            saveQuestion()
             return
         case 19:
             return
@@ -219,6 +238,10 @@ extension ViewController {
         default:
             return
         }
+    }
+    
+    func goToSpeedChange() {
+        speedChangeView.startAnimation()
     }
     
     func goToEditMode(_ number: Int) {

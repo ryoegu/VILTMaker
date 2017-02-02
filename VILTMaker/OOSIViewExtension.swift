@@ -22,8 +22,6 @@ extension ViewController {
         
         let myTap = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapGesture(sender:)))
         myTap.numberOfTapsRequired = 2
-
-
     }
     
     internal func tapGesture(sender: UITapGestureRecognizer){
@@ -138,9 +136,6 @@ extension ViewController {
         prevNote = note
     }
     
-    func showGradient() {
-        
-    }
     
 
 

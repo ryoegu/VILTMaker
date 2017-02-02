@@ -22,8 +22,14 @@ class SpeakModel: NSObject {
         NSLog("音声発信中[%@]",text)
         let ssml: AiTalkSsml = AiTalkSsml()
         let voice: AiTalkVoice = AiTalkVoice(voiceName: "nozomi")
-        voice.addText(text)
+        let prosody: AiTalkProsody = AiTalkProsody(pitch: 1.0, range: 1.0, rate: voiceSpeed(), volume: 1.0)
+        
+        
+        prosody.addText(text)
+        voice.add(prosody)
         ssml.add(voice)
+        
+        
         let search: AiTalkTextToSpeech = AiTalkTextToSpeech()
         let sendError = search.requestAiTalkSsml(toSound: ssml.make(), onComplete: { (data) in
             NSLog("onComplete")
@@ -126,6 +132,14 @@ class SpeakModel: NSObject {
             )
         )
         //self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func voiceSpeed() -> Float {
+        var voiceSpeedFloat: Float = 1.0
+        if let vs = UserDefaults.standard.value(forKey: "voiceSpeed") as? Float {
+            voiceSpeedFloat = vs
+        }
+        return voiceSpeedFloat
     }
 
     

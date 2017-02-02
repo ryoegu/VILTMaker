@@ -32,9 +32,10 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     /* Common Area Objects */
     @IBOutlet var commonButtons: [BorderButton]!
     
-    /* Edit mode Objects */
+    /* Custom Objects */
     
     var editView: SentenceEditView!
+    var speedChangeView: SpeedChangeView!
     
     /* Voice and Microphone Objects */
     @IBOutlet var afterChangingTextView: UITextView!
@@ -81,8 +82,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     var selectedObject: Int = 0
     
-    
-    
     //音声認識
     let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ja_JP"))
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -110,7 +109,10 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     //MARK: Setup and Initializiation Methods
     override func setup() {
         editView = SentenceEditView(frame: CGRect(x: 785, y: 150, width: 576, height: 400))
+        speedChangeView = SpeedChangeView(frame: CGRect(x: 785, y: 150, width: 576, height: 200))
+        
         self.view.addSubview(editView)
+        self.view.addSubview(speedChangeView)
         
         afterChangingTextView.delegate = self
         //初期値（仮置き）
@@ -362,6 +364,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             self.figureDictionary = NSKeyedUnarchiver.unarchiveObject(with: figureDictionaryData!) as! Dictionary<String, Any>!
         }
     }
- 
+    
+
 }
 

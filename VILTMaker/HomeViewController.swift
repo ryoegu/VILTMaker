@@ -18,7 +18,12 @@ class HomeViewController: UIViewController {
     
     func updateLabel(){
         if let text = UserDefaults.standard.string(forKey: "name") {
-            welcomeLabel.text = "こんにちは、\(text)さん"
+            if text == "" {
+                welcomeLabel.text = "名前を入力してください"
+            }else{
+                welcomeLabel.text = "こんにちは、\(text)さん"
+            }
+            
         }else{
             welcomeLabel.text = "名前を入力してください"
         }

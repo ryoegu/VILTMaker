@@ -34,6 +34,8 @@
 		2A39406F1E2A520100B97B3F /* FigureEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A39406E1E2A520100B97B3F /* FigureEditView.xib */; };
 		2A4FE59D1E43059B006C65BA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4FE59C1E43059B006C65BA /* HomeViewController.swift */; };
 		2A4FE59F1E4306CF006C65BA /* homescreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A4FE59E1E4306CF006C65BA /* homescreen.png */; };
+		2A4FE5A11E437AF0006C65BA /* SpeedChangeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A4FE5A01E437AF0006C65BA /* SpeedChangeView.xib */; };
+		2A4FE5A31E437B54006C65BA /* SpeedChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4FE5A21E437B54006C65BA /* SpeedChangeView.swift */; };
 		2A72AFDC1D3C57760049663A /* ViewControllerAudioExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */; };
 		2A72AFDE1D3C57FB0049663A /* OOSIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */; };
 		2A72AFE01D3C5D030049663A /* SpeechExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */; };
@@ -147,6 +149,8 @@
 		2A39406E1E2A520100B97B3F /* FigureEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FigureEditView.xib; sourceTree = "<group>"; };
 		2A4FE59C1E43059B006C65BA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2A4FE59E1E4306CF006C65BA /* homescreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homescreen.png; sourceTree = "<group>"; };
+		2A4FE5A01E437AF0006C65BA /* SpeedChangeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpeedChangeView.xib; sourceTree = "<group>"; };
+		2A4FE5A21E437B54006C65BA /* SpeedChangeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedChangeView.swift; sourceTree = "<group>"; };
 		2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAudioExtension.swift; sourceTree = "<group>"; };
 		2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOSIViewExtension.swift; sourceTree = "<group>"; };
 		2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechExtension.swift; sourceTree = "<group>"; };
@@ -399,6 +403,8 @@
 				2A2A726C1D3E65A300582D1B /* QuestionCollectionViewCell.xib */,
 				2A3940661E2A1C2000B97B3F /* SentenceEditView.xib */,
 				2A3940681E2A1C3000B97B3F /* SentenceEditView.swift */,
+				2A4FE5A01E437AF0006C65BA /* SpeedChangeView.xib */,
+				2A4FE5A21E437B54006C65BA /* SpeedChangeView.swift */,
 				2A39406E1E2A520100B97B3F /* FigureEditView.xib */,
 			);
 			name = View;
@@ -680,6 +686,7 @@
 				2A39406F1E2A520100B97B3F /* FigureEditView.xib in Resources */,
 				2A7A8DDD1CF2DA8F0034239C /* example_figure.png in Resources */,
 				2A2A726A1D3E554900582D1B /* welcome@2x.png in Resources */,
+				2A4FE5A11E437AF0006C65BA /* SpeedChangeView.xib in Resources */,
 				2A1BEDFD1D13D4C500CD1C1B /* 0001.plist in Resources */,
 				2AF9DBD31CEF05F8001AB683 /* Main.storyboard in Resources */,
 				2A22EA791D17B65A00865038 /* FontAwesome.otf in Resources */,
@@ -874,6 +881,7 @@
 				2A2A72701D3E73E000582D1B /* ListViewController.swift in Sources */,
 				2A1919421CF2DDCF009B8B54 /* ConstColor.swift in Sources */,
 				2A72AFE01D3C5D030049663A /* SpeechExtension.swift in Sources */,
+				2A4FE5A31E437B54006C65BA /* SpeedChangeView.swift in Sources */,
 				2A7F0C751D0AC55D00A3DECC /* SoundManager.swift in Sources */,
 				2A7F0C5A1D0AC46800A3DECC /* YLLine.swift in Sources */,
 				2A7F0C561D0AC46800A3DECC /* YLResource.swift in Sources */,
