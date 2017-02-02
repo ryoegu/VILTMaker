@@ -40,8 +40,13 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
     var pointDic = [String:Any]()
     var dataDictionary = [String:Any]()
     
-    //開始位置を保持します.
+    //開始位置を保持
     var beganTouchPoint: CGPoint = CGPoint()
+    
+    //Timer
+    var timer: Timer = Timer()
+    
+    var drawTime: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +58,24 @@ class DrawViewController: UIViewController, UIScrollViewDelegate,UIDocumentInter
         scrollView.zoomScale = 1.0                          // 表示時の拡大率(初期値)
         
         prepareDrawing()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !timer.isValid {
+            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func update() {
+        drawTime = drawTime + 0.01
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        UserDefaults.standard.set(drawTime, forKey: "drawTime")
+        print(drawTime)
     }
     
     override func didReceiveMemoryWarning() {

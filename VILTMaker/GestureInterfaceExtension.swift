@@ -40,17 +40,20 @@ extension ViewController {
     func rightSwipe() {
         print("RIGHT")
         selectedObject = selectedObject + 1
+        gestureCount = gestureCount + 1
         gestureFunction()
     }
     
     func leftSwipe() {
         print("LEFT")
+        gestureCount = gestureCount + 1
         selectedObject = selectedObject - 1
         gestureFunction()
     }
     
     func upSwipe() {
         print("UP")
+        gestureCount = gestureCount + 1
         selectedObject = selectedObject - 1
         gestureFunction()
         
@@ -58,6 +61,7 @@ extension ViewController {
     
     func downSwipe() {
         print("DOWN")
+        gestureCount = gestureCount + 1
         selectedObject = selectedObject + 1
         gestureFunction()
     }

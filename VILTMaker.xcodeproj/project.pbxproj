@@ -32,6 +32,8 @@
 		2A39406B1E2A1D2F00B97B3F /* BasicExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A39406A1E2A1D2F00B97B3F /* BasicExtension.swift */; };
 		2A39406D1E2A3CDB00B97B3F /* RealmConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A39406C1E2A3CDB00B97B3F /* RealmConstants.swift */; };
 		2A39406F1E2A520100B97B3F /* FigureEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A39406E1E2A520100B97B3F /* FigureEditView.xib */; };
+		2A4FE59D1E43059B006C65BA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4FE59C1E43059B006C65BA /* HomeViewController.swift */; };
+		2A4FE59F1E4306CF006C65BA /* homescreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A4FE59E1E4306CF006C65BA /* homescreen.png */; };
 		2A72AFDC1D3C57760049663A /* ViewControllerAudioExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */; };
 		2A72AFDE1D3C57FB0049663A /* OOSIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */; };
 		2A72AFE01D3C5D030049663A /* SpeechExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */; };
@@ -143,6 +145,8 @@
 		2A39406A1E2A1D2F00B97B3F /* BasicExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicExtension.swift; sourceTree = "<group>"; };
 		2A39406C1E2A3CDB00B97B3F /* RealmConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmConstants.swift; path = Keys/RealmConstants.swift; sourceTree = "<group>"; };
 		2A39406E1E2A520100B97B3F /* FigureEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FigureEditView.xib; sourceTree = "<group>"; };
+		2A4FE59C1E43059B006C65BA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2A4FE59E1E4306CF006C65BA /* homescreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homescreen.png; sourceTree = "<group>"; };
 		2A72AFDB1D3C57760049663A /* ViewControllerAudioExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAudioExtension.swift; sourceTree = "<group>"; };
 		2A72AFDD1D3C57FB0049663A /* OOSIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOSIViewExtension.swift; sourceTree = "<group>"; };
 		2A72AFDF1D3C5D030049663A /* SpeechExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechExtension.swift; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 		2AC76EF51CFA067C00F42F76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2A4FE59C1E43059B006C65BA /* HomeViewController.swift */,
 				2A2A726B1D3E65A300582D1B /* QuestionCollectionViewCell.swift */,
 				2AF9DBCF1CEF05F8001AB683 /* ViewController.swift */,
 				2AFFFB0C1E2482EB00434AB5 /* DrawViewController.swift */,
@@ -402,6 +407,7 @@
 		2AD841E01CF9E26C00BB100B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A4FE59E1E4306CF006C65BA /* homescreen.png */,
 				2A2A72691D3E53FA00582D1B /* pictures */,
 				2A22EA781D17B65A00865038 /* FontAwesome.otf */,
 				2A7F0C2E1D0AC46800A3DECC /* OOSI */,
@@ -666,6 +672,7 @@
 				2A7F0C641D0AC46800A3DECC /* pip_d5.caf in Resources */,
 				2A2A726E1D3E65A300582D1B /* QuestionCollectionViewCell.xib in Resources */,
 				2A1BEE001D13D4D100CD1C1B /* 0002.plist in Resources */,
+				2A4FE59F1E4306CF006C65BA /* homescreen.png in Resources */,
 				2A1BEDFE1D13D4C500CD1C1B /* resources.plist in Resources */,
 				2A839F401D0981CE00475ACF /* recordStart.mp3 in Resources */,
 				2A7F0C631D0AC46800A3DECC /* pip_d4.caf in Resources */,
@@ -856,6 +863,7 @@
 				2AC76EF41CFA03B000F42F76 /* SpeakModel.swift in Sources */,
 				2AD409041CF2D65F00214542 /* BorderButton.m in Sources */,
 				2AB9D9C61CFD6F0100BC810E /* QRReaderViewController.swift in Sources */,
+				2A4FE59D1E43059B006C65BA /* HomeViewController.swift in Sources */,
 				2AF620841E2233B700FBC644 /* MagicControllerExtension.swift in Sources */,
 				2AFFFB0D1E2482EB00434AB5 /* DrawViewController.swift in Sources */,
 				2ADF58461E1FA81D007C048D /* AiTalkAudioPlayer.m in Sources */,

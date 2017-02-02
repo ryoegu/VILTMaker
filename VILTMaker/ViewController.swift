@@ -103,10 +103,12 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     @IBOutlet var leftView: UIView!
     
+    var gestureCount: Int = 0
+    var editTime: Float = 0.0
+    var tim = Timer()
+    
     //MARK: Setup and Initializiation Methods
     override func setup() {
-
-        
         editView = SentenceEditView(frame: CGRect(x: 785, y: 150, width: 576, height: 400))
         self.view.addSubview(editView)
         
@@ -135,18 +137,16 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         
     }
     
-
+    func update() {
+        editTime = editTime + 0.01
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NSLog("SETUP INITIALIZATION")
-        
-        NSLog("uuid(from UD)===%@",uuid)
-        
-        
-        
-        
+        if !tim.isValid {
+            tim = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        }
         if uuid != "" {
             //一覧画面からアクセスした場合
             do {

@@ -43,6 +43,13 @@ extension ViewController {
         question.name = previewTitleLabel.text!
         question.question = previewQuestionLabel.text!
         
+        question.drawTime = UserDefaults.standard.float(forKey: "drawTime")
+        question.editTime = self.editTime
+        
+        question.gestureCount = self.gestureCount
+        
+        question.person = UserDefaults.standard.string(forKey: "name")!
+        
         question.answer1 = previewSelectButton[0].currentTitle!
         question.answer2 = previewSelectButton[1].currentTitle!
         question.answer3 = previewSelectButton[2].currentTitle!
@@ -69,6 +76,7 @@ extension ViewController {
         // ToDoデータを永続化する処理
         do{
             let realm = try! Realm()
+            print(Realm.Configuration.defaultConfiguration.fileURL)
 
             try realm.write{
                 realm.add(question, update: true)

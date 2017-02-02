@@ -23,6 +23,8 @@ class Question: Object{
     
     ///正しい答え
     dynamic var correctAnswer = 0
+    
+    
     /// OOSI配列
     dynamic var oosiDictionaryData = Data()
     
@@ -31,6 +33,13 @@ class Question: Object{
     
     //スクショ
     dynamic var image = Data()
+    
+    
+    //実験用
+    dynamic var gestureCount: Int = 0
+    dynamic var drawTime: Float = 0.0
+    dynamic var editTime: Float = 0.0
+    dynamic var person: String = ""
     
     override static func primaryKey() -> String? {
         return "id"
