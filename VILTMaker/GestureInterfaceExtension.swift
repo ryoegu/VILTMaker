@@ -215,11 +215,15 @@ extension ViewController {
             //図形編集モード
             return
         case 6:
+            newDocument()
             return
         case 7:
+            self.reset()
+            docomoSpeakModel.speak("すべての入力項目がリセットされました")
             return
         case 8:
             goToSpeedChange()
+            docomoSpeakModel.speak("読み上げ速度変更ウィンドウを表示しました")
             return
         case 9:
             saveQuestion()

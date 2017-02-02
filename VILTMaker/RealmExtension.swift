@@ -15,6 +15,7 @@ extension ViewController {
     
     //保存処理
     func saveQuestion() {
+        
         /*
          
          全部削除する処理
@@ -38,7 +39,7 @@ extension ViewController {
         if isValidateInputContents() == false{
             return
         }
-        
+        docomoSpeakModel.speak("問題が保存されました")
         let question = Question()
         question.name = previewTitleLabel.text!
         question.question = previewQuestionLabel.text!

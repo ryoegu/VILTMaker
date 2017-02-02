@@ -109,7 +109,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     //MARK: Setup and Initializiation Methods
     override func setup() {
         editView = SentenceEditView(frame: CGRect(x: 785, y: 150, width: 576, height: 400))
-        speedChangeView = SpeedChangeView(frame: CGRect(x: 785, y: 150, width: 576, height: 200))
+        speedChangeView = SpeedChangeView(frame: CGRect(x: 785, y: 600, width: 576, height: 200))
         
         self.view.addSubview(editView)
         self.view.addSubview(speedChangeView)
@@ -274,11 +274,14 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             break
         }
     }
-    
 
     //上部ボタン
     @IBAction func newButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
-        self.performSegue(withIdentifier: "QRView", sender: nil)
+        newDocument()
+    }
+    
+    func newDocument() {
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func resetButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
@@ -323,7 +326,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     @IBAction func saveButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
         self.saveQuestion()
-        docomoSpeakModel.speak("問題が保存されました")
+        
     }
     
     
