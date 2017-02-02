@@ -221,8 +221,6 @@ class SentenceEditView: UIView {
                     
                     self.wordEditVoiceInputButton.frame = CGRect(x: 417, y: 8, width: 60, height: 47)
                     self.wordEditDoneButton.frame = CGRect(x: 492, y: 8, width: 77, height: 47)
-                    
-                    
                 })
                 
                 self.wordEditLabel.text = joinedAllAnalyzedString(self.getMorphologicalAnalysis(tmp.afterChangingTextView.text))
@@ -238,7 +236,7 @@ class SentenceEditView: UIView {
                     self.wordEditLabel.isHidden = false
                     self.wordEditVoiceInputButton.frame = CGRect(x: 432, y: 8, width: 140, height: 47)
                     self.wordEditDoneButton.frame = CGRect(x: 584, y: 8, width: 0, height: 47)
-                    self.wordEditDoneButton.backgroundColor = UIColor.blue
+                    self.wordEditDoneButton.backgroundColor = UIColor.red
                     self.wordEditDoneButton.setTitle("DONE", for: UIControlState.normal)
                     
                 })

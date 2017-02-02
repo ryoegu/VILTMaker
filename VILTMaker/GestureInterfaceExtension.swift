@@ -61,9 +61,17 @@ extension ViewController {
     
     func downSwipe() {
         print("DOWN")
+        
         gestureCount = gestureCount + 1
-        selectedObject = selectedObject + 1
-        gestureFunction()
+        
+        if selectedObject < 100 {
+            selectedObject = selectedObject + 1
+            gestureFunction()
+        }else{
+            selectedObject = 16
+            gestureFunction()
+        }
+        
     }
     
     func oneTapGesture() {
@@ -158,6 +166,23 @@ extension ViewController {
             //ここにきたら自動的に100番台へ
             selectedObject = 100
             gestureFunction()
+        
+        case 16:
+            //単語編集　マイクボタン
+            editView.wordEditVoiceInputButton.layer.borderWidth = 3
+            editView.wordEditVoiceInputButton.layer.borderColor = UIColor.gray.cgColor
+            docomoSpeakModel.speak("単語編集マイクボタン")
+            
+        case 17:
+            //単語編集 DONEボタン
+            editView.wordEditDoneButton.layer.borderWidth = 3
+            editView.wordEditDoneButton.layer.borderColor = UIColor.gray.cgColor
+            if afterChangingTextView.text == "" {
+                docomoSpeakModel.speak("この単語を削除")
+            }else {
+                docomoSpeakModel.speak("単語編集をとじる")
+            }
+            
         case 99:
             selectedObject = 12
             gestureFunction()
@@ -173,8 +198,6 @@ extension ViewController {
         previewTitleLabel.layer.masksToBounds = true
         previewQuestionLabel.layer.masksToBounds = true
         oosiView.layer?.masksToBounds = true
-        
-        
         
         previewTitleLabel.layer.borderWidth = 0
         previewQuestionLabel.layer.borderWidth = 0
@@ -195,6 +218,9 @@ extension ViewController {
         commonButtons[2].layer.borderColor = UIColor.blue.cgColor
         commonButtons[3].layer.borderColor = UIColor.blue.cgColor
         commonButtons[4].layer.borderColor = UIColor.blue.cgColor
+        
+        editView.wordEditVoiceInputButton.layer.borderColor = UIColor.blue.cgColor
+        editView.wordEditDoneButton.layer.borderColor = UIColor.red.cgColor
         
     }
     
@@ -239,6 +265,10 @@ extension ViewController {
             editView.editModeDoneButtonPushed(editView.editModeDoneButton as! BorderButton)
         case 14:
             editView.editModeExitButtonPushed(editView.editModeExitButton as! BorderButton)
+        case 16:
+            editView.wordEditVoiceInputButtonTapped(editView.wordEditVoiceInputButton as! BorderButton)
+        case 17:
+            editView.wordEditDoneButtonTapped(editView.wordEditDoneButton as! BorderButton)
         default:
             return
         }

@@ -293,7 +293,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     
     @IBAction func bigButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
-        bigNumber = bigNumber + 1
+        self.goToSpeedChange()
+        /*bigNumber = bigNumber + 1
         if bigNumber >= 2 {
             bigNumber = -1
         }
@@ -320,13 +321,12 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
             self.previewSelectButton[i].titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
             
         }
-        self.afterChangingTextView.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
+        self.afterChangingTextView.font = UIFont.systemFont(ofSize: CGFloat(fontSize))*/
     }
     
     
     @IBAction func saveButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
         self.saveQuestion()
-        
     }
     
     
@@ -334,7 +334,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         uuid = ""
         performSegue(withIdentifier: "toList", sender: nil)
     }
-    
     
     //MARK: TextView Delegate
     func textViewDidChange(_ textView: UITextView) {
