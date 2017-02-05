@@ -136,7 +136,6 @@ extension ViewController {
         }
     }
 
-    
     func pip(_ distance: Double) {
         let note = YLSoundNote(rawValue: Int(distance)/80)!
         if let pr = prevNote {
@@ -148,8 +147,4 @@ extension ViewController {
         }
         prevNote = note
     }
-    
-    
-
-
 }

@@ -14,6 +14,8 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     var previewLayer: AVCaptureVideoPreviewLayer!
     @IBOutlet var qrView: UIView!
     
+    var parser: DemoPropParser!
+    
     fileprivate let targetTypes = [AVMetadataObjectTypeQRCode]
     
     var figureNumberString: String!
@@ -110,7 +112,7 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
 
                     // Main Thread
                     self.figureNumberString = obj.stringValue
-                
+                    
                     self.performSegue(withIdentifier: "QuestionView", sender: nil)
                 });
 
@@ -144,8 +146,10 @@ class QRReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "QuestionView" {
             saveData.set("", forKey: "uuid")
+            
             let mainView: ViewController = segue.destination as! ViewController
             mainView.figureNumberString = self.figureNumberString
+            mainView.figureDictionary = YLResource.loadBundleResource(self.figureNumberString) as! Dictionary<String,Any>
             
             self.session.stopRunning()
             

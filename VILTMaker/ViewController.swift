@@ -225,6 +225,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         
     }
     
+    /*  使用していない (HIS 2016版で使用) */
     @IBAction func okButtonPushed(_ sender: UIButton) {
         docomoSpeakModel.speak("OKボタン")
     }
@@ -232,9 +233,31 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     @IBAction func ngButtonPushed(_ sender: UIButton) {
         docomoSpeakModel.speak("編集ボタン")
     }
+    /*  ここまで */
     
     @IBAction func newButtonPushed(_ sender: UIButton) {
-        docomoSpeakModel.speak("新規作成ボタン")
+        selectedObject = 6
+        gestureFunction()
+    }
+    
+    @IBAction func resetButtonPushed(_ sender: UIButton) {
+        selectedObject = 7
+        gestureFunction()
+    }
+    
+    @IBAction func voiceSpeedChangeButtonPushed(_ sender: UIButton) {
+        selectedObject = 8
+        gestureFunction()
+    }
+    
+    @IBAction func saveButtonPushed(_ sender: UIButton) {
+        selectedObject = 9
+        gestureFunction()
+    }
+    
+    @IBAction func listButtonPushed(_ sender: UIButton) {
+        selectedObject = 10
+        gestureFunction()
     }
 
     //MARK: ダブルタップ処理(UITapGestureRecognizer)
@@ -277,7 +300,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
 
     //上部ボタン
     @IBAction func newButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
-        newDocument()
+        selectedObject = 6
+        tapGesture()
     }
     
     func newDocument() {
@@ -287,13 +311,15 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     @IBAction func resetButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
         NSLog("Reset Button Tapped")
         
-        self.reset()
-        docomoSpeakModel.speak("すべての入力項目がリセットされました")
+        selectedObject = 7
+        tapGesture()
+
     }
     
     
     @IBAction func bigButtonDoubleTapped(_ sender: UITapGestureRecognizer) {
-        self.goToSpeedChange()
+        selectedObject = 8
+        tapGesture()
         /*bigNumber = bigNumber + 1
         if bigNumber >= 2 {
             bigNumber = -1
