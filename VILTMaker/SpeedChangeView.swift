@@ -63,7 +63,6 @@ class SpeedChangeView: UIView {
         self.contentView.curve = "easeInOut"
         self.contentView.duration = 1.5
         self.contentView.animate()
-        
     }
     
     func startAnimation() {

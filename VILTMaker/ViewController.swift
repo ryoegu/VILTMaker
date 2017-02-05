@@ -36,6 +36,7 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     var editView: SentenceEditView!
     var speedChangeView: SpeedChangeView!
+    var voiceInputView: VoiceInputView!
     
     /* Voice and Microphone Objects */
     @IBOutlet var afterChangingTextView: UITextView!
@@ -109,10 +110,14 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     //MARK: Setup and Initializiation Methods
     override func setup() {
         editView = SentenceEditView(frame: CGRect(x: 785, y: 150, width: 576, height: 400))
-        speedChangeView = SpeedChangeView(frame: CGRect(x: 785, y: 600, width: 576, height: 200))
+        speedChangeView = SpeedChangeView(frame: CGRect(x: 785, y: 800, width: 576, height: 200))
+        
+        voiceInputView = VoiceInputView(frame: CGRect(x: 785, y: 600, width: 576, height: 150))
+
         
         self.view.addSubview(editView)
         self.view.addSubview(speedChangeView)
+        self.view.addSubview(voiceInputView)
         
         afterChangingTextView.delegate = self
         //初期値（仮置き）

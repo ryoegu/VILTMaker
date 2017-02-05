@@ -70,6 +70,8 @@
 		2A839F461D098C4C00475ACF /* okButton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A839F451D098C4C00475ACF /* okButton.mp3 */; };
 		2A839F4F1D0991EE00475ACF /* EZAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A839F4E1D0991EE00475ACF /* EZAudio.framework */; };
 		2AA99C901DE7E05C0041CD8A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA99C8F1DE7E05C0041CD8A /* Question.swift */; };
+		2AB51E5B1E473C1700F5B93F /* VoiceInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB51E5A1E473C1700F5B93F /* VoiceInputView.xib */; };
+		2AB51E5D1E473C7E00F5B93F /* VoiceInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB51E5C1E473C7E00F5B93F /* VoiceInputView.swift */; };
 		2AB9D9C61CFD6F0100BC810E /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */; };
 		2AC76EF41CFA03B000F42F76 /* SpeakModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC76EF31CFA03B000F42F76 /* SpeakModel.swift */; };
 		2AD409041CF2D65F00214542 /* BorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD409031CF2D65F00214542 /* BorderButton.m */; };
@@ -185,6 +187,8 @@
 		2A839F451D098C4C00475ACF /* okButton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = okButton.mp3; sourceTree = "<group>"; };
 		2A839F4E1D0991EE00475ACF /* EZAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZAudio.framework; path = "../../../Library/Developer/Xcode/DerivedData/VILTMaker-gnwsglaehcjpuhfyzxazfshqnlur/Build/Products/Debug-iphoneos/EZAudio/EZAudio.framework"; sourceTree = "<group>"; };
 		2AA99C8F1DE7E05C0041CD8A /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		2AB51E5A1E473C1700F5B93F /* VoiceInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceInputView.xib; sourceTree = "<group>"; };
+		2AB51E5C1E473C7E00F5B93F /* VoiceInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceInputView.swift; sourceTree = "<group>"; };
 		2AB9D9C51CFD6F0100BC810E /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
 		2AC76EF31CFA03B000F42F76 /* SpeakModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakModel.swift; sourceTree = "<group>"; };
 		2AD409011CF2D65E00214542 /* VILTMaker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VILTMaker-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -406,6 +410,8 @@
 				2A4FE5A01E437AF0006C65BA /* SpeedChangeView.xib */,
 				2A4FE5A21E437B54006C65BA /* SpeedChangeView.swift */,
 				2A39406E1E2A520100B97B3F /* FigureEditView.xib */,
+				2AB51E5A1E473C1700F5B93F /* VoiceInputView.xib */,
+				2AB51E5C1E473C7E00F5B93F /* VoiceInputView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -674,6 +680,7 @@
 				2AF9DBD81CEF05F9001AB683 /* LaunchScreen.storyboard in Resources */,
 				2AF9DBD51CEF05F9001AB683 /* Assets.xcassets in Resources */,
 				2A7F0C691D0AC46800A3DECC /* pong.caf in Resources */,
+				2AB51E5B1E473C1700F5B93F /* VoiceInputView.xib in Resources */,
 				2A7F0C651D0AC46800A3DECC /* pip_e4.caf in Resources */,
 				2A7F0C641D0AC46800A3DECC /* pip_d5.caf in Resources */,
 				2A2A726E1D3E65A300582D1B /* QuestionCollectionViewCell.xib in Resources */,
@@ -867,6 +874,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AB51E5D1E473C7E00F5B93F /* VoiceInputView.swift in Sources */,
 				2AC76EF41CFA03B000F42F76 /* SpeakModel.swift in Sources */,
 				2AD409041CF2D65F00214542 /* BorderButton.m in Sources */,
 				2AB9D9C61CFD6F0100BC810E /* QRReaderViewController.swift in Sources */,
