@@ -19,8 +19,10 @@ import UITags
 import Spring
 import MultipeerConnectivity
 
-class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDelegate, EZMicrophoneDelegate {
+class ViewController: CanvasController, UITextViewDelegate, EZMicrophoneDelegate, AVAudioPlayerDelegate {
     
+    var myAudioPlayer : AVAudioPlayer!
+
     /* Preview Area Objects */
     @IBOutlet var previewTitleLabel: UILabel!
     @IBOutlet var previewQuestionLabel: UILabel!
@@ -41,20 +43,13 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     /* Voice and Microphone Objects */
     @IBOutlet var afterChangingTextView: UITextView!
     @IBOutlet var audioPlot: EZAudioPlot!
-    
-    
-    
     @IBOutlet var saveButton: UIButton!
-    
-    
     @IBOutlet var figureView: UIView!
     let docomoSpeakModel: SpeakModel = SpeakModel()
-    
     var figureNumberString: String = ""
     var uuid: String = ""
     
     var filePath: String!
-    var recorder: AVAudioRecorder!
     
     //効果音
     var changeAnswerAudioPlayer: AVAudioPlayer!
@@ -78,10 +73,14 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     var polygons = [String: Polygon]()
     var prevNote: YLSoundNote? = nil
 
+    var circleVoiceArray: Array<Dictionary<String, Any>>!
+    var circleAddCount: Int = 0
+    var circleVoiceName = ""
     
     @IBOutlet var gestureInterface: UIView!
     
     var selectedObject: Int = 0
+    var tagViewSelectedObject: Int = 0
     
     //音声認識
     let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ja_JP"))
@@ -109,6 +108,8 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     //MARK: Setup and Initializiation Methods
     override func setup() {
+        circleVoiceArray = []
+
         editView = SentenceEditView(frame: CGRect(x: 785, y: 150, width: 576, height: 400))
         speedChangeView = SpeedChangeView(frame: CGRect(x: 785, y: 800, width: 576, height: 200))
         
@@ -201,6 +202,10 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
 
         self.requestAPI()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        session.disconnect()
+    }
 
     
     //MARK: ワンタップ処理 (for only voice output)
@@ -221,9 +226,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     }
     
     @IBAction func selectButtonPushed(_ sender: BorderButton) {
-        var buttonTitle = sender.currentTitle
-        buttonTitle = buttonTitle?.replacingOccurrences(of: "△", with: "三角形")
-        buttonTitle = buttonTitle?.replacingOccurrences(of: "≡", with: " 合同 ")
         selectedObject = sender.tag + 1
         self.gestureFunction()
         needToChangeObjectNumber = sender.tag + 1
@@ -379,7 +381,6 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
     
     func reset(_ title: String = "タイトル", question: String = "問題文エリア", button1: String = "選択肢1", button2: String = "選択肢2", button3: String = "選択肢3", correctAnswer: Int = 0, figureDictionaryData: Data? = nil) {
         
-        
         previewTitleLabel.text = title
         previewQuestionLabel.text = question
         previewSelectButton[0].setTitle(button1, for: UIControlState())
@@ -398,6 +399,28 @@ class ViewController: CanvasController, UITextViewDelegate, AVAudioRecorderDeleg
         }
     }
     
-
+    func playSound(_ fileName: String) {
+        //再生する音源のURLを生成.
+        
+        let dirURL = voiceInputView.documentsDirectoryURL()
+        let fileURL = dirURL.appendingPathComponent(fileName)
+        
+        //let soundFilePath : String = Bundle.main.path(forResource: "changeAnswer", ofType: "mp3")!
+        //let fileURL = URL(fileURLWithPath: soundFilePath)
+        
+        //AVAudioPlayerのインスタンス化.
+        self.sounds.pong()
+        do {
+            
+        myAudioPlayer = try AVAudioPlayer(contentsOf: fileURL!)
+        //AVAudioPlayerのデリゲートをセット.
+        myAudioPlayer.delegate = self
+        //myAudioPlayerの再生.
+        myAudioPlayer.play()
+        
+        }catch{
+            print("error")
+        }
+    }
 }
 

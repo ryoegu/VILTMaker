@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import AVFoundation
 
-extension ViewController: AVAudioPlayerDelegate {
+extension ViewController {
     
     //MARK: Set Audio Player(効果音)
     func initAudioPlayers() {

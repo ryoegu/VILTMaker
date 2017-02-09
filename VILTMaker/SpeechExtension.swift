@@ -98,6 +98,23 @@ extension ViewController {
                 /* VOICE RECOGNITION RESULT */
                 print("VOICE RECOG===\(result.bestTranscription.formattedString)")
                 self.afterChangingTextView.text = result.bestTranscription.formattedString
+
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "体型", with: "台形")
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "問題に", with: "問題2")
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "センチメートル", with: "cm")
+
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "Α", with: "A")
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "α", with: "A")
+                
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "β", with: "B")
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "デルタ", with: "D")
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "ε", with: "E")
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "しいた", with: "C")
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "した", with: "C")
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "ファイ", with: "F")
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "Φ", with: "F")
+                self.afterChangingTextView.text = self.afterChangingTextView.text.replacingOccurrences(of: "掃除", with: "相似")
+                
                 isFinal = result.isFinal
             }
             

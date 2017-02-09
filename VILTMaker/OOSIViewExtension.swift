@@ -47,19 +47,32 @@ extension ViewController {
             self.onPanning(center)
         }
         
-        //Double Tap Gesture Recognizer(レイヤー別インターフェースの実装)
-        oosiView.addDoubleTapGestureRecognizer{_,_,_ in 
-            print("DOUBLE TAPPED")
-            
-        }
+
         
         oosiView.addDoubleTapGestureRecognizer { (points, point, recognizer) in
+            
+            self.circleAddCount = self.circleAddCount + 1
             let c = Circle(center: point, radius: 30)
             self.oosiView.add(c)
+            
+            self.circleVoiceName = "voice\(self.circleAddCount).caf"
+            
+            let dic = ["id":self.circleVoiceName,"center":point,"voice":self.circleVoiceName] as [String : Any]
+            self.circleVoiceArray.append(dic)
+            self.voiceInputView.startAnimation()
             c.addTapGestureRecognizer { _, center, _ in
-                print("Point:", center)
-                self.sounds.pong()
                 
+                print("TAP Point:", c.center)
+                
+                self.voiceInputView.startAnimation()
+                
+                for ca in self.circleVoiceArray {
+                    if c.center == ca["center"] as! Point {
+                        self.circleVoiceName = ca["voice"] as! String
+                        self.playSound(self.circleVoiceName)
+                    }
+                }
+
                 c.fillColor = Color(red: random01(), green: random01(), blue: random01(), alpha: 1)
             }
             

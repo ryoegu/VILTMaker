@@ -109,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPA-6i-jX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2274" y="253"/>
+            <point key="canvasLocation" x="-2442" y="1435"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -331,6 +331,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="zs2-JR-DwG"/>
+                                            <outletCollection property="gestureRecognizers" destination="fut-pK-OcJ" appends="YES" id="gK3-sc-v3y"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZV-LA-L5y" customClass="BorderButton">
@@ -354,6 +355,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="RZQ-i1-WBt"/>
+                                            <outletCollection property="gestureRecognizers" destination="tFy-43-WV8" appends="YES" id="2fg-D0-YAW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDA-tm-tlZ" customClass="BorderButton">
@@ -377,6 +379,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectButtonPushed:" destination="BYZ-38-t0r" eventType="touchDown" id="hPe-ya-I9O"/>
+                                            <outletCollection property="gestureRecognizers" destination="WTz-wY-IJT" appends="YES" id="MwJ-Xi-am4"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eov-vC-14l">
@@ -422,7 +425,6 @@
                         <outletCollection property="commonButtons" destination="TYf-gB-NRQ" collectionClass="NSMutableArray" id="9fd-W8-trx"/>
                         <outletCollection property="commonButtons" destination="GNb-Bv-RG1" collectionClass="NSMutableArray" id="SJC-Lk-fMj"/>
                         <segue destination="dhW-py-O6M" kind="modal" identifier="toList" modalTransitionStyle="crossDissolve" id="gjS-zN-rkT"/>
-                        <segue destination="fXO-Wg-Ngb" kind="modal" identifier="QRView" id="IDF-MN-hg2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -464,8 +466,23 @@
                         <action selector="previewTitleLabelPushed:" destination="BYZ-38-t0r" id="flt-co-qCT"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="fut-pK-OcJ" userLabel="Button1 Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="editButton1DoubleTapped:" destination="BYZ-38-t0r" id="4j6-hG-t6F"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="tFy-43-WV8" userLabel="Button 2 Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="editButton2DoubleTapped:" destination="BYZ-38-t0r" id="Tky-MF-xdr"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="WTz-wY-IJT" userLabel="Button 3 Double Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="editButton3DoubleTapped:" destination="BYZ-38-t0r" id="zLy-rx-TT2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-812" y="294"/>
+            <point key="canvasLocation" x="-750" y="850"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="M8U-o2-d5I">
@@ -687,6 +704,6 @@
         <simulatedScreenMetrics key="destination" type="ipad12_9.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="15K-HM-Zbk"/>
+        <segue reference="WW7-Ct-aUP"/>
     </inferredMetricsTieBreakers>
 </document>

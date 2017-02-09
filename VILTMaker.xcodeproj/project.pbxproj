@@ -32,6 +32,7 @@
 		2A39406B1E2A1D2F00B97B3F /* BasicExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A39406A1E2A1D2F00B97B3F /* BasicExtension.swift */; };
 		2A39406D1E2A3CDB00B97B3F /* RealmConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A39406C1E2A3CDB00B97B3F /* RealmConstants.swift */; };
 		2A39406F1E2A520100B97B3F /* FigureEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A39406E1E2A520100B97B3F /* FigureEditView.xib */; };
+		2A4628171E4C323F0090ED3A /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2A4628161E4C323F0090ED3A /* error.mp3 */; };
 		2A4FE59D1E43059B006C65BA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4FE59C1E43059B006C65BA /* HomeViewController.swift */; };
 		2A4FE59F1E4306CF006C65BA /* homescreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A4FE59E1E4306CF006C65BA /* homescreen.png */; };
 		2A4FE5A11E437AF0006C65BA /* SpeedChangeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A4FE5A01E437AF0006C65BA /* SpeedChangeView.xib */; };
@@ -149,6 +150,7 @@
 		2A39406A1E2A1D2F00B97B3F /* BasicExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicExtension.swift; sourceTree = "<group>"; };
 		2A39406C1E2A3CDB00B97B3F /* RealmConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmConstants.swift; path = Keys/RealmConstants.swift; sourceTree = "<group>"; };
 		2A39406E1E2A520100B97B3F /* FigureEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FigureEditView.xib; sourceTree = "<group>"; };
+		2A4628161E4C323F0090ED3A /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
 		2A4FE59C1E43059B006C65BA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2A4FE59E1E4306CF006C65BA /* homescreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homescreen.png; sourceTree = "<group>"; };
 		2A4FE5A01E437AF0006C65BA /* SpeedChangeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpeedChangeView.xib; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 		2A7F0C3C1D0AC46800A3DECC /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				2A4628161E4C323F0090ED3A /* error.mp3 */,
 				2A7F0C3D1D0AC46800A3DECC /* pip_a4.caf */,
 				2A7F0C3E1D0AC46800A3DECC /* pip_b4.caf */,
 				2A7F0C3F1D0AC46800A3DECC /* pip_c4.caf */,
@@ -702,6 +705,7 @@
 				2A7F0C661D0AC46800A3DECC /* pip_e5.caf in Resources */,
 				2AFB61A51D0A4892009D6EB1 /* changeAnswer.mp3 in Resources */,
 				2A7F0C5F1D0AC46800A3DECC /* pip_a4.caf in Resources */,
+				2A4628171E4C323F0090ED3A /* error.mp3 in Resources */,
 				2A7F0C671D0AC46800A3DECC /* pip_f4.caf in Resources */,
 				2A7F0C601D0AC46800A3DECC /* pip_b4.caf in Resources */,
 				2A2A72671D3E53F100582D1B /* welcome.png in Resources */,

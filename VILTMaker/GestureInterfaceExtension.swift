@@ -39,23 +39,40 @@ extension ViewController {
     
     func rightSwipe() {
         print("RIGHT")
-        selectedObject = selectedObject + 1
-        gestureCount = gestureCount + 1
-        gestureFunction()
+        
+        if selectedObject == 10 || selectedObject == 17 {
+            docomoSpeakModel.speak("これ以上進めません")
+        }else{
+            selectedObject = selectedObject + 1
+            gestureCount = gestureCount + 1
+            gestureFunction()
+        }
+        
     }
     
     func leftSwipe() {
         print("LEFT")
         gestureCount = gestureCount + 1
-        selectedObject = selectedObject - 1
-        gestureFunction()
+        if selectedObject == 0  {
+            docomoSpeakModel.speak("これ以上進めません")
+        }else{
+            selectedObject = selectedObject - 1
+            gestureFunction()
+        }
+        
     }
     
     func upSwipe() {
         print("UP")
         gestureCount = gestureCount + 1
-        selectedObject = selectedObject - 1
-        gestureFunction()
+        if selectedObject == 0 {
+            docomoSpeakModel.speak("これ以上進めません")
+        }else{
+            
+            selectedObject = selectedObject - 1
+            gestureFunction()
+        }
+        
         
     }
     
@@ -65,12 +82,25 @@ extension ViewController {
         gestureCount = gestureCount + 1
         
         if selectedObject < 100 {
-            selectedObject = selectedObject + 1
-            gestureFunction()
+            
+            if selectedObject >= 11 && selectedObject <= 14 {
+                selectedObject = 15
+                gestureFunction()
+            }else if selectedObject == 10 || selectedObject == 17 {
+                docomoSpeakModel.speak("これ以上進めません")
+                
+            }else{
+                selectedObject = selectedObject + 1
+                gestureFunction()
+            }
+            
+            
         }else{
             selectedObject = 16
             gestureFunction()
         }
+        
+        
         
     }
     
@@ -189,7 +219,7 @@ extension ViewController {
         default:
             //100番台
             self.editView.selectCell(selectedObject-100)
-            
+            editView.selectedWordInTagsView = selectedObject - 100
         }
     }
     
@@ -268,9 +298,13 @@ extension ViewController {
         case 16:
             editView.wordEditVoiceInputButtonTapped(editView.wordEditVoiceInputButton as! BorderButton)
         case 17:
+            selectedObject = editView.selectedWordInTagsView + 100
+            gestureFunction()
             editView.wordEditDoneButtonTapped(editView.wordEditDoneButton as! BorderButton)
         default:
-            return
+            /* Tag View */
+            selectedObject = 16
+            gestureFunction()
         }
     }
     

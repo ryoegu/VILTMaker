@@ -88,7 +88,6 @@ extension ViewController {
         }
     }
     
-    
     fileprivate func isValidateInputContents() -> Bool{
         // タイトルチェック
         if let name = previewTitleLabel.text{

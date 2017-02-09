@@ -14,6 +14,10 @@ class VoiceInputView: UIView {
     
     @IBOutlet var contentView: SpringView!
     
+    @IBOutlet var recordButton: BorderButton!
+    
+    var isVoiceRecording: Bool = false
+    
     var audioRecorder: AVAudioRecorder?
     
     override init(frame: CGRect) {
@@ -40,6 +44,31 @@ class VoiceInputView: UIView {
         
         self.contentView.isHidden = true
         
+        // 録音可能カテゴリに設定する
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
+        } catch  {
+            // エラー処理
+            fatalError("カテゴリ設定失敗")
+        }
+        
+        // sessionのアクティブ化
+        do {
+            try session.setActive(true)
+        } catch {
+            // audio session有効化失敗時の処理
+            // (ここではエラーとして停止している）
+            fatalError("session有効化失敗")
+        }
+    }
+    
+    func startAnimation() {
+        self.contentView.isHidden = false
+        self.contentView.animation = "fadeInUp"
+        self.contentView.curve = "easeInOut"
+        self.contentView.duration = 1.5
+        self.contentView.animate()
     }
     
     @IBAction func closeButtonPushed(_ sender: BorderButton) {
@@ -54,47 +83,40 @@ class VoiceInputView: UIView {
     }
     
     @IBAction func recordButtonPushed() {
-        if (audioRecorder?.isRecording)! {
+        if let tmp = UIApplication.shared.forwardViewController as? ViewController {
+            let fileName = tmp.circleVoiceName
+            setupAudioRecorder(fileName: fileName)
+        }
+        
+        if isVoiceRecording {
             audioRecorder?.stop()
+            print("RECORD STOPPED")
+            self.recordButton.setTitle("●", for: .normal)
+            isVoiceRecording = false
         }else{
+            print("RECORD START")
             audioRecorder?.record()
+//            audioRecorder?.isMeteringEnabled = true
+            self.recordButton.setTitle("■", for: .normal)
+            isVoiceRecording = true
+            
         }
     }
     
     @IBAction func playButtonPushed() {
-        
+        if let tmp = UIApplication.shared.forwardViewController as? ViewController {
+            let fileName = tmp.circleVoiceName
+            tmp.playSound(fileName)
+        }
     }
-    
-    
-    func setupAudioRecorder() {
-        
-        
-        /// 録音可能カテゴリに設定する
-        let session = AVAudioSession.sharedInstance()
-        do {
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-        } catch  {
-            // エラー処理
-            fatalError("カテゴリ設定失敗")
-        }
-        
-        // sessionのアクティブ化
-        do {
-            try session.setActive(true)
-        } catch {
-            // audio session有効化失敗時の処理
-            // (ここではエラーとして停止している）
-            fatalError("session有効化失敗")
-        }
-        
-        
-        
+
+
+    //fileNameは●●.cafで入力
+    func setupAudioRecorder(fileName: String) {
         // 録音用URLを設定
         let dirURL = documentsDirectoryURL()
-        print(dirURL)
-        let fileName = "recording.caf"
         let recordingsURL = dirURL.appendingPathComponent(fileName)
-        
+        print(dirURL)
         // 録音設定
         let recordSettings: [String: AnyObject] =
             [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue as AnyObject,
@@ -102,28 +124,37 @@ class VoiceInputView: UIView {
              AVNumberOfChannelsKey: 2 as AnyObject,
              AVSampleRateKey: 44100.0 as AnyObject]
         
-        do {
-            audioRecorder = try AVAudioRecorder(url: recordingsURL!, settings: recordSettings)
-        } catch {
-            audioRecorder = nil
+        
+        if audioRecorder == nil {
+
+            
+            do {
+                audioRecorder = try AVAudioRecorder(url: recordingsURL!, settings: recordSettings)
+                
+            } catch {
+                audioRecorder = nil
+            }
+            
+            
+        }else{
+            
+            
+            if !isVoiceRecording {
+                do {
+                    audioRecorder = try AVAudioRecorder(url: recordingsURL!, settings: recordSettings)
+                } catch {
+                    audioRecorder = nil
+                }
+            }
+            
         }
         
     }
     
     /// DocumentsのURLを取得
     func documentsDirectoryURL() -> NSURL {
-        let urls = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask)
-        
-        if urls.isEmpty {
-            
-            fatalError("URLs for directory are empty.")
-        }
-        
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[0] as NSURL
     }
-
-    
-
-
 
 }
