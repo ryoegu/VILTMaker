@@ -10,7 +10,7 @@ import UIKit
 import Spring
 import AVFoundation
 
-class VoiceInputView: UIView {
+class VoiceInputView: UIView, AVAudioRecorderDelegate {
     
     @IBOutlet var contentView: SpringView!
     
@@ -47,7 +47,7 @@ class VoiceInputView: UIView {
         // 録音可能カテゴリに設定する
         let session = AVAudioSession.sharedInstance()
         do {
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
         } catch  {
             // エラー処理
             fatalError("カテゴリ設定失敗")
@@ -88,7 +88,7 @@ class VoiceInputView: UIView {
             setupAudioRecorder(fileName: fileName)
         }
         
-        if isVoiceRecording {
+        if (audioRecorder?.isRecording)! {
             audioRecorder?.stop()
             print("RECORD STOPPED")
             self.recordButton.setTitle("●", for: .normal)
@@ -96,10 +96,11 @@ class VoiceInputView: UIView {
         }else{
             print("RECORD START")
             audioRecorder?.record()
+            print("AUDIO RECORDING BOOL == \(audioRecorder?.isRecording)")
 //            audioRecorder?.isMeteringEnabled = true
             self.recordButton.setTitle("■", for: .normal)
             isVoiceRecording = true
-            
+        
         }
     }
     
@@ -121,15 +122,15 @@ class VoiceInputView: UIView {
         let recordSettings: [String: AnyObject] =
             [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue as AnyObject,
              AVEncoderBitRateKey: 16 as AnyObject,
-             AVNumberOfChannelsKey: 2 as AnyObject,
+             AVNumberOfChannelsKey: 1 as AnyObject,
              AVSampleRateKey: 44100.0 as AnyObject]
-        
+
         
         if audioRecorder == nil {
-
             
             do {
                 audioRecorder = try AVAudioRecorder(url: recordingsURL!, settings: recordSettings)
+                audioRecorder?.delegate = self
                 
             } catch {
                 audioRecorder = nil
@@ -156,5 +157,6 @@ class VoiceInputView: UIView {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[0] as NSURL
     }
+    
 
 }

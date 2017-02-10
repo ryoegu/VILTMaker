@@ -399,6 +399,12 @@ class ViewController: CanvasController, UITextViewDelegate, EZMicrophoneDelegate
         }
     }
     
+    func recordSound(_fileName: String) {
+        
+    }
+    
+    
+    
     func playSound(_ fileName: String) {
         //再生する音源のURLを生成.
         

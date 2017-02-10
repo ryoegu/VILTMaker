@@ -58,7 +58,7 @@ class ListViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.imageView.image = UIImage(data: (list?.image)!)
         let df = DateFormatter()
         df.dateFormat = "MM/dd HH:mm"
-        cell.timeLabel.text = df.string(from: (list?.makingDate)!)
+        cell.timeLabel.text = list?.person
         return cell
     }
     

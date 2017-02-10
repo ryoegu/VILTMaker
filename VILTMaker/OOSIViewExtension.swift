@@ -55,7 +55,7 @@ extension ViewController {
             let c = Circle(center: point, radius: 30)
             self.oosiView.add(c)
             
-            self.circleVoiceName = "voice\(self.circleAddCount).caf"
+            self.circleVoiceName = "\(self.previewTitleLabel!.text!)-voice\(self.circleAddCount).caf"
             
             let dic = ["id":self.circleVoiceName,"center":point,"voice":self.circleVoiceName] as [String : Any]
             self.circleVoiceArray.append(dic)
